@@ -1,0 +1,113 @@
+
+\chapter{Parallel Transport Tool}\label{ch:parallel_transport}
+
+In this section we present parallel transport for the finite dimensional Lie group and we make the assumption that obtained results hold in the infinite dimensional case.
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Connections and Geodesics}
+
+.... definition of connection and geodesics. Properties that concern us.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Affine $\exp$ and Affine $\log$}
+Any Lie group $\mathbb{G}$ considered with a left-invariant connection $\nabla$ can be equipped with a metric based on the elements of its tangent space:
+\begin{align*} 
+	\text{dist}(x,y) := \euclideanMetric{\log_{e}(x^{-1}\circ y) } \qquad \forall x, y \in \mathbb{G}
+\end{align*}
+Where the $\log$ function is the \emph{Affine logarithm}, inverse function of the the \emph{Affine exponential}:
+\begin{align*}
+	\log : \mathbb{G} \times  \mathbb{G}  & \longrightarrow T \mathbb{G}  
+	\qquad \qquad \quad \quad 
+	\exp : \mathbb{G} \times T \mathbb{G}     \longrightarrow T \mathbb{G}  
+	\\
+	(p,q) &\longmapsto \log _{p}(q)  =  V_{p}  
+	\qquad \qquad \quad   
+	(p,q) \longmapsto \exp _{p}(q)  =  \gamma(1)
+\end{align*}
+for $V$ is the tangent vector field of the geodesic $\gamma$ drawn on $\mathbb{G}$, passing through $p$ and $q$, 
+\begin{align*}
+	\gamma(0) = p, ~~ \gamma(1)=q, ~~\nabla_{\dot{\gamma}}\dot{\gamma} = 0
+\end{align*}
+and having $V_{p}$ as its tangent vector at $p$:
+\begin{align*}
+	\log _{p}(q)   = V ~&\Leftrightarrow ~ V_{\gamma(t)} = \dot{\gamma}(t) ~~ \forall t \in [0,1]\\
+	\exp _{p}(q)  =  \gamma(1) ~&\Leftrightarrow ~ \dot{\gamma}(p) = V_{p}
+\end{align*}
+The left-invariant condition over $\nabla$ has some consequences: 
+\begin{enumerate}
+	\item the vector field $V$ resulting by the application of the $\log$ function is left-invariant, so it is an element of the Lie algebra $\mathfrak{g}$ and uniquely determined by $V_{\text{e}}$. 
+	\item Affine $\exp$ and $\log$ and coincides with Lie $\exp$ and $\log$.
+	\item $V$ is a complete vector field.
+\end{enumerate}	
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Parallel Transport through Examples}
+\begin{definition}
+	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$. Given $a,b \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = a$ and $\gamma(1) = b$, then the vector $X_{a} \in T_{a}\mathbb{G}$, belonging to some vector field $X$ is parallel transported along $\gamma$ up to $T_{b}\mathbb{G}$ if for all $t \in  [0,1]$ $\nabla_{\dot{\gamma}}X_{\gamma(t)} = 0$.\\
+	The parallel transport is the function that maps $X_{a}$ from $T_{a}\mathbb{G}$ to $T_{b}\mathbb{G}$ along $\gamma$:
+	\begin{align*}
+		\Pi(\gamma)_{a}^{b} :  T_{p}\mathbb{G} & \longrightarrow T_{b}\mathbb{G}  \\
+		X_{a}&\longmapsto \Pi(\gamma)_{a}^{b}(X_{p}) = Y_{b}
+	\end{align*}
+\end{definition}
+
+
+\begin{theorem}[Inversion]
+	$\mathbb{G}$ Lie group, $\nabla$ connection, $a,b\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= a$, $\gamma(1)=b$ and $\dot{\gamma}(0)=\mathbf{u}\in T_{a}\mathbb{G}$, we have:
+	\begin{align}
+		\Pi(\gamma)_{a}^{b}(-\mathbf{u}) &= -\Pi(\gamma)_{a}^{b}(\mathbf{u}) \\
+		a = \exp_{b}(\mathbf{u}) \Longleftrightarrow& \phantom{z} b = \exp_{a}(-\Pi(\gamma)_{b}^{a}(\mathbf{u}))
+	\end{align}
+\end{theorem}
+How does the change of sign behave when the Lie group exponential is expressed as a composition is explored in the next property:
+\begin{theorem}[Inversion for composition, Lie exponential]
+	$\mathbb{G}$ Lie group, $\mathbf{u}, \mathbf{v}, \mathbf{w}\in T_{e}\mathbb{G}$. If
+	\begin{align*}
+		\exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})
+	\end{align*}
+	then
+	\begin{align*}
+		\exp(\mathbf{-w}) = \exp(\mathbf{-v}) \circ \exp(\mathbf{-u})
+	\end{align*}
+\end{theorem}
+In the next property we explore how does behave the affine exponential expressed as a composition when changed of sign:
+\begin{theorem}[Inversion for composition, affine exponential]
+	$\mathbb{G}$ Lie group, $\nabla$ connection, $a,b\in\mathbb{G}$, $\mathbf{u}\in T_{a}\mathbb{G}$, $\mathbf{v}\in T_{b}\mathbb{G}$. Let $\beta$ be the tangent curve to $\mathbf{u}$ at $a$ and $c= \exp_{b}(\mathbf{v})$. Given $\mathbf{w} \in T_{c}\mathbb{G}$ such that 
+	\begin{align*}
+		\exp_{a}(\mathbf{w}) = \exp_{b}(\mathbf{v}) \circ \exp_{a}(\mathbf{u})
+	\end{align*}
+	Then
+	\begin{align*}
+		\exp_{a}(-\mathbf{w}) = \exp_{\tilde{b}}(-\Pi(\beta)_{b}^{\tilde{b}}(\mathbf{v})) \circ \exp_{a}(-\mathbf{u})
+	\end{align*}
+	where $\tilde{b}$ is the affine exponential of $-\mathbf{u}$ or the element $\beta(-1)$.
+\end{theorem}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Change of Base Formulas with and without Parallel Transport}
+Using the derivative of the left-translation $L_{p}$ it is possible to bring back the $\exp$ and the $\log$ function based at the point $p$ of the manifold to the one evaluated at the identity using the following formulas:
+\begin{align*}
+	\log _{p}(q)  &= DL_{p}(e) \log _{e}(q)  \\
+	\exp _{p}(\mathbf{u})  &= p\circ \exp_{e} (DL_{p}(e)^{-1} \mathbf{u})
+\end{align*}
+....Proof and examples..
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Parallel Transport in Practice: Schild's Ladder and Pole Ladder}
+
+....

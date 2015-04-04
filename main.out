@@ -1,0 +1,45 @@
+\BOOKMARK [0][-]{chapter.1}{Image Registration Framework}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Introductory Definitions}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Iterative Registration Algorithm}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Using Diffeomorphisms: Utility and Liability}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.3.1}{Parametrization of Diffeomorphisms: LDDMM and SVF}{section.1.3}% 5
+\BOOKMARK [2][-]{subsection.1.3.2}{Composition of Diffeomorphisms: the BCH formula}{section.1.3}% 6
+\BOOKMARK [-1][-]{part.1}{I Tools}{}% 7
+\BOOKMARK [0][-]{chapter.2}{A Lie Group Structure for the Set of Transformation}{part.1}% 8
+\BOOKMARK [1][-]{section.2.1}{Velocity Vector Fields and Flows}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{Push-forward, Left, Right and Adjoint Translation}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Lie Exponential, Lie logarithm and the Log-composition}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{BCH formula for the Computation of Log-composition}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.5}{Taylor Expansion for the Computation of Log-composition}{chapter.2}% 13
+\BOOKMARK [0][-]{chapter.3}{Parallel Transport Tool}{part.1}% 14
+\BOOKMARK [1][-]{section.3.1}{Connections and Geodesics}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.2}{Affine exp and Affine log}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.3}{Parallel Transport through Examples}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.4}{Change of Base Formulas with and without Parallel Transport}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.5}{Parallel Transport in Practice: Schild's Ladder and Pole Ladder}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Accelerating Convergences Series}{part.1}% 20
+\BOOKMARK [-1][-]{part.2}{II Studied Objects}{}% 21
+\BOOKMARK [0][-]{chapter.5}{The Group of Rigid Body Transformations}{part.2}% 22
+\BOOKMARK [0][-]{chapter.6}{The Set of Stationary Velocity Fields}{part.2}% 23
+\BOOKMARK [1][-]{section.6.1}{Set and Set Only}{chapter.6}% 24
+\BOOKMARK [1][-]{section.6.2}{Some Tools for the Infinite Dimensional Case}{chapter.6}% 25
+\BOOKMARK [1][-]{section.6.3}{SVF in Practice}{chapter.6}% 26
+\BOOKMARK [-1][-]{part.3}{III Applications}{}% 27
+\BOOKMARK [0][-]{chapter.7}{Numerical Approximation of the Log-Composition}{part.3}% 28
+\BOOKMARK [1][-]{section.7.1}{Group composition at the Service of Image Registration}{chapter.7}% 29
+\BOOKMARK [1][-]{section.7.2}{Accelerating convergences applied to the BCH formula}{chapter.7}% 30
+\BOOKMARK [1][-]{section.7.3}{Taylor expansion to compute the group composition}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.4}{Parallel transport to compute the group composition}{chapter.7}% 32
+\BOOKMARK [0][-]{chapter.8}{Numerical Approximation to Compute the Lie logarithm}{part.3}% 33
+\BOOKMARK [1][-]{section.8.1}{Exponential and Logarithm Approximation with Truncated Power Series}{chapter.8}% 34
+\BOOKMARK [1][-]{section.8.2}{A reformulation of the Bossa Algorithm using Log-composition}{chapter.8}% 35
+\BOOKMARK [1][-]{section.8.3}{Parallel Transport Strategy}{chapter.8}% 36
+\BOOKMARK [1][-]{section.8.4}{Symmetrization Strategy}{chapter.8}% 37
+\BOOKMARK [1][-]{section.8.5}{Symmetric-Parallel Transport Strategy}{chapter.8}% 38
+\BOOKMARK [0][-]{chapter.9}{Experimental Results}{part.3}% 39
+\BOOKMARK [1][-]{subsection.9.0.1}{Toy Examples to Compare the Log-Compositions}{chapter.9}% 40
+\BOOKMARK [2][-]{subsection.9.0.2}{NiftyReg Applications}{subsection.9.0.1}% 41
+\BOOKMARK [2][-]{subsection.9.0.3}{BCH-free Computation of the Lie Logarithm }{subsection.9.0.1}% 42
+\BOOKMARK [0][-]{chapter.10}{Further Research and Conclusion}{part.3}% 43
+\BOOKMARK [0][-]{chapter.10}{Appendices}{part.3}% 44
+\BOOKMARK [0][-]{appendix.A}{Appendix: NiftyReg and NiftyBit}{part.3}% 45

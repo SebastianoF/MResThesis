@@ -1,0 +1,231 @@
+\documentclass[a4paper,10pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{euscript}
+\usepackage{epigraph}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+
+
+
+\usepackage{pictexwd,dcpic}
+
+\usepackage{wrapfig}
+
+
+
+
+
+%-------------- Margins
+\setlength{\oddsidemargin}{20pt}
+\setlength{\evensidemargin}{20pt}
+\setlength{\marginparwidth}{-20pt}
+\setlength{\textwidth}{400pt}
+\setlength{\topmargin}{-10pt}
+\setlength{\textheight}{600pt}
+
+%--------------- Quotient
+\def\quotient#1#2{%
+	\raise1ex\hbox{$#1$}\Big/\lower1ex\hbox{$#2$}%
+}
+
+%------------ Theorems and maths --------
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+%\theoremstyle{plain}
+\newtheorem{example}{Example}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{observation}{Observation}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}{Property}[section]
+\newtheorem{corollary}[theorem]{Corollary}%[section]
+\newtheorem{algorithm}{Algorithm}
+
+%---------- Proof
+%\newenvironment{proof}{\par\addvspace\topsep\noindent
+%{\bf Proof:} \ignorespaces }{\qed}
+%\newcommand{\qed}{\hspace*{\fill}$\Box$\ifmmode\else\par\addvspace\topsep\fi}
+
+
+%------------ Norm
+\newcommand{\euclideanMetric}[1]{\vert\lvert #1 \rvert\vert}
+\newcommand{\supMetric}[1]{\vert\lvert #1 \rvert\vert_{sup} }
+
+\newcommand{\quotes}[1]{\text{ \lq\lq  #1\rq\rq\phantom{z}}}
+
+
+\RequirePackage{hyperref}
+\hypersetup{ hidelinks=true}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%INIZIO FRONTESPIZIO
+\begin{titlepage}
+%
+\pagestyle{empty}
+\begingroup
+% INTESTAZIONE
+\vspace*{-7\topskip}
+
+\vspace{2 cm}
+
+\begin{center}
+        {\huge\bf \baselineskip=0.95em plus 1pt \expandafter{
+        Toward a BCH-free Computation of the Composition of Stationary Velocity Fields
+        \par}}
+\end{center}
+
+\vspace{0.5cm}
+\begin{center}
+	{\LARGE{Sebastiano Ferraris}\par}
+\end{center}
+
+%\vspace{2.5cm}
+
+\vspace{2cm}
+\begin{figure}[!h]
+%centrare
+\begin{center}
+%resize in cm
+\resizebox{4.0 cm}{4.0 cm}{\includegraphics{figures/UCL_logo.jpg}} %1.5 2.5
+\end{center}
+\end{figure}
+\vspace{1.3cm}
+
+\begin{center}
+	\LARGE{\rm\expandafter{Universtiy College London}}\par
+	\expandafter{\Large{Medical Physiscs and Biomedical Engineering}\par}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+	A dissertation submitted in partial fulfillment 
+	\\
+	of the requirements for the degree of
+	\\ 
+	{\bf Master of Research}	
+\end{center}
+
+\vspace{0.2cm}
+\begin{center}
+	\today
+\end{center}
+
+\vspace{0.5cm}
+%%\vspace{0.5cm}
+%\begin{center}
+%	{\LARGE{Tesi di Laurea Magistrale}\par}
+%\end{center}
+
+\begin{center}
+\begin{tabular}{l p{3.3cm} l l}
+	
+	Supervisor& & Co-Supervisor \\
+	\textbf{Tom Vercauteren} & & \textbf{Marc Modat}  \\
+	
+\end{tabular}
+\end{center}
+
+
+\vspace{1 cm}
+
+%CHIUSURA
+
+\par
+\vfill\par 
+
+\endgroup
+
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%% PAGE JUMPERS:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \qquad
+%  \thispagestyle{empty}
+% \newpage
+% \qquad
+%  \thispagestyle{empty}
+% \newpage
+
+%\qquad
+%  \pagestyle{empty}
+% \newpage
+
+ 
+%%%%%%%%%%%%  SOMMARIO
+
+\include{frontback/Preamble}
+
+%%%%%%%%%%%%  INDICE
+
+\pagestyle{plain}  \pagenumbering{Roman}
+\tableofcontents
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% CAPITOLI     %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\pagestyle{fancy} \pagenumbering{arabic}
+
+
+\fancyhead{} % clear all header fields
+
+\fancyhead[LE]{\slshape \rightmark}
+
+\fancyhead[RO]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+
+%\fancyhead[RO,LE]{\bfseries The performance of new graduates}
+%\fancyfoot{} % clear all footer fields
+%\fancyhead[LE,RO]{\thepage}
+%\fancyhead[LO]{\thesection}
+%\fancyhead[RE]{\thechapter}
+%%\fancyfoot[CO,RE]{To: Dean A. Smith}
+%\renewcommand{\headrulewidth}{0.4pt}
+%%\renewcommand{\footrulewidth}{0.4pt}
+
+
+\include{chapters/Ch_registration_framework}
+\part{Tools}
+\include{chapters/Ch_finite_lie_group}
+\include{chapters/Ch_parallel_transport}
+\include{chapters/Ch_accelerating_convergences}
+\part{Studied Objects}
+\include{chapters/Ch_rigid_body_transformations}
+\include{chapters/Ch_svf}
+\part{Applications}
+\include{chapters/Ch_log_composition}
+\include{chapters/Ch_lie_log_computation}
+\include{chapters/Ch_results}
+\include{chapters/Ch_conclusions}
+
+
+%%%%%%%%%%%%% Appendice  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{plain}
+
+\include{frontback/Appendices} 
+
+%%%%%%%%%%%%% BIBLIOGRAFIA  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\bibliography{frontback/mres_bib.bib}
+\bibliographystyle{alpha}
+\end{document}

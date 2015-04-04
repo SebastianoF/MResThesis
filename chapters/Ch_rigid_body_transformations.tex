@@ -1,0 +1,43 @@
+
+\chapter{The Group of Rigid Body Transformations}\label{ch:rigid_body_transformations}
+
+
+\begin{flushright}
+	\emph{People know or dimly perceive, that if thinking is not kept pure and keen, if spirit's contemplation do not holds, even mechanics of automobiles and ships will soon cease to run. Even engineer's slide rule, computations of banks and stock exchanges will wonder aimlessly for the lost of authority, and chaos will ensue.} \\ -Hermann Hesse, \emph{Magister Ludi}
+\end{flushright}
+
+In general a matrix Lie group is any complete subgroup of $GL(n,\mathbb{R})$. It is a particular finite dimensional Lie Group whose Lie algebra are subalgebra of the same bigger algebra that contains the Lie Group.
+\begin{prop}\label{pr:matrixLiealgebra}
+	Be $\mathbb{G}$ a matrix Lie group.
+	\begin{itemize}
+		\item[a)] If $\mathbb{G} = GL(n,\mathbb{R})$ then $T_{e}\mathbb{G} = M(n,\mathbb{R})$.  
+		\item[b)] If $\mathbb{G} \subseteq GL(n,\mathbb{R})$ then $T_{e}\mathbb{G} \subseteq M(n,\mathbb{R})$.
+	\end{itemize}
+\end{prop}
+\begin{proof}
+	since $det$ is a continuous function we have that 
+	\begin{align*}
+	\forall X \in M(n,\mathbb{R})~~ \exists &\eta > 0 \text{ such that } \forall t \in(-\eta , \eta) \\
+	&det(I+tX) \neq 0
+	\end{align*}
+	where $I$ is the matrix identity. If we consider the path
+	\begin{align*}
+	\gamma : [0,1] & \longrightarrow  GL(n,\mathbb{R}) \\
+	t &\longmapsto I+tX
+	\end{align*}
+	as the path joining $I$ and $X$, it follows
+	\begin{align*}
+	\frac{d }{dt}(I+tX)~\Bigr|_{t = 0}  = X \in M(n,\mathbb{R})
+	\end{align*}
+\end{proof}
+
+Be $V$ in $\mathfrak{g}$, Lie algebra of the matrix Lie group $\mathbb{G}$. For matrices the Lie exponential map coincides with the Taylor expansion of the exponential\footnote{This is possible only when the Lie group and its algebra are subsets of the same bigger algebra as happens in the case of matrix Lie group (proof can be found in \cite{kirillov} or \cite{hall}).} having $V$ as argument:
+\begin{align*}
+\exp : \mathfrak{g} & \longrightarrow  \mathbb{G}   \\
+V &\longmapsto \exp(V) := \sum_{j=0}^{\infty} \frac{V^{j}}{j!}
+\end{align*}
+
+....Presentation of the matrix form of the rigid body transformations, close form for lie bracket, exp and log.\\
+ ....Vectorization. Literature of rigid body transformation in image registration. \\
+ .... Prop: The element $\exp(tV)$ is smooth in $\mathbb{R}^{n^2}$ for all $V \in M(n,\mathbb{R})$
+.... Prop:  If $C$ is an invertible element in then $\exp(CVC^{-1}) = C\exp(V)C^{-1}$.
