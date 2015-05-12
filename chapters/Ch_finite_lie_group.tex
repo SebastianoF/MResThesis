@@ -21,7 +21,7 @@ We will focus out attention to transformations defined by matrices or diffeomorp
  Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure. The abstract idea of vector field over a manifold will be concretized for image registration introducing the concepts of \emph{displacement field}, \emph{deformation field} and \emph{velocity field (stationary or time varying)} that will be there presented. Avoid pedantry is as important as to avoid confusions on notations and definitions, therefore it is necessary to call back a few concepts from differential geometry tailored for rigid-body and diffeomorphic image registration, before getting into the heat of the applications. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Velocity Vector Fields and Flows}
 
@@ -153,7 +153,7 @@ f : \mathbb{R}\supseteq (-\eta,\eta) & \longrightarrow \mathbb{G}  \qquad f(0) =
 satisfies the \emph{one parameter subgroup property} if $f(t+s) = f(t) f(s)$ where the last multiplication is the composition on the group. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Push-forward, Left, Right and Adjoint Translation}
 
@@ -339,46 +339,148 @@ We conclude this paragraph remembering the definition of the Lie algebra of a Li
 The Lie algebra can be also defined independently from a Lie group as a vector space endowed with Lie bracket (bilinear form, antisymmetric, that satisfies the Jacobi identity). In the finite dimensional case given a Lie algebra $\mathfrak{g}$ it can be proved that exists always a Lie group $\mathbb{G}$ such that $\mathfrak{g}$ is the Lie algebra defined over $\mathbb{G}$. This property (third Lie theorem) do not holds anymore infinite dimensional Lie algebra of diffeomorphisms.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Lie Exponential, Lie logarithm and the Log-composition}
-Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ and $V\in\text{left}\mathcal{V}(\mathbb{G})$ the unique vector field defined by $\mathbf{v}$ over a local coordinate system around the origin. Let $\Phi$ be the flow associated with the vector field and $\gamma(t)$ the unique integral curve of $v$ passing through the identity of the group.  
+\section{Lie Exponential, logarithm and Log-composition}\label{se:lie_exp_log_comp}
+Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ and $V\in\text{left}\mathcal{V}(\mathbb{G})$ the unique vector field defined by $\mathbf{v}$ over a local coordinate system around the origin. Let $\Phi_{V}$ be the flow associated with the vector field and $\gamma(t)$ the unique integral curve of $V$ passing through the identity of the group.  
 The \emph{Lie exponential} is defined as
 \begin{align*}
 \exp :  \mathfrak{g} & \longrightarrow  \mathbb{G}  \\
-\mathbf{v} &\longmapsto  \exp(\mathbf{v} ) = \gamma(1)
+\mathbf{v} &\longmapsto  \exp(\mathbf{v} ) = \gamma(1) \quad \dot{\gamma}(t) = V_{\gamma(t)}, \gamma(0) = e
 \end{align*}
 It satisfies the following properties:
 \begin{enumerate}
-
-	 	\item $\exp(V) = e$ if $V = 0$.
-	 	\item $\exp(V)$ is invertible and $(\exp(V))^{-1} = \exp(-V)$.
-	 	\item $\exp((a+b)V) = \exp(aV)\exp(bV)$.
-	 	\item If $U$ and $V$ are commutative then $\exp(V + U) = \exp(V)\exp(U)$.
-	 	%\item If $C$ is an invertible element in then $\exp(CVC^{-1}) = C\exp(V)C^{-1}$.
-	 	\item For any norm $\euclideanMetric{\exp(V)} \leq \exp(\euclideanMetric{V})$.
-
+	    \item $\exp(\mathbf{v}) = \Phi_{V}(e,1)$.
+	    \item $\exp(t\mathbf{v}) =\gamma(t) = \Phi_{V}(e,t)$.
+   	 	\item $\exp(\mathbf{v}) = e$ if $\mathbf{v} = \mathbf{0}$.
+   	 	\item $\exp(\mathbf{v})\circ \exp(\mathbf{-v})  = e$
+	 	\item The exponential function satisfies the one parameter subgroup property:
+	 	\begin{align*}
+        \exp((t+s)\mathbf{v}) = \gamma(t+s) = \gamma(t)\circ \gamma(s) = \exp(t\mathbf{v})\exp(s\mathbf{v})
+	 	\end{align*}
+	 	\item $\exp(\mathbf{v})$ is invertible and $(\exp(\mathbf{v}))^{-1} = \exp(-\mathbf{v})$.
+		\item $\exp$ is a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $\text{Id}$ in $\mathbb{G}$.
 \end{enumerate}
-The inverse of the Lie $\exp$ is defined by
+The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus\footnote{Here we define cut locus starting from the exp and log function, and in both domains. Traditionally it is defined only on Riemannian manifolds and using the geodesics (see \cite{do1992riemannian}, p. 267). For Levi Civita connection we have that the definition are coincident.}.\\
+When we deal with a matrix Lie group of dimension $n$, we have the following remarkable property:
+\begin{enumerate}
+	\item for all $\mathbf{v}$ in a matrix Lie algebra $\mathfrak{g}$:
+	\begin{align*}
+     \exp(\mathbf{v}) = \sum_{k=0}^{\infty} \frac{\mathbf{v}^{k}}{k!}
+	\end{align*}
+ 	\item If $\mathbf{u}$ and $\mathbf{v}$ are commutative then $\exp(\mathbf{u} + \mathbf{v}) = \exp(\mathbf{u})\exp(\mathbf{v})$.
+	\item If $\mathbf{c}$ is an invertible matrix then $\exp(\mathbf{c}\mathbf{v}\mathbf{c}^{-1}) = \mathbf{c}\exp(\mathbf{v})\mathbf{c}^{-1}$.
+	\item $\det(\exp(\mathbf{v})) = \exp(\text{trace}(\mathbf{v}))$
+ 	\item For any norm, $\euclideanMetric{\exp(\mathbf{v})} \leq \exp(\euclideanMetric{\mathbf{v}})$.
+ 	\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{v}}{m})\exp(\frac{\mathbf{v}}{m}))^{m}$
+ 	\item If $\exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$ then $\exp(\mathbf{-w}) = \exp(\mathbf{-v}) \circ \exp(\mathbf{-u})$.
+ 	\item For $\text{Ad}$ adjoint map\footnote{Lie group action defined as
+ 		 as 
+ 		 \begin{align*}
+ 		 \text{Ad} :  \mathbb{G} & \longrightarrow  Aut(\mathbb{G}) &   \\
+ 		 \mathbf{u} &\longmapsto  \text{Ad}_{\mathbf{u}}  : \mathbb{G}  \longrightarrow  \mathbb{G} \\
+ 		 & \qquad \qquad \qquad \quad \mathbf{v} \longmapsto \text{Ad}_{\mathbf{u}}\mathbf{v} = \mathbf{u}\mathbf{v}\mathbf{u}^{-1}
+ 		 \end{align*}
+ 		 that preserves the lie bracket in the Lie algebra: $\text{Ad}_{\mathbf{u}}[\mathbf{v}, \mathbf{w} ] = [\text{Ad}_{\mathbf{u}} \mathbf{v}, \text{Ad}_{\mathbf{u}} \mathbf{w} ]$   .
+ 		 } we have $ \exp(\text{Ad}_{\mathbf{u}}\mathbf{v} ) = \text{Ad}_{\mathbf{u}}\exp(\mathbf{v})$
+\end{enumerate}
+The idea of defining an inverse of the Lie exponential leads to the idea of the Lie logarithm, defined
 \begin{align*}
 \log : \mathbb{G} & \longrightarrow \mathfrak{g} \\
 p &\longmapsto \log (p)  =  \mathbf{v}   
 \end{align*}
-where $\mathbf{v}  $ is the tangent vector having $p$ as it $\exp$.
-The following properties holds:
-\begin{enumerate}
-	\item ....
-\end{enumerate} 
+where $\mathbf{v}  $ is the tangent vector having $p$ as it $\exp$.\\
+The idea of the names seems to be justified by the following example:
+\begin{example}
+If we take the unitary circle in the complex plane $\mathbb{S}^{1}$, and the vertical line $x = 1$ as its tangent at the point $(0,0)$. Each element $\theta$ of the group of rotation of the plane corresponds a point on the circle $\cos(\alpha)+ i\sin(\alpha)$, and so the group of rotation can be identified with the circle. Thanks to the Euler's formula we can write
+\begin{align*}
+\mathbb{S}^{1} = \{e^{i\alpha}  \mid \alpha \in (-\pi,\pi] \}
+\end{align*}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.35]{figures/circle_example.png}
+	\caption{Lie algebra of the Lie group of plane's rotation.}
+	\label{fig:evolution}
+\end{figure}  
+The Lie algebra of this group of rotations is the tangent line to the circle at the neutral element $\alpha = 0$, and it is isomorphic to $\mathbb{R}$. Lie logarithm and Lie exponential for this particular case corresponds exactly with the usual logarithm and exponential:
+\begin{align*}
+\log : \mathbb{S}^{1} & \longrightarrow T_{0} \mathbb{S}^{1} 
+\qquad \qquad \quad \quad 
+\exp : T_{0} \mathbb{S}^{1}  \longrightarrow \mathbb{S}^{1}
+\\
+\exp{(i\alpha)} &\longmapsto \log(\exp{(i\alpha)})  =  i\alpha 
+\qquad \qquad \quad   
+i\alpha \longmapsto \exp(i\alpha)  
+\end{align*}
+The internal cut locus of the lie group is $(-\pi, \pi)$.
+\end{example}
 
+\noindent
+If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties hold:
+\begin{enumerate}
+	\item for all $\mathbf{v}$ in the matrix Lie algebra $\mathfrak{g}$:
+	\begin{align*}
+	\log(\mathbf{v}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k!}
+	\end{align*}
+	where $I$ is the identity matrix.
+	\item For any norm, and for any $n\times n$ matrix $\mathbf{c}$, exists an $\alpha$ such that 
+	\begin{align*}
+	\euclideanMetric{ \log(I + \mathbf{c}) - \mathbf{c} }  \leq \alpha \euclideanMetric{ \mathbf{c}}^{2}
+	\end{align*}
+	\item For any $n\times n$ matrix $\mathbf{c}$ and for any sequence of matrix $\{\mathbf{d}_{j}\}$ such that  $\euclideanMetric{ \mathbf{d}_{j}} \leq \alpha/j^2$ it follows:
+		\begin{align*}
+		\lim_{k\rightarrow \infty} \big( I + \frac{\mathbf{c}}{k} + \mathbf{d}_{k} \big)^{k} = \exp{(\mathbf{c})}
+		\end{align*}
+\end{enumerate} 
+Here we may see the beginning of the problem we have to deal with for the rest of the research, when passing from the finite dimensional case to the infinite dimensional case.\\
+The domain of the logarithm is the matrix Lie group in which only the composition is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense (and satisfy remarkable properties) when applied to the $\log$. On the other side the domain of the exponential is the matrix Lie algebra, but the exponential can be nevertheless applied to a generic matrix.\\
+This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrix: in this context operation of sum is still defined over the group that admit only compositions. The sum between element of a group can be performed on a Lie group, every time he and its Lie algebra are subset of a bigger algebra (Kirillov). In these cases infinite series are doors to passes from the structure of group and the algebra. When presenting the rigid body transformation in chapter \ref{ch:rigid_body_transformations} we will see a second couple of access doors based on numerical approximations.
+
+\subsection{Definition of Lie Log-Composition}
+
+We define the Lie Log-composition (Lie to distinguish it from the Affine Log-composition of the next chapter) as inner binary operation on the Lie algebra that reflects the composition on the lie group:
+\begin{align*}
+\star : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
+(\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\star \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
+\end{align*}
+
+ \begin{figure}[!ht]
+ 	\centering
+ 	\includegraphics[scale=0.35]{figures/log_composition.png}
+ 	\caption{graphical visualization of the Lie log-composition.}
+ 	\label{fig:composition}
+ \end{figure}
+
+\noindent
+Following properties holds for the Lie log-composition:
+\begin{enumerate}
+\item $\mathfrak{g} $ with the Lie log-composition $\star$ is a local topological non-commutative group (local group for short): if $C_{\mathfrak{g}}$ is the internal cut locus of $\mathfrak{g}$ then:
+\begin{enumerate}
+	\item $(\mathbf{u}_{1}\star\mathbf{u}_{2}) \star \mathbf{u}_{3}
+	= \mathbf{u}_{1}\star(\mathbf{u}_{2} \star \mathbf{u}_{3})$ for all $\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$ in $C_{\mathfrak{g}}$.
+	\item $\mathbf{u}\star\mathbf{0}  = \mathbf{0}\star\mathbf{u} = \mathbf{u}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
+	\item $\mathbf{u}\star(-\mathbf{u} ) = \mathbf{0}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
+\end{enumerate}
+\item For all $t,s$ real, such that $(t+s)\mathbf{v}$ is in $C_{\mathfrak{g}}$,
+\begin{align*}
+(t\mathbf{v})\star (s\mathbf{v}) = (t+s)\mathbf{v}
+\end{align*}
+And in particular, if the Lie algebra $\mathfrak{g}$ has dimension $1$ the local group structure is compatible with the additive group of the vector space $\mathfrak{g}$.
+\item For all $\mathbf{u}$ and $\mathbf{v}$: 
+
+\noindent
+xxx property involving metric and log-composition... may results in something interesting for computing statistics.
+\begin{align*}
+\euclideanMetric{\mathbf{u}\star \mathbf{v}} = ?( \euclideanMetric{\mathbf{u}} , \euclideanMetric{\mathbf{v}})
+\end{align*}
+\end{enumerate}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{BCH formula for the Computation of Log-composition}
+\section{BCH formula for the Computation of Log-composition}\label{se:bch_formula}
 
-
-
-Let $\mathbf{u},\mathbf{v}$ be element of the Lie algebra. The solution $\mathbf{w}$ of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$ is provided by the BCH formula, when $\bf{v}$ is small:
+To compute the Lie Log composition, literature provides the BCH formula, defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
 \begin{align*}
 BCH(\mathbf{u},\mathbf{v}) 
 = 
@@ -386,29 +488,37 @@ BCH(\mathbf{u},\mathbf{v})
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
 
-....Nested Lie bracket can be written using multiple composition of the \emph{adjoint action} of $\mathbf{u}$ on the Lia algebra:
-\begin{align*}
-ad_{\mathbf{u}} : \mathfrak{g}  & \longrightarrow \mathfrak{g}  
-\\
-\mathbf{v} &\longmapsto ad_{\mathbf{u}}   =  [\mathbf{u}, \mathbf{v}]
-\end{align*}
-With this operator we can write 
-\begin{align*}
-[  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] =  ad_{\mathbf{u}}^{n}(\mathbf{v})
-\end{align*}
-In the appendix of ....Klarsfeld adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
-\begin{align*}
-BCH(\mathbf{u},\mathbf{v})  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
-\end{align*}
-The functional applied to $\mathbf{v}$ can be rewritten as
-\begin{align*}
-\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
-\end{align*}
-Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
+\noindent
+xxx derivation of the bch formula, constraints on the Lie algebra elements involved in its computation.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Taylor Expansion for the Computation of Log-composition}
 
+
+
+Once \emph{adjoint action} of $\mathbf{u}$ on the Lia algebra is defined, nested Lie bracket can be reformulated as multiple composition of this operator:
+\begin{align*}
+	ad_{\mathbf{u}} : \mathfrak{g}  & \longrightarrow \mathfrak{g}  
+	\\
+	\mathbf{v} &\longmapsto ad_{\mathbf{u}}   =  [\mathbf{u}, \mathbf{v}]
+\end{align*}
+So
+\begin{align*}
+	[  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] =  ad_{\mathbf{u}}^{n}(\mathbf{v})
+\end{align*}
+In the appendix of xxx Klarsfeld xxx adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
+\begin{align*}
+	\mathbf{u}\star \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
+\end{align*}
+
+\noindent
+xxx intermediate passages to be written from zachos, blane!
+
+The functional applied to $\mathbf{v}$ can be rewritten as
+\begin{align*}
+	\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
+\end{align*}
+Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
 

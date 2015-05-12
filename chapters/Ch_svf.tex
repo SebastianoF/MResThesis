@@ -3,20 +3,20 @@
 
 \begin{flushright}
 	\emph{Accurate reckoning: the entrance into knowledge of all existing things and all obscure secrets.\\
-		- Ahmes, 1800 B.C. Quoted in A.B.Chase, Rhind Mathematical Papyrus (Reston Va. 1967).}
+		- Ahmes, 1800 B.C.}
 \end{flushright}
 
-The set of diffeomorphisms can be seen as an infinite dimensional Lie group. For these reasons .... we reduce the set of transformation to the SVF. This has the following positive consequences .... and it has been applied in .... . Nevertheless reducing the set of transformation to the SVF has bring new issues and challenges .... - limitations - 
+The set of diffeomorphisms can be seen as an infinite dimensional Lie group. For these reasons xxx we reduce the set of transformation to the SVF. This has the following positive consequences xxx and it has been applied in xxx . Nevertheless reducing the set of transformation to the SVF has bring new issues and challenges xxx - limitations - 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Set and Set Only}
+\section{Set and Set Only}\label{se:svf_set}
 Let $\Omega$ be an open connected subset of $\mathbb{R}^d$ containing the origin.  We define $\text{Diff}(\Omega)$ the infinite dimensional Lie group of diffeomorphism over $\Omega$ with neutral element $\text{e}$:
 \begin{align*}
 \text{Diff}:= \lbrace f:\mathbb{R}^d \longrightarrow \mathbb{R}^d \mid \text{ diffeomorphism } \rbrace
 \end{align*}
-.... Definition of Banach and Frechet infinite dimensional Lie group.
+xxx Short non-formal part about recognizing $\text{Diff}(\Omega)$ as a Lie group. Banach manifold and Frechet manifold. What does imply the naive theory of infinite dimensional manifold.
 
 
 
@@ -123,14 +123,14 @@ For $\rho \in \text{Diff}(\mathbb{R}^{D})$ and $\gamma : (-\eta,\eta) \rightarro
 	\end{align*}
 \end{prop}
 \begin{proof}
-	.... !!
+	xxx !!
 \end{proof}
 
 
 
-....Exp and Log function in the infinite dimension case
+xxx Exp and Log function in the infinite dimension case
 
-...we can not express the $\exp$ function using the Taylor expansion in the infinite dimensional Lie group $\text{Diff}(\Omega)$. We define it as an unknown function with some features related to the 1-parameter subgroup structure over $\mathbb{G}$:
+xxx we can not express the $\exp$ function using the Taylor expansion in the infinite dimensional Lie group $\text{Diff}(\Omega)$. We define it as an unknown function with some features related to the 1-parameter subgroup structure over $\mathbb{G}$:
 % definition of exp an log in the infinite case!
 We define $\exp$ function as
 \begin{align*}
@@ -160,10 +160,10 @@ p_1 = \gamma(t_1), ~ p_2 = \gamma(t_2) \Rightarrow \exists \mathbf{v} \in \mathf
 
 It follows that for a fixed $t \in \mathbb{R}$ and $\gamma(t) = \exp(\mathbf{v} )$ for some $\mathbf{v} $ in $left\mathfrak{X}(\mathbb{G})$, then $\gamma(1) = \exp(\frac{1}{t}\mathbf{v})$.
 
-.... Issue related to the image of exp for stationary velocity fields in the finite dimensional case. define $\text{Diff}_{s}(\Omega)$ as the subset of $\text{Diff}(\Omega)$ defined by the images of exp from the tangent space to the Lie group.
+xxx Issue related to the image of exp for stationary velocity fields in the finite dimensional case. define $\text{Diff}_{s}(\Omega)$ as the subset of $\text{Diff}(\Omega)$ defined by the images of exp from the tangent space to the Lie group.
 
 
-.... We define $log$ function as
+xxx We define $log$ function as
 \begin{align*}
 log : \mathbb{G} & \longrightarrow  \mathfrak{g}    \\
 g &\longmapsto log(g)
@@ -178,9 +178,9 @@ such that for $p$ in $\mathbb{G}$ we have $\exp(log(p)) = p$ when $log(p)$ is de
 \section{SVF in Practice}
 
 Three main definitions around which the whole theory of diffeomorphic image registration gravitate are introduced in this section. \\
-.... Define here displacement and deformation.\\
+xxx Define here displacement and deformation.\\
 % time dependent vector space
-....the set of time dependent spatial transformation. We can express it as the set of continuous functions from $\Omega$ to $\mathbb{R}^{d}$ depending on a real parameter in $T\subseteq \mathbb{R}$:
+xxx the set of time dependent spatial transformation. We can express it as the set of continuous functions from $\Omega$ to $\mathbb{R}^{d}$ depending on a real parameter in $T\subseteq \mathbb{R}$:
 \begin{align*}
 \mathcal{V}_{T}(\mathbb{R}^{d}) = \mathcal{V}_{T} := \lbrace V : \Omega \times T &\longrightarrow \mathbb{R}^d \mid \text{ continuous } \rbrace 
 \end{align*}
@@ -226,16 +226,19 @@ In case $V(\mathbf{x},t)$ is a stationary velocity field the equation is \emph{s
 %	whose result is the curve $\gamma$ we where searching for.
 %\end{proof}
 
-
-....if $V^{(t)} = V^{(s)}$ for all $s,t$ real, then we call this vector field \emph{stationary velocity field} (SVF), otherwise are called \emph{time varying velocity field} (TVVF).\\
-....The set of the SVF can be expressed as
+\noindent
+xxx if $V^{(t)} = V^{(s)}$ for all $s,t$ real, then we call this vector field \emph{stationary velocity field} (SVF), otherwise are called \emph{time varying velocity field} (TVVF).\\
+xxx The set of the SVF can be expressed as
 \begin{align*}
 \text{SVF} := \lbrace \varphi_{t}(e) \mid t \in \mathbb{R}, \dot{\varphi}_{t}(e) = V_{\varphi_{t}(e)},  V \in \mathfrak{V}(\Omega) \rbrace
 \end{align*}
 (note that in this way $V$ is not an element of the Lie algebra!! We should have said $V \in left\mathfrak{V}(\text{Diff})$).\\
-....We know that SVF are geodesics-complete if a norm over $\text{diff}$ is defined, while SVF are not complete. $\varphi_{t}(e)$ do not spans $\text{Diff}$ i.e. for each point of $\text{Diff}$ may not always pass an integral curve of a left-invariant vector field over $\text{Diff}$. We will consider only the element of $\text{Diff}$ of the form $\varphi_{t}(e)$. We assume also that each vector field is complete. (THIS MUST BE INVESTIGATED LATER!)\\
-....Thanks to the Dini theorem we have that a SVF can be considered locally as an element of a local expression of $\text{Diff}$.
+xxxWe know that SVF are geodesics-complete if a norm over $\text{diff}$ is defined, while SVF are not complete. $\varphi_{t}(e)$ do not spans $\text{Diff}$ i.e. for each point of $\text{Diff}$ may not always pass an integral curve of a left-invariant vector field over $\text{Diff}$. We will consider only the element of $\text{Diff}$ of the form $\varphi_{t}(e)$. We assume also that each vector field is complete. (THIS MUST BE INVESTIGATED LATER!)\\
+xxxThanks to the Dini theorem we have that a SVF can be considered locally as an element of a local expression of $\text{Diff}$.
 Moreover to each spatial transformation vector field corresponds an element of the one parameter subgroup of local transformation over $\mathbb{R}^2$ (not sure...).\\
+
+xxx practical aspects, discretization, structure as they are considered into the practical side!
+
 
 % %
 % \begin{lemma}\label{le:D1equalsD}

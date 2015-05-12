@@ -1,75 +1,144 @@
 \chapter{Numerical Approximation to Compute the Lie logarithm}\label{ch:lie_log_computation}
 
+The problem of the computation of the logarithm computation can be stated as follows:
+given $p \in \mathbb{G}$ the goal is to find $\mathbf{u}$ such that $\exp(\mathbf{u})$ is the best possible approximation of $p$.  \\
+This chapter is devote to the numerical computation of the logarithm, using an iterative algorithm based on the Log-composition. In this context each of the presented techniques are suitable to perform this computation.
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Exponential and Logarithm Approximation with Truncated Power Series}
+\section{Tools for the Computation from Truncated Series}
 
+\noindent
+xxx These must be posed in the truncated series context after chapter 4 is investigated.\\
 
+\noindent
+We emphasize the fact that if $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, then exp and log can be considered as infinite series.
+Remarkable consequence is the approximation of $\exp(\mathbf{v})$ with $1 + \mathbf{v}$ if the transformation $\mathbf{v}$ is small. This approximation is the base of what follows in this chapter.\\
+In parallel with the log computation given by:
+\begin{align*}
+\star : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
+(\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\star \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
+\end{align*}
+we define two approximating functions:
+\begin{align*}
+\text{app} : \mathfrak{g} & \longrightarrow  \mathfrak{g} ^{\sim}    \\
+\mathbf{u} &\longmapsto \exp(\mathbf{u}) - 1
+\end{align*}
+and
+\begin{align*}
+\text{App} : \mathbb{G} & \longrightarrow  \mathbb{G}^{\sim}   \\
+\exp(\mathbf{u}) &\longmapsto 1 + \mathbf{u}
+\end{align*}
+Where $\mathfrak{g} ^{\sim}$ is a space of approximations of elements of $\mathfrak{g} $,and $\mathbb{G}^{\sim} $ is a space of approximations of elements in $\mathbb{G}$ (xxx that requires some more investigations and formal definition in conjunction with truncated series).\\
+Consequence of this definition is the fact that
+\begin{align*}
+\mathbf{u} \simeq   \text{app} (\mathbf{u})
+\qquad \qquad 
+\exp(\mathbf{u}) \simeq   \text{App} (\exp(\mathbf{u})) 
+\end{align*}
+xxx errors can be investigated and maybe can become known elements in the computations! \\
+The two following straightforward properties, that holds for all $\mathbf{u}, \mathbf{v} $ in the Lie algebra
+\begin{enumerate}
+	\item $\mathbf{u} = \mathbf{v} \star  (-\mathbf{v} \star  \mathbf{u} )$
+	\item $\text{app} (\mathbf{v} \star  \mathbf{u}) = \exp(\mathbf{v})\exp(\mathbf{u}) - 1 \in \mathfrak{g} ^{\sim}$
+\end{enumerate}
+lead us to consider the algorithm presented in \cite{Bossa:08} under a new perspective. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{A reformulation of the Bossa Algorithm using Log-composition}
 
-
-
-Having explored some methods to evaluate the BCH formula we can use them to find an approximation of the logarithm function of an element of $\mathbb{G}$. 
-Given $p \in \mathbb{G}$ the goal is to find $\mathbf{u}$ such that $\exp(\mathbf{u})$ is the best possible approximation of $p$.  
-
-The first way to find a solution is via the algorithm presented in \cite{Bossa:08}, it reduces the problem of the computation of logarithm to the problem of the computation of the group composition. \\
-If $p= \exp(\mathbf{v})$ for any $\mathbf{v} \in \mathfrak{g}$, near the identity we can write:
+If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximate $\mathbf{u}$ as consequence of
 \begin{align*}
-p= \exp(\mathbf{v}) &= (\exp(\mathbf{v})\circ \exp(-\mathbf{v}))\circ \exp(\mathbf{v})\\
-&= \exp(\mathbf{v})\circ (\exp(-\mathbf{v})\circ p)\\
-&= \exp(\mathbf{v})\circ \exp(\delta \mathbf{v})\\
-&\approx \exp(\mathbf{v})\circ \exp(\tilde{\delta} \mathbf{v})
+\mathbf{u} = \mathbf{u}_{j} \star  (-\mathbf{u}_{j}  \star  \mathbf{u} ) \Longrightarrow
+\mathbf{u} \simeq \mathbf{u}_{j} \star  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )
 \end{align*}
-Where $\tilde{\delta} \mathbf{v}$, as we are going to see, turns out to be $ \exp(-\mathbf{v}) \circ p - e$, for $e$ identity transformation of the Lie group.
-The iterative algorithm is then
-\begin{equation}\label{eq:bossa_strat}
+This suggest that a reasonable approximation for the $(j+1)$-th element of the series can be defined by
+\begin{align*}
+\mathbf{u}_{j+1} & :=  \mathbf{u}_{j} \star  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )
+\end{align*}
+If we chose the initial value $\mathbf{u}_{0}$ to be zero, then the algorithm presented in \cite{Bossa:08}  become:
+%\begin{align*}
+%p= \exp(\mathbf{v}) &= (\exp(\mathbf{v})\circ \exp(-\mathbf{v}))\circ \exp(\mathbf{v})\\
+%&= \exp(\mathbf{v})\circ (\exp(-\mathbf{v})\circ p)\\
+%&= \exp(\mathbf{v})\circ \exp(\delta \mathbf{v})\\
+%&\approx \exp(\mathbf{v})\circ \exp(\tilde{\delta} \mathbf{v})
+%\end{align*}
+\begin{equation}\label{eq:bossa_reformulated}
 \begin{cases}
-\mathbf{v}_0 = 0 \\
-\mathbf{v}_{n} = \text{BCH}^{k}(\mathbf{v}_{n-1},\tilde{\delta} \mathbf{v}_{n-1})
+\mathbf{u}_0 = 0 \\
+\mathbf{u}_{j+1} = \mathbf{u}_{j} \star  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )
 \end{cases}
 \end{equation}
-for some degree $k$ of approximation.
+Each strategy that we have examined to compute the Lie composition, become a numerical method for the computation of the logarithm.
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{BCH Strategy}
+At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th truncation of the BCH formula:
+\begin{equation}\label{eq:bossa_strat}
+\begin{cases}
+\mathbf{u}_0 = 0 \\
+\mathbf{u}_{j+1} = \text{BCH}^{k}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+\end{cases}
+\end{equation}
+thus, for the first degree we have 
 \begin{align*}
-\tilde{\delta} \mathbf{v}_{n-1} =  \exp(-\mathbf{v}_{n-1} )\circ \Phi - e
+	\text{BCH}^{1}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+	&=
+	\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )\\
+	&=
+	\mathbf{u}_{j} + \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1
 \end{align*}
-%
-\begin{proof}  
-	Let $\mathbf{v}_{0}$ be an element of $\mathfrak{g}$ in some sense close to $\mathbf{v}$ then:
-	\begin{align*}
-	p = \exp(\mathbf{v}) &= \exp(\mathbf{v}_{0})\circ (\exp(-\mathbf{v}_{0})\circ p)
-	\end{align*}
-	We define $\delta \mathbf{v}_{0} \in\mathfrak{g}$ as $\delta \mathbf{v}_{0} = \exp(-\mathbf{v}_{0})\circ p$. Then
-	\begin{align*}
-	p &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}) \\
-	\exp(V) &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}) \\
-	\mathbf{v} &= \log(\exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}))\\
-	\mathbf{v} &\simeq \text{BCH}^{k}(\mathbf{v}_{0},\delta \mathbf{v}_{0})
-	\end{align*}
-	We approaching the tangent vector $\mathbf{v}$ using an iterative algorithm based on the $\text{BCH}$ formula and the lemma \ref{le:taylorlemma}.
-	\begin{align*}
-	\exp(\delta \mathbf{v}_{0}) \approx e + \delta \mathbf{v}_{0} \Longrightarrow \delta \mathbf{v}_{0} \approx  \exp(\delta \mathbf{v}_{0}) - e
-	\end{align*}
-	Having $\mathbf{v}_{0}$ as our initial value we define
-	\begin{align*}
-	\tilde{\delta} \mathbf{v}_{0} := \exp(\delta \mathbf{v}_{0}) - e
-	\end{align*}
-	Using $p = \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0})$ we can say that $\exp(\delta \mathbf{v}_{0}) =  \exp(-\mathbf{v}_{0})\circ p$ and then
-	\begin{align*}
-	\tilde{\delta} \mathbf{v}_{0} = \exp(-\mathbf{v}_{0})\circ p - e
-	\end{align*}
-	just by definition. Since $p$ is known we can start our successive approximation, and if we set $\mathbf{v}_{0} = \mathbf{0}$ we end up with the iterative algorithm (\ref{eq:bossa_strat}).
-\end{proof}
+For the second degree we have:
+\begin{align*}
+\text{BCH}^{2}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+&=
+\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ) + \frac{1}{2}[\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )]\\
+&=
+\mathbf{u}_{j} + \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1 + \\
+&+ \frac{1}{2}(  \mathbf{u}_{j}( \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1) -  ( \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1)\mathbf{u}_{j})
+\end{align*}
+
+
+%\begin{align*}
+%\tilde{\delta} \mathbf{v}_{n-1} =  \exp(-\mathbf{v}_{n-1} )\circ \Phi - e
+%\end{align*}
+%%
+%\begin{proof}  
+%	Let $\mathbf{v}_{0}$ be an element of $\mathfrak{g}$ in some sense close to $\mathbf{v}$ then:
+%	\begin{align*}
+%	p = \exp(\mathbf{v}) &= \exp(\mathbf{v}_{0})\circ (\exp(-\mathbf{v}_{0})\circ p)
+%	\end{align*}
+%	We define $\delta \mathbf{v}_{0} \in\mathfrak{g}$ as $\delta \mathbf{v}_{0} = \exp(-\mathbf{v}_{0})\circ p$. Then
+%	\begin{align*}
+%	p &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}) \\
+%	\exp(V) &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}) \\
+%	\mathbf{v} &= \log(\exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}))\\
+%	\mathbf{v} &\simeq \text{BCH}^{k}(\mathbf{v}_{0},\delta \mathbf{v}_{0})
+%	\end{align*}
+%	We approaching the tangent vector $\mathbf{v}$ using an iterative algorithm based on the $\text{BCH}$ formula and the lemma \ref{le:taylorlemma}.
+%	\begin{align*}
+%	\exp(\delta \mathbf{v}_{0}) \approx e + \delta \mathbf{v}_{0} \Longrightarrow \delta \mathbf{v}_{0} \approx  \exp(\delta \mathbf{v}_{0}) - e
+%	\end{align*}
+%	Having $\mathbf{v}_{0}$ as our initial value we define
+%	\begin{align*}
+%	\tilde{\delta} \mathbf{v}_{0} := \exp(\delta \mathbf{v}_{0}) - e
+%	\end{align*}
+%	Using $p = \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0})$ we can say that $\exp(\delta \mathbf{v}_{0}) =  \exp(-\mathbf{v}_{0})\circ p$ and then
+%	\begin{align*}
+%	\tilde{\delta} \mathbf{v}_{0} = \exp(-\mathbf{v}_{0})\circ p - e
+%	\end{align*}
+%	just by definition. Since $p$ is known we can start our successive approximation, and if we set $\mathbf{v}_{0} = \mathbf{0}$ we end up with the iterative algorithm (\ref{eq:bossa_strat}).
+%\end{proof}
 
 \begin{theorem}[Bossa]\label{th:bossa}
 	The iterative algorithm (\ref{eq:bossa_strat}) converges to $\mathbf{v}$ with error $\delta_n \in \mathbb{G}$, where
 	\begin{align*}
-	\delta_{n} := log(\exp(\mathbf{v})\circ \exp(-\mathbf{v}_{n})) \in O(\euclideanMetric{p - e}^{2^{n}})
+	\delta_{n} := \log(\exp(\mathbf{v})\circ \exp(-\mathbf{v}_{n})) \in O(\euclideanMetric{p - e}^{2^{n}})
 	\end{align*}
 \end{theorem}
 %\begin{proof}
@@ -79,26 +148,22 @@ for some degree $k$ of approximation.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Parallel Transport Strategy}
+\subsection{Parallel Transport Strategy}
 
-We can use the consideration of the previous section to evaluate the BCH formula in this context, and get an approximation for the evaluation of the Log function.
-\begin{align*}
-\tilde{\delta} \mathbf{v}_{t-1} = \exp(-\mathbf{v}_{t-1})\circ p - e 
-\end{align*}
-we get the iterative algorithm
+If we use the parallel transport for the computation of the log-composition, we obtain:
 \begin{equation}\label{eq:parallel_strategy}
 \begin{cases}
-\mathbf{v}_0 = \mathbf{0} \\
-\mathbf{v}_{t} = \mathbf{v}_{t-1} - \exp(-\frac{\mathbf{v}_{t-1}}{2}) \circ \exp(\delta \mathbf{v}_{t-1}) \circ \exp(\frac{\mathbf{v}_{t-1}}{2}) + e
+\mathbf{u}_0 = \mathbf{0} \\
+\mathbf{u}_{t} = \mathbf{u}_{t-1} + \exp(-\frac{\mathbf{u}_{t-1}}{2}) \circ \exp(\delta \mathbf{u}_{t-1}) \circ \exp(\frac{\mathbf{u}_{t-1}}{2}) - e
 \end{cases}
 \end{equation}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Symmetrization Strategy}
+\subsection{Symmetrization Strategy}
 
-The algorithm for the computation of the group logarithm can be improved considering a symmetric version of the underpinning strategy \ref{eq:bossa_strat}. In this version we use the first order approximation of the BCH formula (see equation (\ref{eq:first_order_approx}) in the following proof), compensating with the fact that the symmetrization should decrease the error involved.
+The algorithm for the computation of the group logarithm can be improved considering a symmetric version of the underpinning strategy. In this version we use the first order approximation of the BCH formula (see equation (\ref{eq:first_order_approx}) in the following proof), compensating with the fact that the symmetrization should decrease the error involved.
 It gives birth to the following algorithm:
 \begin{equation}\label{eq:sym_strategy}
 \begin{cases}
@@ -183,7 +248,7 @@ We conclude with a formula that relates $\tilde{\delta} \mathbf{v}^{L}_{t}$ with
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Symmetric-Parallel Transport Strategy}
+\subsection{Symmetric-Parallel Transport Strategy}
 If we are not satisfied to having take only the firs order approximation of the BCH in the equation (\ref{eq:first_order_approx}) we use at this stage the parallel transport in the method presented in this section.
 Going back to the algorithm \ref{eq:sym_strategy} we can apply to
 \begin{align*}

@@ -1,7 +1,13 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{BMTY05}
+\begin{thebibliography}{ACPA06b}
 
-\bibitem[ACPA06]{arsigny2006statistics}
+\bibitem[ACPA06a]{arsigny2006log}
+Vincent Arsigny, Olivier Commowick, Xavier Pennec, and Nicholas Ayache.
+\newblock A log-euclidean framework for statistics on diffeomorphisms.
+\newblock In {\em Medical Image Computing and Computer-Assisted
+  Intervention--MICCAI 2006}, pages 924--931. Springer, 2006.
+
+\bibitem[ACPA06b]{arsigny2006statistics}
 Vincent Arsigny, Olivier Commowick, Xavier Pennec, and Nicholas Ayache.
 \newblock Statistics on diffeomorphisms in a log-euclidean framework.
 \newblock In {\em 1st MICCAI Workshop on Mathematical Foundations of
@@ -16,6 +22,14 @@ Vincent Arsigny, Pierre Fillard, Xavier Pennec, and Nicholas Ayache.
 
 \bibitem[Arn]{Arnold:Khesin:14}
 
+
+\bibitem[Arn66]{arnold1966geometrie}
+Vladimir Arnold.
+\newblock Sur la g{\'e}om{\'e}trie diff{\'e}rentielle des groupes de lie de
+  dimension infinie et ses applications {\`a} l'hydrodynamique des fluides
+  parfaits.
+\newblock In {\em Annales de l'institut Fourier}, volume~16, pages 319--361.
+  Institut Fourier, 1966.
 
 \bibitem[Ash07]{Ashburner:07}
 J.~Ashburner.
@@ -33,14 +47,6 @@ Martin Bauer, Philipp Harms, and Peter~W Michor.
 \newblock Sobolev metrics on shape space of surfaces in n-space.
 \newblock {\em Arxiv preprint arXiv:1009.3616}, 2010.
 
-\bibitem[BHO07]{Bossa2007}
-Matias Bossa, Monica Hernandez, and Salvador Olmos.
-\newblock {Contributions to 3D diffeomorphic atlas estimation: application to
-  brain images.}
-\newblock {\em Medical image computing and computer-assisted intervention :
-  MICCAI ... International Conference on Medical Image Computing and
-  Computer-Assisted Intervention}, 10:667--674, 2007.
-
 \bibitem[BMTY05]{beg2005computing}
 M~Faisal Beg, Michael~I Miller, Alain Trouv{\'e}, and Laurent Younes.
 \newblock Computing large deformation metric mappings via geodesic flows of
@@ -56,12 +62,6 @@ Matias Bossa and Salvador Olmos.
   and Statistical Methods for Modelling Biological Shape Variability}, New
   York, USA, 2008.
 
-\bibitem[Bra08]{bradley2008history}
-William~G Bradley.
-\newblock History of medical imaging.
-\newblock {\em Proceedings of the American Philosophical Society}, pages
-  349--361, 2008.
-
 \bibitem[Bro81]{Broit:1981}
 Chaim Broit.
 \newblock {\em Optimal Registration of Deformed Images}.
@@ -73,6 +73,11 @@ X.~Pennec C.~Seiler and M.~Reyes.
 \newblock Geometry-aware multiscale image registration via obbtree-based
   polyaffine log-demons, 2011.
 
+\bibitem[dCV92]{do1992riemannian}
+Manfredo~Perdigao do~Carmo~Valero.
+\newblock {\em Riemannian geometry}.
+\newblock 1992.
+
 \bibitem[DGM98a]{Dupuis:98:variationalproblems}
 Paul Dupuis, Ulf Grenander, and Michael~I. Miller.
 \newblock Variational problems on flows of diffeomorphisms for image matching,
@@ -82,11 +87,6 @@ Paul Dupuis, Ulf Grenander, and Michael~I. Miller.
 Paul Dupuis, Ulf Grenander, and Michael~I Miller.
 \newblock Variational problems on flows of diffeomorphisms for image matching.
 \newblock {\em Quarterly of applied mathematics}, 56(3):587, 1998.
-
-\bibitem[Hal]{hall}
-Brian Hall.
-\newblock Lie groups, lie algebras, and representations: An elementary
-  introduction.
 
 \bibitem[HBHH01]{Hill:survey:01}
 Derek L~G Hill, Philipp~G Batchelor, Mark Holden, and David~J Hawkes.
@@ -107,10 +107,6 @@ Monica Hernandez, Salvador Olmos, and Xavier Pennec.
 \newblock In {\em 2nd MICCAI workshop on mathematical foundations of
   computational anatomy}, pages 24--35, 2008.
 
-\bibitem[Jr]{kirillov}
-Alexander~Kirillow Jr.
-\newblock Introduction to lie groups and lie algebras.
-
 \bibitem[LAF{\etalchar{+}}13]{lorenzi2013lcc}
 Marco Lorenzi, Nicholas Ayache, Giovanni~B Frisoni, Xavier Pennec, and
   Alzheimer's Disease~Neuroimaging Initiative.
@@ -118,30 +114,32 @@ Marco Lorenzi, Nicholas Ayache, Giovanni~B Frisoni, Xavier Pennec, and
   registration algorithm}.
 \newblock {\em NeuroImage}, 81:470--483, 2013.
 
+\bibitem[Les83]{leslie1983lie}
+JA~Leslie.
+\newblock A lie group structure for the group of analytic diffeomorphisms.
+\newblock {\em Boll. Un. Mat. Ital. A (6)}, 2:29--37, 1983.
+
 \bibitem[Lor12]{Lorenzi:PhD:12}
 Marco Lorenzi.
 \newblock {\em Deformation-based morphometry of the brain for the development
   of surrogate markers in Alzheimer's disease}.
 \newblock Ph.d. thesis, University of Nice Sophia Antipolis, December 2012.
 
-\bibitem[LP13]{Lorenzi:pt:13}
-Marco Lorenzi and Xavier Pennec.
-\newblock {Geodesics, Parallel Transport \& One-parameter Subgroups for
-  Diffeomorphic Image Registration}.
-\newblock {\em {International Journal of Computer Vision}}, 105(2):111--127,
-  November 2013.
+\bibitem[MA70]{marsden1970hamiltonian}
+J~Marsden and R~Abraham.
+\newblock Hamiltonian mechanics on lie groups and hydrodynamics.
+\newblock {\em Global Analysis,(eds. SS Chern and S. Smale), Proc. Sympos. Pure
+  Math}, 16:237--244, 1970.
 
-\bibitem[LP14]{Lorenzi:discrete_ladders:14}
-Marco Lorenzi and Xavier Pennec.
-\newblock {Discrete Ladders for Parallel Transport in Transformation Groups
-  with an Affine Connection Structure}.
-\newblock In Frank Nielsen, editor, {\em {Geometric Theory of Information}},
-  Signals and Communication Technology, pages 243--271. {Springer}, 2014.
-
-\bibitem[Mil84]{Milnor:84:remarks}
+\bibitem[Mil84a]{Milnor:84:remarks}
 J~Milnor.
 \newblock Remarks on infinite-dimensional lie groups, in ‘relativity, groups
   and topology, ii’(les houches, 1983), 1007--1057, 1984.
+
+\bibitem[Mil84b]{milnor1984remarks}
+John Milnor.
+\newblock Remarks on infinite-dimensional lie groups.
+\newblock In {\em Relativity, groups and topology. 2}. 1984.
 
 \bibitem[MPS{\etalchar{+}}11]{Mansi:IJCV:11}
 Tommaso Mansi, Xavier Pennec, Maxime Sermesant, Herv\'e Delingette, and
@@ -155,6 +153,12 @@ V~Yu Ovsienko, BA~Khesin, and Yu~V Chekanov.
 \newblock Integrals of the euler equations of multidimensional hydrodynamics
   and superconductivity.
 \newblock {\em Journal of Soviet Mathematics}, 59(5):1096--1101, 1992.
+
+\bibitem[Omo70]{omori1970group}
+Hideki Omori.
+\newblock On the group of diffeomorphisms on a compact manifold.
+\newblock In {\em Proc. Symp. Pure Appl. Math., XV, Amer. Math. Soc}, pages
+  167--183, 1970.
 
 \bibitem[SDP13]{Sotiras:survey:13}
 A.~Sotiras, C.~Davatzikos, and N.~Paragios.
@@ -183,14 +187,16 @@ Tom Vercauteren, Xavier Pennec, Aymeric Perchant, and Nicholas Ayache.
 \newblock In {\em Medical Image Computing and Computer-Assisted
   Intervention--MICCAI 2007}, pages 319--326. Springer, 2007.
 
-\bibitem[VPPA08]{VercauterenPPA08}
-Tom Vercauteren, Xavier Pennec, Aymeric Perchant, and Nicholas Ayache.
-\newblock Symmetric log-domain diffeomorphic registration: A demons-based
-  approach.
-\newblock In Dimitris~N. Metaxas, Leon Axel, Gabor Fichtinger, and Gábor
-  Székely, editors, {\em Medical Image Computing and Computer-Assisted
-  Intervention - MICCAI 2008, 11th International Conference, New York, NY, USA,
-  September 6-10, 2008, Proceedings, Part I}, volume 5241 of {\em Lecture Notes
-  in Computer Science}, pages 754--761. Springer, 2008.
+\bibitem[VRRC12]{vialard2012diffeomorphic}
+Fran{\c{c}}ois-Xavier Vialard, Laurent Risser, Daniel Rueckert, and Colin~J
+  Cotter.
+\newblock Diffeomorphic 3d image registration via geodesic shooting using an
+  efficient adjoint calculation.
+\newblock {\em International Journal of Computer Vision}, 97(2):229--241, 2012.
+
+\bibitem[Woj94]{wojtynski1994one}
+Wojciech Wojty{\'n}ski.
+\newblock One-parameter subgroups and the bch formula.
+\newblock {\em Studia Mathematica}, 111(2):163--185, 1994.
 
 \end{thebibliography}
