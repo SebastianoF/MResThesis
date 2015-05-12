@@ -1,4 +1,72 @@
-\chapter{Numerical Approximation to Compute the Lie logarithm}\label{ch:lie_log_computation}
+\chapter{Applications}\label{ch:applications}
+
+\begin{flushright}
+	\emph{We believe that we know something about the things themselves when we speak of trees, colors, snow, and flowers; and yet we possess nothing but metaphors for things — metaphors which correspond in no way to the original entities.} \\ -Nietzsche, \emph{On Truth and Lies in extra-moral sense.}
+\end{flushright}
+
+zz write chapter intro.
+
+
+\section{Numerical Approximation of the Log-Composition}\label{ch:application_log_composition}
+
+
+
+
+xxx Statistics on anatomies: \\
+xxx It is of fundamental importance to have the possibility to going from an element of a group of spatial transformations  to a tangent space, in which each vector corresponds to the tangent vector field that this transformation causes on the space. It makes possible to lean on the group structure a structure of vector space, which implies the possibility to compute statistics on the group of transformation as well as compose velocity fields in the tangent space passing through the corresponding transformation (both of them are made possible thanks to the local bijection between the Lie group and the Lie algebra ). \\
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Group composition at the Service of Image Registration}
+
+xxx Log-composition in diffeomorphic image registration.\\
+
+
+where $p_1 \in \mathbb{G}$, $p_2 = \exp_{p_1}(\mathbf{v}_{1})$ and Affine exponential and Affine logarithm are considered. Posing $p_3 = \exp_{p_2}(\mathbf{v}_{2})$ the second offset group composition is the tangent vector in $p_1$ that corresponds to the composition between $p_1$ and $p_2$, i.e. $\log_{p_1}(p_3 \circ p_2)$. \\
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{BCH formula to compute the Log-composition}
+
+The BCH formula is the exact solution to the Log-composition. 
+It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. It can be practically computed using its \emph{approximation of degree} $k$ defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. For example:
+\begin{align*}
+BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
+BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
+BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
+\end{align*}
+These numerical approximations of the group composition leave the difficulty of managing the problem of the error carried by each term. In some cases the increase of the degree of the BCH approximation do not necessarily implies a decrease in error: \\
+.... Add an example in which this happens.
+
+We present other ways to compute the Lie group composition in the following subsubsections.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Accelerating convergences applied to the Log-composition}
+
+....
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Taylor expansion to compute the Log-composition}
+
+....
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Parallel transport to compute the Log-composition}
+
+....Here will be made the strong assumption according to which the parallel transport defined for the finite dimensional case, works also in the infinite dimensional case....
+
+
+
+\section{Numerical Approximation to Compute the Lie logarithm}\label{ch:lie_log_computation}
 
 The problem of the computation of the logarithm computation can be stated as follows:
 given $p \in \mathbb{G}$ the goal is to find $\mathbf{u}$ such that $\exp(\mathbf{u})$ is the best possible approximation of $p$.  \\
@@ -8,7 +76,7 @@ This chapter is devote to the numerical computation of the logarithm, using an i
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Tools for the Computation from Truncated Series}
+\subsubsection{Tools for the Computation from Truncated Series}
 
 \noindent
 xxx These must be posed in the truncated series context after chapter 4 is investigated.\\
@@ -49,7 +117,7 @@ lead us to consider the algorithm presented in \cite{Bossa:08} under a new persp
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{A reformulation of the Bossa Algorithm using Log-composition}
+\subsection{A reformulation of the Bossa Algorithm using Log-composition}
 
 If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximate $\mathbf{u}$ as consequence of
 \begin{align*}
@@ -77,7 +145,7 @@ Each strategy that we have examined to compute the Lie composition, become a num
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{BCH Strategy}
+\subsubsection{BCH Strategy}
 At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th truncation of the BCH formula:
 \begin{equation}\label{eq:bossa_strat}
 \begin{cases}
@@ -87,11 +155,11 @@ At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th tr
 \end{equation}
 thus, for the first degree we have 
 \begin{align*}
-	\text{BCH}^{1}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
-	&=
-	\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )\\
-	&=
-	\mathbf{u}_{j} + \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1
+\text{BCH}^{1}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+&=
+\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )\\
+&=
+\mathbf{u}_{j} + \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1
 \end{align*}
 For the second degree we have:
 \begin{align*}
@@ -148,7 +216,7 @@ For the second degree we have:
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Parallel Transport Strategy}
+\subsubsection{Parallel Transport Strategy}
 
 If we use the parallel transport for the computation of the log-composition, we obtain:
 \begin{equation}\label{eq:parallel_strategy}
@@ -161,7 +229,7 @@ If we use the parallel transport for the computation of the log-composition, we 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Symmetrization Strategy}
+\subsubsection{Symmetrization Strategy}
 
 The algorithm for the computation of the group logarithm can be improved considering a symmetric version of the underpinning strategy. In this version we use the first order approximation of the BCH formula (see equation (\ref{eq:first_order_approx}) in the following proof), compensating with the fact that the symmetrization should decrease the error involved.
 It gives birth to the following algorithm:
@@ -248,8 +316,8 @@ We conclude with a formula that relates $\tilde{\delta} \mathbf{v}^{L}_{t}$ with
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Symmetric-Parallel Transport Strategy}
-If we are not satisfied to having take only the firs order approximation of the BCH in the equation (\ref{eq:first_order_approx}) we use at this stage the parallel transport in the method presented in this section.
+\subsubsection{Symmetric-Parallel Transport Strategy}
+If we are not satisfied to having take only the firs order approximation of the BCH in the equation (\ref{eq:first_order_approx}) we use at this stage the parallel transport in the method presented in this subsection.
 Going back to the algorithm \ref{eq:sym_strategy} we can apply to
 \begin{align*}
 \mathbf{v}_{t+1} = \frac{1}{2}(\text{BCH}(\tilde{\delta} \mathbf{v}^{L}_{t}, \mathbf{v}_{t}) + \text{BCH}(\mathbf{v}_{t},\tilde{\delta} \mathbf{v}^{R}_{t}))
@@ -282,3 +350,29 @@ Then a new improvement of the algorithm \ref{eq:bossa_strategy}  is
 \end{cases}
 \end{equation}
 (This must be investigated!)
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\section{Experimental Results}\label{ch:results}
+
+\subsection{Toy Examples to Compare the Log-Compositions}
+
+\subsection{NiftyReg Applications}
+
+\subsection{BCH-free Computation of the Lie Logarithm }
+
+
+
+
+
+\section{Further Research and Conclusion}\label{ch:conclusions}
+
+%\begin{flushright}
+%	\emph{There, I’ve done my best! If this won’t suit I shall have to wait till I can do better. \\ -Jo}
+%\end{flushright}

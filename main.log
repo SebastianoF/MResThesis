@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  12 MAY 2015 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  12 MAY 2015 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -574,14 +574,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package hyperref Warning: Unexpected value for option `hidelinks'
 (hyperref)                is ignored on input line 66.
 
-(./main.aux (./frontback/Preamble.aux)
-(./chapters/Ch_registration_framework.aux) (./chapters/Ch_finite_lie_group.aux)
-(./chapters/Ch_parallel_transport.aux)
-(./chapters/Ch_accelerating_convergences.aux)
-(./chapters/Ch_rigid_body_transformations.aux) (./chapters/Ch_svf.aux)
-(./chapters/Ch_log_composition.aux) (./chapters/Ch_lie_log_computation.aux)
-(./chapters/Ch_results.aux) (./chapters/Ch_conclusions.aux)
-(./frontback/Appendices.aux))
+(./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
+(./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
+(./chapters/Ch_applications.aux) (./frontback/Appendices.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
@@ -647,7 +642,7 @@ LaTeX Info: Redefining \nameref on input line 68.
 \openout4 = `main.out'.
 
 
-<figures/UCL_logo.jpg, id=240, 438.63875pt x 533.995pt>
+<figures/UCL_logo.jpg, id=199, 438.63875pt x 533.995pt>
 File: figures/UCL_logo.jpg Graphic file (type jpg)
 
 <use figures/UCL_logo.jpg>
@@ -671,12 +666,19 @@ es/UCL_logo.jpg>]
 
  (./frontback/Preamble.tex [2
 
-] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+]
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
-[4]) [5] (./main.toc [1
+
+LaTeX Warning: Reference `ch:intro' on page 3 undefined on input line 23.
+
+
+LaTeX Warning: Reference `ch:studied_objects' on page 3 undefined on input line
+ 29.
+
+[3]) [4] (./main.toc [1
 
 
 ])
@@ -684,330 +686,237 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout5 = `main.toc'.
 
  [2]
-\openout2 = `chapters/Ch_registration_framework.aux'.
+\openout2 = `chapters/Ch_introduction.aux'.
 
- (./chapters/Ch_registration_framework.tex
+ (./chapters/Ch_introduction.tex
 Chapter 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 \end{align}
-                 [1
+l.38 
+      [1
 
 
 ]
-<figures/iterative_algorithm.png, id=417, 734.745pt x 454.69875pt>
-File: figures/iterative_algorithm.png Graphic file (type png)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use figures/iterative_algorithm.png>
-Package pdftex.def Info: figures/iterative_algorithm.png used on input line 65.
-
-(pdftex.def)             Requested size: 257.1646pt x 159.14694pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.85 
-      [2 <./figures/iterative_algorithm.png>]pdfTeX warning (ext4): destination
- with the same identifier (name{page.3}) has been already used, duplicate ignor
-ed
+l.38 
+      [2]pdfTeX warning (ext4): destination with the same identifier (name{page
+.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 
-       [3]pdfTeX warning (ext4): destination with the same identifier (name{pag
-e.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.133 \end{align}
-                  [4]pdfTeX warning (ext4): destination with the same identifie
-r (name{page.5}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.177 \begin{align*}
-                     [5] [6]
-LaTeX Font Info:    Try loading font information for U+euf on input line 271.
+l.88 \begin{align*}
+                    [3]
+<figures/iterative_algorithm.png, id=363, 734.745pt x 454.69875pt>
+File: figures/iterative_algorithm.png Graphic file (type png)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/ueuf.fd
+<use figures/iterative_algorithm.png>
+Package pdftex.def Info: figures/iterative_algorithm.png used on input line 99.
+
+(pdftex.def)             Requested size: 257.1646pt x 159.14694pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.119 
+       [4 <./figures/iterative_algorithm.png>]
+Underfull \vbox (badness 1043) has occurred while \output is active []
+
+ [5]
+[6] [7] [8]
+LaTeX Font Info:    Try loading font information for U+euf on input line 305.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)) [7]
+))
+[9]
+\openout2 = `chapters/Ch_tools.aux'.
+
+ (./chapters/Ch_tools.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 22.43335pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8
-
-
-] [9] [10]
-\openout2 = `chapters/Ch_finite_lie_group.aux'.
-
- (./chapters/Ch_finite_lie_group.tex
-Chapter 2.
-[11
-
-
-] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-[14] [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
-
- []
-
-[17] [18] <figures/circle_example.png, id=582, 679.53876pt x 648.4225pt>
-File: figures/circle_example.png Graphic file (type png)
-
-<use figures/circle_example.png>
-Package pdftex.def Info: figures/circle_example.png used on input line 401.
-(pdftex.def)             Requested size: 237.84213pt x 226.95126pt.
- [19 <./figures/circle_example.png>]
-<figures/log_composition.png, id=592, 675.52374pt x 646.415pt>
-File: figures/log_composition.png Graphic file (type png)
-
-<use figures/log_composition.png>
-Package pdftex.def Info: figures/log_composition.png used on input line 449.
-(pdftex.def)             Requested size: 236.43684pt x 226.24864pt.
-
-Overfull \hbox (13.7294pt too wide) in paragraph at lines 481--481
-[]\OT1/cmr/bx/n/14.4 BCH for-mula for the Com-pu-ta-tion of Log-composition 
- []
-
-[20]
-Overfull \hbox (41.9128pt too wide) in paragraph at lines 497--497
-[]\OT1/cmr/bx/n/14.4 Taylor Ex-pan-sion for the Com-pu-ta-tion of Log-compositi
-on 
- []
-
-[21 <./figures/log_composition.png>]) [22]
-\openout2 = `chapters/Ch_parallel_transport.aux'.
-
-
-(./chapters/Ch_parallel_transport.tex
-Chapter 3.
-
-Overfull \hbox (3.70781pt too wide) in paragraph at lines 40--40
-[]\OT1/cmr/bx/n/14.4 Affine Ex-po-nen-tial, Log-a-rithm and Log-Composition 
- []
-
-[23
-
-
-
-] [24] <figures/inversion_1.png, id=635, 657.45625pt x 460.72125pt>
-File: figures/inversion_1.png Graphic file (type png)
-
-<use figures/inversion_1.png>
-Package pdftex.def Info: figures/inversion_1.png used on input line 135.
-(pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
-
-<figures/inversion_2.png, id=636, 708.6475pt x 419.5675pt>
-File: figures/inversion_2.png Graphic file (type png)
-
-<use figures/inversion_2.png>
-Package pdftex.def Info: figures/inversion_2.png used on input line 142.
-(pdftex.def)             Requested size: 184.9429pt x 109.4947pt.
-
-Overfull \hbox (71.13188pt too wide) in paragraph at lines 142--143
- [][] 
- []
-
-<figures/sign_1.png, id=637, 714.67pt x 499.8675pt>
-File: figures/sign_1.png Graphic file (type png)
- <use figures/sign_1.png>
-Package pdftex.def Info: figures/sign_1.png used on input line 165.
-(pdftex.def)             Requested size: 270.30118pt x 189.05922pt.
-
-[25] [26 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/sig
-n_1.png>] <figures/theorem_pict.png, id=657, 760.8425pt x 698.61pt>
-File: figures/theorem_pict.png Graphic file (type png)
-
-<use figures/theorem_pict.png>
-Package pdftex.def Info: figures/theorem_pict.png used on input line 213.
-(pdftex.def)             Requested size: 270.30118pt x 248.19482pt.
- [27]
-
-Package Fancyhdr Warning: \headheight is too small (22.43335pt): 
- Make it at least 22.54448pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28 <./figures/theorem_pict.png>]) [29]
-\openout2 = `chapters/Ch_accelerating_convergences.aux'.
-
-
-(./chapters/Ch_accelerating_convergences.tex [30
+[10
 
 
 
 ]
-Chapter 4.
-) [31] [32
+Chapter 2.
+[11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
+
+ []
+
+[14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
+
+ []
+
+[17] [18] <figures/circle_example.png, id=522, 679.53876pt x 648.4225pt>
+File: figures/circle_example.png Graphic file (type png)
+
+<use figures/circle_example.png>
+Package pdftex.def Info: figures/circle_example.png used on input line 402.
+(pdftex.def)             Requested size: 237.84213pt x 226.95126pt.
+ [19 <./figures/circle_example.png>]
+<figures/log_composition.png, id=533, 675.52374pt x 646.415pt>
+File: figures/log_composition.png Graphic file (type png)
+
+<use figures/log_composition.png>
+Package pdftex.def Info: figures/log_composition.png used on input line 450.
+(pdftex.def)             Requested size: 236.43684pt x 226.24864pt.
+ [20] [21 <./figures/log_composition.png>]
+[22] [23] <figures/inversion_1.png, id=570, 657.45625pt x 460.72125pt>
+File: figures/inversion_1.png Graphic file (type png)
+
+<use figures/inversion_1.png>
+Package pdftex.def Info: figures/inversion_1.png used on input line 661.
+(pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
+
+<figures/inversion_2.png, id=571, 708.6475pt x 419.5675pt>
+File: figures/inversion_2.png Graphic file (type png)
+
+<use figures/inversion_2.png>
+Package pdftex.def Info: figures/inversion_2.png used on input line 668.
+(pdftex.def)             Requested size: 184.9429pt x 109.4947pt.
+
+Overfull \hbox (71.13188pt too wide) in paragraph at lines 668--669
+ [][] 
+ []
+
+<figures/sign_1.png, id=572, 714.67pt x 499.8675pt>
+File: figures/sign_1.png Graphic file (type png)
+ <use figures/sign_1.png>
+Package pdftex.def Info: figures/sign_1.png used on input line 691.
+(pdftex.def)             Requested size: 270.30118pt x 189.05922pt.
+
+[24] [25 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/sig
+n_1.png>] <figures/theorem_pict.png, id=594, 760.8425pt x 698.61pt>
+File: figures/theorem_pict.png Graphic file (type png)
+
+<use figures/theorem_pict.png>
+Package pdftex.def Info: figures/theorem_pict.png used on input line 739.
+(pdftex.def)             Requested size: 270.30118pt x 248.19482pt.
+ [26] [27 <./figures/theorem_pict.png>]) [28]
+\openout2 = `chapters/Ch_spatial_transformations.aux'.
 
 
-] [33] [34]
-\openout2 = `chapters/Ch_rigid_body_transformations.aux'.
+(./chapters/Ch_spatial_transformations.tex
+Chapter 3.
 
- (./chapters/Ch_rigid_body_transformations.tex
-Chapter 5.
-[35
+LaTeX Warning: Reference `pt:applications' on page 29 undefined on input line 1
+0.
+
+[29
 
 
-] [36] [37]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 346.
+
+] [30] [31]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 347.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 346.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 347.
 
-Overfull \hbox (20.88947pt too wide) in paragraph at lines 387--387
-[]\OT1/cmr/bx/n/14.4 Taylor Ap-prox-i-ma-tion to com-pute the Log-composition 
+[32] [33] [34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 624--626
+
  []
 
-[38]) [39]
-\openout2 = `chapters/Ch_svf.aux'.
 
- (./chapters/Ch_svf.tex [40
+Underfull \hbox (badness 10000) in paragraph at lines 657--662
+
+ []
+
+) [36]
+\openout2 = `chapters/Ch_applications.aux'.
+
+ (./chapters/Ch_applications.tex
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+[37
 
 
 
 ]
-Chapter 6.
-
-Underfull \vbox (badness 1189) has occurred while \output is active []
-
- [41]
-[42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 201--203
+Underfull \hbox (badness 10000) in paragraph at lines 81--83
 
  []
 
+[38]
+Overfull \hbox (4.38191pt too wide) in paragraph at lines 120--120
+[]\OT1/cmr/bx/n/12 A re-for-mu-la-tion of the Bossa Al-go-rithm us-ing Log-comp
+osition 
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--239
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 241--244
 
  []
 
-) [44] [45
+[40] [41]
 
+LaTeX Warning: Reference `eq:bossa_strategy' on page 42 undefined on input line
+ 341.
 
-] [46]
-\openout2 = `chapters/Ch_log_composition.aux'.
-
- (./chapters/Ch_log_composition.tex
-Chapter 7.
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-[47
-
-
-]
-Overfull \hbox (39.47118pt too wide) in paragraph at lines 41--41
-[]\OT1/cmr/bx/n/14.4 Accelerating con-ver-gences ap-plied to the Log-compositio
-n 
- []
-
-) [48]
-\openout2 = `chapters/Ch_lie_log_computation.aux'.
-
- (./chapters/Ch_lie_log_computation.tex
-Chapter 8.
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
-[49
-
-
-
-] [50]
-Underfull \hbox (badness 10000) in paragraph at lines 173--176
-
- []
-
-[51] [52]
-
-LaTeX Warning: Reference `eq:bossa_strategy' on page 53 undefined on input line
- 273.
-
-) [53]
-\openout2 = `chapters/Ch_results.aux'.
-
- (./chapters/Ch_results.tex [54
-
-
-
-]
-Chapter 9.
-) [55]
-\openout2 = `chapters/Ch_conclusions.aux'.
-
- (./chapters/Ch_conclusions.tex [56
-
-
-
-]
-Chapter 10.
-) [57]
+) [42]
 \openout2 = `frontback/Appendices.aux'.
 
- (./frontback/Appendices.tex [58
+ (./frontback/Appendices.tex) [43
 
 
-
-]
-Appendix A.
-) [59] (./main.bbl [60
+] (./main.bbl [44
 
 
-] [61] [62])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 234.
- [63]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 234.
- (./main.aux (./frontback/Preamble.aux)
-(./chapters/Ch_registration_framework.aux) (./chapters/Ch_finite_lie_group.aux)
-(./chapters/Ch_parallel_transport.aux)
-(./chapters/Ch_accelerating_convergences.aux)
-(./chapters/Ch_rigid_body_transformations.aux) (./chapters/Ch_svf.aux)
-(./chapters/Ch_log_composition.aux) (./chapters/Ch_lie_log_computation.aux)
-(./chapters/Ch_results.aux) (./chapters/Ch_conclusions.aux)
-(./frontback/Appendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 234.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 234.
+] [45] [46])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 226.
+ [47]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 226.
+
+(./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
+(./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
+(./chapters/Ch_applications.aux) (./frontback/Appendices.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 226.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 226.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 994CDCF08F3307AB9A5DEFBBF5C8A5B8;4852.
+(rerunfilecheck)             Checksum: EC3BB21BEAB9A1BDB77B5573194EF170;4394.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 234.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 226.
  ) 
 Here is how much of TeX's memory you used:
- 8275 strings out of 493117
- 114814 string characters out of 6135433
- 278404 words of memory out of 5000000
- 11241 multiletter control sequences out of 15000+600000
+ 8205 strings out of 493117
+ 113293 string characters out of 6135433
+ 275882 words of memory out of 5000000
+ 11229 multiletter control sequences out of 15000+600000
  14939 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,15n,43p,1361b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,15n,43p,1351b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></
@@ -1039,10 +948,10 @@ pe1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/
 type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (70 pages, 827725 bytes).
+Output written on main.pdf (53 pages, 819337 bytes).
 PDF statistics:
- 1009 PDF objects out of 1200 (max. 8388607)
- 882 compressed objects within 9 object streams
- 260 named destinations out of 1000 (max. 500000)
- 513 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 885 PDF objects out of 1000 (max. 8388607)
+ 776 compressed objects within 8 object streams
+ 244 named destinations out of 1000 (max. 500000)
+ 433 words of extra memory for PDF output out of 10000 (max. 10000000)
 

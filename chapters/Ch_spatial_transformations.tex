@@ -1,0 +1,725 @@
+\chapter{A Lie Group Perspective on Spatial Transformations}\label{ch:spatial_transformations}
+
+\section{The Group of Rigid Body Transformations}\label{ch:rigid_body_transformations}
+
+\begin{flushright}
+	\emph{People know or dimly perceive, that if thinking is not kept pure and keen, if spirit's contemplation do not holds, even mechanics of automobiles and ships will soon cease to run. Even engineer's slide rule, computations of banks and stock exchanges will wonder aimlessly for the lost of authority, and chaos will ensue.} \\ -Hermann Hesse, \emph{Magister Ludi}
+\end{flushright}
+
+
+A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection. We are interested in two things about them: their expression in matrix form, and the Lie group structure they form. In particular we will develop the close formulas for the computation of the log composition, and for each approximation technique presented. In part \ref{pt:applications}, they will be compared with the same technique applied to SVF where no ground truth is known.
+
+\subsection{Lie Logarithm and Exponential for SE(2)}
+
+The set of all of the $3\times 3$  matrices with real entries is denoted with $M_{3}(\mathbb{R})$. 
+Its subset, defined by all the matrices with non-zero determinant, and thus by all the invertible matrices, is denoted with $GL_3 (\mathbb{R})$. A matrix group is any subgroup of  $GL_3 (\mathbb{R})$.
+We are interested in writing the group of rigid body transformation 
+\begin{align*}
+\mathbb{G} =
+\{ (\theta, tx, ty) \mid \theta \in [0, 2\pi),   tx, ty \in\mathbf{R}^2  \}
+\end{align*}
+using matrices, so as a subgroup of $GL_3 (\mathbb{R})$.
+Rotation in the plane can be expressed using matrix of the orthogonal group $SO(2)$, linear subgroup of $GL_2 (\mathbb{R})$, so that rotations' actions on planes' points are simply defined as a product: 
+\begin{align*}
+SO(2) = 
+\left \{
+\left (
+\begin{array} {c c }
+\cos(\theta) & - \sin(\theta) \\
+\sin(\theta) & \cos(\theta) 
+\end{array}
+\right )
+\mid
+\theta \in  [0, 2\pi)
+\right \}
+\end{align*}
+To include the translation we can add its $(tx, ty)^{T}$ parameter to the action of the rotation over the initial point $(x_{i}, y_{i})^{T}$ to obtain the transformed $(x_{t}, y_{t})^{T}$. So each element of the group $\mathbb{G}$ act over $\mathbf{R}^2$ as
+\begin{align*}
+\left (  
+\begin{array} {c }
+x_{t} \\
+y_{t}
+\end{array}
+\right ) 
+= 
+\left (
+\begin{array} {c c }
+\cos(\theta) & - \sin(\theta) \\
+\sin(\theta) & \cos(\theta) 
+\end{array}
+\right )
+\left (  
+\begin{array} {c }
+x_{i} \\
+y_{i}
+\end{array}
+\right ) 
++
+\left (  
+\begin{array} {c }
+tx \\
+ty
+\end{array}
+\right ) 
+\end{align*}
+Another way to express rigid body transformation group's elements is to include the translation in a bigger matrix, subgroup (not linear, since the translation is not linear) of $GL_3 (\mathbb{R})$. This is defined as the group $SE(2)$:
+\begin{align*}
+SE(2) = 
+\left \{
+\left (
+\begin{array} {c c c }
+\cos(\theta) & - \sin(\theta)& t_{x} \\
+\sin(\theta) & \cos(\theta) & t_{y}\\
+0 & 0 &  1
+\end{array}
+\right )
+\mid
+\theta \in  [0, 2\pi), (tx, ty) \in\mathbf{R}^2
+\right \}
+\end{align*}
+Expressed in this way the matrices act on the point of the plane represented as the elements of the vector space $\{1 \} \times \mathbf{R}^2$.\\ 
+The passage between the restricted form $\mathbb{G} $ and $SE(2)$ is defined by the injection:
+\begin{align*}
+\rho_{\mathbb{G}} : \mathbb{G} &\longrightarrow   SE(2)\\
+(\theta, tx, ty) 
+& \longmapsto
+\left (
+\begin{array} {c c c }
+\cos(\theta) & - \sin(\theta)& tx \\
+\sin(\theta) & \cos(\theta) & ty\\
+0 & 0 &  1
+\end{array}
+\right )
+\end{align*}
+We are now interested the Lie algebra of the Lie group $SE(2)$. 
+%In general a matrix Lie group is any complete subgroup of $GL(n,\mathbb{R})$ while its Lie algebra is a particular subset (not necessarily a group) of $GL(n,\mathbb{R})$. 
+%\begin{prop}\label{pr:matrixLiealgebra}
+%	Be $\mathbb{G}$ a matrix Lie group.
+%	\begin{itemize}
+%		\item[a)] If $\mathbb{G} = GL(n,\mathbb{R})$ then $T_{e}\mathbb{G} = M(n,\mathbb{R})$.  
+%		\item[b)] If $\mathbb{G} \subseteq GL(n,\mathbb{R})$ then $T_{e}\mathbb{G} \subseteq M(n,\mathbb{R})$.
+%	\end{itemize}
+%\end{prop}
+%\begin{proof}
+%	since $det$ is a continuous function we have that 
+%	\begin{align*}
+%	\forall X \in M(n,\mathbb{R})~~ \exists &\eta > 0 \text{ such that } \forall t \in(-\eta , \eta) \\
+%	&det(I+tX) \neq 0
+%	\end{align*}
+%	where $I$ is the identity matrix. If we consider the path
+%	\begin{align*}
+%	\gamma : [0,1] & \longrightarrow  GL(n,\mathbb{R}) \\
+%	t &\longmapsto I+tX
+%	\end{align*}
+%	as the path joining $I$ and $X$, it follows
+%	\begin{align*}
+%	\frac{d }{dt}(I+tX)~\Bigr|_{t = 0}  = X \in M(n,\mathbb{R})
+%	\end{align*}
+%\end{proof}
+It is defined as:
+\begin{align*}
+\mathfrak{se}(2) = 
+\left \{
+\left (
+\begin{array} {c c c }
+0 & -\theta &  dt_{x} \\
+\theta & 0 & dt_{y} \\
+0& 0 & 1
+\end{array}
+\right )
+\mid
+\theta \in  [0, 2\pi), (tx, ty) \in\mathbf{R}^2
+\right \}
+\end{align*}
+Expressing $r\in SE(2)$ as:
+\begin{align*}
+\mathbf{r} = 
+\left (
+\begin{array} {c c }
+R(\theta) & t \\
+0 & 1 
+\end{array}
+\right )
+\qquad
+R(\theta) \in SO(2) 
+\quad
+t \in \mathbb{R}^{2}
+\end{align*}
+for $t$ plane translation and $R(\theta)$ in $SO(2)$, then the element of the Lie algebra can be expressed as:
+\begin{align*}
+d\mathbf{r} 
+= 
+\left (
+\begin{array} {c c }
+dR(\theta) & dt \\
+0 & 1 
+\end{array}
+\right )
+\qquad
+R(\theta) \in SO(2) 
+\quad
+t \in \mathbb{R}^{2}
+\end{align*}
+Both $SE(2)$ and $\mathfrak{se}(2)$ are in bijective correspondence with $\mathbb{G}$, and both are subset of the bigger algebra of, The algebra $\mathfrak{se}(2)$ do not form a group with the operation of composition, but it is provided with the lie bracket defined by the commutator:
+\begin{align*}
+[d\mathbf{r}, d\mathbf{s}] = d\mathbf{r} d\mathbf{s} - d\mathbf{s} d\mathbf{r}
+\end{align*}
+The Lie logarithm between Lie group and Lie algebra is given by:
+\begin{align*}
+\log : \mathfrak{se}(2) & \longrightarrow SE(2)
+\\
+\left (
+\begin{array} {c c }
+R(\theta) & t \\
+0 & 1 
+\end{array}
+\right )
+&\longmapsto  
+\left (
+\begin{array} {c c }
+dR(\theta) & dt \\
+0 & 1 
+\end{array}
+\right )
+\end{align*}
+Where 
+\begin{align*}
+dR(\theta) = 
+\left (
+\begin{array} {c c }
+0 & -\theta \\
+\theta & 0 
+\end{array}
+\right )
+\end{align*}
+and $dt = L(\theta)t$ for 
+\begin{align*}
+L(\theta) = 
+\frac{\theta}{2}
+\left (
+\begin{array} {c c }
+\frac{\sin(\theta)}{1-\cos(\theta)} & 1 \\
+-1 & \frac{\sin(\theta)}{1-\cos(\theta)}
+\end{array}
+\right )
+\end{align*}
+The inverse function, Lie exponential is given by:
+\begin{align*}
+\exp : SE(2) & \longrightarrow \mathfrak{se}(2) 
+\\
+\left (
+\begin{array} {c c }
+dR(\theta) & dt \\
+0 & 1 
+\end{array}
+\right )
+&\longmapsto  
+\left (
+\begin{array} {c c }
+R(\theta) & t \\
+0 & 1 
+\end{array}
+\right )
+\end{align*}
+where $t = L(\theta)^{-1}dt$ for 
+\begin{align*}
+L(\theta)^{-1} = 
+\frac{1}{\theta}
+\left (
+\begin{array} {c c }
+\sin(\theta) & -(1-\cos(\theta)) \\
+(1-\cos(\theta)) & \sin(\theta)
+\end{array}
+\right )
+\end{align*}
+The proposed exponential function is not well defined over all $\mathfrak{se}(2)$.\\
+In fact the elements of $\mathbb{G}$ can be identified with no risk with their matrices, while the same thing do not happen for the element of the Lie algebra $\mathfrak{g}$ of $\mathbb{G}$. 
+If we formalize the passage between $\mathfrak{g} $ and $\mathfrak{se}(2)$ with the function:
+\begin{align*}
+\rho_{\mathfrak{g}} : \mathfrak{g} &\longrightarrow  \mathfrak{se}(2)\\
+(\theta, dtx, dty) 
+& \longmapsto
+\left (
+\begin{array} {c c c }
+0 & -\theta & dtx \\
+\theta & 0 & dty\\
+0 & 0 &  1
+\end{array}
+\right )
+\end{align*}
+it is not an injection if we do not restrict its domain. In addition, given two elements $(\theta_{0}, dtx_{0}, dty_{0})$ and $(\theta_{1}, dtx_{1}, dt_{1})$ in $\mathfrak{g}$, with $\theta_{1}\neq 0$, we have that for each $k\in \mathbb{Z}$, if
+\begin{align*}
+\theta_{0} = \theta_{1} + 2k\pi
+\end{align*}
+and
+\begin{align*}
+(dtx_{0}, dty_{0}) =  \frac{\theta_{0}}{\theta_{1}} (dtx_{1}, dty_{1})
+\end{align*}
+then 
+\begin{align*}
+\exp(\theta_{0}, dtx_{0}, dty_{0}) = \exp(\theta_{1}, dtx_{1}, dty_{1})
+\end{align*}
+The exponential is then well defined only on the quotient of $\mathfrak{g}$ over the relation $\sim$, defined by
+\begin{align*}
+(\theta_{0}, dtx_{0}, dty_{0}) \sim (\theta_{1}, dtx_{1}, dt_{1}) 
+\iff 
+\exp(\theta_{0}, dtx_{0}, dty_{0}) = \exp(\theta_{1}, dtx_{1}, dt_{1})
+\end{align*}
+The quotient set $\mathfrak{g}/\sim$ coincides the neighborhood $U$ of the identity on which the function $\rho_{\mathfrak{g}}$ becomes an injection
+\begin{align*}
+\rho_{\mathfrak{g}/\sim} : \mathfrak{g} &\longrightarrow  \mathfrak{se}(2)
+\end{align*}
+and $\exp$ is a bijection having $\log$ as its inverse.
+What said so far can be summarize in the following commutative diagram:
+
+\[
+\begindc{\commdiag}[40]
+\obj(-20,15)[g_sim]{$\mathfrak{g}/\sim$}
+\obj(20,15)[u]{$U \subset \mathfrak{se}(2) $}
+
+%leftside
+\obj(-35,30)[g]{$\mathfrak{g}$}
+\obj(-35,0)[G]{$\mathbb{G}$}
+
+%rightside
+\obj(35,30)[se]{$\mathfrak{se}(2)$}
+\obj(35,0)[SE]{$SE(2)$}
+
+% central
+\mor{g_sim}{u}{$\rho_{\mathfrak{g}/\sim}$}  %[\atright,\injectionarrow]
+% oblique left 
+\mor{g}{g_sim}{$\pi$}
+\mor{g_sim}{G}{$\exp$}
+% oblique right
+\mor{u}{se}{} [\atright,\injectionarrow]
+\mor{u}{SE}{$\exp$}
+% horizontal
+\mor{g}{se}{$\rho_{\mathfrak{g}}$} 
+\mor{G}{SE}{$\rho_{\mathbb{G}}$}
+% vertical
+\mor{SE}{se}{$\log$} 
+\mor{G}{g}{$\log$}
+
+\enddc
+\]
+
+%% vect function for Lie algebra: vectorization
+%The vectorization map transform each matrix $A = \{a_{i,j}\}$ of $M_{3}(\mathbb{R})$ in a $n\times n$ dimensional vector:
+%\begin{align*}
+%\text{vect} : M_{3}(\mathbb{R}) & \longrightarrow  \text{rbt} 
+%\end{align*}
+%%
+%%Its restriction is an isomorphism between $\text{rbt} $ and $SE(2) $ are isomorphic through the restriction of the vectorization map
+%%\begin{align*}
+%%\text{vect}_{r} : \mathfrak{se}(2) & \longrightarrow  \text{rbt} 
+%%\\
+%%\left (
+%%\begin{array} {c c c }
+%%0 & 0 &  1\\
+%%\cos(\theta) & - \sin(\theta)& t_{x} \\
+%%\sin(\theta) & \cos(\theta) & t_{y}
+%%\end{array}
+%%\right )
+%%&\longmapsto  (\theta, t_{x}, t_{y}) 
+%%\end{align*}
+% two doors to going from the lie group to the lie algebra
+
+We can see that the function $\rho_{\mathfrak{g}}$ is the inverse of a restriction of the general vectorization function that aligns column vector in a single vector. This will be particularly useful for our purposes.
+
+
+
+\subsubsection{Matrix Vectorization}\label{subse:vectorization}
+
+\noindent
+xxx this part must be set after subsection 2.5 is done, to avoid repetitions and circular properties!
+
+\noindent
+We can see that the function $\rho_{\mathfrak{g}}$ is the inverse of a restriction of the general vectorization function that aligns column vector in a single vector:
+\begin{align*}
+\text{Vect} : M_{3}(\mathbb{R}) & \longrightarrow \mathbb{R}^{3\times 3}  \\
+[A_1 \big| A_2  \big| A_3]
+&\longmapsto  
+(A_1^{t}, A_2^{t} , A_3^{t})
+\end{align*}
+Thanks to this adjoint action can be defined as an action over 
+The vectorization, in combination with Lie bracket, Kronecker product, adjoint action and adjoint map, satisfies the following properties:
+\begin{itemize}
+	\item $\text{Vect} ([M,X]) =  (I\otimes M - M^{t}\otimes I)\text{Vect} (X) $
+	\item $\text{Vect} ([X,M]) = (M^{t}\otimes I - I\otimes M)\text{Vect} (X) $
+\end{itemize}
+
+These are still valid for its restriction 
+\begin{align*}
+\text{Vect}^{\sim} : M_{3}(\mathbb{R}) & \longrightarrow \mathbb{R}^{3}\\
+[A_1 \big| A_2  \big| A_3]
+&\longmapsto  
+(a_{2,1}, a_{3,1}, a_{3,2})
+\end{align*}
+that respects the Lie group operations between the restricted representation $\mathfrak{g}$ and the matrix representation $SE(2)$:
+
+
+and will be used in the next subsection to compute the log composition.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Close Formula for the Log-composition}
+In the finite-dimensional case, investigate here the log-composition can be computed with a close formula:
+\begin{align*}
+d\mathbf{r}_{1}\star d\mathbf{r}_{2} =  \log(\exp(d\mathbf{r}_1)\circ \exp(d\mathbf{r}_2)) 
+\end{align*}
+which results
+\begin{align*}
+d\mathbf{r}_{1}\star d\mathbf{r}_{2} 
+= 
+xxx \text{On some lost paper... to be computed again!}
+\end{align*}
+
+
+\subsection{Taylor Approximation to compute the Log-composition}
+
+We can apply the Taylor expansion formula for the computation of the affine log-composition to matrices in $SE(2)$.
+From previous subsection we have:
+\begin{align*}
+\mathbf{u}\star \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
+\qquad
+\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
+\end{align*}
+Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
+
+
+
+\subsection{Parallel Transport to compute the Log-composition}
+
+
+
+
+\subsection{Log and Exp Approximations for little rotations}
+Computations of logarithm and exponential obtained so far are a consequence of these formula:
+\begin{align*}
+\exp(\mathbf{r}) = \sum_{k=0}^{\infty} \frac{\mathbf{v}^{k}}{k!}
+\qquad 
+\log(\mathbf{r}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k!}
+\end{align*}
+Remarkably, infinite series of elements of a group (whose sum is not even defined within the group structure) is an element into an associated algebra, while another infinite series of matrices of the algebra appears to be the natural way to going backward. A second door to passing from one structure to the other, when $\mathbf{r}$ is little appears to be the following approximation:
+\begin{align*}
+\exp(\mathbf{r}) \simeq I + \mathbf{r} 
+\qquad 
+\log(d\mathbf{r}) \simeq d\mathbf{r} - I
+\end{align*}
+In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta)^{-1} \simeq I$. \\
+xxx this may deserve an investigation about the errors in the approximations error!
+
+
+
+
+\section{The Set of Stationary Velocity Fields}\label{ch:svf}
+
+\begin{flushright}
+	\emph{Accurate reckoning: the entrance into knowledge of all existing things and all obscure secrets.\\
+		- Ahmes, 1800 B.C.}
+\end{flushright}
+
+The set of diffeomorphisms can be seen as an infinite dimensional Lie group. For these reasons xxx we reduce the set of transformation to the SVF. This has the following positive consequences xxx and it has been applied in xxx . Nevertheless reducing the set of transformation to the SVF has bring new issues and challenges xxx - limitations - 
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Set and Set Only}\label{se:svf_set}
+Let $\Omega$ be an open connected subset of $\mathbb{R}^d$ containing the origin.  We define $\text{Diff}(\Omega)$ the infinite dimensional Lie group of diffeomorphism over $\Omega$ with neutral element $\text{e}$:
+\begin{align*}
+\text{Diff}:= \lbrace f:\mathbb{R}^d \longrightarrow \mathbb{R}^d \mid \text{ diffeomorphism } \rbrace
+\end{align*}
+xxx Short non-formal part about recognizing $\text{Diff}(\Omega)$ as a Lie group. Banach manifold and Frechet manifold. What does imply the naive theory of infinite dimensional manifold.
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Some Tools for the Infinite Dimensional Case}
+
+It can be proved that the Lie algebra of $\text{Diff}(\mathbb{R}^{d})$ is isomorphic to the Lie algebra of the vector field over $\mathbb{R}^{d}$.
+\begin{align}\label{eq:mainaimliealgebra}
+Lie(\text{Diff}(\mathbb{R}^{d})) = \mathcal{V}(\mathbb{R}^{d})
+\end{align}
+To Visualize the meaning of this isomorphism we can consider the following diagram:
+
+\[
+\begindc{\commdiag}[40]
+%
+\obj(0,22)[TR1]{$T_{\mathbf{0}}\mathbb{R}^{D}$}
+\obj(30,22)[TR2]{$T_{\rho(\mathbf{0})}\mathbb{R}^{D}$}
+%
+\obj(0,0)[R1]{$\mathbb{R}^{D}$}
+\obj(30,0)[R2]{$\mathbb{R}^{D}$}
+\obj(-20,0)[R]{$\mathbb{R}$}
+%
+\obj(30,-20)[Rlow]{$\mathbb{R}$}
+
+
+%orizzontali
+\mor{TR1}{TR2}{$\rho_{\star}$}
+\mor{R1}{R2}{$\rho$}
+\mor{R}{R1}{$\gamma$}
+%verticali
+\mor{TR1}{R1}{}%[1,1]
+\mor{TR2}{R2}{}%[1,1]
+\mor{R2}{Rlow}{$f$}%[1,1]
+%oblique
+\mor{R}{TR1}{$\gamma'(0)$}[1,1]
+\mor{R}{TR2}{$(\rho\circ\gamma)'(0)$}[2,1]
+\mor{R1}{Rlow}{$f\circ \rho$}[1,1]
+
+\enddc
+\]
+
+\vspace{0.4cm}
+
+where $(\rho_{\star})_{\mathbf{0}}$ is the push forward of $\rho$, defined as follows: 
+\begin{align*}
+\rho_{\star} : T_{\mathbf{0}} \mathbb{R}^{D} & \longrightarrow  T_{F(\mathbf{0})}\mathbb{R}^{D}   
+\\
+\mathbf{v}  &\longmapsto  \rho_{\star} \mathbf{v}  : \mathcal{C}^{\infty}(\mathbb{R}^{D})  \longrightarrow   \mathbb{R} 
+\\
+& \qquad \qquad \qquad \quad f \longmapsto \rho_{\star} \mathbf{v}f 
+:= 
+\mathbf{v}(f\circ \rho) 
+\end{align*}
+We can consider the first floor of the diagram as the group of diffeomorphism of $\mathbb{R}^{d}$ and the second floor of the diagram as the algebra of  the continuous function from $\mathbb{R}^{d}$ to $\mathbb{R}^{d}$. 
+For $\rho \in \text{Diff}(\mathbb{R}^{D})$ and $\gamma : (-\eta,\eta) \rightarrow \mathbb{R}^{D}$ such that $\gamma(0) = \mathbf{0}$, then $(\rho\circ \gamma)'(0)$ belongs to $T_{\rho(\mathbf{0})}\mathbb{R}^{D}$ and $(\rho_{\star})$ is a continuous function from $\mathbb{R}^{D}$ to $\mathbb{R}^{D}$ and belongs to $\text{Lie}(\text{Diff}(\mathbb{R}^{D}))$.
+
+
+\begin{lemma}[existence]\label{le:existencelemma}
+	Be $p \in \text{Diff}(\mathbb{R}^{d})$, then exists a $\mathbf{v}$ in the Lie algebra $\mathcal{V}(\mathbb{R}^{d})$, such that 
+	\begin{align*}
+	\euclideanMetric{p - \exp(V)} < \delta
+	\end{align*}
+	for some $\delta$ and for some metric in $\text{Diff}(\mathbb{R}^{d})$.
+\end{lemma}
+\begin{proof}
+	Investigate a proof to define $\delta$.
+\end{proof}
+%
+\begin{lemma}[identity lemma]\label{le:idlemma}
+	Be $p\in \text{Diff}(\mathbb{R}^{d})$, such that $p= \exp(\mathbf{v} )$ for some $\mathbf{v} \in\mathfrak{g}$. Then
+	\begin{align*}
+	\exp(-\mathbf{v} )\circ p = p \circ \exp(-\mathbf{v} ) = e
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	\begin{align*}
+	\exp(-\mathbf{v})\circ p = \exp(-\mathbf{v})\circ \exp(\mathbf{v}) =  \varphi_{1}\varphi_{-1} = \varphi_{0} = e \\
+	p \circ \exp(-\mathbf{v}) = \exp(\mathbf{v})\circ \exp(-\mathbf{v}) =  \varphi_{-1}\varphi_{1} = \varphi_{0} = e
+	\end{align*}
+\end{proof}
+%
+%\begin{lemma}
+%	If $p$ is an element of $\text{Diff}(\mathbb{R}^{d})$ defined as before, then $p$ belongs also to the Lie algebra $\mathfrak{g}$. 
+%\end{lemma}
+%\begin{proof}
+%	As done for the proof of the property \ref{pr:matrixLiealgebra} we can consider the path
+%	\begin{align*}
+%	\gamma : [0,1] & \longrightarrow  \mathbb{G} \\
+%	t &\longmapsto I+tg
+%	\end{align*}
+%	as the path joining $Id$ and $g\in \mathbb{G}$, it follows
+%	\begin{align*}
+%	\frac{d }{dt}(Id+tg)~\Bigr|_{t = 0}  = g \in \mathbb{G}
+%	\end{align*}
+%	TO BE VERIFIED!
+%\end{proof}
+
+\begin{prop}\label{le:taylorlemma}
+	If $\mathbf{v} $ is close to the origin $\exp(\mathbf{v} )$ can be numerically approximated with:
+	\begin{align*}
+	\exp(\mathbf{v} ) = e + \mathbf{v} 
+	\end{align*}
+\end{prop}
+\begin{proof}
+	xxx !!
+\end{proof}
+
+
+
+xxx Exp and Log function in the infinite dimension case
+
+xxx we can not express the $\exp$ function using the Taylor expansion in the infinite dimensional Lie group $\text{Diff}(\Omega)$. We define it as an unknown function with some features related to the 1-parameter subgroup structure over $\mathbb{G}$:
+% definition of exp an log in the infinite case!
+We define $\exp$ function as
+\begin{align*}
+exp : \mathfrak{g} & \longrightarrow  \mathbb{G}   \\
+\mathbf{v} &\longmapsto \exp(\mathbf{v}):= \gamma(1)
+\end{align*}
+The following properties are satisfied:
+\begin{enumerate}
+	\item $\exp$ is well defined and surjective (at least near 0).
+	\item If $\exp(\mathbf{v}) = \gamma(1)$ then $\exp(t\mathbf{v}) = \gamma(t)$.
+	\item It satisfies the one parameter subgroup property.
+	\item It satisfies the differential equation
+	\begin{align*}
+	\frac{d}{dt} \exp(t\mathbf{v})~\Bigr|_{t=0} = \mathbf{v}
+	\end{align*}
+\end{enumerate}
+
+We observe that $\exp$ respects the one parameter subgroup structure of the Lie group $\mathbb{G}$: stretching the tangent vector $\mathbf{v}$ by a parameter $t$, the same stretch is reflected in $\exp(V)$ along the same integral curve.\\ 
+In addition exp respect the 1-parameter subgroup structure:
+\begin{align*}
+\exp((t+s)\mathbf{v}) = \varphi_{t+s} = \gamma(t+s) \qquad \forall t,s \in \mathbb{R}
+\end{align*}
+moreover, if two elements $p_1 , p_2$ of $\mathbb{G}$ belongs to integral curve passing in $e$ of the same integral curve defined by $\mathbf{v}$, their log function are a vectors having the same direction:
+\begin{align*}
+p_1 = \gamma(t_1), ~ p_2 = \gamma(t_2) \Rightarrow \exists \mathbf{v} \in \mathfrak{g}, ~ \lambda \in \mathbb{R}\mid \log(p_1) = \mathbf{v} , ~ \log(p_2) = \lambda \mathbf{v}
+\end{align*}
+
+It follows that for a fixed $t \in \mathbb{R}$ and $\gamma(t) = \exp(\mathbf{v} )$ for some $\mathbf{v} $ in $left\mathfrak{X}(\mathbb{G})$, then $\gamma(1) = \exp(\frac{1}{t}\mathbf{v})$.
+
+xxx Issue related to the image of exp for stationary velocity fields in the finite dimensional case. define $\text{Diff}_{s}(\Omega)$ as the subset of $\text{Diff}(\Omega)$ defined by the images of exp from the tangent space to the Lie group.
+
+
+xxx We define $log$ function as
+\begin{align*}
+log : \mathbb{G} & \longrightarrow  \mathfrak{g}    \\
+g &\longmapsto log(g)
+\end{align*}
+such that for $p$ in $\mathbb{G}$ we have $\exp(log(p)) = p$ when $log(p)$ is defined.
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{SVF in Practice}
+
+Three main definitions around which the whole theory of diffeomorphic image registration gravitate are introduced in this subsection. \\
+xxx Define here displacement and deformation.\\
+% time dependent vector space
+xxx the set of time dependent spatial transformation. We can express it as the set of continuous functions from $\Omega$ to $\mathbb{R}^{d}$ depending on a real parameter in $T\subseteq \mathbb{R}$:
+\begin{align*}
+\mathcal{V}_{T}(\mathbb{R}^{d}) = \mathcal{V}_{T} := \lbrace V : \Omega \times T &\longrightarrow \mathbb{R}^d \mid \text{ continuous } \rbrace 
+\end{align*}
+its elements are called \emph{time varying velocity field} (TVVF) and can be expressed as
+\begin{align*}
+V(\mathbf{x},t) = \sum_{i=1}^{d} v_{i}(\mathbf{x},t) \frac{\partial}{\partial x_{i}}~\Bigr|_{\mathbf{x}} 
+\qquad 
+\quad 
+v_{i} \in \mathcal{C}^{\infty} (\Omega \times T)
+\end{align*}
+In case $V(\mathbf{x},t) = V(\mathbf{x},s)$ for all $s,t$ real, then $V$ is a \emph{stationary velocity field} (SVF), and the set of the stationary velocity field, second item presented in this subsection, is defined as
+\begin{align*}
+\mathcal{V}(\mathbb{R}^{d}) = \mathcal{V} := \lbrace V : \Omega &\longrightarrow \mathbb{R}^d \mid \text{ continuous } \rbrace 
+\end{align*}
+Their elements can be expressed as 
+\begin{align*}
+V(\mathbf{x}) = V_{\mathbf{x}} = \sum_{i=1}^{d} v_{i}(\mathbf{x}) \frac{\partial}{\partial x_{i}}~\Bigr|_{\mathbf{x}} \qquad \quad v_{i} \in \mathcal{C}^{\infty} (\Omega)
+\end{align*}
+While $\mathcal{V}$ and $\mathcal{V}_{T}$ are Lie algebra, $\text{Diff}$ is a Lie group with the operation of composition.\\
+
+% particle free to move over the manifold 
+If we imagine a particle starting at the point $\mathbf{x}$ of $\Omega \subseteq \mathbb{R}^{d}$ at time $0$, with velocity vector for each instant of time given by $V(\mathbf{x},t)$, then its trajectory $\gamma = \gamma(t)$ is determined by the ODE:
+\begin{align*}
+\frac{d\gamma}{dt} = V(\mathbf{x},t)
+\end{align*}
+In case $V(\mathbf{x},t)$ is a stationary velocity field the equation is \emph{stationary} or \emph{autonomous}.
+%Another application of the Cauchy theorem for a single fixed vector lead to the following lemma, that will be useful in the consequent subsections
+%\begin{lemma}\label{le:vector_curves_corresp}
+%	Be $\mathbf{v} = (v_{1}, \dots , v_{D})$ vector in $\Omega \subseteq\mathbb{R}^{d}$, then for some $\eta > 0$ exists a curve over $\mathbb{R}^{D}$ of class $\mathcal{C}^{1}(-\eta,\eta)$
+%	\begin{align*}
+%	\gamma : (-\eta,\eta) &\longrightarrow \mathbb{R}^{D} 
+%	\end{align*}
+%	such that $\gamma(0) = \mathbf{0}$ and $\dot{\gamma}(0) = \mathbf{v} $
+%\end{lemma}
+%\begin{proof}
+%	Considering the vector $\mathbf{v}$ as the constant function (continuous and satisfying the Lipschitz condition), we can apply the theorem of existence of a solution for the following Cauchy problem
+%	\begin{equation*}
+%	\begin{cases}
+%	\dot{\gamma}(t) = \mathbf{v} \\
+%	\gamma(0) = \mathbf{0}
+%	\end{cases}
+%	\end{equation*}
+%	whose result is the curve $\gamma$ we where searching for.
+%\end{proof}
+
+\noindent
+xxx if $V^{(t)} = V^{(s)}$ for all $s,t$ real, then we call this vector field \emph{stationary velocity field} (SVF), otherwise are called \emph{time varying velocity field} (TVVF).\\
+xxx The set of the SVF can be expressed as
+\begin{align*}
+\text{SVF} := \lbrace \varphi_{t}(e) \mid t \in \mathbb{R}, \dot{\varphi}_{t}(e) = V_{\varphi_{t}(e)},  V \in \mathfrak{V}(\Omega) \rbrace
+\end{align*}
+(note that in this way $V$ is not an element of the Lie algebra!! We should have said $V \in left\mathfrak{V}(\text{Diff})$).\\
+xxxWe know that SVF are geodesics-complete if a norm over $\text{diff}$ is defined, while SVF are not complete. $\varphi_{t}(e)$ do not spans $\text{Diff}$ i.e. for each point of $\text{Diff}$ may not always pass an integral curve of a left-invariant vector field over $\text{Diff}$. We will consider only the element of $\text{Diff}$ of the form $\varphi_{t}(e)$. We assume also that each vector field is complete. (THIS MUST BE INVESTIGATED LATER!)\\
+xxxThanks to the Dini theorem we have that a SVF can be considered locally as an element of a local expression of $\text{Diff}$.
+Moreover to each spatial transformation vector field corresponds an element of the one parameter subgroup of local transformation over $\mathbb{R}^2$ (not sure...).\\
+
+xxx practical aspects, discretization, structure as they are considered into the practical side!
+
+
+% %
+% \begin{lemma}\label{le:D1equalsD}
+%  Given $\varphi_{t}^{\alpha}(e)$, for each $t \in \mathbb{R}$ exists $V^{\beta} \in left\mathfrak{X}(\mathbb{G})$ such that 
+%  \begin{align*}
+%    \varphi_{t}^{\alpha}(e) = \varphi_{1}^{\beta}(e) 
+%  \end{align*}
+% \end{lemma}
+% %
+% Immediate consequence of the previous lemma is:
+% \begin{prop}
+% Using the above definitions, it follows that
+%  \begin{align*}
+%   Diff_{1} = \mathbb{G}
+%  \end{align*}
+% \end{prop} 
+% We defined $Diff_{1}$ in order to reflect the lenght of the vectors in $\mathfrak{g}$ immediately over $\mathbb{G}$. This lead to have a sraight correspondence between vectors in the Lie algebra and elements in the Lie group, that we will investigate in the next subsection.
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%\subsubsection{Metrics in $\text{Diff}(\Omega)$}
+%Relying on the Lie algebra tangent structure it is possible to define a family of metrics in the Lie group as follows:
+%\begin{align*}
+%\text{dist}(p,q) := \euclideanMetric{\mathbf{u}  - \mathbf{v} }_{\mathfrak{g}}
+%\end{align*}
+%$(\text{Diff}(\Omega), \text{dist})$ is a metric space. For the finite dimensional case if $\mathfrak{g}$ is complete then $(Diff, dist)$ is complete (.... investigate the if it is complete even in the infinite dimensional case!).\\
+%It is possible to define sum in the Lie group, compatible with the metric using the sum in the Lie algebra and the function exp and log.
+%	\begin{align*}
+%	\odot : \text{Diff}(\Omega) \times \text{Diff}(\Omega) & \longrightarrow  \text{Diff}(\Omega)    \\
+%	(p, q) &\longmapsto \exp(log(p) + log(q))
+%	\end{align*}
+%	Note that $log(p) + log(q)$ is an element of the Lie algebra$\mathfrak{g}$ while  $\exp(log(p) + log(q))$ is in $\mathbb{G}$. Following properties hold
+%
+%	\begin{enumerate}
+%		%
+%		\item $\odot$ is well defined.
+%		%
+%		\item Closure of $\odot$ under inverse element: if $p \in \mathbb{G}$ then $p^{-1} \in \mathbb{G}$.
+%		%
+%		\item Distance is inversion invariant:
+%		\begin{align*}
+%		\text{dist}(p,q) = dist(p^{-1},q^{-1})
+%		\end{align*}
+%		%
+%		\item Distance is invariant under $\odot$:
+%		\begin{align*}
+%		\text{dist}(p,q) = dist(p \odot r,q \odot r)
+%		\end{align*}
+%		%
+%		\item The distance is not invariant under the composition of group structure of $\mathbb{G}$:
+%		\begin{align*}
+%		\text{dist}(p,q) \neq dist(p\circ r,q \circ r)
+%		\end{align*}
+%		%
+%	\end{enumerate}
+%	%
+
+

@@ -1,15 +1,49 @@
+\chapter{Introduction and Framework}\label{ch:introduction}
 
-\chapter{Image Registration Framework}\label{se:registration_framework}
 
-\begin{flushright}
-	\emph{Play only the neccessary notes. The other, try not to play them. \\ -João Gilberto}
-\end{flushright}
+This part is devoted to...!
 
+
+\section{Motivations}
+
+Two instruments from Machine Vision and Image Processing are mostly utilized in Medical Imaging to reveal internal features and compare anatomies: segmentation and registration. Segmentation consists in enhance contours, detect edges and reveal hidden structure while registration is the process of determining correspondences between two or more images acquired from patients scans.\\
+Dealing with image registration problem means search for a solution to an ill-posed prob- lem. Transformations between anatomies are not unique, and the impossibility of recover the spatial or temporal evolution of a anatomical transformation from temporally isolated images, makes any validation a difficult, if not impossible task. Among all of the possible voxelwise mappings that transform one image into another, interest may vary according to the requirements of each specific clinical situation\footnote{A recent survey in medical image registration can be found in \cite{Sotiras:survey:13}.}.\\
+%
+%%\section*{Toward an Ill Posed Problem Solution}
+%Two instruments from compute vision and image processing are mostly utilized in Medical Imaging to reveal internal features and compare anatomies: image segmentation and image registration. %appears as the most natural tools in the investigation of patients' anatomies and physiologies. \\
+%Segmentation consists in enhancing contours, detecting edges and revealing hidden structure, while registration is the process of determining spatial transformations between two or more images acquired from patients scans. Examples of such transformations are  Each spatial transformation is identified by specific set of parameters whose dimensionality depends on the complexity of the registration problem.\\
+%Among all of the possible voxelwise transformations that maps one image into another, interest may vary according to the requirements of each specific clinical situation\footnote{A recent survey in medical image registration can be found in \cite{Sotiras:survey:13}.}. \\
+%
+%% Intra patient and inter patient.
+%
+%In both cases, dealing with image registration problem means searching for a solution to an ill-posed problem. Indeed, transformations between anatomies are not unique, and the impossibility of recovering the spatial or temporal evolution of an anatomical transformation from a succession of images, makes any validation a difficult, if not impossible task. 
+%
+%
+In brain imaging, for example, registration can be performed to examine differences between subjects and distinguish affected from unaffected patients. This often results in a better understanding of the disease's features. Another case may require to compare different acquisition of the same subject, before and after a surgery or after a fixed period of time: in each case parameters and features of the transformation are completely different.
+Customized registration techniques are required also when dealing with distortion motion correction caused by cardiac pulses or respiratory cycles, or for the mosaicing of several images acquired with a limited field of view, for example through a optical fiber probe.
+Also the correction of motion distortion in image's acquisition phase, the mosaicing of several images or the construction of the model of cardiac and respiratory motion require customized image registration techniques.\\
+Any approach is therefore varied and flexible: this led to a wide range of variants that has been proposed by researchers in the last decades\footnote{A quick glance to Google scholar reveals about $1200000$ papers in \emph{medical image registration} (55\% of the whole \emph{image registration} resources).}.\\
+There are several features that distinguish image registration's algorithms, but the most relevant it is the choice of the family to whom the transformation belongs. Since anatomies are in a continuous process of modification over time, in general without any variation in the topological features, the use of diffeomorphisms to model transformation appears one of the most natural.\\
+Continuous nature of these functions appears to be in contrast with the discrete nature of voxel images as well as with any computer's parametrization ability.\\
+The approach of modeling with richer structure for simpler elements is actually very common even in everyday math: for example when measuring the diagonal of a $1$ meters side squared table. The decimal unlimited non periodical $\sqrt{2}$ doesn't help until we don't consider it as an answer belonging to a larger-than-reality mathematical structure: computations and theorem (as the Pythagorean one) are well defined and meaningful.\\ 
+The simple structure of a raster image as 3-dimensional matrix is really limited if compared to the continuous object they represent. Modeling with continuous function provides a structure that reflects the object's reality. In addition enable us to apply mathematical features from differential geometry and dynamical system theory.\\
+The first idea of using smooth and continuous function for image registration goes back to the idea of using the Navier-Cauchy partial differential equation to model the deformation of images as two balancing forces applied to an elastic body \cite{Broit:1981}. The solution's domain restriction to diffeomorphisms for the solution of the Lagrange transport equation for medical imaging registration appears in \cite{Dupuis:98:variationalproblems} and \cite{Trouve:98}, and with his many variants is an active subject of study for research in mathematic applied to medical imaging.
+An important framework for the computation of image registration of diffeomorphism is provided by the Large Deformation Diffeomorphic Metric Mapping (LDDMM). Here diffeomorphisms are parametrized as ending point of integral curves of vector field on the Lie group of diffeomoprhism equipped with a Riemannian metric \cite{dupuis1998variational}, \cite{beg2005computing}. In this framework, solid mathematical foundations are payed in term of computational complexity. Aimed to solve this issue, different parametrization of diffeomorphisms, as Stationary Velocity Fields \cite{arsigny2006statistics} has been embedded in the LDDMM framework. This approach gave birth to the DARTEL \cite{Ashburner:07} and the Stationary LDDMM \cite{hernandez2007registration}. Starting from the Tririon's DEMON algorithm \cite{thirion1998image}, a different framework for diffeomorphic image registration was presented as Diffeomorphic Daemon \cite{vercauteren2007non} and the LCC-daemon \cite{lorenzi2013lcc} . A comparison between stationary LDDMM and Diffeomorphic Demons with emphasis in both theoretical and practical aspects can be found in \cite{hernandez2008comparing}. \\
+The theme of diffeomorphism do not recurs only in medical application but it is a continuously improved subject of research also theoretical studies as \cite{Milnor:84:remarks}, \cite{bauer2011geodesic}, \cite{bauer2010sobolev} or studies applied to other domains of science \cite{Arnold:Khesin:14} \cite{ovsienko1992integrals}. Geometry remains an important underpinning structure for many achievement in medical imaging and advanced researches are actively utilized for applications.\\
+from the necessity of having statistics to infer the variability of anatomical structure while performing image registration, bring the field of Patter Analysis from Machine Vision to Medical Imaging, with the name of Computational Anatomy (cite survey computational anatomy). 
+Statistics on diffeomorphisms are introduced using a metric space defined over the Lie algebras of the Lie group of diffeomorphisms: this idea took the name of log-euclidean framework. Proposed for the first time in 2004 and refined in by the same authors in 2006 \cite{Arsigny:MRM:06}, as a faster improvement to the affine invariant Riemannian approach, has found successful applications in many domains of medical imaging (in vivo mosaicing \cite{Vercauteren:PHD:08}, brain Alzheimer detection \cite{Lorenzi:PhD:12}, cardiac image analysis \cite{Mansi:IJCV:11}, mandible imaging using polyaffine registration \cite{Seiler:MICCAI:11}) and has been continuously improved.\\
+Thus the use of diffeomorphisms brings several aspect to be studied and to consider in their utilization:
+theoretical research, their practical utilization, their study in statistical analysis and in the anatomical deformations' evolutions.\\
+In this thesis we investigate some numerical methods to compute their composition in the log-euclidean framework aimed to the diffeomorphic image registration. Numerical computations are performed using parallel transport and accelerating convergence series, and are compared with the currently used BCH formula, keeping into account theoretical and practical aspects of the matter.
+
+
+
+\section{Image Registration Framework}\label{se:registration_framework}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Introductory Definitions}
+\subsection{Introductory Definitions}
 A \emph{$d$-dimensional image} is a continuous function from a subset $\Omega$ of the coordinate space $\mathbb{R}^{d}$ (having in mind particular cases $d=2,3$) to the set of real numbers $\mathbb{R}$. Given two of them, $F : \Omega_{F}  \rightarrow\mathbb{R} $ and $M : \Omega_{M}  \rightarrow\mathbb{R} $, called respectively \emph{fixed image} and \emph{moving image}, the \emph{image registration problem} consists in the investigation of features and parameters of the transformation function
 \begin{align*}
 \varphi :\mathbb{R}^{d} \supseteq \Omega_{F} & \longrightarrow \Omega_{M}\subseteq \mathbb{R}^{d}   \\
@@ -47,7 +81,7 @@ Other two degrees of freedom are optimization algorithm on which the optimizer i
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Iterative Registration Algorithm}
+\subsection{Iterative Registration Algorithm}
 
 The definition of registration problem and the iterative algorithm described raise several issues. For example there are no reasons to believe that such a correspondence is unique and that there is at least one of them whose behaviour corresponds to a reasonable biological transformation between anatomies. One way to deal with this problem is tp add some constraints on the transformation $\varphi$, such that it models realistic changes that can occur in biological tissues. The kind and quality of the constraints are one of the feature that distinguish registration algorithms one from the other. \\
 Conscious of the risk involved in any rigid classification, in particular when about rapidly evolving fields, we can see the image registration framework as a device with some knobs, each with its range:
@@ -86,7 +120,7 @@ Recent surveys in image registration can be found in \cite{Sotiras:survey:13} an
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % %  SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Using Diffeomorphisms: Utility and Liability}
+\subsection{Using Diffeomorphisms: Utility and Liability}
 
 Idea of using diffeomorphisms can originate from two different perspective: if we imagine motion of captured images as motion of a fluid, we will start to approach the model using fluid dynamics; if we image motion as optical flow we will rely on differential geometry. Remarkably medical imaging application reveals common aspects of both underpinning theories, and requires some more since the discrete nature of actual input and output.\\
 If we consider the rigid body transformation from classical mechanics, our transformations will be elements in $SE(3)$, the Lie group defined by combination of spatial rotations and translations. Five degrees of freedom, he possesses are enough to align 3d images; for continuous motions that maintains anatomical features between images they are not. We consider the Lie group of diffeomorphism $\text{Diff}(\Omega)$.
@@ -104,7 +138,7 @@ We work then mostly on finite dimensional settings, relying on important theorem
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{LDDMM}
+\subsubsection{LDDMM}
 
 LDDMM \cite{beg2005computing} framework originates by considering motion between images as the motion of a fluid, and borrows its analytic tools from fluid dynamics. In this context the full set of homeomorphisms $\text{Hom}(\Omega)$ (continuous function from the background space $\Omega$ to itself with continuous inverse) is considered as a group with the composition. This group act\footnote{In this action it is preferable to consider the composition with the inverse, because this same action in differential geometry, called pull-back play the role of the contravariant operator of the push-forward, widely used to make a vector field act on a domain different from the one has been originally defined.} on the set of images defined on the background space $\mathcal{I}_{\Omega}$ as
 \begin{align*}
@@ -117,9 +151,9 @@ The orbits of the subgroup of diffeomorphisms $\mathbb{G}$ on the image $F$, def
 \end{align*}
 consists on all the images having the same topology\footnote{The idea of having the same topology is an analytical consequence of the definition of diffeomoprhism. Separated domains remains separated, although if they gets close enough, let say that their distance is less than the size of a voxel for a significant region, then the discretization will not maintain analytical topology and could broke it anyway.} of $F$.\\
 In consequence of this, the Similarity term will be the distance between the moving image and the fixed image in the same orbit:
- \begin{align*}
- \text{Sim}(F,M,\varphi) = \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
- \end{align*}
+\begin{align*}
+\text{Sim}(F,M,\varphi) = \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
+\end{align*}
 To define the regularization term that provides the optimal $\varphi$ at each step, in LDDMM (and subsequent frameworks) is considered the norm of the velocity vector field tangent to the transformation. Limiting is length means limiting the speed of the transformation at each step.
 We consider a generic time varying vector field (TVVF) as the continuously differentiable map 
 \begin{align*}
@@ -159,7 +193,7 @@ In the LDDMM, ending points of path on the set of diffeomorphisms, whose tangent
 Were $\varphi$ in the registration framework is the one provided by the optimization algorithm at the previous step, and $L$ is a linear operator that can be dependent on some parameters that makes the approach even more general\footnote{Recent approaches more image-oriented, proposed to use a kernel instead of an Operator.}. The operator $L$ is defined as $L = (\alpha\nabla + \gamma)$ for $\alpha$ and $\gamma$ real parameters and $\nabla$ the Laplace operator.\\
 From the differential equation \ref{eq:ode_phi_v}, and in consequence of the definition of $\varphi$ the optimization function \ref{eq:general_cost_function} is defined as:
 \begin{align*}
- \argmin_{v_{t} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = v_{t}(\mathbf{x} ) } 
+\argmin_{v_{t} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = v_{t}(\mathbf{x} ) } 
 \mathcal{O}(F, M, \varphi) 
 = 
 \argmin_{v_{t} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = v_{t}(\mathbf{x} ) } 
@@ -191,7 +225,7 @@ Details of the algorithms are provided in \cite{beg2005computing}; for purpose o
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Shooting LDDMM}
+\subsubsection{Shooting LDDMM}
 
 A direct upgrade of the 
 
@@ -227,13 +261,13 @@ xxx how statistics can be performed relying on the tangent spaces
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{DARTEL}
+%\subsection{DARTEL}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Log-Demon}
+%\subsection{Log-Demon}
 
 In daemonology 
 
@@ -331,12 +365,6 @@ xxx the BCH formula, as the first method to compute the log-composition.
 %\end{figure}
 %
 %The lack of a close form of any kind and the theoretical difficulties inherent to the investigation of infinite dimensional group of diffeomorphism makes an experimental approach meaningful. 
-
-
-
-
-
-
 
 
 
