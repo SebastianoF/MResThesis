@@ -2,16 +2,11 @@ This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: frontback/Preamble.aux
-A level-1 auxiliary file: chapters/Ch_registration_framework.aux
-A level-1 auxiliary file: chapters/Ch_finite_lie_group.aux
-A level-1 auxiliary file: chapters/Ch_parallel_transport.aux
-A level-1 auxiliary file: chapters/Ch_accelerating_convergences.aux
-A level-1 auxiliary file: chapters/Ch_rigid_body_transformations.aux
-A level-1 auxiliary file: chapters/Ch_svf.aux
-A level-1 auxiliary file: chapters/Ch_log_composition.aux
-A level-1 auxiliary file: chapters/Ch_lie_log_computation.aux
+A level-1 auxiliary file: chapters/Ch_introduction.aux
+A level-1 auxiliary file: chapters/Ch_tools.aux
+A level-1 auxiliary file: chapters/Ch_spatial_transformations.aux
+A level-1 auxiliary file: chapters/Ch_log_computations.aux
 A level-1 auxiliary file: chapters/Ch_results.aux
-A level-1 auxiliary file: chapters/Ch_conclusions.aux
 A level-1 auxiliary file: frontback/Appendices.aux
 The style file: alpha.bst
 Database file #1: frontback/mres_bib.bib.bib
@@ -23,84 +18,67 @@ You're missing a field part---line 48 of file frontback/mres_bib.bib.bib
  :  year    = 
  :            ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 298 of file frontback/mres_bib.bib.bib
- :  
- :  year={2014},
-(Error may have been on previous line)
+Repeated entry---line 283 of file frontback/mres_bib.bib.bib
+ : @inproceedings{hernandez2007registration
+ :                                         ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 344 of file frontback/mres_bib.bib.bib
- :  
- :  year={1998},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field part---line 429 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 475 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 522 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 568 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 696 of file frontback/mres_bib.bib.bib
+I was expecting a `,' or a `}'---line 769 of file frontback/mres_bib.bib.bib
  :  
  :  keywords={biomedical MRI;image registration;image resolution;medical image processing;Cartesian diffusion tensors;diffusion profile image registration;multi-resolution framework;nonlinear registration;piece-wise local affine registration;signal analysis;Algorithm design and analysis;Anisotropic magnetoresistance;Data analysis;Image registration;Large-scale systems;Magnetic resonance imaging;Processor scheduling;Robustness;Signal analysis;Tensile stress},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--to sort, need author or key in Trouve:98
-Warning--to sort, need author or key in Arnold:Khesin:14
-Warning--empty author in Arnold:Khesin:14
-Warning--empty title in Arnold:Khesin:14
-Warning--empty booktitle in Arnold:Khesin:14
-Warning--empty publisher in Arnold:Khesin:14
-Warning--empty year in Arnold:Khesin:14
 Warning--can't use both volume and number fields in arnold1966geometrie
 Warning--empty journal in bauer2011geodesic
 Warning--empty school in Broit:1981
 Warning--empty publisher in do1992riemannian
-Warning--empty publisher in milnor1984remarks
-Warning--empty author in Trouve:98
-Warning--empty title in Trouve:98
-Warning--empty journal in Trouve:98
-Warning--empty year in Trouve:98
-You've used 34 entries,
+Warning--there's a month but no year in mcclelland
+You've used 49 entries,
             2543 wiz_defined-function locations,
-            772 strings with 11057 characters,
-and the built_in function-call counts, 13850 in all, are:
-= -- 1376
-> -- 656
-< -- 20
-+ -- 235
-- -- 229
-* -- 1021
-:= -- 2231
-add.period$ -- 100
-call.type$ -- 34
-change.case$ -- 213
-chr.to.int$ -- 31
-cite$ -- 52
-duplicate$ -- 554
-empty$ -- 1018
-format.name$ -- 270
-if$ -- 2827
-int.to.chr$ -- 4
+            871 strings with 14306 characters,
+and the built_in function-call counts, 21556 in all, are:
+= -- 2162
+> -- 1086
+< -- 32
++ -- 382
+- -- 379
+* -- 1609
+:= -- 3514
+add.period$ -- 153
+call.type$ -- 49
+change.case$ -- 324
+chr.to.int$ -- 49
+cite$ -- 54
+duplicate$ -- 826
+empty$ -- 1521
+format.name$ -- 437
+if$ -- 4407
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 29
-newline$ -- 167
-num.names$ -- 98
-pop$ -- 241
+missing$ -- 50
+newline$ -- 247
+num.names$ -- 153
+pop$ -- 312
 preamble$ -- 1
-purify$ -- 251
+purify$ -- 379
 quote$ -- 0
-skip$ -- 452
+skip$ -- 699
 stack$ -- 0
-substring$ -- 742
-swap$ -- 93
-text.length$ -- 20
-text.prefix$ -- 11
+substring$ -- 1239
+swap$ -- 162
+text.length$ -- 32
+text.prefix$ -- 14
 top$ -- 0
-type$ -- 268
-warning$ -- 16
-while$ -- 130
-width$ -- 40
-write$ -- 420
-(There were 7 error messages)
+type$ -- 372
+warning$ -- 5
+while$ -- 213
+width$ -- 55
+write$ -- 638
+(There were 6 error messages)

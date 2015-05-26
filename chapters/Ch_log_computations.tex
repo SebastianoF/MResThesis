@@ -1,4 +1,4 @@
-\chapter{Applications}\label{ch:applications}
+\chapter{Log-computation Algorithm using Log-composition}\label{ch:log_computations}
 
 \begin{flushright}
 	\emph{We believe that we know something about the things themselves when we speak of trees, colors, snow, and flowers; and yet we possess nothing but metaphors for things — metaphors which correspond in no way to the original entities.} \\ -Nietzsche, \emph{On Truth and Lies in extra-moral sense.}
@@ -6,100 +6,39 @@
 
 zz write chapter intro.
 
-
-\section{Numerical Approximation of the Log-Composition}\label{ch:application_log_composition}
-
-
-
-
-xxx Statistics on anatomies: \\
-xxx It is of fundamental importance to have the possibility to going from an element of a group of spatial transformations  to a tangent space, in which each vector corresponds to the tangent vector field that this transformation causes on the space. It makes possible to lean on the group structure a structure of vector space, which implies the possibility to compute statistics on the group of transformation as well as compose velocity fields in the tangent space passing through the corresponding transformation (both of them are made possible thanks to the local bijection between the Lie group and the Lie algebra ). \\
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Group composition at the Service of Image Registration}
-
-xxx Log-composition in diffeomorphic image registration.\\
-
-
-where $p_1 \in \mathbb{G}$, $p_2 = \exp_{p_1}(\mathbf{v}_{1})$ and Affine exponential and Affine logarithm are considered. Posing $p_3 = \exp_{p_2}(\mathbf{v}_{2})$ the second offset group composition is the tangent vector in $p_1$ that corresponds to the composition between $p_1$ and $p_2$, i.e. $\log_{p_1}(p_3 \circ p_2)$. \\
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{BCH formula to compute the Log-composition}
-
-The BCH formula is the exact solution to the Log-composition. 
-It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. It can be practically computed using its \emph{approximation of degree} $k$ defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. For example:
-\begin{align*}
-BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
-BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
-BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
-\end{align*}
-These numerical approximations of the group composition leave the difficulty of managing the problem of the error carried by each term. In some cases the increase of the degree of the BCH approximation do not necessarily implies a decrease in error: \\
-.... Add an example in which this happens.
-
-We present other ways to compute the Lie group composition in the following subsubsections.
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Accelerating convergences applied to the Log-composition}
-
-....
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Taylor expansion to compute the Log-composition}
-
-....
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Parallel transport to compute the Log-composition}
-
-....Here will be made the strong assumption according to which the parallel transport defined for the finite dimensional case, works also in the infinite dimensional case....
-
-
-
-\section{Numerical Approximation to Compute the Lie logarithm}\label{ch:lie_log_computation}
+% this must be embedded in chapter 3
+%\section{Numerical Approximation to Compute the Lie logarithm}\label{ch:lie_log_computation}
 
 The problem of the computation of the logarithm computation can be stated as follows:
 given $p \in \mathbb{G}$ the goal is to find $\mathbf{u}$ such that $\exp(\mathbf{u})$ is the best possible approximation of $p$.  \\
-This chapter is devote to the numerical computation of the logarithm, using an iterative algorithm based on the Log-composition. In this context each of the presented techniques are suitable to perform this computation.
+This chapter is devote to the numerical computation of the logarithm, using an iterative algorithm based on the Log-composition. In this context each of the presented techniques are suitable to perform this computation.\\
+
+Before we need to introduce the space of the approximation of the Lie algebra and the Lie group.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsubsection{Tools for the Computation from Truncated Series}
+\section{Space of approximations}
 
 \noindent
-xxx These must be posed in the truncated series context after chapter 4 is investigated.\\
+xxx Space of the approximations, in connection with the small rotation chapter.
+
 
 \noindent
 We emphasize the fact that if $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, then exp and log can be considered as infinite series.
 Remarkable consequence is the approximation of $\exp(\mathbf{v})$ with $1 + \mathbf{v}$ if the transformation $\mathbf{v}$ is small. This approximation is the base of what follows in this chapter.\\
-In parallel with the log computation given by:
-\begin{align*}
-\star : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
-(\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\star \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
-\end{align*}
+In parallel with the log-composition $ \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))$ 
 we define two approximating functions:
 \begin{align*}
 \text{app} : \mathfrak{g} & \longrightarrow  \mathfrak{g} ^{\sim}    \\
 \mathbf{u} &\longmapsto \exp(\mathbf{u}) - 1
 \end{align*}
-and
 \begin{align*}
 \text{App} : \mathbb{G} & \longrightarrow  \mathbb{G}^{\sim}   \\
 \exp(\mathbf{u}) &\longmapsto 1 + \mathbf{u}
 \end{align*}
-Where $\mathfrak{g} ^{\sim}$ is a space of approximations of elements of $\mathfrak{g} $,and $\mathbb{G}^{\sim} $ is a space of approximations of elements in $\mathbb{G}$ (xxx that requires some more investigations and formal definition in conjunction with truncated series).\\
+Where $\mathfrak{g} ^{\sim}$ is a space of approximations of elements of $\mathfrak{g} $, and $\mathbb{G}^{\sim} $ is a space of approximations of elements in $\mathbb{G}$ (xxx that requires some more investigations and formal definition in conjunction with truncated series).\\
 Consequence of this definition is the fact that
 \begin{align*}
 \mathbf{u} \simeq   \text{app} (\mathbf{u})
@@ -109,24 +48,24 @@ Consequence of this definition is the fact that
 xxx errors can be investigated and maybe can become known elements in the computations! \\
 The two following straightforward properties, that holds for all $\mathbf{u}, \mathbf{v} $ in the Lie algebra
 \begin{enumerate}
-	\item $\mathbf{u} = \mathbf{v} \star  (-\mathbf{v} \star  \mathbf{u} )$
-	\item $\text{app} (\mathbf{v} \star  \mathbf{u}) = \exp(\mathbf{v})\exp(\mathbf{u}) - 1 \in \mathfrak{g} ^{\sim}$
+	\item $\mathbf{u} = \mathbf{v} \oplus (-\mathbf{v} \oplus  \mathbf{u} )$
+	\item $\text{app} (\mathbf{v} \oplus  \mathbf{u}) = \exp(\mathbf{v})\exp(\mathbf{u}) - 1 \in \mathfrak{g} ^{\sim}$
 \end{enumerate}
-lead us to consider the algorithm presented in \cite{Bossa:08} under a new perspective. 
+lead us to consider the algorithm presented in \cite{Bossa:08}, here called log-computation, with a new reformulation. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{A reformulation of the Bossa Algorithm using Log-composition}
+\section{The Log-computation Algorithm using Log-composition}
 
 If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximate $\mathbf{u}$ as consequence of
 \begin{align*}
-\mathbf{u} = \mathbf{u}_{j} \star  (-\mathbf{u}_{j}  \star  \mathbf{u} ) \Longrightarrow
-\mathbf{u} \simeq \mathbf{u}_{j} \star  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )
+\mathbf{u} = \mathbf{u}_{j} \oplus  (-\mathbf{u}_{j}  \oplus  \mathbf{u} ) \Longrightarrow
+\mathbf{u} \simeq \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{align*}
 This suggest that a reasonable approximation for the $(j+1)$-th element of the series can be defined by
 \begin{align*}
-\mathbf{u}_{j+1} & :=  \mathbf{u}_{j} \star  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )
+\mathbf{u}_{j+1} & :=  \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{align*}
 If we chose the initial value $\mathbf{u}_{0}$ to be zero, then the algorithm presented in \cite{Bossa:08}  become:
 %\begin{align*}
@@ -138,34 +77,34 @@ If we chose the initial value $\mathbf{u}_{0}$ to be zero, then the algorithm pr
 \begin{equation}\label{eq:bossa_reformulated}
 \begin{cases}
 \mathbf{u}_0 = 0 \\
-\mathbf{u}_{j+1} = \mathbf{u}_{j} \star  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )
+\mathbf{u}_{j+1} = \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{cases}
 \end{equation}
 Each strategy that we have examined to compute the Lie composition, become a numerical method for the computation of the logarithm.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsubsection{BCH Strategy}
+\subsection{BCH Strategy}
 At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th truncation of the BCH formula:
 \begin{equation}\label{eq:bossa_strat}
 \begin{cases}
 \mathbf{u}_0 = 0 \\
-\mathbf{u}_{j+1} = \text{BCH}^{k}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+\mathbf{u}_{j+1} = \text{BCH}^{k}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 \end{cases}
 \end{equation}
 thus, for the first degree we have 
 \begin{align*}
-\text{BCH}^{1}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+\text{BCH}^{1}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 &=
-\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )\\
+\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )\\
 &=
 \mathbf{u}_{j} + \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1
 \end{align*}
 For the second degree we have:
 \begin{align*}
-\text{BCH}^{2}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ))
+\text{BCH}^{2}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 &=
-\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} ) + \frac{1}{2}[\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \star  \mathbf{u} )]\\
+\mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ) + \frac{1}{2}[\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )]\\
 &=
 \mathbf{u}_{j} + \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1 + \\
 &+ \frac{1}{2}(  \mathbf{u}_{j}( \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1) -  ( \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1)\mathbf{u}_{j})
@@ -216,7 +155,7 @@ For the second degree we have:
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsubsection{Parallel Transport Strategy}
+\subsection{Parallel Transport Strategy}
 
 If we use the parallel transport for the computation of the log-composition, we obtain:
 \begin{equation}\label{eq:parallel_strategy}
@@ -229,7 +168,7 @@ If we use the parallel transport for the computation of the log-composition, we 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsubsection{Symmetrization Strategy}
+\subsection{Symmetrization Strategy}
 
 The algorithm for the computation of the group logarithm can be improved considering a symmetric version of the underpinning strategy. In this version we use the first order approximation of the BCH formula (see equation (\ref{eq:first_order_approx}) in the following proof), compensating with the fact that the symmetrization should decrease the error involved.
 It gives birth to the following algorithm:
@@ -359,20 +298,5 @@ Then a new improvement of the algorithm \ref{eq:bossa_strategy}  is
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 
-\section{Experimental Results}\label{ch:results}
-
-\subsection{Toy Examples to Compare the Log-Compositions}
-
-\subsection{NiftyReg Applications}
-
-\subsection{BCH-free Computation of the Lie Logarithm }
 
 
-
-
-
-\section{Further Research and Conclusion}\label{ch:conclusions}
-
-%\begin{flushright}
-%	\emph{There, I’ve done my best! If this won’t suit I shall have to wait till I can do better. \\ -Jo}
-%\end{flushright}

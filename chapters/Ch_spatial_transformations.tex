@@ -1,4 +1,4 @@
-\chapter{A Lie Group Perspective on Spatial Transformations}\label{ch:spatial_transformations}
+\chapter{Numerical computation of the Log-composition for SE(n) and SVF}\label{ch:spatial_transformations}
 
 \section{The Group of Rigid Body Transformations}\label{ch:rigid_body_transformations}
 
@@ -9,7 +9,7 @@
 
 A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection. We are interested in two things about them: their expression in matrix form, and the Lie group structure they form. In particular we will develop the close formulas for the computation of the log composition, and for each approximation technique presented. In part \ref{pt:applications}, they will be compared with the same technique applied to SVF where no ground truth is known.
 
-\subsection{Lie Logarithm and Exponential for SE(2)}
+\subsection{Lie Logarithm, Lie Exponential and Log-compositions for SE(n)}
 
 The set of all of the $3\times 3$  matrices with real entries is denoted with $M_{3}(\mathbb{R})$. 
 Its subset, defined by all the matrices with non-zero determinant, and thus by all the invertible matrices, is denoted with $GL_3 (\mathbb{R})$. A matrix group is any subgroup of  $GL_3 (\mathbb{R})$.
@@ -328,7 +328,7 @@ We can see that the function $\rho_{\mathfrak{g}}$ is the inverse of a restricti
 
 
 
-\subsubsection{Matrix Vectorization}\label{subse:vectorization}
+%\subsubsection{Matrix Vectorization}\label{subse:vectorization}
 
 \noindent
 xxx this part must be set after subsection 2.5 is done, to avoid repetitions and circular properties!
@@ -372,7 +372,7 @@ and will be used in the next subsection to compute the log composition.
 
 
 
-\subsection{Close Formula for the Log-composition}
+%\subsection{Closed-Form for the Log-composition}
 In the finite-dimensional case, investigate here the log-composition can be computed with a close formula:
 \begin{align*}
 d\mathbf{r}_{1}\star d\mathbf{r}_{2} =  \log(\exp(d\mathbf{r}_1)\circ \exp(d\mathbf{r}_2)) 
@@ -384,8 +384,10 @@ d\mathbf{r}_{1}\star d\mathbf{r}_{2}
 xxx \text{On some lost paper... to be computed again!}
 \end{align*}
 
+\subsection{Numerical Computations of the Log-composition for SE(n)}
 
-\subsection{Taylor Approximation to compute the Log-composition}
+
+\subsubsection{Taylor Approximation to compute the Log-composition}
 
 We can apply the Taylor expansion formula for the computation of the affine log-composition to matrices in $SE(2)$.
 From previous subsection we have:
@@ -398,12 +400,12 @@ Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli numb
 
 
 
-\subsection{Parallel Transport to compute the Log-composition}
+\subsubsection{Parallel Transport to compute the Log-composition}
 
 
 
 
-\subsection{Log and Exp Approximations for little rotations}
+\subsubsection{Log and Exp Approximations for Small Rotations}
 Computations of logarithm and exponential obtained so far are a consequence of these formula:
 \begin{align*}
 \exp(\mathbf{r}) = \sum_{k=0}^{\infty} \frac{\mathbf{v}^{k}}{k!}
@@ -422,26 +424,40 @@ xxx this may deserve an investigation about the errors in the approximations err
 
 
 
+\subsubsection{Truncated BCH formula}
+
+\subsubsection{Taylor expansion}
+
+\subsubsection{Parallel transport}
+
+\subsubsection{Accelerating convergences}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
 \section{The Set of Stationary Velocity Fields}\label{ch:svf}
 
-\begin{flushright}
-	\emph{Accurate reckoning: the entrance into knowledge of all existing things and all obscure secrets.\\
-		- Ahmes, 1800 B.C.}
-\end{flushright}
 
 The set of diffeomorphisms can be seen as an infinite dimensional Lie group. For these reasons xxx we reduce the set of transformation to the SVF. This has the following positive consequences xxx and it has been applied in xxx . Nevertheless reducing the set of transformation to the SVF has bring new issues and challenges xxx - limitations - 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Set and Set Only}\label{se:svf_set}
+\subsection{Why Only Set}\label{se:svf_set}
 Let $\Omega$ be an open connected subset of $\mathbb{R}^d$ containing the origin.  We define $\text{Diff}(\Omega)$ the infinite dimensional Lie group of diffeomorphism over $\Omega$ with neutral element $\text{e}$:
 \begin{align*}
 \text{Diff}:= \lbrace f:\mathbb{R}^d \longrightarrow \mathbb{R}^d \mid \text{ diffeomorphism } \rbrace
 \end{align*}
 xxx Short non-formal part about recognizing $\text{Diff}(\Omega)$ as a Lie group. Banach manifold and Frechet manifold. What does imply the naive theory of infinite dimensional manifold.
 
+-- The starting point is in the difference between steady state and time dependent, at the core of the definition of the diffeomorphisms as solution to a class of ODE
 
+Finite Difference Methods for Ordinary and Partial Differential Equations
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
@@ -598,7 +614,7 @@ such that for $p$ in $\mathbb{G}$ we have $\exp(log(p)) = p$ when $log(p)$ is de
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{SVF in Practice}
+\subsection{Lie Logarithm and Lie Exponential and Log-composition for SVF}
 
 Three main definitions around which the whole theory of diffeomorphic image registration gravitate are introduced in this subsection. \\
 xxx Define here displacement and deformation.\\
@@ -661,6 +677,20 @@ xxxThanks to the Dini theorem we have that a SVF can be considered locally as an
 Moreover to each spatial transformation vector field corresponds an element of the one parameter subgroup of local transformation over $\mathbb{R}^2$ (not sure...).\\
 
 xxx practical aspects, discretization, structure as they are considered into the practical side!
+
+
+
+\subsection{Numerical Computations of the Log-composition for SVF}
+
+
+
+\subsubsection{Truncated BCH formula}
+
+\subsubsection{Taylor expansion}
+
+\subsubsection{Parallel transport}
+
+\subsubsection{Accelerating convergences}
 
 
 % %

@@ -9,34 +9,31 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section*{Abstract}
 
+Medical imaging employs techniques and tools belonging to several branches of mathematics and physics that, when applied to morphometric and statistical study of biological shape variability, are collected under the name of computational anatomy. 
+One of these techniques, image registration, is widely used in both academical studies and applications, and continuously challenges researchers to enhance accuracy, improve reliability and reduce computational time. The use of diffeomorphisms in image registration and the concomitant introduction of the log-euclidean framework to compute statistics, provide an interesting options to model the organs' deformations and to quantify the variations of anatomies.
+Main challenges of this setting are the numerical computation of the Lie logarithm and Lie exponential, and their combinations as they appear in the BCH formula: concept at the core of the underpinning theory of the \emph{log-demons} algorithm.
+The need to find fast numerical computation techniques of the BCH formula, gave birth to the concept of log-composition. In this thesis we present them with some strategies for its computation.
 
-10 lines of abstract! This must stay all in 1 page !!!
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section*{Thesis' Organization}
-
-Four chapters, all alike in dignity... about the general framework in image registration and parametrization of diffeomorphisms for LDDMM and SVF is followed by three distinct part. The first one presents basic tools of differential geometry and parallel transport, with emphasis on the computational side. The second part is about the principal objects utilized to explore new numerical techniques and to compare them with the one currently utilized. The last part is devoted to the results for the computation on synthetic dataset and on patient images. \\
-
+%Four chapters, all alike in dignity are presented in this fair thesis: \\
 \begin{enumerate}
-	\item[{\bf Chapter \ref{ch:intro}:}] This first part Introduction and Frameworks. After a first section about the main definitions and concepts utilized throughout the thesis, general registration framework's features are presented. Particular attention is given to the pros ad cons of in the use of diffeomorphism as set of transformation between anatomies and some considerations about methods currently used for their parametrization: the LDDMM and SVF. 
+	\item[{\bf Chapter \ref{ch:introduction}}] The first chapter is devoted to the introduction of diffeomorphic image registration and its state of the art. Here we introduce advantages and disadvantages of using diffeomorphisms as well as some of the most important frameworks that are directly involved in the log-composition.
 	
-	\item[{\bf Chapter \ref{ch:tools}:}] Main mathematical elements and tools from Lie group theory directly involved in the image registration techniques are formally defined with a particular attention to flows, left translation, push forward, Lie logarithm and Lie exponential. We define the concept of Log-composition around which the research gravitates: it originates form the need of generalized the BCH formula. In this context the BCH become one possible way to compute the Log-composition. The second way to compute it in finite dimensional case, is provided by the Taylor expansion, presented in the last section.
-	 zzzBCH and Taylor expansion are two possibility to compute the Log-composition. A third one presented in this chapter originates by a geometrical approach and it is given by the parallel transport. First and Second sections are devoted to present the theoretical tools to define formally the parallel transport. Last section is about two strategies to compute the parallel transport without involving the Christoffel symbols: the Schild's Ladder and the Pole Ladder.
+	\item[{\bf Chapter \ref{ch:tools}}] The second one is the chapter of mathematical elements and tools; borrowed from Lie group theory and hired to service image registration, techniques and tools are formally defined with a particular attention to flows, left translation, push forward, Lie logarithm, Lie exponential, connections and parallel transport. The concept of log-composition, around which the research gravitates, is defined as consequence of the need of generalize the BCH formula. Since its computation is impractical, other paths as Taylor expansion, parallel transport and accelerating convergence series are proposed as feasible alternatives. 
 	
+	\item[{\bf Chapter \ref{ch:spatial_transformations}:}] The log-composition is not computed and tested directly on the group of diffeomorphisms. Initially it is applied to the finite dimensional group of rigid body transformation, where logarithms and exponentials possess a closed form. This chapter is aimed to present the customization of the tools defined in the previous chapter for the group of rigid body transformation and for the group of diffeomorphisms.
 	
-	\item[{\bf Chapter \ref{ch:studied_objects}:}] Validity of results in the Log-composition computations are tested with two groups of transformations commonly used in medical image registration: the group of rigid body transformation and the group of diffeomorphisms (expressed in the application as the set of Stationary Velocity Fields). These chapters are aimed to present them in details and they are oriented to the application. 
-	
-	zzzThis is the central part of the research. The Log-composition is analyzed as s valuable tool in image registration, within the framework presented in chapter \ref{se:registration_framework}. A summary of the methods for its computation is presented as possible numerical approximation to be utilized for image registration: BCH formula, Taylor expansion, parallel transport and Accelerating Convergences series. 
-    zzz The algorithm for the Lie-logarithm computation presented in \emph{A new algorithm for the computation of the group logarithm of diffeomorphism} \cite{Bossa:08} is based on the computation of the BCH formula. If reformulated with the Log-composition, each of its numerical approximation is a valid tool to improve its performance. Of particular interests are the methods that avoid the computation of the BCH formula on which the algorithm was initially based.
-     
-	\item[{\bf Chapter \ref{ch:applications}:}] This chapter is devoted to experimental results. Performance of the Log-composition applied to rigid body transformation and diffeomorphisms are separately computed and compared. In addition a version of NiftyReg based on various we present the results of the numerical methods presented in the previous section, on synthetic data as well as on clinical data within a version of the  LCC-Demons customized with parallel transport.
-	zzz Conclusion of what has been done so far (with a shameless and challenging emphasis of what is missing and what is still to be done).
-
+	\item[{\bf Chapter \ref{ch:log_computations}:}] Since the algorithm to compute the logarithm (here called \emph{log-computation algorithm}) presented in \cite{Bossa2007} relies on the BCH formula, the log-composition provides different methodologies for its computation. Each of the tools presented here for the log-composition become naturally available to challenge its performance.
+  
+	\item[{\bf Chapter \ref{ch:results}:}] Here we are at the experimental results. The log-composition applied to rigid and diffeomorphic registration is applied to synthetic data and clinical images. \\
 	
 	
 \end{enumerate}
+
 
 
 

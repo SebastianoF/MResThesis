@@ -1,16 +1,15 @@
 \chapter{Tools from Differential Geometry}\label{ch:tools}
 
+\begin{flushright}
+	\emph{Every working mathematician knows that if one does not control oneself (best of all by examples), then after some ten pages half of all the signs in formulae will be wrong and twos will find their way from denominators into numerators. \\ -V.I. Arnold}
+\end{flushright}
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{A Lie Group Structure for the Set of Transformation}\label{ch:finite_lie_group}
-
-
-\begin{flushright}
-	\emph{Every working mathematician knows that if one does not control oneself (best of all by examples), then after some ten pages half of all the signs in formulae will be wrong and twos will find their way from denominators into numerators. \\ -V.I. Arnold}
-\end{flushright}
+\section{A Lie Group Structure for the Set of Transformation}\label{se:finite_lie_group}
 
 %%introductory definition
 We consider every group $\mathbb{G}$ as a group of transformation acting on $\mathbb{R}^{d}$, having in mind the particular case $d=2,3$ for 2-dimensional or 3-dimensional images.
@@ -342,7 +341,7 @@ The Lie algebra can be also defined independently from a Lie group as a vector s
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Lie Exponential, logarithm and Log-composition}\label{se:lie_exp_log_comp}
+\subsection{Lie Exponential, Lie logarithm and Lie Log-composition}\label{se:lie_exp_log_comp}
 Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ and $V\in\text{left}\mathcal{V}(\mathbb{G})$ the unique vector field defined by $\mathbf{v}$ over a local coordinate system around the origin. Let $\Phi_{V}$ be the flow associated with the vector field and $\gamma(t)$ the unique integral curve of $V$ passing through the identity of the group.  
 The \emph{Lie exponential} is defined as
 \begin{align*}
@@ -437,12 +436,30 @@ Here we may see the beginning of the problem we have to deal with for the rest o
 The domain of the logarithm is the matrix Lie group in which only the composition is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense (and satisfy remarkable properties) when applied to the $\log$. On the other side the domain of the exponential is the matrix Lie algebra, but the exponential can be nevertheless applied to a generic matrix.\\
 This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrix: in this context operation of sum is still defined over the group that admit only compositions. The sum between element of a group can be performed on a Lie group, every time he and its Lie algebra are subset of a bigger algebra (Kirillov). In these cases infinite series are doors to passes from the structure of group and the algebra. When presenting the rigid body transformation in chapter \ref{ch:rigid_body_transformations} we will see a second couple of access doors based on numerical approximations.
 
-\subsection{Definition of Lie Log-Composition}
+
+% Truncated BCH formula
+
+
+The BCH formula is the exact solution to the Log-composition. 
+It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. It can be practically computed using its \emph{approximation of degree} $k$ defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. For example:
+\begin{align*}
+	BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
+	BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
+	BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
+\end{align*}
+These numerical approximations of the group composition leave the difficulty of managing the problem of the error carried by each term. In some cases the increase of the degree of the BCH approximation do not necessarily implies a decrease in error: \\
+.... Add an example in which this happens.
+
+We present other ways to compute the Lie group composition in the following subsubsections.
+
+
+
+\subsubsection{Definition of Lie Log-Composition}
 
 We define the Lie Log-composition (Lie to distinguish it from the Affine Log-composition of the next chapter) as inner binary operation on the Lie algebra that reflects the composition on the lie group:
 \begin{align*}
-\star : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
-(\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\star \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
+\oplus : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
+(\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
 \end{align*}
 
 \begin{figure}[!ht]
@@ -455,16 +472,16 @@ We define the Lie Log-composition (Lie to distinguish it from the Affine Log-com
 \noindent
 Following properties holds for the Lie log-composition:
 \begin{enumerate}
-	\item $\mathfrak{g} $ with the Lie log-composition $\star$ is a local topological non-commutative group (local group for short): if $C_{\mathfrak{g}}$ is the internal cut locus of $\mathfrak{g}$ then:
+	\item $\mathfrak{g} $ with the Lie log-composition $\oplus$ is a local topological non-commutative group (local group for short): if $C_{\mathfrak{g}}$ is the internal cut locus of $\mathfrak{g}$ then:
 	\begin{enumerate}
-		\item $(\mathbf{u}_{1}\star\mathbf{u}_{2}) \star \mathbf{u}_{3}
-		= \mathbf{u}_{1}\star(\mathbf{u}_{2} \star \mathbf{u}_{3})$ for all $\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$ in $C_{\mathfrak{g}}$.
-		\item $\mathbf{u}\star\mathbf{0}  = \mathbf{0}\star\mathbf{u} = \mathbf{u}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
-		\item $\mathbf{u}\star(-\mathbf{u} ) = \mathbf{0}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
+		\item $(\mathbf{u}_{1}\oplus\mathbf{u}_{2}) \oplus \mathbf{u}_{3}
+		= \mathbf{u}_{1}\oplus(\mathbf{u}_{2} \oplus \mathbf{u}_{3})$ for all $\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$ in $C_{\mathfrak{g}}$.
+		\item $\mathbf{u}\oplus\mathbf{0}  = \mathbf{0}\oplus\mathbf{u} = \mathbf{u}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
+		\item $\mathbf{u}\oplus(-\mathbf{u} ) = \mathbf{0}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
 	\end{enumerate}
 	\item For all $t,s$ real, such that $(t+s)\mathbf{v}$ is in $C_{\mathfrak{g}}$,
 	\begin{align*}
-	(t\mathbf{v})\star (s\mathbf{v}) = (t+s)\mathbf{v}
+	(t\mathbf{v})\oplus (s\mathbf{v}) = (t+s)\mathbf{v}
 	\end{align*}
 	And in particular, if the Lie algebra $\mathfrak{g}$ has dimension $1$ the local group structure is compatible with the additive group of the vector space $\mathfrak{g}$.
 	\item For all $\mathbf{u}$ and $\mathbf{v}$: 
@@ -472,62 +489,11 @@ Following properties holds for the Lie log-composition:
 	\noindent
 	xxx property involving metric and log-composition... may results in something interesting for computing statistics.
 	\begin{align*}
-	\euclideanMetric{\mathbf{u}\star \mathbf{v}} = ?( \euclideanMetric{\mathbf{u}} , \euclideanMetric{\mathbf{v}})
+	\euclideanMetric{\mathbf{u}\oplus \mathbf{v}} = ?( \euclideanMetric{\mathbf{u}} , \euclideanMetric{\mathbf{v}})
 	\end{align*}
 \end{enumerate}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{BCH formula for the Computation of Log-composition}\label{se:bch_formula}
 
-To compute the Lie Log composition, literature provides the BCH formula, defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
-\begin{align*}
-BCH(\mathbf{u},\mathbf{v}) 
-= 
-\mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
-+ [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
-\end{align*}
-
-\noindent
-xxx derivation of the bch formula, constraints on the Lie algebra elements involved in its computation.
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Taylor Expansion for the Computation of Log-composition}
-
-
-
-Once \emph{adjoint action} of $\mathbf{u}$ on the Lia algebra is defined, nested Lie bracket can be reformulated as multiple composition of this operator:
-\begin{align*}
-ad_{\mathbf{u}} : \mathfrak{g}  & \longrightarrow \mathfrak{g}  
-\\
-\mathbf{v} &\longmapsto ad_{\mathbf{u}}   =  [\mathbf{u}, \mathbf{v}]
-\end{align*}
-So
-\begin{align*}
-[  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] =  ad_{\mathbf{u}}^{n}(\mathbf{v})
-\end{align*}
-In the appendix of xxx Klarsfeld xxx adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
-\begin{align*}
-\mathbf{u}\star \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
-\end{align*}
-
-\noindent
-xxx intermediate passages to be written from zachos, blane!
-
-The functional applied to $\mathbf{v}$ can be rewritten as
-\begin{align*}
-\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
-\end{align*}
-Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
-
-
-
-\section{Parallel Transport Tool}\label{ch:parallel_transport}
-
-In this section we present parallel transport for the finite dimensional Lie group and we make the assumption that obtained results hold in the infinite dimensional case.
 
 
 
@@ -614,20 +580,28 @@ Any Lie group $\mathbb{G}$ considered with a left-invariant connection $\nabla$ 
 We need to extend the definition of Lie log-composition to the Affine Log-composition. The first step is to extend the definition of internal cut locus of the Lie algebra, even when not centered at the zero. 
 If the Lie algebra, considered as tangent space, is not considered at $e$ of $\mathbb{G}$ but at the point $p$ instead, we still have a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $p$ in $\mathbb{G}$. The internal cut locus of $\mathfrak{g}$ this time is based on $p$ and it is denoted with $C_{\mathfrak{g}}(p)$.
 
-Given a point $p_1$ and a vector $\mathbf{v}_{1}$ on its tangent plane $T_{p_1}\mathbb{G}$ the \emph{affine Log-composition} is defined as the operator operation $\tilde{\star} $ over the $\mathbb{G}$ fiber bundle such that 
+Given a point $p_1$ and a vector $\mathbf{v}_{1}$ on its tangent plane $T_{p_1}\mathbb{G}$ the \emph{affine Log-composition} is defined as the operator operation $\tilde{\oplus} $ over the $\mathbb{G}$ fiber bundle such that 
 \begin{align*}
-\cdot ~ \tilde{\star} ~ \mathbf{v}_{1}  : T_{\exp_{p_1}(\mathbf{v}_{1})}\mathbb{G}  & \longrightarrow T_{p_1}\mathbb{G}   
+\cdot ~ \tilde{\oplus} ~ \mathbf{v}_{1}  : T_{\exp_{p_1}(\mathbf{v}_{1})}\mathbb{G}  & \longrightarrow T_{p_1}\mathbb{G}   
 \\
-\mathbf{v}_{2}&\longmapsto \mathbf{v}_{2}~\tilde{\star}~ \mathbf{v}_{1}
+\mathbf{v}_{2}&\longmapsto \mathbf{v}_{2}~\tilde{\oplus}~ \mathbf{v}_{1}
 =
 \log_{p_1}(\exp_{\exp_{p_1}(\mathbf{v}_{1})}(\mathbf{v}_{2})\circ\exp_{p_1}(\mathbf{v}_{1}))
 \end{align*}
-Note that not necessarily $\mathbf{v}_{1}~\tilde{\star}~ \mathbf{v}_{2}$ is a vector belonging to the internal cut locus based on the starting point $p_{1}$.
+Note that not necessarily $\mathbf{v}_{1}~\tilde{\oplus}~ \mathbf{v}_{2}$ is a vector belonging to the internal cut locus based on the starting point $p_{1}$.
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Parallel Transport}\label{se:parallel_transport}
+
+In this section we present parallel transport for the finite dimensional Lie group and we make the assumption that obtained results hold in the infinite dimensional case.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Parallel Transport through Examples}
+\subsection{Initial Definition and Some Examples}
 Parallel transport will play a role in the computation of both Lie and Affine log-composition.
 \begin{definition}
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, then the vector $V_{p} \in T_{p}\mathbb{G}$, belonging to some vector field $V$ is parallel transported along $\gamma$ up to $T_{q}\mathbb{G}$ if for all $t \in  [0,1]$ $\nabla_{\dot{\gamma}}V_{\gamma(t)} = 0$.\\
@@ -640,6 +614,11 @@ Parallel transport will play a role in the computation of both Lie and Affine lo
 
 \noindent
 xxx examples of parallel transport: manifold as surfaces and matrices! Calculemus!
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Introductory Properties}
 
 \begin{prop}[Inversion]
 	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= p$, $\gamma(1)=q$ and $\dot{\gamma}(0)=\mathbf{u}\in T_{p}\mathbb{G}$, we have:
@@ -850,7 +829,7 @@ xxx proof, see notebook!
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-\section{Accelerating Convergences Series}\label{ch:accelerating}
+\section{Accelerating Convergences Series}\label{se:accelerating}
 
 xxx Think about it after 14 of may!
 
@@ -875,3 +854,71 @@ The restriction to the first order truncation of the exp is the starting point t
 \begin{align*}
 \exp(\mathbf{u}) = 1 + \mathbf{u} \in S^{1}(\mathfrak{g}) 
 \end{align*}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Four Strategies for the Computation of Log-composition}\label{ch:accelerating}
+
+In this section we provide explicit formulas for the computation of the log composition, using the tools introduced in the previous sections.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Truncated BCH formula}\label{se:bch_formula}
+
+To compute the Lie Log composition, literature provides the BCH formula, defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
+\begin{align*}
+	BCH(\mathbf{u},\mathbf{v}) 
+	= 
+	\mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
+	+ [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
+\end{align*}
+
+\noindent
+xxx derivation of the bch formula, constraints on the Lie algebra elements involved in its computation.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Taylor Expansion}
+
+
+
+Once \emph{adjoint action} of $\mathbf{u}$ on the Lia algebra is defined, nested Lie bracket can be reformulated as multiple composition of this operator:
+\begin{align*}
+	ad_{\mathbf{u}} : \mathfrak{g}  & \longrightarrow \mathfrak{g}  
+	\\
+	\mathbf{v} &\longmapsto ad_{\mathbf{u}}   =  [\mathbf{u}, \mathbf{v}]
+\end{align*}
+So
+\begin{align*}
+	[  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] =  ad_{\mathbf{u}}^{n}(\mathbf{v})
+\end{align*}
+In the appendix of xxx Klarsfeld xxx adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
+\begin{align*}
+	\mathbf{u}\oplus \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
+\end{align*}
+
+\noindent
+xxx intermediate passages to be written from zachos, blane!
+
+The functional applied to $\mathbf{v}$ can be rewritten as
+\begin{align*}
+	\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
+\end{align*}
+Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Parallel Transport}
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUBSECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Accelerating Convergences}

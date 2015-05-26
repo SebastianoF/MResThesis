@@ -1,59 +1,66 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Introduction and Framework}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivations}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Image Registration Framework}{3}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Introductory Definitions}{3}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Iterative Registration Algorithm}{3}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Using Diffeomorphisms: Utility and Liability}{5}{subsection.1.2.3}
-\contentsline {subsubsection}{LDDMM}{6}{section*.4}
-\contentsline {subsubsection}{Shooting LDDMM}{8}{section*.5}
-\contentsline {subsection}{\numberline {1.2.4}Stationary Velocity Fields LDDMM}{8}{subsection.1.2.4}
-\contentsline {section}{\numberline {1.3}Stationary Velocity Fields and the Composition of Diffeomorphisms in the Tangent Space}{9}{section.1.3}
-\contentsline {chapter}{\numberline {2}Tools from Differential Geometry}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}A Lie Group Structure for the Set of Transformation}{11}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Velocity Vector Fields and Flows}{11}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Push-forward, Left, Right and Adjoint Translation}{14}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Lie Exponential, logarithm and Log-composition}{17}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Definition of Lie Log-Composition}{20}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}BCH formula for the Computation of Log-composition}{21}{subsection.2.1.5}
-\contentsline {subsection}{\numberline {2.1.6}Taylor Expansion for the Computation of Log-composition}{21}{subsection.2.1.6}
-\contentsline {section}{\numberline {2.2}Parallel Transport Tool}{22}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Connections and Geodesics}{22}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Affine Exponential, Logarithm and Log-Composition}{23}{subsection.2.2.2}
-\contentsline {subsubsection}{Definition of Affine Log-Composition}{24}{section*.6}
-\contentsline {subsection}{\numberline {2.2.3}Parallel Transport through Examples}{24}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Change of Base Formulas with and without Parallel Transport}{26}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Parallel Transport in Practice: Schild's Ladder and Pole Ladder}{26}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}Accelerating Convergences Series}{28}{section.2.3}
-\contentsline {chapter}{\numberline {3}A Lie Group Perspective on Spatial Transformations}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}The Group of Rigid Body Transformations}{29}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Lie Logarithm and Exponential for SE(2)}{29}{subsection.3.1.1}
-\contentsline {subsubsection}{Matrix Vectorization}{32}{section*.7}
-\contentsline {subsection}{\numberline {3.1.2}Close Formula for the Log-composition}{32}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Taylor Approximation to compute the Log-composition}{33}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Parallel Transport to compute the Log-composition}{33}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Log and Exp Approximations for little rotations}{33}{subsection.3.1.5}
-\contentsline {section}{\numberline {3.2}The Set of Stationary Velocity Fields}{33}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Set and Set Only}{33}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Some Tools for the Infinite Dimensional Case}{34}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}SVF in Practice}{36}{subsection.3.2.3}
-\contentsline {chapter}{\numberline {4}Applications}{37}{chapter.4}
-\contentsline {section}{\numberline {4.1}Numerical Approximation of the Log-Composition}{37}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Group composition at the Service of Image Registration}{37}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}BCH formula to compute the Log-composition}{37}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Accelerating convergences applied to the Log-composition}{38}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Taylor expansion to compute the Log-composition}{38}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Parallel transport to compute the Log-composition}{38}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Numerical Approximation to Compute the Lie logarithm}{38}{section.4.2}
-\contentsline {subsubsection}{Tools for the Computation from Truncated Series}{38}{section*.8}
-\contentsline {subsection}{\numberline {4.2.1}A reformulation of the Bossa Algorithm using Log-composition}{39}{subsection.4.2.1}
-\contentsline {subsubsection}{BCH Strategy}{39}{section*.9}
-\contentsline {subsubsection}{Parallel Transport Strategy}{40}{section*.10}
-\contentsline {subsubsection}{Symmetrization Strategy}{40}{section*.11}
-\contentsline {subsubsection}{Symmetric-Parallel Transport Strategy}{42}{section*.12}
-\contentsline {section}{\numberline {4.3}Experimental Results}{42}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Toy Examples to Compare the Log-Compositions}{42}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}NiftyReg Applications}{42}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}BCH-free Computation of the Lie Logarithm }{42}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Further Research and Conclusion}{42}{section.4.4}
-\contentsline {chapter}{Appendices}{43}{section.4.4}
+\contentsline {chapter}{\numberline {1}Introduction to Diffeomorphic Image Registration}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Toward an ill-posed Problem}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Examples of applications}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}State of the Art}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Using Diffeomorphisms: Utility and Liability}{3}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Image Registration Framework}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Introductory Definitions}{4}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Iterative Registration Algorithm}{5}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}LDDMM: Classic, Shooting and Stationary}{6}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Demonology: Classic, Pasha, Diffeomorphic, Symmetric and LCC}{9}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}The Composition of SVF in the Diffeomorphisms Group}{11}{section.1.3}
+\contentsline {chapter}{\numberline {2}Tools from Differential Geometry}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}A Lie Group Structure for the Set of Transformation}{13}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Velocity Vector Fields and Flows}{13}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Push-forward, Left, Right and Adjoint Translation}{16}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Lie Exponential, Lie logarithm and Lie Log-composition}{19}{subsection.2.1.3}
+\contentsline {subsubsection}{Definition of Lie Log-Composition}{22}{section*.4}
+\contentsline {subsection}{\numberline {2.1.4}Connections and Geodesics}{23}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Affine Exponential, Logarithm and Log-Composition}{24}{subsection.2.1.5}
+\contentsline {subsubsection}{Definition of Affine Log-Composition}{25}{section*.5}
+\contentsline {section}{\numberline {2.2}Parallel Transport}{25}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Initial Definition and Some Examples}{26}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Introductory Properties}{26}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Change of Base Formulas with and without Parallel Transport}{27}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Parallel Transport in Practice: Schild's Ladder and Pole Ladder}{27}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Accelerating Convergences Series}{29}{section.2.3}
+\contentsline {section}{\numberline {2.4}Four Strategies for the Computation of Log-composition}{30}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Truncated BCH formula}{30}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Taylor Expansion}{30}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Parallel Transport}{31}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Accelerating Convergences}{31}{subsection.2.4.4}
+\contentsline {chapter}{\numberline {3}Numerical computation of the Log-composition for SE(n) and SVF}{33}{chapter.3}
+\contentsline {section}{\numberline {3.1}The Group of Rigid Body Transformations}{33}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Lie Logarithm, Lie Exponential and Log-compositions for SE(n)}{33}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Numerical Computations of the Log-composition for SE(n)}{37}{subsection.3.1.2}
+\contentsline {subsubsection}{Taylor Approximation to compute the Log-composition}{37}{section*.6}
+\contentsline {subsubsection}{Parallel Transport to compute the Log-composition}{37}{section*.7}
+\contentsline {subsubsection}{Log and Exp Approximations for Small Rotations}{37}{section*.8}
+\contentsline {subsubsection}{Truncated BCH formula}{37}{section*.9}
+\contentsline {subsubsection}{Taylor expansion}{37}{section*.10}
+\contentsline {subsubsection}{Parallel transport}{37}{section*.11}
+\contentsline {subsubsection}{Accelerating convergences}{37}{section*.12}
+\contentsline {section}{\numberline {3.2}The Set of Stationary Velocity Fields}{37}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Why Only Set}{38}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Some Tools for the Infinite Dimensional Case}{38}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Lie Logarithm and Lie Exponential and Log-composition for SVF}{40}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Numerical Computations of the Log-composition for SVF}{41}{subsection.3.2.4}
+\contentsline {subsubsection}{Truncated BCH formula}{41}{section*.13}
+\contentsline {subsubsection}{Taylor expansion}{41}{section*.14}
+\contentsline {subsubsection}{Parallel transport}{41}{section*.15}
+\contentsline {subsubsection}{Accelerating convergences}{41}{section*.16}
+\contentsline {chapter}{\numberline {4}Log-computation Algorithm using Log-composition}{43}{chapter.4}
+\contentsline {section}{\numberline {4.1}Space of approximations}{43}{section.4.1}
+\contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{44}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}BCH Strategy}{44}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Parallel Transport Strategy}{45}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Symmetrization Strategy}{45}{subsection.4.2.3}
+\contentsline {subsubsection}{Symmetric-Parallel Transport Strategy}{46}{section*.17}
+\contentsline {chapter}{\numberline {5}Experimental Results}{49}{chapter.5}
+\contentsline {section}{\numberline {5.1}Group composition at the Service of Image Registration}{49}{section.5.1}
+\contentsline {section}{\numberline {5.2}Experimental Results}{49}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Log-Compositions Performance for Toy examples and Patient Images}{49}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Logarithm Computation using Log-composition}{49}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Further Research and Conclusion}{49}{section.5.3}
+\contentsline {chapter}{Appendices}{50}{section.5.3}
