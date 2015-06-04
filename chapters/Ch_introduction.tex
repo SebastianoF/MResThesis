@@ -14,8 +14,8 @@
 
 %Two instruments from Machine Vision and Image Processing are mostly utilized in Medical Imaging to reveal internal features and compare anatomies: segmentation and registration. Segmentation consists in enhance contours, detect edges and reveal hidden structure while registration is the .\\
 
-The process of determining correspondences between two or more images acquired from patients scans is a challenging tasks that has seen the application of a growing number of mathematical theories contributing to its solution.\\
-The challenge and the concomitant difficulties in approaching the problem is a consequence of the fact that, dealing with non-rigid image registration problem, means dealing with an ill-posed problem. Transformations between anatomies are not unique, and the impossibility to recover spatial or temporal evolution of an anatomical transformation from temporally isolated images, makes any validation a difficult, if not an impossible task. 
+The process of determining correspondences between two or more images acquired from patients scans is a challenging task that has seen the application of a growing number of mathematical theories contributing to its solution.\\
+The challenge and the concomitant difficulties in approaching the problem is a consequence of the fact that dealing with image registration problem means dealing with an ill-posed problem. Transformations between anatomies are not unique, and the impossibility to recover spatial or temporal evolution of an anatomical transformation from temporally isolated images, makes any validation a difficult, if not an impossible task. 
 In addition each situation inevitably leads to consider some prior knowledge within the initial data, that may affect the problems' parameters and chose some constraints, that, of course, impact dramatically the range of possible results. \\
 %Among all of the possible voxelwise mappings that transform one image into another, the constraints' choice is aimed to architect an algorithm that provides a unique solution. 
 %This, of course, impact dramatically the range of possible results.\\
@@ -24,7 +24,7 @@ It is often the practical situation that provides the hint in choosing the optim
 \subsection{Examples of applications}
 One of the main application of image registration is in the domain of brain imaging: it can be used to examine differences between subjects and distinguish biological features between subjects (cross-sectional studies) or to compare different acquisition of the same subject, before and after a surgery or after a fixed period of time (longitudinal studies). In both cases an accurate comparison between images and the parameters of the transformation involved, result in a quantification of anatomical variability and in a better understanding of the patients' features. 
 %
-For example, brain atrophy is considered a biomarker to diagnose the of Alzheimer disease and to analyze its evolution; most of the algorithms and techniques involved in the atrophy measurement requires longitudinal or cross-sectional scans to be aligned, and so are directly affected by the solution of the registration algorithm \cite{fox1997brain}, \cite{gauthier2012prevention}, \cite{prados2015measuring}. \\
+For example, brain atrophy is considered a biomarker to diagnose the Alzheimer disease and to analyze its evolution; most of the algorithms and techniques involved in the atrophy measurement requires longitudinal or cross-sectional scans to be aligned, and so are directly affected by the solution of the registration algorithm \cite{fox1997brain}, \cite{gauthier2012prevention}, \cite{prados2015measuring}. \\
 Also when dealing with motion correction, if the sequence of images is affected by the motion of cardiac pulses or respiratory cycles, registration algorithms are often used for the realignment. 
 For example, in lungs radiotherapy, lungs' motion is directly computed using a registration algorithm, and it is related with the respiratory surrogate signal. The correspondence model is then used to direct the X-ray or electrons beam on the cancerous tissue, minimizing the damage on the unaffected cells \cite{mcclelland}, \cite{mcclelland2011inter}.\\
 Another application is to compose together several images to obtain a bigger picture (mosaicing): in this case image registration is used to align images in the overlapping regions \cite{vercauteren2006robust}, \cite{szeliski1994image}.
@@ -36,7 +36,7 @@ Another application is to compose together several images to obtain a bigger pic
 In the attempt to classify image registration algorithms, the most relevant feature that distinguish them is the choice of the family to whom the transformation belongs and its parametrization. Since anatomies are in a continuous process of modification over time, in general without any variation in the topological features, the use of diffeomorphisms to model transformations of organs appears as one of the most natural. Not accidentally diffeomorphisms are as well an important class of solutions of partial and ordinary differential equation aimed to model the dynamics of fluids. \\
 In the development of diffeomorphic image registration, we can broadly identify some steps that led to the concept of log-composition presented in this research:
 \begin{enumerate}
-	\item[1981-1996 $\triangleright$] The use of diffeomorphisms in medical image registration starts as solution of partial differential equations: deformations are modeled as the consequent effect of two balancing forces applied to an elastic body \cite{Broit:1981} or to conserve the energy momentum \cite{christensen1996deformable}. In this early stage, diffeomorphisms are the domain of the solution to differential equation, and are not considered with their Lie group structure.
+	\item[1981-1996 $\triangleright$] The use of diffeomorphisms in medical image registration starts from the research of a solution to partial differential equations: deformations are modeled as the consequent effect of two balancing forces applied to an elastic body \cite{Broit:1981} or to conserve the energy momentum \cite{christensen1996deformable}. In this early stage, diffeomorphisms are the domain of the solution to differential equation, and are not considered with their Lie group structure.
 	%
 	\item[1998-2004 $\triangleright$] Based on the concept of attraction, the Demons algorithm \cite{thirion1998image}, \cite{pennec1999understanding} propose the computation of the transformation between images in an iterative framework, where the update of the transformation at each step is parametrized with a vector field that minimize at each step an energy function. This vector field is defined as the set of vectors (demons) that moves one image into the other. \\
 	Here diffeomorphisms are not directly involved and the vectors at each voxel are considered as independent elements. 
@@ -44,7 +44,7 @@ In the development of diffeomorphic image registration, we can broadly identify 
 	%
 	\item[2005-2006 $\triangleright$] The almost concomitant appearance of the Large Deformation Diffeomorphic Metric Mapping (LDDMM) \cite{beg2005computing} and the further investigation on the tangent space to the Lie group of diffeomorphisms as the space where to perform statistics (the so called log-euclidean framework) \cite{arsigny2006statistics, Arsigny:MRM:06} keep the valuable approach in using diffeomorphisms as Lie group and to consider them with their Lie algebra, to model the little deformation in the tangent space as well as to rely on this normed space in computing the distance between transformations.
 	%
-	\item[2007-2013 $\triangleright$] The LDDMM revealed all the opportunities provided by differential geometry in considering Lie group and Lie algebra embedded in a framework for the computation of image registration. In this setting, the tangent vector field comes from the solution of the ODE that models the transformations and it consists of the set of the non-stationary vector field (also time varying vector field or TVVF). After the log-euclidean framework \cite{arsigny2006statistics} aimed at the computation of statistics of diffeomorphisms, the set of tangent vector field is restricted to the time-independent vector field (also stationary velocity field or SFV); the same restriction was subsequently considered for the in a further improvement of LDDMM (DARTEL, Stationary LDDMM \cite{Ashburner:07}, \cite{hernandez2007registration}). 
+	\item[2007-2013 $\triangleright$] The LDDMM revealed all the opportunities provided by differential geometry in considering Lie group and Lie algebra embedded in a framework for the computation of image registration. In this setting, the tangent vector field comes from the solution of the ODE that models the transformations and it consists of the set of the non-stationary vector field (also time varying vector field or TVVF). After the log-euclidean framework \cite{arsigny2006statistics} aimed at the computation of statistics of diffeomorphisms, the set of tangent vector field is restricted to the time-independent vector field (also stationary velocity field or SFV); the same restriction was subsequently considered in some further improvements of LDDMM (DARTEL, Stationary LDDMM \cite{Ashburner:07}, \cite{hernandez2007registration}). 
 	Log-euclidean framework brought new life also to the Demons algorithm, that  become, in 2007, the diffeomorphic demons (or log-demons) \cite{vercauteren2007non}\footnote{An accurate comparison between stationary LDDMM and Diffeomorphic Demons with emphasis in both theoretical and practical aspects can be found in \cite{hernandez2008comparing}.}. Subsequent approaches that involves the symmetrization of the energy function and a different norm (local correlation coefficient instead of $L^{2}$) are proposed in symmetric diffeomorphic demons \cite{vercauteren08} and LCC-demons \cite{lorenzi2013lcc} respectively.
 	
 \end{enumerate}
@@ -60,8 +60,8 @@ Their mathematical formalization as Lie group, is on the other hand not of immed
 Attempt to provide this object some handles for easy manipulation was done for the first time in 1966 by Vladimir Arnold \cite{arnold1966geometrie} \footnote{With a more readable sequel \cite{arnold1998topological} for non-French speakers.}: to solve differential equation in hydrodynamic  $\text{Diff}$ is considered as a Lie group with its Lie algebra. This assumption is not formally prosecuted in accordance to the problem-oriented nature of this paper. Subsequent steps in the exploration of the set of diffeomorphisms as a Lie group are \cite{marsden1970hamiltonian, ebin1970groups, omori1970group, leslie1983lie}. A survey on early development of infinite dimensional Lie group can be found in \cite{Milnor:84:remarks}, while more recent results and applications on diffeomorphisms has been published in \cite{ovsienko1992integrals, bauer2010sobolev,schmid2010infinite,  bauer2011geodesic}.\\
 
 Consider $\text{Diff}$ as a differentiable manifold involves the idea of having it locally in correspondence with some generalized \lq\lq infinite-dimensional euclidean \rq\rq space. Attempt to set this correspondence showed that for some infinite-dimensional group the transition functions are smooth over Banach spaces \cite{khesin2008geometry}. This led to the idea of Banach Manifolds. Unfortunately the group of diffeomorphisms do not belongs to the category of Banach manifold but requires a more generals space on which the transition map are smooth: the Frechet spaces. Here, important theorems from analysis, as the inverse function theorem, or the main results from the Lie group theory in a finite dimensional settings, as Lie correspondence theorems do not holds anymore.\\
-These difficulties led some researcher in approaching the set of diffeomorphisms from other perspectives: 
-for example, instead of treating $\text{Diff}(\Omega)$ as a group equipped with differential structures it is seen as a quotient of other well behaved group \cite{wojtynski1994one}.\\
+These difficulties led some researchers in approaching the set of diffeomorphisms from other perspectives: 
+for example, instead of treating $\text{Diff}$ as a group equipped with differential structures it is seen as a quotient of other well behaved group \cite{wojtynski1994one}.\\
 Without denying the importance of fundamentals and underestimating the doors research in this domain may open, we will approach the matter in as similar way of what has been done in set theory: we will use a \emph{naive approach} to infinite dimensional Lie group, where the fundamental definition of infinite dimensional Lie group is a generalization of the finite dimensional case left more to the intuition than to a robust formalization. 
 We work then mostly on finite dimensional settings, relying on important theorems and available close forms, and we will extend methods and results developed here in the infinite case -clearly - with proper precautions.\\
 
@@ -93,7 +93,7 @@ A \emph{$d$-dimensional image} is a continuous function from a subset $\Omega$ o
 \end{align*}
 such that for each point $\mathbf{x}\in \Omega_{F} $ the element $M(\varphi (\mathbf{x}))$ and $F(\mathbf{x})$ are as closed as possible according to a chosen measure of similarity. The function defined as the composition of the moving image after the transformation, $M\circ\varphi $, is called \emph{warped image}.\\
 
-The underpinning idea can be represented by the following diagram, where $\varphi$ is the solution that makes $f$ the identity function\footnote{If $\Omega_{F} \neq \Omega_{M}$, in practical applications it is always possible to resampling them into a common domain $\Omega$, called  \emph{background space}, on which both of the images are defined.}.
+The underpinning idea can be represented by the following diagram, where $\varphi$ is the solution that makes $f$ the identity function:
 
 \[
 \begindc{\commdiag}[40]
@@ -110,15 +110,16 @@ The underpinning idea can be represented by the following diagram, where $\varph
 \enddc
 \]
 % fine diagramma
-
 \noindent
-This definition leaves two degrees of freedom in searching for a solution: the transformation's domain (also called \emph{deformation model}), and the metric to measure the similarity between images. \\
-Once these are chosen, they can be used as constituent of an \emph{image registration framework}: we define it here as an iterative process that, at each step provides a new function $\varphi$ that approaches $f$ to the identity.
+If $\Omega_{F} \neq \Omega_{M}$, it is always possible to apply an homeomorphism to transform them into a common domain $\Omega$, called  \emph{background space}, on which both of the images are defined. In practice, this transformation between domains can be performed with a resampling technique, eventually with the well known artefacts related problem.\\
+
+The definition of image registration here proposed, leaves two degrees of freedom in searching for a solution: the transformation's domain (also called \emph{deformation model}), and the metric to measure the similarity between images. \\
+Once these are chosen, they can be used as constituent of an \emph{image registration framework}: we define it as an iterative process that, at each step provides a new function $\varphi$ that approaches $f$ to the identity.
 Each iteration involves the optimization of a function that measure the similarity between the fixed image and the warped image computed at the previous step. To refine the energy function, the metric can be considered with an additive regularization term, that introduces a constraint based on prior knowledge about the searched solution:
 \begin{align}\label{eq:general_cost_function}
 \mathcal{E}(F, M, \varphi) = \text{Sim}(F,M,\varphi) + \text{Reg}(\varphi) 
 \end{align}
-Here $\text{Sim}$ is a function that measure the similarity, while $\text{Reg}$ is the regularization term.
+where $\text{Sim}$ is a function that measure the similarity, while $\text{Reg}$ is a regularization term.
 The optimization algorithm on which the framework is based and the resampling strategy - process of resize the image from one dimension to another - provide alternative options to define the registration algorithm based on this framework.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -126,8 +127,8 @@ The optimization algorithm on which the framework is based and the resampling st
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Iterative Registration Algorithm}
 
-The definition of registration problem and the iterative framework described above, raise several issues. For example there are no reasons to believe that such a correspondence is unique and that there is at least one of them whose behaviour corresponds to a reasonable biological transformation between anatomies. One way to deal with this problem is to add some constraints on the transformation $\varphi$, such that it models realistic changes that can occur in biological tissues. The kind and quality of the constraints are one of the feature that distinguish registration algorithms one from the other. \\
-Conscious of the risk involved in any rigid classification, in particular when about rapidly evolving fields, we can see the image registration framework as a electronic device with $5$ knobs, each with its range:
+The definition of registration problem and the iterative framework described above, raise several issues. For example there are no reasons to believe that such a correspondence is unique and that there is at least one of them whose behaviour corresponds to a reasonable biological transformation between anatomies. One way to deal with this problem is to add some constraints on the transformation $\varphi$, such that it models realistic changes that can occur in biological tissues. The kind and quality of the constraints are one of the features that distinguish one registration algorithm from the other. \\
+The image registration framework here presented can be see as a electronic device with $5$ knobs, each with its range:
 \begin{align*}
 \{  \varphi \} &\in \{ \text{Transformations}\}\\
 \text{Sim} &\in \{ \text{Similarity measures}\}\\
@@ -135,7 +136,7 @@ Conscious of the risk involved in any rigid classification, in particular when a
 \text{Opt} &\in \{ \text{Optimization techniques}\}\\
 \text{Res} &\in \{ \text{Resampling techniques}\}\\
 \end{align*}
-Under the hood of this ideal device we may see something that can be schematically represented as in figure \ref{fig:iterative_algorithm_scheme}.
+Under the hood of this ideal device we may see an engine that can be schematically represented as in figure \ref{fig:iterative_algorithm_scheme}.
 
 \begin{figure}[!ht]
 	\centering
@@ -145,8 +146,8 @@ Under the hood of this ideal device we may see something that can be schematical
 \end{figure}
 
 \noindent
-Modulating on the value of each knob, changing for example the set of transformation or the resampling technique, we change between the possible registration algorithms in this framework.
-From this simplified scheme we can see that at each step, moving and fixed images are defined within their domain, not necessarily coincident. \\
+Modulating on the value of each knob, changing for example the set of transformation or the resampling technique, we change between the possible registration algorithms that generally falls in this framework.\\
+%This is a simplification from which we can see that at each step, moving and fixed images are defined within their domain, not necessarily coincident. 
 
 %Avoid the resampling at each iteration decreases computational time, reduces artifacts and enable to have more control on the consequence of the chosen resampling technique.
 %
@@ -157,8 +158,8 @@ From this simplified scheme we can see that at each step, moving and fixed image
 %	\label{fig:iterative_algorithm_scheme_modified}
 %\end{figure}
 \noindent
-Far from being a complete overview of all of the possible framework, it does not take into account the fact that each version or implementation inevitably involves different needs and consequent challenges. Solutions found for each case may fall outside this simplification scheme: for example the parametrization of the transformations (or the deformation field's update) at each iterative step do not appear in this picture, even though is a fundamental feature. \\
-In the following section we will going from the generalized framework to some specific aspects: we are interested in performing numerical computations and parametrization of \emph{diffeomorphisms}: bijective differentiable maps with differentiable inverse\footnote{Take the real valued $f(x)=x^3$: it is bijective differentiable but the inverse is not everywhere differentiable.}. We will see some details of parametrization of diffeomorphisms in the LDDMM and the diffeomorphic Demons\footnote{For surveys in image registration we refer the reader to \cite{Sotiras:survey:13, Hill:survey:01}.}.
+Far from being a complete overview of all of the possible frameworks, it does not take into account the fact that each version or implementation inevitably involves different needs and consequent challenges. Solutions found for each case may fall outside this simplification scheme: for example the parametrization of the transformations (or the deformation field's update) at each iterative step do not appear in this picture, even though is a fundamental feature. \\
+In the following subsections we will going from the generalized framework to some specific algorithms. We are interestedin particular in the parametrization of the \emph{diffeomorphisms}\footnote{bijective differentiable maps with differentiable inverse; take the real valued $f(x)=x^3$: it is bijective differentiable but the inverse is not everywhere differentiable.} of the latest important algorithms: the LDDMM and the diffeomorphic Demons.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
@@ -235,7 +236,7 @@ From the differential equation \ref{eq:ode_phi_v}, and in consequence of the def
 \end{align*}
 And so the optimization algorithm, at each step of the registration will look for
 \begin{align*}
-\hat{v} 
+\hat{V} 
 = 
 \argmin_{V^{(t)} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} ) } 
 \int_0^1 \euclideanMetric{L V^{(t)} }_{L^{2}}^{2} dt + \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
@@ -244,7 +245,7 @@ Each transformation involved in the optimization algorithm are discretized time 
 \begin{align*}
 \mathbf{v}_{k+1} = \mathbf{v}_{k} - \epsilon \nabla (\Delta\mathcal{E})
 \end{align*}
-where $\mathbf{v}^{k}$ is the $k$-th step of the approximation, $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.\\
+where $\mathbf{v}^{k}$ is the $k$-th step of the approximation of the velocity vector field $V$, $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.\\
 
 % shooting
 A direct upgrade of the classical LDDMM performs the optimization on the geodesic flows, defined by a set of Hamiltonian equation (Shooting LDDMM \cite{vialard2012diffeomorphic}). \\

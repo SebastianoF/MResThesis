@@ -1,19 +1,22 @@
-\chapter{Numerical computation of the Log-composition for SE(n) and SVF}\label{ch:spatial_transformations}
-
-\section{The Group of Rigid Body Transformations}\label{ch:rigid_body_transformations}
+\chapter{Numerical computation of the Log-composition for SE(2) and SVF}\label{ch:spatial_transformations}
 
 \begin{flushright}
 	\emph{People know or dimly perceive, that if thinking is not kept pure and keen, if spirit's contemplation do not holds, even mechanics of automobiles and ships will soon cease to run. Even engineer's slide rule, computations of banks and stock exchanges will wonder aimlessly for the lost of authority, and chaos will ensue.} \\ -Hermann Hesse, \emph{Magister Ludi}
 \end{flushright}
 
+\section{The Group of Rigid Body Transformations}\label{ch:rigid_body_transformations}
 
-A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection. We are interested in two things about them: their expression in matrix form, and the Lie group structure they form. In particular we will develop the close formulas for the computation of the log composition, and for each approximation technique presented. In part \ref{pt:applications}, they will be compared with the same technique applied to SVF where no ground truth is known.
+In the previous chapter we have introduced some fundamental tools from differential geometry commonly utilized in computational anatomy. The core object of the theory, exponential and logarithmic map, as well as pole ladder, are obviously different for each manifold and each metric, if there is one: practical implementations have to be determined case by case.\\
+This chapter is aimed to go through the details of the generalized theory for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields.
 
-\subsection{Lie Logarithm, Lie Exponential and Log-compositions for SE(n)}
 
-The set of all of the $3\times 3$  matrices with real entries is denoted with $M_{3}(\mathbb{R})$. 
-Its subset, defined by all the matrices with non-zero determinant, and thus by all the invertible matrices, is denoted with $GL_3 (\mathbb{R})$. A matrix group is any subgroup of  $GL_3 (\mathbb{R})$.
-We are interested in writing the group of rigid body transformation 
+\subsection{Lie Logarithm, Lie Exponential and Log-compositions for SE(2)}
+
+
+A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection, and forms the euclidean group $E(2)$. For 2d rigid registration usually reflections are not required and so we restrict our attention to the special euclidean group $SE(2)$.  We are interested in two things about them: their expression in matrix form, and the Lie group and the Lie algebra structures involved. \\
+We denote denoted with $M_{3}(\mathbb{R})$ the set of all of the $3\times 3$ matrices with real entries . 
+Its subset, defined by all the matrices with non-zero determinant, and thus by all the invertible matrices, is denoted with $GL_3 (\mathbb{R})$. A \emph{matrix group} is any proper or improper subgroup of  $GL_3 (\mathbb{R})$.
+The group of 2d rigid body transformation 
 \begin{align*}
 \mathbb{G} =
 \{ (\theta, tx, ty) \mid \theta \in [0, 2\pi),   tx, ty \in\mathbf{R}^2  \}

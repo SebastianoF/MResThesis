@@ -12,30 +12,30 @@
 \section{A Lie Group Structure for the Set of Transformation}\label{se:finite_lie_group}
 
 %%introductory definition
-We consider every group $\mathbb{G}$ as a group of transformation acting on $\mathbb{R}^{d}$, having in mind the particular case $d=2,3$ for 2-dimensional or 3-dimensional images.
+We consider every group $\mathbb{G}$ as a group of transformations acting on $\mathbb{R}^{d}$, having in mind the particular case $d=2,3$ for 2-dimensional or 3-dimensional images.
 We will focus out attention to transformations defined by matrices or diffeomorphism. Other than group they also have the structure of Lie group: they are considered with a maximal atlas that makes them differentiable manifold, in which the composition of two transformation and the inverse of each transformation are well defined differentiable maps:
 \begin{align*}
 \mathbb{G} \times \mathbb{G} & \longrightarrow  \mathbb{G}    \\
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
-Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure. The abstract idea of vector field over a manifold will be concretized for image registration introducing the concepts of \emph{displacement field}, \emph{deformation field} and \emph{velocity field (stationary or time varying)} that will be there presented. Avoid pedantry is as important as to avoid confusions on notations and definitions, therefore it is necessary to call back a few concepts from differential geometry tailored for rigid-body and diffeomorphic image registration, before getting into the heat of the applications. 
+Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure. The abstract idea of vector field over a manifold will be concretized for image registration introducing the concepts of \emph{displacement field}, \emph{deformation field} and \emph{velocity field (stationary or time varying)} that will be there presented. Avoid pedantry is as important as to avoid confusions on notations and definitions, therefore it is necessary to call back a few concepts from differential geometry tailored for rigid-body and diffeomorphic image registration, before getting into the heart of the applications. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Velocity Vector Fields and Flows}
 
-Let $\gamma(t)$ be a (continuous) path over a Lie group $\mathbb{G}$, such that $t \in (-\eta,\eta) \subseteq \mathbb{R}$ and $\gamma(0) = p$. If $(C,\psi)$ is a local chart, neighborhood of $p$, the tangent vector of $\gamma$ at the point $p$ can be expressed as
+Let $\gamma(t)$ be a (continuous) path over a Lie group $\mathbb{G}$, such that $t \in (-\eta,\eta) \subseteq \mathbb{R}$ and $\gamma(0) = p$. If $(C,\psi)$ is a local chart, neighborhood of $p$, the tangent vector of $\gamma$ at the point $p$ turns out to be
 \begin{align*}
-\mathbf{u}= \frac{d}{dt}(\psi\circ\gamma)(t) ~\Bigr|_{t=0}
+\mathbf{u} = \frac{d}{dt}(\psi\circ\gamma)(t) ~\Bigr|_{t=0}
 \end{align*}
-For different choice of $\gamma$ passing through $p$, we obtain different tangent vectors.
+Of course for different choice of $\gamma$ passing through $p$, we obtain different tangent vectors:
 %%%
 \[
 \begindc{\commdiag}[50]%[50]
 \obj(10,10)[G]{$C \subseteq \mathbb{G}$}
-\obj(0,0)[R]{$\mathbb{R}$}
-\obj(20,0)[Rn]{$\mathbb{R}^{n}$}
+\obj(0,0)[R]{$\mathbb{R}\supseteq (-\eta,\eta )$}
+\obj(20,0)[Rn]{$\psi(C)\subseteq \mathbb{R}^{n}$}
 
 \mor{G}{Rn}{$\psi$}
 \mor{R}{G}{$\gamma$}
@@ -47,7 +47,7 @@ For different choice of $\gamma$ passing through $p$, we obtain different tangen
 It can be proved that the set of all of the tangent vector at the point $p$ defines a vector space: the tangent space at $p$, indicated with $T_{p}\mathbb{G}$. It can be proved that this construction do not depend on the local chart's choice. \\
 Taking into account the disjoint union of all of the tangent spaces of $\mathbb{G}$ we obtain the tangent bundle $T\mathbb{G}$; it can be proven that it is, in its turn, a differentiable manifold.\\
 %% Definition of vector field
-Be $\mathbb{G}$ $n$-dimensional Lie group. A \emph{vector field} over $\mathbb{G}$ is a function that assigns at each point $p$ of $\mathbb{G}$, a tangent vector $V_{p}$ in the tangent space $T_{p}\mathbb{G}$, such that $V_{p}$ is differentiable respect to $p$. \\
+A \emph{vector field} over $\mathbb{G}$ is a function that assigns at each point $p$ of $\mathbb{G}$, a tangent vector $V_{p}$ in the tangent space $T_{p}\mathbb{G}$, such that $V_{p}$ is differentiable respect to $p$. \\
 If $(C; x_{1}, \dots , x_{n}) = (C,\psi)$ is a local chart of $\mathbb{G}$, neighborhood of $p$, then $V_{p}$ can be expressed locally as:
 \begin{align*}
 V_{p} 
@@ -62,15 +62,15 @@ Using the Einstein summation convention $V_{p}$ is sometime expressed as $V_{p} 
 The smooth functions $v_{i}$ define the vector fields in the base 
 $(\frac{\partial}{\partial x_{1}}, \dots ,\frac{\partial}{\partial x_{n}})$. The idea of expressing the elements of the base in terms of differential operator reveals the possibility to consider each vector field as a directional derivative over the algebra of smooth functions defined on the manifold.  \\
 %% TODO add here an example of the sphere for example! See do carmo vol 1. Do not let more than 5 pages without a concrete example!!
-The set of all vector field over $M$, indicated with $\mathcal{V}(M)$, is a real vector space and a module over $\mathcal{C}^{\infty}(M)$:
+The set of all vector field over $M$, indicated with $\text{Vect}(M)$, is a real vector space and a module over $\mathcal{C}^{\infty}(M)$:
 \begin{align*}
-&(V+W)_{p} = V_{p} + W_{p}  &\qquad \forall V, W \in \mathcal{V}(M) \\
+&(V+W)_{p} = V_{p} + W_{p}  &\qquad \forall V, W \in \text{Vect}(M) \\
 &(aV)_{p} = aV_{p} &\qquad \forall a \in \mathbb{R} \\
-&(fV)_{p} = f(p)V_{p}  &\qquad \forall V \in \mathcal{V}(M) \quad \forall f \in \mathcal{C}^{\infty}(M)
+&(fV)_{p} = f(p)V_{p}  &\qquad \forall V \in \text{Vect}(M) \quad \forall f \in \mathcal{C}^{\infty}(M)
 \end{align*}
-Moreover $\mathcal{V}(M)$ acts over $\mathcal{C}^{\infty}(M)$ as follows
+Moreover $\text{Vect}(M)$ acts over $\mathcal{C}^{\infty}(M)$ as follows
 \begin{align*}
-\mathcal{V}(M) \times \mathcal{C}^{\infty}(M) & \longrightarrow  \mathcal{C}^{\infty}(M) &   \\
+\text{Vect}(M) \times \mathcal{C}^{\infty}(M) & \longrightarrow  \mathcal{C}^{\infty}(M) &   \\
 (V,f) &\longmapsto  Vf  : \mathcal{C}^{\infty}(M)  \longrightarrow   \mathbb{R} \\
 & \qquad \qquad \qquad \quad p \longmapsto (Vf)(p) = V_{p}f
 \end{align*}
@@ -83,20 +83,7 @@ If $(C_{2};y_{1}, \dots , y_{n})$ is another local chart, $p \in C_{2}$, then th
 \begin{align*}
 V_{p} = \sum_{j=1}^{n} \Big( \sum_{i=1}^{n}v_{i}(p) \frac{\partial y_{j}}{\partial x_{i}}~\Bigr|_{p}  \Big) \frac{\partial }{\partial y_{j}}~\Bigr|_{p}
 \end{align*}
-A vector field can be time-dependent if each of its vectors varies smoothly within a parameter $t$, otherwise it is time-independent. In this case a continuous function over the set of times $T$ is defined:
-\begin{align*}
-\mathbb{R} \supseteq T & \longrightarrow  \mathcal{V}(\mathbb{G}) &   \\
-t &\longmapsto  V^{(t)}  : \mathbb{G}  \longrightarrow   T\mathbb{G}\\
-&  \qquad \qquad \quad p \longmapsto V^{(t)}_{p}
-\end{align*}
-where $V^{(t)}_{p} $ has local coordinates
-\begin{align*}
-V^{(t)}_{p} 
-=\sum_{i=1}^{n}v_{i}(p,t) \frac{\partial}{\partial x_{i}}~\Bigr|_{p} 
-\qquad  
-v_{i} \in \mathcal{C}^{\infty}(C\times T)
-\end{align*}
-Let $V$ a vector field over a differentiable manifold $\mathbb{G}$, an \emph{integral curve} of $V$ is given by
+Let $V$ be a vector field over a differentiable manifold $\mathbb{G}$, an \emph{integral curve} of $V$ is given by
 \begin{align*}
 c : (a,b) & \longrightarrow  \mathbb{G}  \quad \text{such that} \quad 
 \dot{c}(t) = V_{c(t)} \in T_{c(t)}\mathbb{G} ~\forall t\in (a,b)
@@ -124,20 +111,20 @@ Imposing the condition $\dot{c}(t) = V_{c(t)} $ we get:
 \sum_{i=1}^{n} v_{i}(c(t)) \frac{\partial}{\partial x_{i}} ~\Bigr|_{c(t)}  
 \end{align*}
 For a given point of the manifold, and considering the integral curves passing for this point we obtain the initial condition $c(0) = p$ for a Cauchy problem :
-\begin{equation}
+\begin{equation}\label{eq:caucy_prolem}
 \begin{cases}
-\frac{dc_{i}(t)}{dt}  =v_{i}(c_{1}, t_{2}, \dots , c_{n})  \\
+\frac{dc_{i}(t)}{dt}  =v_{i}(c_{1}, c_{2}, \dots , c_{n})  \\
 c_{i}(0) = p_{i}
 \end{cases}
 \end{equation}
-Thanks to the Cauchy theorem it has a unique solution $\gamma(t)$. The unique integral curve passing through $p$ when $t=0$ is noted by $ c^{(p)}(t)$. \\
+Thanks to the Cauchy theorem, it has an unique solution $\gamma(t)$. The unique integral curve passing through $p$ when $t=0$ is noted by $ c^{(p)}(t)$. \\
 Integral curves can be divided in $2$ classes: the one whose domain can be extended to the whole real line $\mathbb{R}$ (in this case $V$ is called \emph{completely integrable vector field}) and the one whose domain is a strict subset of $\mathbb{R}$.
 We reminds that the \emph{flow} of the vector field $V$ is the defined as:
 \begin{align*}
 \Phi_{V}: S\times \mathbb{G} &\longrightarrow \mathbb{G}   \\
 (t,p) &\longmapsto  \Phi_{V}(t,p) = c^{(p)}(t)
 \end{align*}
-where $S = \mathbb{R} $ or $S\subset \mathbb{R}$ if $V$ is or is not respectively completely integrable. Fixing the point $p$, the flow become simply the integral curve passing through $p$; keep $t$ fixed and letting $p$ varying over the manifold, we get the position of each point on the manifold subject to the vector field $V$ at the time $t$. This last idea gives raise to the \emph{one-parameter subgroup}:
+where $S = \mathbb{R} $ or $S\subset \mathbb{R}$ if $V$ is or is not respectively completely integrable. Fixing the point $p$, the flow become simply the integral curve passing through $p$; keep $t$ fixed and letting $p$ varying over the manifold, we get the position of each point on the manifold subject to the vector field $V$ at the time $t$. This last idea led to the concept of \emph{one-parameter subgroup}:
 \begin{align*}
 \forall p \in M \qquad \Phi_{V}(t,p) = \varphi_{t}  \qquad G = \{ \varphi_{t} ~:~ t \in S\}
 \end{align*}
@@ -145,12 +132,25 @@ where $S = \mathbb{R} $ or $S\subset \mathbb{R}$ if $V$ is or is not respectivel
 G\times G &\longrightarrow G   \\
 (\varphi_{t_1} ,\varphi_{t_2} ) &\longmapsto  \varphi_{t_1 + t_2} 
 \end{align*}
-Despite the name, the fact that $G$ forms a group is less important\footnote{In this context: from a group theory point of view the action of the group $(\mathbb{R},+)$ over the manifold has as its orbits, the set of disjoints integral curves.} than considering the compatibility between a sum on the real line and a product between functions. This property will be largely used when dealing with Lie logarithms.
-In general a continuous function
+Despite the name, the fact that $G$ forms a group is less important\footnote{Less important in this context: the name comes down to group theory where the action of the group $(\mathbb{R},+)$ over the manifold has as its orbits the set of disjoints integral curves.} than considering the compatibility between a sum on the real line and a product between functions: we say in general that a continuous function
 \begin{align*}
 f : \mathbb{R}\supseteq (-\eta,\eta) & \longrightarrow \mathbb{G}  \qquad f(0) = p
 \end{align*}
 satisfies the \emph{one parameter subgroup property} if $f(t+s) = f(t) f(s)$ where the last multiplication is the composition on the group. 
+Finally, a vector field can be time-dependent if each of its vectors varies smoothly within a parameter $t$, otherwise it is time-independent. In this case a continuous function over the set of times $T$ is defined:
+\begin{align*}
+\mathbb{R} \supseteq T & \longrightarrow  \text{Vect}(\mathbb{G}) &   \\
+t &\longmapsto  V^{(t)}  : \mathbb{G}  \longrightarrow   T\mathbb{G}\\
+&  \qquad \qquad \quad p \longmapsto V^{(t)}_{p}
+\end{align*}
+where $V^{(t)}_{p} $ has local coordinates
+\begin{align*}
+V^{(t)}_{p} 
+=\sum_{i=1}^{n}v_{i}(p,t) \frac{\partial}{\partial x_{i}}~\Bigr|_{p} 
+\qquad  
+v_{i} \in \mathcal{C}^{\infty}(C\times T)
+\end{align*}
+The last definition and the one parameter subgroup property, in conjunction with \ref{eq:caucy_prolem} will be largely used when dealing with Lie exponentials and Lie logarithms, and are at the core of the LDDMM and subsequent framework (see equation \ref{eq:ode_phi_v}).
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
@@ -167,10 +167,10 @@ v(p)^{i} \partial_{i}(f\circ F)\bigr|_{p}
 \end{align*}
 When the point $p$ is implicit by the context it will be omitted: namely $(F_{\star})_{p} = F_{\star}$. \\
 
-In general the push forward gives the right to the vector field $V$ defined over $\mathbb{G}$ to act as a derivative on another manifold $\mathbb{H}$. 
-Push forward is well defined since a vector field is completely determined by its action over $\mathcal{C}^{\infty}(\mathbb{H})$.
-It can be proved that it is linear, satisfies the Leibnitz rules,  and $(G\circ F )_{\star} = G_{\star} \circ F_{\star}$; moreover, the push forward of the identity is the identity map between vector spaces, and if $F$ is a diffeomorphism, $F_{\star}$ is an isomorphism of vector spaces. \\
-The \emph{pull-back}, is defined on the dual space of $\mathbb{G}$ and $\mathbb{H}$ as the contravariant operator of the push forward\footnote{Push-forward is defined between vector spaces, pull-back between space of functions and $V_{p}(F^{\star} f ) =  (v(p)^{i} \partial_{i}\bigr|_{p} )(f\circ F) = v(p)^{i} \partial_{i}(f\circ F)\bigr|_{p} = V_{p}(f\circ F) $.}:
+In general the push forward gives the right to the vector field $V$ defined over $\mathbb{G}$ to act as a derivative on another manifold $\mathbb{H}$.
+Push forward is well defined since a vector field is completely determined by its action over $\mathcal{C}^{\infty}(\mathbb{H})$, but it is not easy to compute in practical applications defined in this way.
+It can be proved that it is linear, satisfies the Leibnitz rules,  and $(G\circ F )_{\star} = G_{\star} \circ F_{\star}$; moreover, the push forward of the identity is the identity map between vector spaces, and if $F$ is a diffeomorphism, $F_{\star}$ is an isomorphism of vector spaces. We are particularly interested when $ \mathbb{G} =  \mathbb{H} $, since the push-forward become a way to make the vector field $V$ defined at some point $p$ of the manifold, to act on the point $F(p)$ of the same manifold toward the function $F$.  \\
+The \emph{pull-back}, is defined on the dual space of $\mathbb{G}$ and $\mathbb{H}$ as the contravariant operator of the push forward\footnote{Push-forward is defined between tangent vector spaces, pull-back between space of functions and $V_{p}(F^{\star} f ) =  (v(p)^{i} \partial_{i}\bigr|_{p} )(f\circ F) = v(p)^{i} \partial_{i}(f\circ F)\bigr|_{p} = V_{p}(f\circ F) $.}:
 \begin{align*}
 F^{\star} : \mathcal{C}^{\infty}(\mathbb{H}) & \longrightarrow  \mathcal{C}^{\infty}(\mathbb{G})    \\
 f  &\longmapsto  F^{\star} f  := f\circ F
@@ -201,8 +201,8 @@ The following diagram relates pull-back and push-forward:
 \]
 
 \noindent
-Here we restrict our attention at the case $\mathbb{G}=\mathbb{H}$, thus $F$ is a map that moves the points of $\mathbb{G}$ smoothly.
-Each element $p$ of a Lie group $\mathbb{G}$ defines three maps on $\mathbb{G}$:
+Restricting our attention to the case $\mathbb{G}=\mathbb{H}$, the map $F$ becomes a smooth movement of the points of $\mathbb{G}$.
+Each element $p$ of a Lie group $\mathbb{G}$ can be considered as the seed of three particularly interesting maps over $\mathbb{G}$:
 \begin{enumerate}
 	\item \emph{left-translation}:
 	\begin{align*}
@@ -287,16 +287,16 @@ A change of notation $V_{q} = \mathbf{u}$ makes push-forward and differential st
 The subscript $q$ in $(DL_{p})_{q}$ can be omitted when the tangent space of $\mathbf{u}$ is clear by the context. 
 
 %------------------ definition of left invariant vector field
-A vector field $V$ defined over a manifold is \emph{left-invariant} if it is invariant for each left translation. It means that $(L_{q})_{\star} V_{p} = V_{p}$ for any choice of $p$ and $q$. If we consider all of the possible push forward of the left translation applied to a single tangent vector at the origin $\mathbf{v}$ of $T_{e}\mathbb{M}$ we have a unique left-invariant vector field defined as $\mathbf{v}^{L}$ such that
+A vector field $V$ defined over a manifold is \emph{left-invariant} if it is invariant for each left translation. It means that $(L_{q})_{\star} V_{p} = V_{p}$ for any choice of $p$ and $q$. If we consider all of the possible push forward of the left translation applied to a single tangent vector at the origin $\mathbf{v}$ of $T_{e}\mathbb{M}$ we have an unique left-invariant vector field defined as $\mathbf{v}^{L}$ such that
 \begin{align*}
 \mathbf{v}^{L}_{q} := (L_{q})_{\star} \mathbf{v} \qquad \forall q \in M
 \end{align*}
 Vice versa every left-invariant vector field $V$ is uniquely represented by $V_{e}$.
-The set of all of the left-invariant vector fields form a linear subspace of the space of the vector field, indicated with $\text{left}\mathcal{V}(M)$. This can be easily proved by:
+The set of all of the left-invariant vector fields form a linear subspace of the space of the vector field, indicated with $\text{left}\text{Vect}(M)$. This can be easily proved by:
 \begin{align*}
 (L_{g})_{\star} (aV +bW) = a (L_{g})_{\star} V + b (L_{g})_{\star} W
 \qquad 
-\forall V, W \in \mathcal{V}(\mathbb{G}) 
+\forall V, W \in \text{Vect}(\mathbb{G}) 
 \quad 
 \forall a, b \in \mathbb{R}
 \end{align*}
@@ -312,7 +312,7 @@ Hom(\mathbb{R},\mathbb{G}) = \lbrace \varphi: \mathbb{R} \rightarrow \mathbb{G} 
 \end{align*}
 Tangent spaces, flows, one-parameter subgroup and Lie group homomorphisms are bounded together by the following remarkable result, which is a most important precondition for the definition of the Lie group exponential, and so deserve to be written in form of a lemma and formally proved. 
 \begin{lemma}
-	Let $\mathbb{G}$ be a Lie group. For each $\mathbf{v}$ in the tangent space $T_{e}\mathbb{G}$, exists a unique homomorphism $\gamma_{\mathbf{v}}$ in $Hom(\mathbb{R},\mathbb{G})$ (or equivalently a function satisfying the one-parameter subgroup property) such that 
+	Let $\mathbb{G}$ be a Lie group. For each $\mathbf{v}$ in the tangent space $T_{e}\mathbb{G}$, exists an unique homomorphism $\gamma_{\mathbf{v}}$ in $Hom(\mathbb{R},\mathbb{G})$ (or equivalently a function satisfying the one-parameter subgroup property) such that 
 	\begin{align*}
 	\dot{\gamma}_{\mathbf{v}}(0) = \mathbf{v}
 	\end{align*}
@@ -326,23 +326,33 @@ Tangent spaces, flows, one-parameter subgroup and Lie group homomorphisms are bo
 \end{proof}
 We observe that $\gamma_{\mathbf{v}}$ is exactly the one parameter subgroup of $\mathbf{v}^{L}$ defined above, and then we can write $\gamma_{\mathbf{v}}(t) = \Phi(t,e) = \varphi_{e}(t)$.\\
 
-We conclude this paragraph remembering the definition of the Lie algebra of a Lie group that take into account every feature so far introduced:
+Using the features so far introduced it is possible to recover the Lie algebra of a Lie group. We remember these equivalent definitions:
 \begin{definition}
 	Given a Lie group $\mathbb{G}$, its Lie algebra $\mathfrak{g}$ is defined as:
 	\begin{enumerate}
 		\item The vector space $T_{e}\mathbb{G}$  of all of the tangent vector at the identity (or at any other point of the manifold): $\mathfrak{g} := T_{e}\mathbb{G}$.
-		\item The set of the left invariant vector Field over $\mathbb{G}$: $\mathfrak{g} := \text{left}\mathcal{V}(\mathbb{G})$.
+		\item The set of the left invariant vector Field over $\mathbb{G}$: $\mathfrak{g} := \text{left}\text{Vect}(\mathbb{G})$.
 		\item The set of all of the flows passing through $e$:  $\mathfrak{g} := \{ \Phi(e,t) : t \in S\subseteq \mathbb{R} \}$.
 		\item The set of homomorphism $Hom(\mathbb{R},\mathbb{G}) $.
 	\end{enumerate}
 \end{definition}
-The Lie algebra can be also defined independently from a Lie group as a vector space endowed with Lie bracket (bilinear form, antisymmetric, that satisfies the Jacobi identity). In the finite dimensional case given a Lie algebra $\mathfrak{g}$ it can be proved that exists always a Lie group $\mathbb{G}$ such that $\mathfrak{g}$ is the Lie algebra defined over $\mathbb{G}$. This property (third Lie theorem) do not holds anymore infinite dimensional Lie algebra of diffeomorphisms.
+The Lie algebra can be also defined independently from a Lie group as a vector space endowed with Lie bracket (bilinear form, antisymmetric, that satisfies the Jacobi identity). In the finite dimensional case given a Lie algebra $\mathfrak{g}$ it can be proved that exists always a Lie group $\mathbb{G}$ such that $\mathfrak{g}$ is the Lie algebra defined over $\mathbb{G}$. This property (third Lie theorem) do not holds anymore infinite dimensional Lie algebra of diffeomorphisms.\\
+
+We conclude this section considering the twin of the adjoint map for the Lie algebra of a Lie group:
+\begin{align*}
+	\text{ad} :  \mathfrak{g} & \longrightarrow  Aut(\mathfrak{g}) &   \\
+	\mathbf{u} &\longmapsto  \text{ad}_{\mathbf{u}}  : \mathfrak{g}  \longrightarrow  \mathfrak{g} \\
+	& \qquad \qquad \qquad \quad \mathbf{v} \longmapsto \text{ad}_{\mathbf{u}}\mathbf{v} = \mathbf{u}\mathbf{v}\mathbf{u}^{-1}
+\end{align*}
+(notations in this research are, as usual, case sensitive). One of its interesting property is that it preserves the Lie bracket: $\text{ad}_{\mathbf{u}}[\mathbf{v}, \mathbf{w} ] = [\text{ad}_{\mathbf{u}} \mathbf{v}, \text{ad}_{\mathbf{u}} \mathbf{w} ]$.
+
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Lie Exponential, Lie logarithm and Lie Log-composition}\label{se:lie_exp_log_comp}
-Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ and $V\in\text{left}\mathcal{V}(\mathbb{G})$ the unique vector field defined by $\mathbf{v}$ over a local coordinate system around the origin. Let $\Phi_{V}$ be the flow associated with the vector field and $\gamma(t)$ the unique integral curve of $V$ passing through the identity of the group.  
+Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ and $V\in\text{left}\text{Vect}(\mathbb{G})$ the unique vector field defined by $\mathbf{v}$ over a local coordinate system around the origin. Let $\Phi_{V}$ be the flow associated with the vector field and $\gamma(t)$ the unique integral curve of $V$ passing through the identity of the group.  
 The \emph{Lie exponential} is defined as
 \begin{align*}
 \exp :  \mathfrak{g} & \longrightarrow  \mathbb{G}  \\
@@ -374,15 +384,7 @@ When we deal with a matrix Lie group of dimension $n$, we have the following rem
 	\item For any norm, $\euclideanMetric{\exp(\mathbf{v})} \leq \exp(\euclideanMetric{\mathbf{v}})$.
 	\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{v}}{m})\exp(\frac{\mathbf{v}}{m}))^{m}$
 	\item If $\exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$ then $\exp(\mathbf{-w}) = \exp(\mathbf{-v}) \circ \exp(\mathbf{-u})$.
-	\item For $\text{Ad}$ adjoint map\footnote{Lie group action defined as
-		as 
-		\begin{align*}
-		\text{Ad} :  \mathbb{G} & \longrightarrow  Aut(\mathbb{G}) &   \\
-		\mathbf{u} &\longmapsto  \text{Ad}_{\mathbf{u}}  : \mathbb{G}  \longrightarrow  \mathbb{G} \\
-		& \qquad \qquad \qquad \quad \mathbf{v} \longmapsto \text{Ad}_{\mathbf{u}}\mathbf{v} = \mathbf{u}\mathbf{v}\mathbf{u}^{-1}
-		\end{align*}
-		that preserves the lie bracket in the Lie algebra: $\text{Ad}_{\mathbf{u}}[\mathbf{v}, \mathbf{w} ] = [\text{Ad}_{\mathbf{u}} \mathbf{v}, \text{Ad}_{\mathbf{u}} \mathbf{w} ]$   .
-	} we have $ \exp(\text{Ad}_{\mathbf{u}}\mathbf{v} ) = \text{Ad}_{\mathbf{u}}\exp(\mathbf{v})$
+	\item For $\text{ad}$ adjoint map in the Lie algebra we have $ \exp(\text{Ad}_{\mathbf{u}}\mathbf{v} ) = \text{Ad}_{\mathbf{u}}\exp(\mathbf{v})$
 \end{enumerate}
 The idea of defining an inverse of the Lie exponential leads to the idea of the Lie logarithm, defined
 \begin{align*}
@@ -503,12 +505,12 @@ Following properties holds for the Lie log-composition:
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Connections and Geodesics}
 
-Given a Lie Group $\mathbb{G}$, a connection $\nabla$ is an operator which assign to each vector field $U$ in $\mathcal{V}(\mathbb{G})$ the map
+Given a Lie Group $\mathbb{G}$, a connection $\nabla$ is an operator which assign to each vector field $U$ in $\text{Vect}(\mathbb{G})$ the map
 \begin{align*}
-\nabla_{U} : \mathcal{V}(\mathbb{G}) & \longrightarrow  \mathcal{V}(\mathbb{G}) &   \\
+\nabla_{U} : \text{Vect}(\mathbb{G}) & \longrightarrow  \text{Vect}(\mathbb{G}) &   \\
 V &\longmapsto  \nabla_{U}V
 \end{align*}
-such that for all $f,g$ in $\mathcal{C}^{\infty}(\mathbb{G})$ and for all $V,W$ in $\mathcal{V}(\mathbb{G})$ the following conditions are satisfied:
+such that for all $f,g$ in $\mathcal{C}^{\infty}(\mathbb{G})$ and for all $V,W$ in $\text{Vect}(\mathbb{G})$ the following conditions are satisfied:
 \begin{enumerate}
 	\item $ \nabla_{fU + gV} = f\nabla_{U} + g\nabla_{V}$
 	\item $\nabla_{U}(fV) = f \nabla_{U}(V) + (Uf)V $
@@ -524,7 +526,7 @@ In fact on a Lie group $\mathbb{G}$ a \emph{geodesic} between two of its points 
 \gamma:[0,1] \longrightarrow \mathbb{G} \qquad \gamma(0)=p,~ \gamma(1) = p,~ \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
 \end{align*} 
 Note that in this case the concept of geodesic did not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection.
-A connection is said to be left invariant if it is closed for left invariant vector fields, i.e. if for any $V, W \in Left\mathcal{V}(\mathbb{G}) $ their connection $ \nabla_{U}V$ is still left invariant.
+A connection is said to be left invariant if it is closed for left invariant vector fields, i.e. if for any $V, W \in Left\text{Vect}(\mathbb{G}) $ their connection $ \nabla_{U}V$ is still left invariant.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
