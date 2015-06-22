@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  3 JUN 2015 19:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  22 JUN 2015 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,8 +576,7 @@ Package hyperref Warning: Unexpected value for option `hidelinks'
 
 (./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
 (./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
-(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux)
-(./frontback/Appendices.aux))
+(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
@@ -643,7 +642,7 @@ LaTeX Info: Redefining \nameref on input line 67.
 \openout4 = `main.out'.
 
 
-<figures/UCL_logo.jpg, id=208, 438.63875pt x 533.995pt>
+<figures/UCL_logo.jpg, id=148, 438.63875pt x 533.995pt>
 File: figures/UCL_logo.jpg Graphic file (type jpg)
 
 <use figures/UCL_logo.jpg>
@@ -688,7 +687,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.33 
+l.34 
       [1
 
 
@@ -696,15 +695,15 @@ l.33
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 	\item[2007-2013 $\triangleright$]
+l.48 	\item[2007-2013 $\triangleright$]
                                         The LDDMM revealed all the opportuni...
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
+Underfull \hbox (badness 10000) in paragraph at lines 59--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--67
+Underfull \hbox (badness 10000) in paragraph at lines 63--68
 
  []
 
@@ -712,62 +711,62 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.67 
+l.68 
       [3]
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--95
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--115
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
-[4] <figures/iterative_algorithm.png, id=406, 734.745pt x 454.69875pt>
+[4] <figures/iterative_algorithm.png, id=331, 734.745pt x 454.69875pt>
 File: figures/iterative_algorithm.png Graphic file (type png)
 
 <use figures/iterative_algorithm.png>
-Package pdftex.def Info: figures/iterative_algorithm.png used on input line 143
+Package pdftex.def Info: figures/iterative_algorithm.png used on input line 144
 .
 (pdftex.def)             Requested size: 257.1646pt x 159.14694pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
+Underfull \hbox (badness 10000) in paragraph at lines 149--152
 
  []
 
 [5] [6 <./figures/iterative_algorithm.png>] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 247--249
+Underfull \hbox (badness 10000) in paragraph at lines 248--250
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
 [9]
-LaTeX Font Info:    Try loading font information for U+euf on input line 322.
+LaTeX Font Info:    Try loading font information for U+euf on input line 323.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-<figures/add_diff_demons.png, id=493, 1425.325pt x 646.415pt>
+<figures/add_diff_demons.png, id=419, 1425.325pt x 646.415pt>
 File: figures/add_diff_demons.png Graphic file (type png)
 
 <use figures/add_diff_demons.png>
-Package pdftex.def Info: figures/add_diff_demons.png used on input line 354.
+Package pdftex.def Info: figures/add_diff_demons.png used on input line 355.
 (pdftex.def)             Requested size: 384.8429pt x 174.53438pt.
  [10]
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
 [11 <./figures/add_diff_demons.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 387--389
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
 
  []
 
@@ -776,191 +775,190 @@ Underfull \hbox (badness 10000) in paragraph at lines 387--389
 
  (./chapters/Ch_tools.tex
 Chapter 2.
+
+LaTeX Warning: Citation `notes_geometry_and_imaging' on page 13 undefined on in
+put line 23.
+
 [13
 
 
 
-] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-[16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-[19] [20] <figures/circle_example.png, id=594, 679.53876pt x 648.4225pt>
-File: figures/circle_example.png Graphic file (type png)
-
-<use figures/circle_example.png>
-Package pdftex.def Info: figures/circle_example.png used on input line 403.
-(pdftex.def)             Requested size: 237.84213pt x 226.95126pt.
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22 <./figures/circle_example.png>]
-<figures/log_composition.png, id=619, 675.52374pt x 646.415pt>
-File: figures/log_composition.png Graphic file (type png)
-
-<use figures/log_composition.png>
-Package pdftex.def Info: figures/log_composition.png used on input line 469.
-(pdftex.def)             Requested size: 236.43684pt x 226.24864pt.
- [23 <./figures/log_composition.png>] [24]
-[25] <figures/inversion_1.png, id=649, 657.45625pt x 460.72125pt>
-File: figures/inversion_1.png Graphic file (type png)
-
-<use figures/inversion_1.png>
-Package pdftex.def Info: figures/inversion_1.png used on input line 642.
-(pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
-
-<figures/inversion_2.png, id=650, 708.6475pt x 419.5675pt>
-File: figures/inversion_2.png Graphic file (type png)
-
-<use figures/inversion_2.png>
-Package pdftex.def Info: figures/inversion_2.png used on input line 649.
-(pdftex.def)             Requested size: 184.9429pt x 109.4947pt.
-
-Overfull \hbox (71.13188pt too wide) in paragraph at lines 649--650
- [][] 
- []
-
-[26] <figures/sign_1.png, id=661, 714.67pt x 499.8675pt>
-File: figures/sign_1.png Graphic file (type png)
-
-<use figures/sign_1.png>
-Package pdftex.def Info: figures/sign_1.png used on input line 672.
-(pdftex.def)             Requested size: 270.30118pt x 189.05922pt.
- [27 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/sign_1.
-png>]
-<figures/theorem_pict.png, id=673, 760.8425pt x 698.61pt>
-File: figures/theorem_pict.png Graphic file (type png)
-
-<use figures/theorem_pict.png>
-Package pdftex.def Info: figures/theorem_pict.png used on input line 720.
-(pdftex.def)             Requested size: 270.30118pt x 248.19482pt.
- [28 <./figures/theorem_pict.png>] [29]
-Overfull \hbox (26.17119pt too wide) in paragraph at lines 864--864
-[]\OT1/cmr/bx/n/14.4 Four Strate-gies for the Com-pu-ta-tion of Log-composition
- 
- []
-
-[30]) [31]
-\openout2 = `chapters/Ch_spatial_transformations.aux'.
-
- (./chapters/Ch_spatial_transformations.tex [32
-
-
-
 ]
-Chapter 3.
-
-Overfull \hbox (8.43616pt too wide) in paragraph at lines 13--13
-[]\OT1/cmr/bx/n/12 Lie Log-a-rithm, Lie Ex-po-nen-tial and Log-compositions for
- SE(2) 
- []
-
-[33] [34]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 22.43335pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 350.
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--95
+
+ []
+
+[15] <figures/log_composition.png, id=502, 675.52374pt x 646.415pt>
+File: figures/log_composition.png Graphic file (type png)
+
+<use figures/log_composition.png>
+Package pdftex.def Info: figures/log_composition.png used on input line 105.
+(pdftex.def)             Requested size: 236.43684pt x 226.24864pt.
+ [16 <./figures/log_composition.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 154--157
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
+
+ []
+
+[18] <figures/inversion_1.png, id=542, 657.45625pt x 460.72125pt>
+File: figures/inversion_1.png Graphic file (type png)
+
+<use figures/inversion_1.png>
+Package pdftex.def Info: figures/inversion_1.png used on input line 254.
+(pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
+
+<figures/inversion_2.png, id=543, 708.6475pt x 419.5675pt>
+File: figures/inversion_2.png Graphic file (type png)
+
+<use figures/inversion_2.png>
+Package pdftex.def Info: figures/inversion_2.png used on input line 261.
+(pdftex.def)             Requested size: 184.9429pt x 109.4947pt.
+
+Overfull \hbox (71.13188pt too wide) in paragraph at lines 261--262
+ [][] 
+ []
+
+<figures/sign_1.png, id=544, 714.67pt x 499.8675pt>
+File: figures/sign_1.png Graphic file (type png)
+ <use figures/sign_1.png>
+Package pdftex.def Info: figures/sign_1.png used on input line 281.
+(pdftex.def)             Requested size: 270.30118pt x 189.05922pt.
+
+[19] [20 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/sig
+n_1.png>] <figures/theorem_pict.png, id=572, 760.8425pt x 698.61pt>
+File: figures/theorem_pict.png Graphic file (type png)
+
+<use figures/theorem_pict.png>
+Package pdftex.def Info: figures/theorem_pict.png used on input line 299.
+(pdftex.def)             Requested size: 270.30118pt x 248.19482pt.
+ [21 <./figures/theorem_pict.png>]
+
+LaTeX Warning: Citation `xxx' on page 22 undefined on input line 415.
+
+
+Overfull \hbox (26.17119pt too wide) in paragraph at lines 423--423
+[]\OT1/cmr/bx/n/14.4 Four Strate-gies for the Com-pu-ta-tion of Log-composition
+ 
+ []
+
+[22]) [23]
+\openout2 = `chapters/Ch_spatial_transformations.aux'.
+
+ (./chapters/Ch_spatial_transformations.tex [24
+
+
+
+]
+Chapter 3.
+
+Overfull \hbox (8.43616pt too wide) in paragraph at lines 15--15
+[]\OT1/cmr/bx/n/12 Lie Log-a-rithm, Lie Ex-po-nen-tial and Log-compositions for
+ SE(2) 
+ []
+
+[25] [26] [27]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 352.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 350.
- [36]
-[37] [38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 643--645
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 676--681
-
- []
-
-[40]) [41]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 352.
+)
+[28]
 \openout2 = `chapters/Ch_log_computations.aux'.
 
- (./chapters/Ch_log_computations.tex [42
-
-
-
-]
+ (./chapters/Ch_log_computations.tex
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 12--15
 
  []
 
-[43]
+[29
+
+
+
+]
 Overfull \hbox (25.47949pt too wide) in paragraph at lines 59--59
 []\OT1/cmr/bx/n/14.4 The Log-computation Al-go-rithm us-ing Log-composition 
  []
 
-[44]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 180--183
 
  []
 
-[45] [46]
+[31] [32]
 
-LaTeX Warning: Reference `eq:bossa_strategy' on page 47 undefined on input line
+LaTeX Warning: Reference `eq:bossa_strategy' on page 33 undefined on input line
  280.
 
-) [47]
+) [33]
 \openout2 = `chapters/Ch_results.aux'.
 
- (./chapters/Ch_results.tex [48
+ (./chapters/Ch_results.tex [34
 
 
 
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--11
+Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-) [49]
-\openout2 = `frontback/Appendices.aux'.
-
- (./frontback/Appendices.tex) [50
+) [35] (./main.bbl [36
 
 
-] (./main.bbl [51
-
-
-] [52] [53])
+] [37] [38] [39] [40])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
- [54]
+ [41]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
-
-(./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
+ (./main.aux
+(./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
 (./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
-(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux)
-(./frontback/Appendices.aux))
+(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 225.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 68535F07AEDE82B8EC96A0430E7BC608;4446.
+(rerunfilecheck)             Checksum: D16DF3F5F90287CD0F8911F8F30F86B8;3150.
 
 
 LaTeX Warning: There were undefined references.
@@ -968,46 +966,45 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 225.
  ) 
 Here is how much of TeX's memory you used:
- 8279 strings out of 493117
- 114724 string characters out of 6135433
- 277056 words of memory out of 5000000
- 11255 multiletter control sequences out of 15000+600000
+ 8207 strings out of 493117
+ 113952 string characters out of 6135433
+ 275827 words of memory out of 5000000
+ 11242 multiletter control sequences out of 15000+600000
  14587 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,15n,43p,1085b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,15n,43p,1062b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2014/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/font
-s/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (59 pages, 908246 bytes).
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (46 pages, 776237 bytes).
 PDF statistics:
- 996 PDF objects out of 1000 (max. 8388607)
- 880 compressed objects within 9 object streams
- 285 named destinations out of 1000 (max. 500000)
- 454 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 846 PDF objects out of 1000 (max. 8388607)
+ 747 compressed objects within 8 object streams
+ 234 named destinations out of 1000 (max. 500000)
+ 329 words of extra memory for PDF output out of 10000 (max. 10000000)
 

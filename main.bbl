@@ -1,7 +1,13 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{GWRNJ12}
 
-\bibitem[ACPA06]{arsigny2006statistics}
+\bibitem[ACPA06a]{arsigny2006log}
+Vincent Arsigny, Olivier Commowick, Xavier Pennec, and Nicholas Ayache.
+\newblock A log-euclidean framework for statistics on diffeomorphisms.
+\newblock In {\em Medical Image Computing and Computer-Assisted
+  Intervention--MICCAI 2006}, pages 924--931. Springer, 2006.
+
+\bibitem[ACPA06b]{arsigny2006statistics}
 Vincent Arsigny, Olivier Commowick, Xavier Pennec, and Nicholas Ayache.
 \newblock Statistics on diffeomorphisms in a log-euclidean framework.
 \newblock In {\em 1st MICCAI Workshop on Mathematical Foundations of
@@ -87,6 +93,11 @@ Gary~E Christensen, Richard~D Rabbitt, and Michael~I Miller.
 \newblock Deformable templates using large deformation kinematics.
 \newblock {\em Image Processing, IEEE Transactions on}, 5(10):1435--1447, 1996.
 
+\bibitem[DCDC76]{do1976differential}
+Manfredo~Perdigao Do~Carmo and Manfredo~Perdigao Do~Carmo.
+\newblock {\em Differential geometry of curves and surfaces}, volume~2.
+\newblock Prentice-hall Englewood Cliffs, 1976.
+
 \bibitem[dCV92]{do1992riemannian}
 Manfredo~Perdigao do~Carmo~Valero.
 \newblock {\em Riemannian geometry}.
@@ -101,6 +112,12 @@ Paul Dupuis, Ulf Grenander, and Michael~I. Miller.
 David~G Ebin and Jerrold Marsden.
 \newblock Groups of diffeomorphisms and the motion of an incompressible fluid.
 \newblock {\em Annals of Mathematics}, pages 102--163, 1970.
+
+\bibitem[EMP06]{ebin2006singularities}
+DAVID~G Ebin, GERARD Misio{\l}ek, and STEPHEN~C Preston.
+\newblock Singularities of the exponential map on the volume-preserving
+  diffeomorphism group.
+\newblock {\em Geometric and Functional Analysis}, 16(4):850--868, 2006.
 
 \bibitem[FF97]{fox1997brain}
 Nick~C Fox and Peter~A Freeborough.
@@ -118,10 +135,11 @@ Serge Gauthier, Liyong Wu, Pedro Rosa-Neto, and Jianping Jia.
 \newblock Prevention strategies for alzheimer’s disease.
 \newblock {\em Translational neurodegeneration}, 1(1):1--4, 2012.
 
-\bibitem[HBHH01]{Hill:survey:01}
-Derek L~G Hill, Philipp~G Batchelor, Mark Holden, and David~J Hawkes.
-\newblock Medical image registration.
-\newblock {\em Physics in Medicine and Biology}, 46(3):R1, 2001.
+\bibitem[Hal15]{hall2015lie}
+Brian Hall.
+\newblock {\em Lie groups, Lie algebras, and representations: an elementary
+  introduction}, volume 222.
+\newblock Springer, 2015.
 
 \bibitem[HBO07]{hernandez2007registration}
 Monica Hernandez, Matias~N Bossa, and Salvador Olmos.
@@ -143,6 +161,24 @@ Berthold~K Horn and Brian~G Schunck.
 \newblock In {\em 1981 Technical Symposium East}, pages 319--331. International
   Society for Optics and Photonics, 1981.
 
+\bibitem[KKK08]{kirillov2008introduction}
+Alexander~A Kirillov, Aleksandr~Aleksandrovi{\v{c}} Kirillov, and
+  Aleksandr~Aleksandrovi{\v{c}} Kirillov.
+\newblock {\em An introduction to Lie groups and Lie algebras}, volume 113.
+\newblock Cambridge University Press Cambridge, 2008.
+
+\bibitem[KMN00]{kheyfets2000schild}
+Arkady Kheyfets, Warner~A Miller, and Gregory~A Newton.
+\newblock Schild's ladder parallel transport procedure for an arbitrary
+  connection.
+\newblock {\em International Journal of Theoretical Physics},
+  39(12):2891--2898, 2000.
+
+\bibitem[Kne51]{knebelman1951spaces}
+MS~Knebelman.
+\newblock Spaces of relative parallelism.
+\newblock {\em Annals of Mathematics}, pages 387--399, 1951.
+
 \bibitem[KW08]{khesin2008geometry}
 Boris Khesin and Robert Wendt.
 \newblock {\em The geometry of infinite-dimensional groups}, volume~51.
@@ -155,6 +191,13 @@ Marco Lorenzi, Nicholas Ayache, Giovanni~B Frisoni, Xavier Pennec, and
   registration algorithm}.
 \newblock {\em NeuroImage}, 81:470--483, 2013.
 
+\bibitem[LAP11]{lorenzi2011schild}
+Marco Lorenzi, Nicholas Ayache, and Xavier Pennec.
+\newblock Schild’s ladder for the parallel transport of deformations in time
+  series of images.
+\newblock In {\em Information Processing in Medical Imaging}, pages 463--474.
+  Springer, 2011.
+
 \bibitem[Lee12]{lee2012introduction}
 John Lee.
 \newblock {\em Introduction to smooth manifolds}, volume 218.
@@ -165,12 +208,26 @@ JA~Leslie.
 \newblock A lie group structure for the group of analytic diffeomorphisms.
 \newblock {\em Boll. Un. Mat. Ital. A (6)}, 2:29--37, 1983.
 
-\bibitem[LP14]{Lorenzi:discrete_ladders:14}
+\bibitem[LP13]{lorenzi2013geodesics}
+Marco Lorenzi and Xavier Pennec.
+\newblock Geodesics, parallel transport \& one-parameter subgroups for
+  diffeomorphic image registration.
+\newblock {\em International journal of computer vision}, 105(2):111--127,
+  2013.
+
+\bibitem[LP14a]{Lorenzi:discrete_ladders:14}
 Marco Lorenzi and Xavier Pennec.
 \newblock {Discrete Ladders for Parallel Transport in Transformation Groups
   with an Affine Connection Structure}.
 \newblock In Frank Nielsen, editor, {\em {Geometric Theory of Information}},
   Signals and Communication Technology, pages 243--271. {Springer}, 2014.
+
+\bibitem[LP14b]{lorenzi2014efficient}
+Marco Lorenzi and Xavier Pennec.
+\newblock Efficient parallel transport of deformations in time series of
+  images: from schild’s to pole ladder.
+\newblock {\em Journal of Mathematical Imaging and Vision}, 50(1-2):5--17,
+  2014.
 
 \bibitem[MA70]{marsden1970hamiltonian}
 J~Marsden and R~Abraham.
@@ -193,6 +250,11 @@ J.~R. McClelland, D.~J. Hawkes, T.~Schaeffter, and A.~P. King.
 J~Milnor.
 \newblock Remarks on infinite-dimensional lie groups, in ‘relativity, groups
   and topology, ii’(les houches, 1983), 1007--1057, 1984.
+
+\bibitem[MTW73]{misner1973gravitation}
+Charles~W Misner, Kip~S Thorne, and John~Archibald Wheeler.
+\newblock {\em Gravitation}.
+\newblock Macmillan, 1973.
 
 \bibitem[OKC92]{ovsienko1992integrals}
 V~Yu Ovsienko, BA~Khesin, and Yu~V Chekanov.
@@ -220,6 +282,12 @@ Ferran Prados, Manuel~Jorge Cardoso, Kelvin~K Leung, David~M Cash, Marc Modat,
 \newblock Measuring brain atrophy with a generalized formulation of the
   boundary shift integral.
 \newblock {\em Neurobiology of aging}, 36:S81--S90, 2015.
+
+\bibitem[PL{\etalchar{+}}11]{pennec2011parallel}
+Xavier Pennec, Marco Lorenzi, et~al.
+\newblock Which parallel transport for the statistical analysis of longitudinal
+  deformations.
+\newblock In {\em Proc. Colloque GRETSI}. Citeseer, 2011.
 
 \bibitem[Sch10]{schmid2010infinite}
 Rudolf Schmid.
