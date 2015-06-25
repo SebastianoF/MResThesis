@@ -304,23 +304,23 @@ The following theorem is an application of the pole ladder \cite{lorenzi2011schi
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a Cartan connection $\nabla$. 
 	If, for each couple of linearly independent vectors $\mathbf{u}, \mathbf{v} \in T_{e}\mathbb{G}$, we consider the following elements:
 	\begin{align*}
-	a= \exp_{e}(\mathbf{u}) 
+	a = \exp_{e}(\mathbf{u}) 
 	\quad & \quad  
-	b= \exp_{e}(\mathbf{v}) \\
-	\mathbf{u}^{\parallel} = & \Pi(\alpha)_{e}^{b}(\mathbf{u})\\
-	\gamma : [0,1] \rightarrow \mathbb{G} &\quad \gamma(0) = e \quad \dot{\gamma}(0) = \mathbf{v}
+	b = \exp_{e}(\mathbf{v}) \\
+	\mathbf{v}_{a}^{\parallel} = & \Pi(\gamma)_{e}^{a}(\mathbf{v})\\
+	\gamma : [0,1] \rightarrow \mathbb{G} &\quad \gamma(0) = e \quad \dot{\gamma}(0) = \mathbf{u}
 	\end{align*}
 	\begin{align*}
-	 \mathbf{u}_{e}^{\parallel} := D(L_{b^{-1}})_{e}( -\Pi(\alpha)_{a}^{b}(\mathbf{u}))
+	 \mathbf{v}^{\parallel} := D(L_{a^{-1}})_{e}( -\Pi(\alpha)_{a}^{e}(\mathbf{v}_{a}^{\parallel}))
 	\end{align*}
 	Then it follows that if $\mathbf{u}$ is in the open ball $B(\mathbf{0}, \epsilon)$, then exists a  $\tilde{\epsilon}>0$ such that $\mathbf{u}_{e}^{\parallel}$ belongs to $B(\mathbf{0}, \tilde{\epsilon})$, and exists a $\delta(\epsilon + \tilde{\epsilon})>0$ such that the inequality
 	\begin{align*}
 		\euclideanMetric{
-			\log(\exp_{e}(\mathbf{u}_{e}^{\parallel} ))
+			\log(\exp_{e}(\mathbf{v}^{\parallel} ))
 			-
-			\log(\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-				\circ  \exp_{e}(\mathbf{u}) 
-				\circ \exp_{e}\big(-\frac{\mathbf{v}}{2}\big))
+			\log(\exp_{e}\big(\frac{\mathbf{u}}{2}\big)   
+				\circ  \exp_{e}(\mathbf{v}) 
+				\circ \exp_{e}\big(-\frac{\mathbf{u}}{2}\big))
 			} <\delta(\epsilon + \tilde{\epsilon})
 	\end{align*}
 	holds.
@@ -328,11 +328,11 @@ The following theorem is an application of the pole ladder \cite{lorenzi2011schi
 \noindent
 The last statement can be rewritten as the approximation:
 \begin{align}\label{eq:parallel_transport_main_approximation}
-\exp_{e}(\mathbf{u}_{e}^{\parallel}) 
+\exp_{e}(\mathbf{v}^{\parallel}) 
 \simeq
-\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-\circ  \exp_{e}(\mathbf{u}) 
-\circ \exp_{e}\big(-\frac{\mathbf{v}}{2}\big)
+\exp_{e}\big(\frac{\mathbf{u}}{2}\big)   
+\circ  \exp_{e}(\mathbf{v}) 
+\circ \exp_{e}\big(-\frac{\mathbf{u}}{2}\big)
 \end{align}
 that will turn out to be the main tool for the computation of the log-composition using parallel transport.
 
@@ -359,7 +359,7 @@ In this section we provide explicit formulas for the computation of the log comp
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Truncated BCH formula}\label{se:bch_formula}
+\subsection{Truncated BCH formula for the Log-composition}\label{se:bch_formula}
 
 To compute the Lie log-composition, literature provides the BCH formula (for matrices \cite{hall2015lie}, general case: \cite{klarsfeld1989baker} , \cite{serre2009lie}), defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
 \begin{align*}
@@ -374,60 +374,130 @@ BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
 BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
 BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
 \end{align*}
-These numerical approximations of the log-composition can be considered as a first step but are not satisfactory since they do not provide any condition to consider the error carried by each term.
+These numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{v}$ can be considered as a first step but are not satisfactory since they do not provide any condition to consider the error carried by each term.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Taylor Expansion}\label{se:taylor_expansion}
+\subsection{Taylor Expansion for the Log-composition}\label{se:taylor_expansion}
 
 A more sophisticated numerical method for the computation of the log-composition that relies on the Taylor expansion, that holds only for matrix Lie groups. \\
-As shown in the appendix of \cite{klarsfeld1989baker} the terms of the BCH can be 
-
-The second method for the computation of the Log-composition relies on the Taylor expansion.\\
-Once \emph{adjoint action} of $\mathbf{u}$ on the Lia algebra is defined, nested Lie bracket can be reformulated as multiple composition of this operator:
+As shown in the appendix of \cite{klarsfeld1989baker} the terms of the BCH can be recollected using the Hausdorff method: each of the therm containing the n-th power of the vector $\mathbf{v}$ are collected together in the formal series $V^{n}$. Therefore
+\begin{align*}
+%\mathbf{u}\oplus \mathbf{v}  
+BCH(\mathbf{u},\mathbf{v}) 
+= 
+\mathbf{u} + V^{1} \mathbf{v} + V^{2} \mathbf{v} + V^{3} \mathbf{v} + \cdots
+\end{align*}
+Given the adjoint map:
 \begin{align*}
 ad_{\mathbf{u}} : \mathfrak{g}  & \longrightarrow \mathfrak{g}  
 \\
-\mathbf{v} &\longmapsto ad_{\mathbf{u}}   =  [\mathbf{u}, \mathbf{v}]
+\mathbf{v} &\longmapsto ad_{\mathbf{u}}   \mathbf{v} :=  [\mathbf{u}, \mathbf{v}]
 \end{align*}
-So
+and the multiple adjoint maps, defined as:
 \begin{align*}
-[  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] =  ad_{\mathbf{u}}^{n}(\mathbf{v})
+\text{ad}_{\mathbf{u}}^{n} \mathbf{v} 
+&:= [  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] 
+\\
+\\
+\text{ad}_{\mathbf{u}}^{-n} \mathbf{v} 
+&:= [[...[  \mathbf{v}, \underbrace{   \mathbf{u}]...],\mathbf{u}}_{\text{n-times}}]
+= (-1)^n \text{ad}_{\mathbf{u}}^{n} \mathbf{v} 
 \end{align*}
-In the appendix of \cite{klarsfeld1989baker} adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
+it can be proved that the operator $V_{1}$ that when applied to $\mathbf{v}$ provides the linear part of $\mathbf{v}$ in the BCH results in
 \begin{align*}
-\mathbf{u}\oplus \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
+V_{1}
+= 
+\frac{  
+	\text{ad}_{\mathbf{u}}^{-1} 
+	}{
+	\exp{(\text{ad}_{\mathbf{u}})}-1
+	}
+=
+\sum_{n=0}^{\infty} \frac{(-1)^nB_{n}}{n!} \text{ad}_{\mathbf{u}}^{ - n} 
+=
+\sum_{n=0}^{\infty} \frac{B_{n}}{n!} \text{ad}_{\mathbf{u}}^{ n} 
 \end{align*}
-
-\noindent
-xxx intermediate passages to be written from zachos, blane!
-
-The functional applied to $\mathbf{v}$ can be rewritten as
+Where $\lbrace B_{n} \rbrace_{n=0}^{\infty} $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number are used, then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in \cite{klarsfeld1989baker}.}, and the denominator is defined within the structure of the formal power series ring \cite{mariconda2013calcolo}.\\
+In conclusion, the log-composition can expressed as:
 \begin{align*}
-\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
+\mathbf{u}\oplus \mathbf{v}  
+&= 
+\mathbf{u} + 
+\frac{  
+	\text{ad}_{\mathbf{u}}^{-1} 
+}{
+\exp{(\text{ad}_{\mathbf{u}})}-1
+} \mathbf{v}  
++ 
+\mathcal{O}(\mathbf{v} ^2) 
 \end{align*}
-Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
+\begin{align}\label{eq:taylor}
+\mathbf{u}\oplus \mathbf{v}  
+&=
+\mathbf{u} 
++
+\sum_{n=0}^{\infty} \frac{B_{n}}{n!} \text{ad}_{\mathbf{u}}^{ n} 
+\mathbf{v}  
++
+\mathcal{O}(\mathbf{v} ^2)
+\end{align}
+that will turn out to be an important tool for the computation of the log-composition in the finite dimensional case. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Parallel Transport}
-
-
-
-
-
-We can apply the Taylor expansion formula for the computation of the affine log-composition to matrices in $SE(2)$.
-From previous subsection we have:
+\subsection{Parallel Transport for the Log-composition}
+To obtain a numerical computation for the log-composition using parallel transport, three assumptions has to be made: 
+\begin{enumerate}
+	\item If $\mathbf{v}^{\parallel} $ is defined as in theorem \ref{th:local_approximation_theorem}, then exists an $\hat{\epsilon} > 0$ such that
+	\begin{align*}
+	\euclideanMetric{
+		\mathbf{u}\oplus \mathbf{v}  
+		-
+		(
+		\mathbf{u} + \mathbf{v}^{\parallel} 
+		)
+	} <\hat{\epsilon}
+	\end{align*}
+	\item If the vector $\mathbf{w}\in\mathfrak{g}$ is small enough, then:
+		\begin{align*}
+		\exp(\mathbf{u}) \simeq e + \mathbf{u}
+		\end{align*}
+\end{enumerate}
+% consequences of this...
+From these assumptions and from equation \ref{eq:parallel_transport_main_approximation} it follows that 
 \begin{align*}
-\mathbf{u}\star \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
-\qquad
-\frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  = \sum_{n=0}^{\infty} \frac{B_{n}}{n!} ad_{\mathbf{u}}^{n} 
+\mathbf{u}\oplus \mathbf{v}
+&\simeq
+\mathbf{u} + \mathbf{v}^{\parallel}
+\\
+e + \mathbf{v}^{\parallel}
+&\simeq
+\exp_{e}\big(\frac{\mathbf{u}}{2}\big)   
+\circ  \exp_{e}(\mathbf{v}) 
+\circ \exp_{e}\big(-\frac{\mathbf{u}}{2}\big)
 \end{align*}
-Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number is used then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in ....Klarsfeld.}.
-
+Therefore
+\begin{align}\label{eq:parallel_transport}
+\mathbf{u}\oplus \mathbf{v}
+&\simeq
+\mathbf{u} 
++
+\exp_{e}\big(\frac{\mathbf{u}}{2}\big)   
+\circ  \exp_{e}(\mathbf{v}) 
+\circ \exp_{e}\big(-\frac{\mathbf{u}}{2}\big)
+ -
+ e
+\end{align}
+This is the third numerical method for the computation of the log-composition explored in this thesis.\\
+We have to notice that when we apply it on the infinite dimensional case, the approximation \ref{eq:parallel_transport} holds under the following additional assumption:
+\begin{enumerate}
+\item[3.] Theorem \ref{th:local_approximation_theorem} holds when the Lie group is infinite dimensional.
+\end{enumerate}
+whose eventual confirmation is at the moment not known to the author. We assume it is true in coherence with what has been said in the introduction, section \ref{se:diffe_util_and_liab}.
 
 
 

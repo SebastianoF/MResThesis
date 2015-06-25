@@ -16,9 +16,9 @@
 \contentsline {section}{\numberline {2.3}Affine Exponential, Affine logarithm and affine log-composition}{17}{section.2.3}
 \contentsline {section}{\numberline {2.4}Parallel Transport: Definition and Properties}{19}{section.2.4}
 \contentsline {section}{\numberline {2.5}Numerical Computations of the Log-composition}{21}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Truncated BCH formula}{22}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Taylor Expansion}{22}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}Parallel Transport}{23}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.1}Truncated BCH formula for the Log-composition}{22}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Taylor Expansion for the Log-composition}{22}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Parallel Transport for the Log-composition}{23}{subsection.2.5.3}
 \contentsline {chapter}{\numberline {3}Numerical computation of the Log-composition for SE(2) and SVF}{25}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Group of Rigid Body Transformations}{25}{section.3.1}
 \contentsline {subsubsection}{Log and Exp Approximations for Small Rotations}{29}{section*.4}
