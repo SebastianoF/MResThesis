@@ -20,6 +20,12 @@ Vincent Arsigny, Pierre Fillard, Xavier Pennec, and Nicholas Ayache.
   tensors.
 \newblock {\em Magnetic Resonance in Medicine}, 56(2):411--421, August 2006.
 
+\bibitem[APA06]{arsigny2006bi}
+Vincent Arsigny, Xavier Pennec, and Nicholas Ayache.
+\newblock Bi-invariant means in lie groups. application to left-invariant
+  polyaffine transformations.
+\newblock 2006.
+
 \bibitem[Arn66]{arnold1966geometrie}
 Vladimir Arnold.
 \newblock Sur la g{\'e}om{\'e}trie diff{\'e}rentielle des groupes de lie de
@@ -179,6 +185,13 @@ MS~Knebelman.
 \newblock Spaces of relative parallelism.
 \newblock {\em Annals of Mathematics}, pages 387--399, 1951.
 
+\bibitem[KO89]{klarsfeld1989baker}
+S~Klarsfeld and JA~Oteo.
+\newblock The baker-campbell-hausdorff formula and the convergence of the
+  magnus expansion.
+\newblock {\em Journal of physics A: mathematical and general}, 22(21):4565,
+  1989.
+
 \bibitem[KW08]{khesin2008geometry}
 Boris Khesin and Robert Wendt.
 \newblock {\em The geometry of infinite-dimensional groups}, volume~51.
@@ -251,6 +264,11 @@ J~Milnor.
 \newblock Remarks on infinite-dimensional lie groups, in ‘relativity, groups
   and topology, ii’(les houches, 1983), 1007--1057, 1984.
 
+\bibitem[Mod09]{modersitzki2009fair}
+Jan Modersitzki.
+\newblock {\em FAIR: flexible algorithms for image registration}, volume~6.
+\newblock SIAM, 2009.
+
 \bibitem[MTW73]{misner1973gravitation}
 Charles~W Misner, Kip~S Thorne, and John~Archibald Wheeler.
 \newblock {\em Gravitation}.
@@ -299,6 +317,12 @@ A.~Sotiras, C.~Davatzikos, and N.~Paragios.
 \newblock Deformable medical image registration: A survey.
 \newblock {\em Medical Imaging, IEEE Transactions on}, 32(7):1153--1190, July
   2013.
+
+\bibitem[Ser09]{serre2009lie}
+Jean-Pierre Serre.
+\newblock {\em Lie algebras and Lie groups: 1964 lectures given at Harvard
+  University}.
+\newblock Springer, 2009.
 
 \bibitem[SS09]{stein2009real}
 Elias~M Stein and Rami Shakarchi.

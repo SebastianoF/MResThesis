@@ -43,7 +43,7 @@ It satisfies the following properties:
 	\exp((t+s)\mathbf{v}) = \gamma(t+s) = \gamma(t)\circ \gamma(s) = \exp(t\mathbf{v})\exp(s\mathbf{v})
 	\end{align*}
 	\item $\exp(\mathbf{v})$ is invertible and $(\exp(\mathbf{v}))^{-1} = \exp(-\mathbf{v})$.
-	\item $\exp$ is a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $\text{Id}$ in $\mathbb{G}$.
+	\item $\exp$ is a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $e$ in $\mathbb{G}$.
 \end{enumerate}
 The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus\footnote{Here we define cut locus starting from the exp and log function, and in both domains. Traditionally it is defined only on Riemannian manifolds and using the geodesics (see \cite{do1992riemannian}, p. 267). For Levi Civita connection we have that the definition are coincident.}.\\
 When we deal with a matrix Lie group of dimension $n$, we have the following remarkable properties:
@@ -133,13 +133,7 @@ BCH(\mathbf{u},\mathbf{v})
 \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
-It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. In practical applications it can be computed using its \emph{approximation of degree} $k$, defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. For example:
-\begin{align*}
-BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
-BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
-BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
-\end{align*}
-These numerical approximations of the group composition leave the difficulty of managing the problem of the error carried by each term.
+This expansion will provide the most immediate way to obtain a numerical computation of the log-composition.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -167,7 +161,7 @@ The curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique one
 \gamma(0) = p\qquad  \dot{\gamma}(0) =  \mathbf{v} \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
 \end{align*}
 This second kind of exponential is called affine exponential\footnote{
-	Note on the notation: to distinguish the affine $\exp$ and $\log$ from the Lie $\exp$ and $\log$ presented in the previous section, the affine will always have the subscript of the point of application even when it is the identity.
+	Little note about the notation: to distinguish the affine $\exp$ and $\log$ from the Lie $\exp$ and $\log$ presented in the previous section, the affine will always have the subscript of the point of application even when it is the identity.
 	}
 The following properties hold:
 \begin{enumerate}
@@ -226,10 +220,15 @@ Note that not necessarily $\mathbf{v}_{1}~\tilde{\oplus}~ \mathbf{v}_{2}$ is a v
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Parallel Transport: Definition and Properties}\label{se:parallel_transport}
 
-In this section we present the concept of parallel transport for a generic Lie group $\mathbb{G}$. On this definition, again borrowed from differential geometry (for introduction and general definition: \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild}. For medical imaging applications \cite{lorenzi2011schild}, \cite{lorenzi2013geodesics} \cite{lorenzi2014efficient}, \cite{pennec2011parallel} ), relies an important method for the computation of the Log-composition.
+In this section we introduce the concept of parallel transport for a generic Lie group $\mathbb{G}$. On this definition, again borrowed from differential geometry (for introduction and general definition: \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild}. For medical imaging applications \cite{lorenzi2011schild}, \cite{lorenzi2013geodesics} \cite{lorenzi2014efficient}, \cite{pennec2011parallel} ), relies an important method for the computation of the Log-composition.
 
 \begin{definition}
-	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, then the vector $V_{p} \in T_{p}\mathbb{G}$, belonging to some vector field $V$ is parallel transported along $\gamma$ up to $T_{q}\mathbb{G}$ if for all $t \in  [0,1]$ $\nabla_{\dot{\gamma}}V_{\gamma(t)} = 0$.\\
+	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, then the vector $V_{p} \in T_{p}\mathbb{G}$, belonging to some vector field $V$ is parallel transported along $\gamma$ up to $T_{q}\mathbb{G}$ if $V$ satisfies
+	\begin{align*}
+	\forall t \in  [0,1]
+	\qquad
+	\nabla_{\dot{\gamma}}V_{\gamma(t)} = 0
+	\end{align*}
 	The parallel transport is the function that maps $V_{p}$ from $T_{p}\mathbb{G}$ to $T_{q}\mathbb{G}$ along $\gamma$:
 	\begin{align*}
 	\Pi(\gamma)_{p}^{q} :  T_{p}\mathbb{G} & \longrightarrow T_{q}\mathbb{G}  \\
@@ -239,11 +238,11 @@ In this section we present the concept of parallel transport for a generic Lie g
 \noindent
 In the next properties we explore how did parallel transport and affine exponential behave when expressed as a composition and when there are changing in the signs.
 \begin{prop}[Inversion]
-	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= p$, $\gamma(1)=q$ and $\dot{\gamma}(0)=\mathbf{u}\in T_{p}\mathbb{G}$, we have:
-	\begin{align}
-	& \Pi(\gamma)_{p}^{q}(-\mathbf{u}) = -\Pi(\gamma)_{p}^{q}(\mathbf{u}) )\\
-	& p = \exp_{q}(\mathbf{u}) \Longleftrightarrow \phantom{z} q = \exp_{p}(-\Pi(\gamma)_{q}^{p}(\mathbf{u}))
-	\end{align}
+	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= p$, $\gamma(1)=q$ and $\mathbf{u}\in T_{p}\mathbb{G}$, we have:
+	\begin{enumerate}
+	\item $\Pi(\gamma)_{p}^{q}(-\mathbf{u}) = -\Pi(\gamma)_{p}^{q}(\mathbf{u}) )$
+	\item $q = \exp_{p}(\mathbf{u}) \phantom{z} \Longleftrightarrow \phantom{z} p = \exp_{q}(-\Pi(\gamma)_{p}^{q}(\mathbf{u}))$
+	\end{enumerate}
 \end{prop}
 
 \begin{figure}[htbp]
@@ -264,17 +263,15 @@ In the next properties we explore how did parallel transport and affine exponent
 	\end{minipage}
 \end{figure}
 \begin{prop}[change of signs of the composition for affine exponential]
-	$\mathbb{G}$ Lie group, $\nabla$ connection, $a,b\in\mathbb{G}$, $\mathbf{u}\in T_{a}\mathbb{G}$, $\mathbf{v}\in T_{b}\mathbb{G}$. Let $\beta$ be the tangent curve to $\mathbf{u}$ at $a$ and $c= \exp_{b}(\mathbf{v})$. Given $\mathbf{w} \in T_{c}\mathbb{G}$ such that 
+	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$, $\mathbf{u}\in T_{p}\mathbb{G}$, $\mathbf{v}\in T_{q}\mathbb{G}$ and $q=\exp_{p}(\mathbf{u})$. Let $\beta$ be the tangent curve to $\mathbf{u}$ at $p$ such that $\beta(1) = q$ and $r= \exp_{b}(\mathbf{v})$. Given $\mathbf{w} \in T_{p}\mathbb{G}$ such that 
 	\begin{align*}
-	\exp_{a}(\mathbf{w}) = \exp_{b}(\mathbf{v}) \circ \exp_{a}(\mathbf{u})
+	\exp_{p}(\mathbf{w}) = \exp_{q}(\mathbf{v}) \circ \exp_{p}(\mathbf{u})
 	\end{align*}
 	Then
 	\begin{align*}
-	\exp_{a}(-\mathbf{w}) = \exp_{\tilde{b}}(-\Pi(\beta)_{b}^{\tilde{b}}(\mathbf{v})) \circ \exp_{a}(-\mathbf{u})
+	\exp_{p}(-\mathbf{w}) = \exp_{\beta(-1)}(-\Pi(\beta)_{q}^{\beta(-1)}(\mathbf{v})) \circ \exp_{p}(-\mathbf{u})
 	\end{align*}
-	where $\tilde{b}$ is the affine exponential of $-\mathbf{u}$ or the element $\beta(-1)$.
 \end{prop}
-
 
 \begin{figure}[htbp]
 	\centering
@@ -284,12 +281,13 @@ In the next properties we explore how did parallel transport and affine exponent
 \end{figure}
 
 \begin{lemma}
-	$\mathbb{G}$ Lie group, $\nabla$ connection, $a\in\mathbb{G}$, $\mathbf{u}\in T_{e}\mathbb{G}$. Let $\gamma$ be a curve defined on $\mathbb{G}$ such that $\gamma(0) = e$, $\gamma(1) = a$, $\dot{\gamma}(0) =\mathbf{u}$. Let $\beta$ be the curve over $\mathbf{G}$ defined as $\beta(t) = a\circ \gamma(t)$, then the two following conditions hold:
+	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a Cartan connection $\nabla$ and $\mathbf{u}$ tangent vector in $ T_{e}\mathbb{G}$. Let $\gamma$ be a geodesic defined on $\mathbb{G}$ such that $\gamma(0) = e$, $\dot{\gamma}(0) =\mathbf{u}$ and $p = \gamma(1)$, point in the Lie group. Let $\beta$ be the curve over $\mathbb{G}$ defined as $\beta(t) = p\circ \gamma(t)$, then the two following conditions hold:
 	\begin{enumerate}
 		\item If $\nabla$ is a Cartan connection then $\beta$ is a geodesic.
-		\item For $\mathbf{u}_{a} := D(L_{a})_{e}(\mathbf{u}) \in T_{a}\mathbb{G}$, push forward of the left-translation:
+		\item For $\mathbf{u}_{p} := D(L_{p})_{e}(\mathbf{u}) \in T_{p}\mathbb{G}$, push forward of the left-translation:
 		\begin{align}\label{eq:lemma_pt}
-		\exp_{a}(t\mathbf{u}_{b}) = b\circ \exp_{e}( t D(L_{a^{-1}})_{a}(\mathbf{u}_{a}) ) = b\circ \exp_{e}(t\mathbf{u})
+		\exp_{p}(t\mathbf{u}_{p}) = p\circ \exp_{e}( t D(L_{p^{-1}})_{p}(\mathbf{u}_{p}) ) 
+		= p\circ \exp_{e}(t\mathbf{u})
 		\end{align}
 	\end{enumerate}
 \end{lemma}
@@ -312,107 +310,41 @@ The following theorem is an application of the pole ladder \cite{lorenzi2011schi
 	\mathbf{u}^{\parallel} = & \Pi(\alpha)_{e}^{b}(\mathbf{u})\\
 	\gamma : [0,1] \rightarrow \mathbb{G} &\quad \gamma(0) = e \quad \dot{\gamma}(0) = \mathbf{v}
 	\end{align*}
-	Then, for $\mathbf{u}_{e}^{\parallel} := D(L_{b^{-1}})_{e}( -\Pi(\alpha)_{a}^{b}(\mathbf{u}))$, the approximation
 	\begin{align*}
-	\exp_{e}(\mathbf{u}_{e}^{\parallel}) 
-	\simeq
-	\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-	\circ  \exp_{e}(\mathbf{u}) 
-	\circ \exp_{e}\big(-\frac{\mathbf{v}}{2}\big)
+	 \mathbf{u}_{e}^{\parallel} := D(L_{b^{-1}})_{e}( -\Pi(\alpha)_{a}^{b}(\mathbf{u}))
+	\end{align*}
+	Then it follows that if $\mathbf{u}$ is in the open ball $B(\mathbf{0}, \epsilon)$, then exists a  $\tilde{\epsilon}>0$ such that $\mathbf{u}_{e}^{\parallel}$ belongs to $B(\mathbf{0}, \tilde{\epsilon})$, and exists a $\delta(\epsilon + \tilde{\epsilon})>0$ such that the inequality
+	\begin{align*}
+		\euclideanMetric{
+			\log(\exp_{e}(\mathbf{u}_{e}^{\parallel} ))
+			-
+			\log(\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
+				\circ  \exp_{e}(\mathbf{u}) 
+				\circ \exp_{e}\big(-\frac{\mathbf{v}}{2}\big))
+			} <\delta(\epsilon + \tilde{\epsilon})
 	\end{align*}
 	holds.
 \end{theorem}
-
-%\begin{proof}
-%	As a consequence of the construction we have the following considerations:
-%	\begin{align*}
-%	\gamma(t) &= \exp(t\mathbf{w}) 
-%	= 
-%	a \circ \exp_{e}(D(L_{ba^{-1}})_{e}(t\mathbf{w})) 
-%	= 
-%	\exp_{e}(\mathbf{u})  \circ \exp_{e}(D(L_{a^{-1}})_{e}(t\mathbf{w})) 
-%	\\
-%	m &= \alpha(\frac{1}{2}) 
-%	= \exp_{e}\big(\frac{\mathbf{v}}{2}\big) = \gamma(1) = \exp_{a}(\mathbf{w})
-%	\\
-%	\exp_{e}&(D(L_{a^{-1}})_{e}(\mathbf{w})) = \exp_{e}(-\mathbf{u}) \circ  \exp_{e}\big(\frac{\mathbf{v}}{2}\big) 
-%	\end{align*}
-%	Let $\eta$ be the integral curve of  $-\Pi(\alpha)_{a}^{b}(\mathbf{u})$ starting at $b$. If $c := \eta(1)$ and $\tilde{c} := \gamma(1)$, then on one side we have:
-%	\begin{align*}
-%	\tilde{c} = \gamma(1) &= \exp_a(2\mathbf{w}) = a \circ\exp_{e}(D(L_{a^{-1}})_{e}(2\mathbf{w})) \\
-%	&= \exp_{e}(\mathbf{u})\circ\exp_{e}(D(L_{a^{-1}})_{e}(\mathbf{2w})) \\
-%	&= \exp_{e}(\mathbf{u})\circ\exp_{e}(2D(L_{a^{-1}})_{e}(\mathbf{w})) \\
-%	&= \exp_{e}(\mathbf{u})\circ \big(\exp_{e}(D(L_{a^{-1}})_{e}(\mathbf{w})) \big)^2\\
-%	&=  \exp_{e}(\mathbf{u})\circ \big(  \exp_{e}(-\mathbf{u}) \circ  \exp_{e}(\frac{\mathbf{v}}{2}) \big)^2\\
-%	&=   \exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-%	\circ  \exp_{e}(-\mathbf{u}) 
-%	\circ \exp_{e}\big(\frac{\mathbf{v}}{2}\big) 
-%	\end{align*}
-%	On the other side:
-%	\begin{align*}
-%	c = \eta(1) &= \exp_{b}(-\mathbf{u}^{\parallel}) = b \circ\exp_{e}(D(L_{b^{-1}})_{e}(-\mathbf{u}^{\parallel})) \\
-%	&= \exp_{e}(\mathbf{v}) \circ\exp_{e}(D(L_{b^{-1}})_{e}(-\mathbf{u}^{\parallel})) \\
-%	&= \exp_{e}(\mathbf{v}) \circ\exp_{e}(-\mathbf{u}_{e}^{\parallel}) 
-%	\end{align*}
-%	where $D(L_{b^{-1}})_{e}(\mathbf{u}^{\parallel})$ has been written $\mathbf{u}_{e}^{\parallel}$ for brevity.
-%	If we consider $c\simeq \tilde{c}$ it follows that:
-%	\begin{align*}
-%	\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-%	\circ  \exp_{e}(-\mathbf{u}) 
-%	\circ \exp_{e}\big(\frac{\mathbf{v}}{2}\big)
-%	\simeq
-%	\exp_{e}(\mathbf{v}) \circ\exp_{e}(-\mathbf{u}_{e}^{\parallel}) 
-%	\end{align*}
-%	which implies
-%	\begin{align*}
-%	\exp_{e}(-\mathbf{u}_{e}^{\parallel}) 
-%	&\simeq
-%	\exp_{e}(-\mathbf{v}) 
-%	\circ \exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-%	\circ  \exp_{e}(-\mathbf{u}) 
-%	\circ \exp_{e}\big(\frac{\mathbf{v}}{2}\big)
-%	\\
-%	\exp_{e}(-\mathbf{u}_{e}^{\parallel}) 
-%	&\simeq
-%	\exp_{e}\big(-\frac{\mathbf{v}}{2}\big)   
-%	\circ  \exp_{e}(-\mathbf{u}) 
-%	\circ \exp_{e}\big(\frac{\mathbf{v}}{2}\big)
-%	\end{align*}
-%	As a consequence of property of the signs inversion it follows that
-%	\begin{align*}
-%	\exp_{e}(\mathbf{u}_{e}^{\parallel}) 
-%	\simeq
-%	\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
-%	\circ  \exp_{e}(\mathbf{u}) 
-%	\circ \exp_{e}\big(-\frac{\mathbf{v}}{2}\big)
-%	\end{align*}
-%\end{proof} 
-
-\begin{corollary}
-	xxx attempt to measure the error in the formula... to be done in a more effective way!
-	If, with previous notations, the condition (1) is an approximation
-	\begin{align*}
-	\exp_{C}(\frac{\mathbf{k}}{2}) = \exp(\mathbf{\xi})\circ \exp_{M}(\frac{\mathbf{k}}{2}) 
-	\end{align*}
-	for some $ \mathbf{\xi}$ in  $\mathfrak{g}$ such that $\parallel\mathbf{\xi} \parallel < \delta$
-	then the approximation has error
-	\begin{align*}
-	O(\parallel \delta\mathbf{u}^{\parallel} \parallel^{2} )  
-	+ O(\parallel \mathbf{u} + \delta\mathbf{u}\parallel^{3})
-	+ \text{xxx something that must be investigated depending on } \delta
-	\end{align*}
-\end{corollary}
-
+\noindent
+The last statement can be rewritten as the approximation:
+\begin{align}\label{eq:parallel_transport_main_approximation}
+\exp_{e}(\mathbf{u}_{e}^{\parallel}) 
+\simeq
+\exp_{e}\big(\frac{\mathbf{v}}{2}\big)   
+\circ  \exp_{e}(\mathbf{u}) 
+\circ \exp_{e}\big(-\frac{\mathbf{v}}{2}\big)
+\end{align}
+that will turn out to be the main tool for the computation of the log-composition using parallel transport.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-In considering the equation \ref{eq:lemma_pt} we used implicitly the formula for the change of base for affine exponential and logarithm. It is in fact possible, using the derivative of the left-translation $L_{p}$, to bring back the $\exp$ and the $\log$ functions based at the point $p$ of the manifold to the $\exp$ and the $\log$ evaluated at the identity using the following formulas:
+When considering the equation \ref{eq:lemma_pt}, we use implicitly the formula for the change of base for affine exponential and logarithm \cite{arsigny2006bi}. It is in fact possible, using the derivative of the left-translation $L_{p}$, to bring back the $\exp$ and the $\log$ functions based at the point $p$ of the manifold to the $\exp$ and the $\log$ evaluated at the identity using the following formulas:
 \begin{align}\label{eq:DL_DR}
 \log _{p}(q)  &= DL_{p}(e) \log _{e}(q)  \\
 \exp _{p}(\mathbf{u})  &= p\circ \exp_{e} (DL_{p}(e)^{-1} \mathbf{u})
 \end{align}
 \noindent
-The interested reader can refer to the extended version on github \cite{xxx}, where proofs and examples are provided and relations between \ref{eq:DL_DR} and parallel transport are investigated.
+Further theoretical developments are beyond the aim of this research, but the reader can refer to the bibliography, or to the last version of \emph{some notes on differential geometry for diffeomorphic image registration} on github \cite{xxx}, where proofs and examples are provided, and relations between equations \ref{eq:DL_DR} and parallel transport are investigated.
 
 
 
@@ -420,7 +352,7 @@ The interested reader can refer to the extended version on github \cite{xxx}, wh
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Four Strategies for the Computation of Log-composition}
+\section{Numerical Computations of the Log-composition}
 
 In this section we provide explicit formulas for the computation of the log composition, using the tools introduced in the previous sections.
 
@@ -429,16 +361,20 @@ In this section we provide explicit formulas for the computation of the log comp
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Truncated BCH formula}\label{se:bch_formula}
 
-To compute the Lie Log composition, literature provides the BCH formula, defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
+To compute the Lie log-composition, literature provides the BCH formula (for matrices \cite{hall2015lie}, general case: \cite{klarsfeld1989baker} , \cite{serre2009lie}), defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
 \begin{align*}
 	BCH(\mathbf{u},\mathbf{v}) 
 	= 
 	\mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 	+ [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
-
-\noindent
-xxx derivation of the bch formula, constraints on the Lie algebra elements involved in its computation.
+It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. In practical applications it can be computed using its \emph{approximation of degree} $k$, defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. For example:
+\begin{align*}
+BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
+BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
+BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
+\end{align*}
+These numerical approximations of the log-composition can be considered as a first step but are not satisfactory since they do not provide any condition to consider the error carried by each term.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -446,6 +382,10 @@ xxx derivation of the bch formula, constraints on the Lie algebra elements invol
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Taylor Expansion}\label{se:taylor_expansion}
 
+A more sophisticated numerical method for the computation of the log-composition that relies on the Taylor expansion, that holds only for matrix Lie groups. \\
+As shown in the appendix of \cite{klarsfeld1989baker} the terms of the BCH can be 
+
+The second method for the computation of the Log-composition relies on the Taylor expansion.\\
 Once \emph{adjoint action} of $\mathbf{u}$ on the Lia algebra is defined, nested Lie bracket can be reformulated as multiple composition of this operator:
 \begin{align*}
 ad_{\mathbf{u}} : \mathfrak{g}  & \longrightarrow \mathfrak{g}  
@@ -456,7 +396,7 @@ So
 \begin{align*}
 [  \underbrace{   \mathbf{u},[\mathbf{u},... [\mathbf{u}}_{\text{n-times}},\mathbf{v}]...]] =  ad_{\mathbf{u}}^{n}(\mathbf{v})
 \end{align*}
-In the appendix of xxx Klarsfeld xxx adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
+In the appendix of \cite{klarsfeld1989baker} adjoint action are used to provide an expansion of the BCH formula. This can be rewritten as
 \begin{align*}
 \mathbf{u}\oplus \mathbf{v}  = \mathbf{u} + \frac{ ad_{\mathbf{u}} \exp(ad_{\mathbf{u}}) }{ \exp(ad_{\mathbf{u}}) - 1 }  \mathbf{v} + O({\mathbf{v}}^2)
 \end{align*}
@@ -478,10 +418,6 @@ Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli numb
 
 
 
-\subsection{Numerical Computations of the Log-composition for SE(n)}
-
-
-\subsubsection{Taylor Approximation to compute the Log-composition}
 
 We can apply the Taylor expansion formula for the computation of the affine log-composition to matrices in $SE(2)$.
 From previous subsection we have:
@@ -494,26 +430,11 @@ Where $\lbrace B_{n} \rbrace $ is the sequence of the second-kind Bernoulli numb
 
 
 
-\subsubsection{Parallel Transport to compute the Log-composition}
 
 
 
 
-\subsubsection{Log and Exp Approximations for Small Rotations}
-Computations of logarithm and exponential obtained so far are a consequence of these formula:
-\begin{align*}
-\exp(\mathbf{r}) = \sum_{k=0}^{\infty} \frac{\mathbf{v}^{k}}{k!}
-\qquad 
-\log(\mathbf{r}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k!}
-\end{align*}
-Remarkably, infinite series of elements of a group (whose sum is not even defined within the group structure) is an element into an associated algebra, while another infinite series of matrices of the algebra appears to be the natural way to going backward. A second door to passing from one structure to the other, when $\mathbf{r}$ is little appears to be the following approximation:
-\begin{align*}
-\exp(\mathbf{r}) \simeq I + \mathbf{r} 
-\qquad 
-\log(d\mathbf{r}) \simeq d\mathbf{r} - I
-\end{align*}
-In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta)^{-1} \simeq I$. \\
-xxx this may deserve an investigation about the errors in the approximations error!
+
 
 
 

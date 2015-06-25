@@ -32,21 +32,23 @@ Another application is to compose together several images to obtain a bigger pic
 %The approach of modeling with richer structure for simpler elements is actually very common even in everyday math: for example when measuring the diagonal of a $1$ meters side squared table. The decimal unlimited non periodical $\sqrt{2}$ doesn't help until we don't consider it as an answer belonging to a larger-than-reality mathematical structure: computations and theorem (as the Pythagorean one) are well defined and meaningful.\\ 
 %The simple structure of a raster image as 3-dimensional matrix is really limited if compared to the continuous object they represent. Modeling with continuous function provides a structure that reflects the object's reality. In addition enable us to apply mathematical features from differential geometry and dynamical system theory.\\
 
-\subsection{State of the Art}
+\subsection{Diffeomorphisms in medical imaging: State of the Art}
 
-In the attempt to classify image registration algorithms, the most relevant feature that distinguish them is the choice of the family to whom the transformation belongs and its parametrization. Since anatomies are in a continuous process of modification over time, in general without any variation in the topological features, the use of diffeomorphisms to model transformations of organs appears as one of the most natural. Not accidentally diffeomorphisms are as well an important class of solutions of partial and ordinary differential equation aimed to model the dynamics of fluids. \\
+In the attempt to classify image registration algorithms, one of the most relevant feature that distinguish them is the choice of the family to whom the transformation belongs and its parametrization. Since anatomies are in a continuous process of modification over time, in general without any variation in the topological features, the use of diffeomorphisms to model transformations of organs appears as one of the most natural. Not accidentally diffeomorphisms are as well an important class of solutions of partial and ordinary differential equation aimed to model the dynamics of fluids. \\
 In the development of diffeomorphic image registration, we can broadly identify some steps that led to the concept of log-composition presented in this research:
 \begin{enumerate}
 	\item[1981-1996 $\triangleright$] The use of diffeomorphisms in medical image registration starts from the research of a solution to partial differential equations: deformations are modeled as the consequent effect of two balancing forces applied to an elastic body \cite{Broit:1981} or to conserve the energy momentum \cite{christensen1996deformable}. In this early stage, diffeomorphisms are the domain of the solution to differential equation, and are not considered with their Lie group structure.
 	%
 	\item[1998-2004 $\triangleright$] Based on the concept of attraction, the Demons algorithm \cite{thirion1998image}, \cite{pennec1999understanding} propose the computation of the transformation between images in an iterative framework, where the update of the transformation at each step is parametrized with a vector field that minimize at each step an energy function. This vector field is defined as the set of vectors (demons) that moves one image into the other. \\
 	Here diffeomorphisms are not directly involved and the vectors at each voxel are considered as independent elements. 
-	In the same year of \cite{thirion1998image}, the set of diffeomorphism was taken into account in image matching and computational anatomy, not only as the set of solution of some family of differential equations, but with its Lie group structure \cite{Dupuis:98:variationalproblems,  trouve1998diffeomorphisms, grenander1998computational}.
+	In the same year of \cite{thirion1998image}, the set of diffeomorphism was taken into account in image matching and computational anatomy, not only as the set of solutions of some family of differential equations, but with its Lie group structure \cite{Dupuis:98:variationalproblems,  trouve1998diffeomorphisms, grenander1998computational}.
 	%
-	\item[2005-2006 $\triangleright$] The almost concomitant appearance of the Large Deformation Diffeomorphic Metric Mapping (LDDMM) \cite{beg2005computing} and the further investigation on the tangent space to the Lie group of diffeomorphisms as the space where to perform statistics (the so called log-euclidean framework) \cite{arsigny2006statistics, Arsigny:MRM:06} keep the valuable approach in using diffeomorphisms as Lie group and to consider them with their Lie algebra, to model the little deformation in the tangent space as well as to rely on this normed space in computing the distance between transformations.
+	\item[2005-2006 $\triangleright$] The almost concomitant appearance of the Large Deformation Diffeomorphic Metric Mapping (LDDMM) \cite{beg2005computing} and the further investigation on the tangent space to the Lie group of diffeomorphisms as the space where to perform statistics (the so called log-Euclidean framework) \cite{arsigny2006statistics, Arsigny:MRM:06} keep the valuable approach in using diffeomorphisms as Lie group and to consider them with their Lie algebra, to model the little deformation in the tangent space as well as to rely on this normed space in computing the distance between transformations.
 	%
-	\item[2007-2013 $\triangleright$] The LDDMM revealed all the opportunities provided by differential geometry in considering Lie group and Lie algebra embedded in a framework for the computation of image registration. In this setting, the tangent vector field comes from the solution of the ODE that models the transformations and it consists of the set of the non-stationary vector field (also time varying vector field or TVVF). After the log-euclidean framework \cite{arsigny2006statistics} aimed at the computation of statistics of diffeomorphisms, the set of tangent vector field is restricted to the time-independent vector field (also stationary velocity field or SFV); the same restriction was subsequently considered in some further improvements of LDDMM (DARTEL, Stationary LDDMM \cite{Ashburner:07}, \cite{hernandez2007registration}). 
-	Log-euclidean framework brought new life also to the Demons algorithm, that  become, in 2007, the diffeomorphic demons (or log-demons) \cite{vercauteren2007non}\footnote{An accurate comparison between stationary LDDMM and Diffeomorphic Demons with emphasis in both theoretical and practical aspects can be found in \cite{hernandez2008comparing}.}. Subsequent approaches that involves the symmetrization of the energy function and a different norm (local correlation coefficient instead of $L^{2}$) are proposed in symmetric diffeomorphic demons \cite{vercauteren08} and LCC-demons \cite{lorenzi2013lcc} respectively.
+	\item[2007-2013 $\triangleright$] The LDDMM revealed all the opportunities provided by differential geometry in considering Lie group and Lie algebra embedded in a framework for the computation of image registration. In this setting, the tangent vector field comes from the solution of the ODE that models the transformations and it consists of the set of the non-stationary vector field (also time varying vector field or TVVF). After the log-Euclidean framework \cite{arsigny2006statistics} aimed at the computation of statistics of diffeomorphisms, the set of tangent vector field is restricted to the time-independent vector field (also stationary velocity field or SFV); the same restriction was subsequently considered in some further improvements of LDDMM (DARTEL, Stationary LDDMM \cite{Ashburner:07}, \cite{hernandez2007registration}). 
+	Log-Euclidean framework brought new life also to the Demons algorithm, that  become, in 2007, the diffeomorphic demons (or log-demons) \cite{vercauteren2007non}.
+	%\footnote{An accurate comparison between stationary LDDMM and Diffeomorphic Demons with emphasis in both theoretical and practical aspects can be found in \cite{hernandez2008comparing}.}. 
+	Subsequent approaches that involves the symmetrization of the energy function and a different norm (local correlation coefficient instead of $L^{2}$) are proposed in symmetric diffeomorphic demons \cite{vercauteren08} and LCC-demons \cite{lorenzi2013lcc} respectively.
 	
 \end{enumerate}
 
@@ -56,8 +58,8 @@ In the development of diffeomorphic image registration, we can broadly identify 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Using Diffeomorphisms: Utility and Liability}\label{se:diffe_util_and_liab}
 
-If the set of transformations is bonded to the rigid body transformations group $SE(3)$ (mostly utilized in robotics and classical mechanics), the registration algorithm will be adequate to align 3d images. In clinical practice, brain images are aligned using rigid registration to compensate the motion, or to compare differences in longitudinal and cross sectional scans. If we assume that the motion of internal anatomy is continuous, then the group $SE(3)$ is not versatile enough to transform images. The choice goes on the Lie group of diffeomorphism $\text{Diff}$, that appears particularly appealing in computational anatomy since their topology-preserving nature. 
-Their mathematical formalization as Lie group, is on the other hand not of immediate understanding, and it is still an open field of research.\\ 
+If the images that has to be registered are images of the same subject with no scaling shrinking or any other deformation than decentralization, then the set of transformations can be bonded to the rigid body transformations group $SE(3)$. In this case, the registration algorithm will be suitable for example to compensate the motion in a rapid sequence of scans, or if some little differences has happened, to compare them in longitudinal and cross sectional scans. If we need to compare images before and after a locally non-isometric deformation has occurred (i.e. distances are not preserved locally) but the topology is preserved (i.e. there are no new holes between the scenes represented by different images), then the group $SE(3)$ is not versatile enough to model the transformation. An alternative model may involve the group of transformations defined by the set of diffeomorphism $\text{Diff}$. This appears particularly appealing in medical application, since the transformations that occurs between internal organs in general preserve the topology.\\
+On the other side their mathematical formalization as Lie group, is on the other hand not of immediate understanding, and it is still an open field of research.\\ 
 Attempt to provide this object some handles for easy manipulation was done for the first time in 1966 by Vladimir Arnold \cite{arnold1966geometrie} \footnote{And on a second time in the sequel \cite{arnold1998topological}, more readable for non-French speakers.}: to solve differential equation in hydrodynamic, $\text{Diff}$ is considered as a Lie group possessing a Lie algebra. This assumption is not formally prosecuted in accordance to the problem-oriented nature of this paper. Subsequent steps in the exploration of the set of diffeomorphisms as a Lie group can be found in \cite{marsden1970hamiltonian, ebin1970groups, omori1970group, leslie1983lie}. A survey on early development of infinite dimensional Lie group can be found in \cite{Milnor:84:remarks}, while more recent results and applications on diffeomorphisms has been published in \cite{ovsienko1992integrals, bauer2010sobolev,schmid2010infinite,  bauer2011geodesic}.\\
 
 Considering $\text{Diff}$ as a differentiable manifold involves the idea of having it locally in correspondence with some generalized \lq\lq infinite-dimensional euclidean\rq\rq  space. Attempt to set this correspondence showed that for some infinite-dimensional group the transition functions are smooth over Banach spaces \cite{khesin2008geometry}. This led to the idea of Banach Manifolds. Unfortunately the group of diffeomorphisms do not belongs to the category of Banach manifold but requires a more generals space on which the transition map are smooth: the Frechet spaces. Here, important theorems from analysis, as the inverse function theorem, or the main results from the Lie group theory in a finite dimensional settings, as Lie correspondence theorems do not holds anymore.\\
@@ -75,10 +77,10 @@ Another limitation that the reader should be aware of do not comes down to the t
 %an important framework for the actual computation of image registration of diffeomorphism is provided by the Large Deformation Diffeomorphic Metric Mapping (LDDMM) \cite{beg2005computing}. Here diffeomorphisms are parametrized as ending point of integral curves of vector field on the group of diffeomoprhism equipped with a Riemannian metric \cite{dupuis1998variational}. In this framework, solid mathematical foundations are payed in term of computational complexity. Aimed to solve this issue, and to have the possibility of computing statistics on diffeomoprhisms, a different, as Stationary Velocity Fields \cite{arsigny2006statistics} has been embedded in the LDDMM framework.  
 
 %They were born from the necessity of having statistics to infer the variability of anatomical structure while performing image registration, bring the field of Patter Analysis from Machine Vision to Medical Imaging, with the name of Computational Anatomy (cite survey computational anatomy). 
-%Statistics on diffeomorphisms are introduced using a metric space defined over the Lie algebras of the Lie group of diffeomorphisms: this idea took the name of log-euclidean framework. Proposed for the first time in 2004 and refined in by the same authors in 2006 \cite{Arsigny:MRM:06}, as a faster improvement to the affine invariant Riemannian approach, has found successful applications in many domains of medical imaging (in vivo mosaicing \cite{Vercauteren:PHD:08}, brain Alzheimer detection \cite{Lorenzi:PhD:12}, cardiac image analysis \cite{Mansi:IJCV:11}, mandible imaging using polyaffine registration \cite{Seiler:MICCAI:11}) and has been continuously improved.\\
+%Statistics on diffeomorphisms are introduced using a metric space defined over the Lie algebras of the Lie group of diffeomorphisms: this idea took the name of log-Euclidean framework. Proposed for the first time in 2004 and refined in by the same authors in 2006 \cite{Arsigny:MRM:06}, as a faster improvement to the affine invariant Riemannian approach, has found successful applications in many domains of medical imaging (in vivo mosaicing \cite{Vercauteren:PHD:08}, brain Alzheimer detection \cite{Lorenzi:PhD:12}, cardiac image analysis \cite{Mansi:IJCV:11}, mandible imaging using polyaffine registration \cite{Seiler:MICCAI:11}) and has been continuously improved.\\
 %Thus the use of diffeomorphisms brings several aspect to be studied and to consider in their utilization:
 %theoretical research, their practical utilization, their study in statistical analysis and in the anatomical deformations' evolutions.\\
-%In this thesis we investigate some numerical methods to compute their composition in the log-euclidean framework aimed to the diffeomorphic image registration. Numerical computations are performed using parallel transport and accelerating convergence series, and are compared with the currently used BCH formula, keeping into account theoretical and practical aspects of the matter.
+%In this thesis we investigate some numerical methods to compute their composition in the log-Euclidean framework aimed to the diffeomorphic image registration. Numerical computations are performed using parallel transport and accelerating convergence series, and are compared with the currently used BCH formula, keeping into account theoretical and practical aspects of the matter.
 
 
 \section{Image Registration Framework}\label{se:registration_framework}
@@ -112,16 +114,16 @@ The underpinning idea can be represented by the following diagram, where $\varph
 \]
 % fine diagramma
 \noindent
-If $\Omega_{F} \neq \Omega_{M}$, it is always possible to apply an homeomorphism to transform them into a common domain $\Omega$, called  \emph{background space}, on which both of the images are defined. In practice, this transformation between domains can be performed with a resampling technique, eventually with the well known artefacts related problem.\\
+If $\Omega_{F} \neq \Omega_{M}$, it is always possible to apply an homeomorphism to transform them into a common domain $\Omega$, called  \emph{background space}, on which both of the images are defined. \\
 
-The definition of image registration here proposed, leaves two degrees of freedom in searching for a solution: the transformation's domain (also called \emph{deformation model}), and the metric to measure the similarity between images. \\
+The definition of image registration problem proposed here, leaves two key degrees of freedom in searching for a solution: the transformation's domain (also called \emph{deformation model}), and the metric to measure the similarity between images. \\
 Once these are chosen, they can be used as constituent of an \emph{image registration framework}: we define it as an iterative process that, at each step provides a new function $\varphi$ that approaches $f$ to the identity.
 Each iteration involves the optimization of a function that measure the similarity between the fixed image and the warped image computed at the previous step. To refine the energy function, the metric can be considered with an additive regularization term, that introduces a constraint based on prior knowledge about the searched solution:
 \begin{align}\label{eq:general_cost_function}
 \mathcal{E}(F, M, \varphi) = \text{Sim}(F,M,\varphi) + \text{Reg}(\varphi) 
 \end{align}
 where $\text{Sim}$ is a function that measure the similarity, while $\text{Reg}$ is a regularization term.
-The optimization algorithm on which the framework is based and the resampling strategy - process of resize the image from one dimension to another - provide alternative options to define the registration algorithm based on this framework.
+The optimization algorithm on which the framework is based and the resampling strategy - process of resize the image from one dimension to another - provide additional degrees of freedom in defining a framework for an algorithm aimed to solve image registration problem.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
@@ -148,41 +150,37 @@ Under the hood of this ideal device we may see an engine that can be schematical
 
 \noindent
 Modulating on the value of each knob, changing for example the set of transformation or the resampling technique, we change between the possible registration algorithms that generally falls in this framework.\\
-%This is a simplification from which we can see that at each step, moving and fixed images are defined within their domain, not necessarily coincident. 
 
-%Avoid the resampling at each iteration decreases computational time, reduces artifacts and enable to have more control on the consequence of the chosen resampling technique.
-%
-%\begin{figure}[!ht]
-%	\centering
-%	\includegraphics[scale=0.35]{figures/iterative_algorithm_res.png}
-%	\caption{Image registration framework scheme.}
-%	\label{fig:iterative_algorithm_scheme_modified}
-%\end{figure}
 \noindent
 Far from being a complete overview of all of the possible frameworks, it does not take into account the fact that each version or implementation inevitably involves different needs and consequent challenges. Solutions found for each case may fall outside this simplification scheme: for example the parametrization of the transformations (or the deformation field's update) at each iterative step do not appear in this picture, even though is a fundamental feature. \\
-In the following subsections we will going from the generalized framework to some specific algorithms. We are interestedin particular in the parametrization of the \emph{diffeomorphisms}\footnote{bijective differentiable maps with differentiable inverse; take the real valued $f(x)=x^3$: it is bijective differentiable but the inverse is not everywhere differentiable.} of the latest important algorithms: the LDDMM and the diffeomorphic Demons.
+In the following subsections we will going from the generalized framework to some specific algorithms. We are interested in particular in the parametrization of the \emph{diffeomorphisms}\footnote{bijective differentiable maps with differentiable inverse; take the real valued $f(x)=x^3$: it is bijective differentiable but the inverse is not everywhere differentiable.} of the latest important algorithms: the LDDMM and the diffeomorphic Demons.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{LDDMM: Classic, Shooting and Stationary}
 
-As previously done in the elastic registration \cite{Broit:1981}, the LDDMM framework \cite{beg2005computing} originates by considering motion between images as the motion of a fluid, and utilizes ODE from fluid dynamics to compute the deformation between reference and floating. 
-Although, the discretized vector fields that can be stored in the computers' memory, are 5-dimensional matrix on a grid $G$ over the background space $\Omega$. The standard structure, used by most of the available software for image manipulation (\href{http://nipy.org/nibabel/}{Nibabel}, \href{http://niftilib.sourceforge.net/pynifti/intro.html}{py-NIfTI}, \href{http://niftilib.sourceforge.net/}{niftilib}, ...) is 
+As previously done in the elastic registration \cite{Broit:1981}, the LDDMM framework \cite{beg2005computing} originates by considering motion between images as the motion of a fluid, and utilizes ODE from fluid dynamics to compute the deformation between reference and floating. The discretized vector fields that can be stored in the computers' memory, are 5-dimensional matrix on a regular lattice $L$ over the background space $\Omega$\footnote{
+	See \cite{modersitzki2009fair} for details.
+	}. 
+The standard structure, used by most of the available software for image manipulation (\href{http://nipy.org/nibabel/}{Nibabel}, \href{http://niftilib.sourceforge.net/pynifti/intro.html}{py-NIfTI}, \href{http://niftilib.sourceforge.net/}{niftilib}, ...) is 
 \begin{align}\label{eq:basic_data_structure}
-M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in G , ~~ t \in T  ~~ d = 1,2,3
+M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in L , ~~ t \in T  ~~ d = 1,2,3
 \end{align}
-where $(x_i,y_j,z_k)$ are discrete position of the grid $G$, $t$ is the time parameter in a discretized domain $T$ and $d$ is index of the coordinate axis. So, the tangent vector $\mathbf{v}_{\tau}(x_i,y_j,z_k)$ at time $t$, has coordinates defined by
+where $(x_i,y_j,z_k)$ are discrete position of the lattice $L$, $t$ is the time parameter in a discretized domain $T$ and $d$ is index of the coordinate axis. So, the tangent vector $\mathbf{v}_{\tau}(x_i,y_j,z_k)$ at time $t$, has coordinates defined by
 \begin{align*}
-\mathbf{v}_{\tau}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
+\mathbf{v}_{t}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
 \end{align*}
 
-Consider the set of homeomorphisms $\text{Hom}(\Omega)$ (continuous function from the background space $\Omega$ to itself with continuous inverse) that act\footnote{In this action it is preferable to consider the composition with the inverse, because this same action in differential geometry, called pull-back play the role of the contravariant operator of the push-forward, widely used to make a vector field act on a domain different from the one has been originally defined. For definitions on group's action and orbits, we refer to \cite{artin2011algebra}. For modern definitions of push-forward, pull-back and an introduction on Differential Geometry (in a non-Riemannian settings) \cite{lee2012introduction}.} on the set of images from the background space $\mathcal{I}_{\Omega}$:
+Consider the set of homeomorphisms $\text{Hom}(\Omega)$ (continuous function from the background space $\Omega$ to itself with continuous inverse) that act\footnote{
+	In this action it is preferable to consider the composition with the inverse, because this same action in differential geometry, called pull-back play the role of the contravariant operator of the push-forward, widely used to make a vector field act on a domain different from the one has been originally defined. For definitions on group's action and orbits, we refer to \cite{artin2011algebra}. For modern definitions of push-forward, pull-back and an introduction on Differential Geometry (in a non-Riemannian settings) \cite{lee2012introduction}.
+	} 
+on the set of images from the background space $\mathcal{I}_{\Omega}$:
 \begin{align*}
 \text{Hom}(\Omega) \times \mathcal{I}_{\Omega} & \longrightarrow  \mathcal{I}_{\Omega}   \\
 (\varphi,F) &\longmapsto F\circ \varphi^{-1}
 \end{align*}
-its orbit, given an image $F$ and a subgroup of the homeomorphisms $\mathbb{G}\subset \text{Hom}(\Omega)$, consists in the set of the images having the same topology of $F$: 
+its orbit, given an image $F$ and a subgroup of the homeomorphisms $\mathbb{G}\subseteq \text{Hom}(\Omega)$, consists in the set of the images having the same topology of $F$: 
 \begin{align*}
 \mathcal{E}_{\mathbb{G}}(F) = \{ F\circ \varphi^{-1} \mid \varphi \in \mathbb{G} \}
 \end{align*}
@@ -191,16 +189,16 @@ The similarity term in the LDDMM is the $L^{2}$ norm\footnote{For an introductio
 \begin{align*}
 \text{Sim}(F,M,\varphi) = \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
 \end{align*}
-while the regularization term that provides the optimal $\varphi$ at each step is defined on the norm of the velocity vector field tangent to the transformation. Limiting its length means impose a constrain on the speed of the transformation at each step. \\
-Let $\text{Vect}(\Omega)$ be the set of all of the vector field over $\Omega$. A generic time varying vector field (TVVF) is the continuously differentiable map defined as
+while the regularization term that provides the optimal $\varphi$ at each step is defined on the norm of the velocity vector field tangent to the transformation. \\
+Let $\mathcal{V}(\Omega)$ be the set of all of the vector field over $\Omega$. A generic time varying vector field (TVVF) is the continuously differentiable map defined as
 \begin{align*}
-V:[0,1] & \longrightarrow  \text{Vect}(\Omega)\\
-t  &\longmapsto  V^{(t)}  : \Omega \longrightarrow   \mathbb{R}^{d} \\
-& \qquad \quad \quad ~~~\mathbf{x} \longmapsto V^{(t)}(\mathbf{x} )
+V:[0,1] & \longrightarrow  \mathcal{V}(\Omega)\\
+t  &\longmapsto  V_{(t)}  : \Omega \longrightarrow   \mathbb{R}^{d} \\
+& \qquad \quad \quad ~~~\mathbf{x} \longmapsto V_{(t,\mathbf{x} )}
 \end{align*}
  Once initial conditions are given, at each TVVF, corresponds a unique time varying (or non-stationary) homomorphisms defined  by the following ODE 
 \begin{align}\label{eq:ode_phi_v}
-\frac{d\phi_{t} (\mathbf{x})}{dt} = V^{(t)}(\mathbf{x} )
+\frac{d\phi_{t} (\mathbf{x})}{dt} = V_{(t\mathbf{x} )}
 \end{align}
 where 
 \begin{align*}
@@ -208,11 +206,13 @@ where
 t  &\longmapsto \phi_{t}  : \Omega \longrightarrow    \Omega \\
 & \qquad \quad \quad  \mathbf{x} \longmapsto \phi_{t}  (\mathbf{x} )
 \end{align*}
-The transformation $\varphi$ between fixed and moving images ($ F\circ \varphi^{-1} = M $), can be defined by the couple $(V^{(t)},\phi_{t})$, such that, for $t = 0$, $\phi_{t} = Id$, identity of the group of homeomorphisms, and for $t = 1$, $\phi_{t} = \varphi$ is the sought homomorphism.
+The transformation $\varphi$ between fixed and moving images ($ F\circ \varphi^{-1} = M $), can be defined by the couple $(V_{(t)},\phi_{t})$, such that, for $t = 0$, $\phi_{t} = Id$, identity of the group of homeomorphisms, and for $t = 1$, $\phi_{t} = \varphi$ is the sought homomorphism.
 \begin{align*}
 \varphi := \phi_{1} = \phi_{0} + \int_0^1 V^{(t)} (\phi) dt
 \end{align*}
-To have an efficient algorithm and a meaningful constraint on the resulting transformation, it is reasonable to consider $\phi_{t}$ as the shortest path between the identity and $\varphi$, so to have $V^{(t)} $ as the one that minimize the distance between transformations\footnote{This next equation can provide a metric on the manifold of the transformations, making it a Riemannian manifold. On the other side starting with a metric previously defined on the manifold (by a Levi-Civita connection so to be compatible with the shortest length of the integral curve), the consequent existence of geodesics may avoid the computation of the inf. In both cases this \lq\lq Riemannian approach\rq\rq  makes unavoidable the passage toward a metric, and makes the LDDMM a metric based algorithm.}:
+In consequence of this, the function $\phi$, paired with the vector field $V_{(t)}$, defines a continuous sequence of homorphisms in the same orbit of the fixed image $\mathcal{E}_{\text{Hom}(\Omega)}(F)$. \\
+To obtain an efficient algorithm and a meaningful constraint on the resulting transformation, it is reasonable to consider $\phi_{t}$ as the shortest path between the identity and $\varphi$, so to have $V_{(t)} $ as the one that minimize the distance between transformations\footnote{
+	This next equation can provide a metric on the manifold of the transformations, making it a Riemannian manifold. On the other side starting with a metric previously defined on the manifold (by a Levi-Civita connection so to be compatible with the shortest length of the integral curve), the consequent existence of geodesics may avoid the computation of the inf. In both cases this \lq\lq Riemannian approach\rq\rq  makes unavoidable the passage toward a metric, and makes the LDDMM a metric based algorithm.}:
 \begin{align*}
 l = \inf_{V^{(t)} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} )}  \int_{0}^{1} \euclideanMetric{V^{(t)}}_{L^2}^{2}dt
 \end{align*}
@@ -226,7 +226,8 @@ Ending points of path on the set of diffeomorphisms, whose tangent vector field 
 \quad 
 \phi_{1} = \varphi
 \end{align*}
-Were $L$ is a linear operator that can be dependent on some parameters that makes the approach even more general; it is defined as $L = (\alpha\vec \nabla^2 + \gamma)$ for $\alpha$ and $\gamma$ real parameters and $\vec \nabla^2$ the Laplace operator.
+Were $L$ is a linear operator that can be dependent on some parameters that add additional constraint to the algorithm limiting the length of the speed of the transformation at each step. 
+With more details, it is defined as $L = (\alpha\vec \nabla^2 + \gamma)$ for $\alpha$ and $\gamma$ real parameters and $\vec \nabla^2$ the Laplace operator.
 From the differential equation \ref{eq:ode_phi_v}, and in consequence of the definition of $\varphi$ the energy function \ref{eq:general_cost_function} become
 \begin{align*}
 %\argmin_{v_{t} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = v_{t}(\mathbf{x} ) } 
@@ -246,23 +247,23 @@ Each transformation involved in the optimization algorithm are discretized time 
 \begin{align*}
 \mathbf{v}_{k+1} = \mathbf{v}_{k} - \epsilon \nabla (\Delta\mathcal{E})
 \end{align*}
-where $\mathbf{v}^{k}$ is the $k$-th step of the approximation of the velocity vector field $V$, $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.\\
+where $\mathbf{v}_{k}$ is the $k$-th step of the approximation of the velocity vector field $V$ discretized according to \ref{eq:basic_data_structure}, while $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.\\
 
 % shooting
 A direct upgrade of the classical LDDMM performs the optimization on the geodesic flows, defined by a set of Hamiltonian equation (Shooting LDDMM \cite{vialard2012diffeomorphic}). \\
 In this algorithm the iterative evolution of the deformation field, solution of the optimization algorithm, is regularized with the constraint imposed by an additional scalar field called \emph{initial momentum}. 
 %stationary: dartel and hernandez
-As proved by the authors, the evaluation of this constraint at each step provides geodesics flows of homeomorphisms, but it is computationally expensive. Using the log-euclidean framework presented in \cite{Arsigny:MRM:06}, the algorithm proposed in \cite{Ashburner:07} uses a constraint based on the stationarity of the involved velocity field. Instead of considering time varying velocity fields constrained by a set of Hamiltonian equations, the domain of vector field is reduced to the stationary, which is an -almost- equivalent constraint, that considerably reduces the computational complexity. Resulting algorithm, the DARTEL (Diffeomorphic Anatomical Registration using Exponentiated Lie Algebra), was published in contemporary with \cite{hernandez2007registration} based on the same concept of the parametrization of geodesics path of diffeomorphisms with stationary velocity fields, and with \cite{vercauteren2007non} that uses SVF on the Demons framework instead on the LDDMM.
+As proved by the authors, the evaluation of this constraint at each step provides geodesics flows of homeomorphisms, but it is computationally expensive. Using the log-Euclidean framework presented in \cite{Arsigny:MRM:06}, the algorithm proposed in \cite{Ashburner:07} uses a constraint based on the stationarity of the involved velocity field. Instead of considering time varying velocity fields constrained by a set of Hamiltonian equations, the domain of vector field is reduced to the stationary, which is an -almost- equivalent constraint, that considerably reduces the computational complexity. Resulting algorithm, the DARTEL (Diffeomorphic Anatomical Registration using Exponentiated Lie Algebra), was published in contemporary with \cite{hernandez2007registration} based on the same concept of the parametrization of geodesics path of diffeomorphisms with stationary velocity fields, and with \cite{vercauteren2007non} that uses SVF in the Demons framework instead on the LDDMM.
 
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Demonology: Classic, Pasha, Diffeomorphic, Symmetric and LCC}
+\subsection{Demonology: Classic, Diffeomorphic and Symmetric}
 
 % classic demon
-The first demons-based algorithm in image registration was proposed by \cite{thirion1998image} in analogy with the Maxwell's demon in thermodynamics. This early version, called classic (or additive) demons, do not involves diffeomorphisms; the floating image is deformed with a vector field resulting from the computation of the optical flow\footnote{Previously introduced for small deformation of optical sequence of images \cite{horn1981determining}.} regularized by a gaussian filter at each step. The optical flow is based on the idea that a voxel in the moving image is attracted by some force to all the points in the fixed with similar intensity, therefore it works under the hypothesis that the intensity of a moving object is constant over time. \\
+The first demons-based algorithm in image registration was proposed by \cite{thirion1998image} in analogy with the Maxwell's demon in thermodynamics. This early version, called classic (or additive) demons, do not involves diffeomorphisms; the floating image is deformed with a vector field resulting from the computation of the optical flow\footnote{Previously introduced for small deformation of optical sequence of images \cite{horn1981determining}.} regularized by a gaussian filter at each step. The optical flow is based on the idea that a voxel in the moving image is attracted by some force to all the points in the fixed with similar intensity, therefore it works under the hypothesis that the intensity of a moving object is constant over the time parameter. \\
 Let $\mathbf{x}$ be a point in the background space $\Omega$, the unknown vector field $V:\Omega \rightarrow \mathbb{R}^{d}$ is the function that at each point satisfies:
 \begin{align}\label{eq:optical_flow_initial}
 V(\mathbf{x})\cdot \vec{\nabla}F(\mathbf{x}) = M(\mathbf{x}) - F(\mathbf{x})
@@ -318,8 +319,8 @@ The update of the vector field obtained with the optimization of the energy func
 
 % Diffeomorphic demons
 Again the PASHA algorithm do not involves any diffeomorphism. This development was made in \cite{vercauteren2006robust}, with the diffeomorphic demons (or log-demon). 
-Within the log-euclidean framework the involved vector fields are element in the tangent space of the group of diffeomorphisms. As in LDDMM, to each vector field $V \in \text{Vect}(\Omega)$ is associated a diffeomorphisms $p$ by the ODE $dp/dt = V^{(t)}(p) $.\\
-In this settings, the update can not be computed simply with a sum, since it must reflect the composition of diffeomorphisms that defines the corresponding vector fields. Intuitively if $dp/dt = V^{(t)}(p) $ and $dq/dt = W^{(t)}(q) $ do not implies $dp\circ q/dt = V^{(t)}(p) + W^{(t)}(q) $.
+Within the log-Euclidean framework the involved vector fields are element in the tangent space of the group of diffeomorphisms. As in LDDMM, to each vector field $V \in \mathcal{V}(\Omega)$ is associated a diffeomorphisms $p$ by the ODE $dp/dt = V_{(t,p)} $.\\
+In this settings, the update can not be computed simply with a sum, since it must reflect the composition of diffeomorphisms that defines the corresponding vector fields. Intuitively if $dp/dt = V^{(t)}(p) $ and $dq/dt = W^{(t)}(q) $ do not implies $d(p\circ q)/dt = V^{(t)}(p) + W^{(t)}(q) $.
 To define the composition in the tangent space, we need to use two functions to transform vector fields into diffeomorphisms and vice-versa; they are already provided by Lie group theory. The \emph{Lie algebra}, usually denoted with $\mathfrak{g}$, contains the set of the tangent vector fields, while the Lie group, denoted with $\mathbb{G}$, contains the set of transformations; the function \emph{Lie exponential} maps vector fields on the corresponding Lie group elements while the \emph{Lie logarithm}, its inverse under some condition defined in chapter \ref{ch:tools}, maps each diffeomorphisms in the correspondent tangent vector field:
 \begin{align*}
 p = \exp(V)  
@@ -357,9 +358,9 @@ BCH(\mathbf{v}_{j},\delta\mathbf{v})
 		\label{fig:additive_diffeomorphic_demons}
 	\end{figure}  
 %  Symmetric diffeomorphic demon
-An extension of the diffeomorphic demons, that involves the optimization of the energy function $\mathcal{E}(F,M,V) $, exploits the existence of the inverse transformation and optimizes instead a symmetrised version of the energy function \cite{vercauteren2007non}. If $V = log(p)$, then the \emph{symmetric diffeomoprhic demons algorithm} finds at each step
+An extension of the diffeomorphic demons, that involves the optimization of the energy function $\mathcal{E}(F,M,V) $, exploits the existence of the inverse transformation and optimizes instead a symmetrised version of the energy function \cite{vercauteren2007non}. If $V = log(p)$, then the \emph{symmetric diffeomorphic demons algorithm} finds at each step
 \begin{align*}
-\tilde{V}_{t+1} 
+\tilde{\mathbf{v}}_{t+1} 
 = 
 \argmin_{p \in \mathbb{G} } 
 \mathcal{E}(F,M,log(p)) + \mathcal{E}(F,M,\log(p^{-1})) 
@@ -389,7 +390,7 @@ U \oplus V := \log(\exp(U)\circ\exp( V))
 The main aim of this research is to find and compare numerical ways to compute it. \\
 
 % where we can use the log composition
-A fast log-composition is not useful only for the diffeomorphic demons. It can be used to solve every problem that uses Lie groups and need to be implemented in a computer. In medical imaging it can be used for
+A fast log-composition is not useful only for the diffeomorphic demons. It may be used to solve some of the problems that rely on Lie groups and need to be implemented in a computer. In medical imaging it can be used for
 \begin{enumerate}
 	\item Diffeomorphic demon, and symmetric diffeomorphic demon \cite{vercauteren2006robust, vercauteren08}.
 	\item Fast computation of the logarithm \cite{Bossa:08}.

@@ -2,37 +2,33 @@
 \contentsline {chapter}{\numberline {1}Introduction to Diffeomorphic Image Registration}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Toward an ill-posed Problem}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Examples of applications}{1}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}State of the Art}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.2}Diffeomorphisms in medical imaging: State of the Art}{2}{subsection.1.1.2}
 \contentsline {subsection}{\numberline {1.1.3}Using Diffeomorphisms: Utility and Liability}{3}{subsection.1.1.3}
 \contentsline {section}{\numberline {1.2}Image Registration Framework}{4}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Introductory Definitions}{4}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Iterative Registration Algorithm}{5}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}LDDMM: Classic, Shooting and Stationary}{6}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Demonology: Classic, Pasha, Diffeomorphic, Symmetric and LCC}{8}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.4}Demonology: Classic, Diffeomorphic and Symmetric}{8}{subsection.1.2.4}
 \contentsline {section}{\numberline {1.3}The Composition of SVF in the Diffeomorphisms Group}{11}{section.1.3}
 \contentsline {chapter}{\numberline {2}Tools from Differential Geometry}{13}{chapter.2}
 \contentsline {section}{\numberline {2.1}A Lie Group Structure for the Set of Transformation}{13}{section.2.1}
 \contentsline {section}{\numberline {2.2}Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula }{14}{section.2.2}
 \contentsline {section}{\numberline {2.3}Affine Exponential, Affine logarithm and affine log-composition}{17}{section.2.3}
 \contentsline {section}{\numberline {2.4}Parallel Transport: Definition and Properties}{19}{section.2.4}
-\contentsline {section}{\numberline {2.5}Four Strategies for the Computation of Log-composition}{22}{section.2.5}
+\contentsline {section}{\numberline {2.5}Numerical Computations of the Log-composition}{21}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Truncated BCH formula}{22}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Taylor Expansion}{22}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Parallel Transport}{23}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}Numerical Computations of the Log-composition for SE(n)}{23}{subsection.2.5.4}
-\contentsline {subsubsection}{Taylor Approximation to compute the Log-composition}{23}{section*.4}
-\contentsline {subsubsection}{Parallel Transport to compute the Log-composition}{23}{section*.5}
-\contentsline {subsubsection}{Log and Exp Approximations for Small Rotations}{23}{section*.6}
 \contentsline {chapter}{\numberline {3}Numerical computation of the Log-composition for SE(2) and SVF}{25}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Group of Rigid Body Transformations}{25}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Lie Logarithm, Lie Exponential and Log-compositions for SE(2)}{25}{subsection.3.1.1}
-\contentsline {chapter}{\numberline {4}Log-computation Algorithm using Log-composition}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Space of approximations}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{30}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}BCH Strategy}{30}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Parallel Transport Strategy}{31}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Symmetrization Strategy}{31}{subsection.4.2.3}
-\contentsline {subsubsection}{Symmetric-Parallel Transport Strategy}{32}{section*.7}
+\contentsline {subsubsection}{Log and Exp Approximations for Small Rotations}{29}{section*.4}
+\contentsline {section}{\numberline {3.2}The Set of Stationary Velocity Fields}{29}{section.3.2}
+\contentsline {chapter}{\numberline {4}Log-computation Algorithm using Log-composition}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Space of approximations}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{32}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}BCH Strategy}{32}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Parallel Transport Strategy}{33}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Symmetrization Strategy}{33}{subsection.4.2.3}
 \contentsline {chapter}{\numberline {5}Experimental Results}{35}{chapter.5}
 \contentsline {section}{\numberline {5.1}Group composition at the Service of Image Registration}{35}{section.5.1}
 \contentsline {section}{\numberline {5.2}Experimental Results}{35}{section.5.2}

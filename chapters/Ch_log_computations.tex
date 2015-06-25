@@ -22,10 +22,6 @@ Before we need to introduce the space of the approximation of the Lie algebra an
 \section{Space of approximations}
 
 \noindent
-xxx Space of the approximations, in connection with the small rotation chapter.
-
-
-\noindent
 We emphasize the fact that if $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, then exp and log can be considered as infinite series.
 Remarkable consequence is the approximation of $\exp(\mathbf{v})$ with $1 + \mathbf{v}$ if the transformation $\mathbf{v}$ is small. This approximation is the base of what follows in this chapter.\\
 In parallel with the log-composition $ \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))$ 
@@ -45,7 +41,6 @@ Consequence of this definition is the fact that
 \qquad \qquad 
 \exp(\mathbf{u}) \simeq   \text{App} (\exp(\mathbf{u})) 
 \end{align*}
-xxx errors can be investigated and maybe can become known elements in the computations! \\
 The two following straightforward properties, that holds for all $\mathbf{u}, \mathbf{v} $ in the Lie algebra
 \begin{enumerate}
 	\item $\mathbf{u} = \mathbf{v} \oplus (-\mathbf{v} \oplus  \mathbf{u} )$
@@ -251,51 +246,45 @@ We conclude with a formula that relates $\tilde{\delta} \mathbf{v}^{L}_{t}$ with
 	\delta \mathbf{v}^{R}_{t} &= \exp(-\mathbf{v}_{t})\circ \delta \mathbf{v}^{L}_{t} \circ \exp(\mathbf{v}_{t})
 	\end{align*}
 \end{proof}
+%
+%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%% % SUBSECTION
+%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%\subsubsection{Symmetric-Parallel Transport Strategy}
+%If we are not satisfied to having take only the firs order approximation of the BCH in the equation (\ref{eq:first_order_approx}) we use at this stage the parallel transport in the method presented in this subsection.
+%Going back to the algorithm \ref{eq:sym_strategy} we can apply to
+%\begin{align*}
+%\mathbf{v}_{t+1} = \frac{1}{2}(\text{BCH}(\tilde{\delta} \mathbf{v}^{L}_{t}, \mathbf{v}_{t}) + \text{BCH}(\mathbf{v}_{t},\tilde{\delta} \mathbf{v}^{R}_{t}))
+%\end{align*}
+%the parallel transport to get
+%\begin{align*}
+%\mathbf{v}_{t+1} &= \frac{1}{2}((\tilde{\delta} \mathbf{v}^{L}_{t})^{\parallel} + \mathbf{v}_{t} + \mathbf{v}_{t} + (\tilde{\delta} \mathbf{v}^{R}_{t})^{\parallel}) \\
+%&= 2\mathbf{v}_{t} + \frac{1}{2}((\tilde{\delta} \mathbf{v}^{L}_{t})^{\parallel} + (\tilde{\delta} \mathbf{v}^{R}_{t})^{\parallel})
+%\end{align*}
+%Applying the definition of parallel transport we get
+%\begin{align*}
+%(\tilde{\delta} \mathbf{v}^{L}_{t})^{\parallel} + (\tilde{\delta} \mathbf{v}^{R}_{t})^{\parallel} 
+%= 
+%\exp(-\frac{\mathbf{v}_{t}}{2}) \circ (\tilde{\delta} \mathbf{v}^{L}_{t} +\tilde{\delta} \mathbf{v}^{R}_{t} )\circ \exp(\frac{\mathbf{v}_{t}}{2})
+%\end{align*}
+%where 
+%\begin{align*}
+%\tilde{\delta} \mathbf{v}^{L}_{t} &=  \exp(\mathbf{v})\circ \exp(-\mathbf{v}_{t}) - e \\
+%\tilde{\delta} \mathbf{v}^{R}_{t} &=  \exp(-\mathbf{v}_{t})\circ \exp(\mathbf{v}) - e
+%\end{align*}
+%Then a new improvement of the algorithm \ref{eq:bossa_strategy}  is
+%\begin{equation}\label{eq:sym_parallel_strategy}
+%\begin{cases}
+%\mathbf{v}_0 = 0 \\
+%\mathbf{v}_{t} 
+%=  
+%2\mathbf{v}_{t-1} + \frac{1}{2}(\exp(-\frac{\mathbf{v}_{t-1}}{2}) 
+%\circ 
+%(\tilde{\delta} \mathbf{v}^{L}_{t-1} +\tilde{\delta} \mathbf{v}^{R}_{t-1} )\circ \exp(\frac{\mathbf{v}_{t-1}}{2}))
+%\end{cases}
+%\end{equation}
+%(This must be investigated!)
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsubsection{Symmetric-Parallel Transport Strategy}
-If we are not satisfied to having take only the firs order approximation of the BCH in the equation (\ref{eq:first_order_approx}) we use at this stage the parallel transport in the method presented in this subsection.
-Going back to the algorithm \ref{eq:sym_strategy} we can apply to
-\begin{align*}
-\mathbf{v}_{t+1} = \frac{1}{2}(\text{BCH}(\tilde{\delta} \mathbf{v}^{L}_{t}, \mathbf{v}_{t}) + \text{BCH}(\mathbf{v}_{t},\tilde{\delta} \mathbf{v}^{R}_{t}))
-\end{align*}
-the parallel transport to get
-\begin{align*}
-\mathbf{v}_{t+1} &= \frac{1}{2}((\tilde{\delta} \mathbf{v}^{L}_{t})^{\parallel} + \mathbf{v}_{t} + \mathbf{v}_{t} + (\tilde{\delta} \mathbf{v}^{R}_{t})^{\parallel}) \\
-&= 2\mathbf{v}_{t} + \frac{1}{2}((\tilde{\delta} \mathbf{v}^{L}_{t})^{\parallel} + (\tilde{\delta} \mathbf{v}^{R}_{t})^{\parallel})
-\end{align*}
-Applying the definition of parallel transport we get
-\begin{align*}
-(\tilde{\delta} \mathbf{v}^{L}_{t})^{\parallel} + (\tilde{\delta} \mathbf{v}^{R}_{t})^{\parallel} 
-= 
-\exp(-\frac{\mathbf{v}_{t}}{2}) \circ (\tilde{\delta} \mathbf{v}^{L}_{t} +\tilde{\delta} \mathbf{v}^{R}_{t} )\circ \exp(\frac{\mathbf{v}_{t}}{2})
-\end{align*}
-where 
-\begin{align*}
-\tilde{\delta} \mathbf{v}^{L}_{t} &=  \exp(\mathbf{v})\circ \exp(-\mathbf{v}_{t}) - e \\
-\tilde{\delta} \mathbf{v}^{R}_{t} &=  \exp(-\mathbf{v}_{t})\circ \exp(\mathbf{v}) - e
-\end{align*}
-Then a new improvement of the algorithm \ref{eq:bossa_strategy}  is
-\begin{equation}\label{eq:sym_parallel_strategy}
-\begin{cases}
-\mathbf{v}_0 = 0 \\
-\mathbf{v}_{t} 
-=  
-2\mathbf{v}_{t-1} + \frac{1}{2}(\exp(-\frac{\mathbf{v}_{t-1}}{2}) 
-\circ 
-(\tilde{\delta} \mathbf{v}^{L}_{t-1} +\tilde{\delta} \mathbf{v}^{R}_{t-1} )\circ \exp(\frac{\mathbf{v}_{t-1}}{2}))
-\end{cases}
-\end{equation}
-(This must be investigated!)
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 
 

@@ -12,7 +12,7 @@ In the previous chapter we have introduced some fundamental tools from different
 This chapter is aimed to go through the details of the generalized theory for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields.
 
 
-\subsection{Lie Logarithm, Lie Exponential and Log-compositions for SE(2)}
+%
 
 
 A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection, and forms the euclidean group $E(2)$. For 2d rigid registration usually reflections are not required and so we restrict our attention to the special euclidean group $SE(2)$.  We are interested in two things about them: their expression in matrix form, and the Lie group and the Lie algebra structures involved. \\
@@ -392,6 +392,27 @@ xxx \text{On some lost paper... to be computed again!}
 
 
 
+\subsubsection{Log and Exp Approximations for Small Rotations}
+Computations of logarithm and exponential obtained so far are a consequence of these formula:
+\begin{align*}
+\exp(\mathbf{r}) = \sum_{k=0}^{\infty} \frac{\mathbf{v}^{k}}{k!}
+\qquad 
+\log(\mathbf{r}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k!}
+\end{align*}
+Remarkably, infinite series of elements of a group (whose sum is not even defined within the group structure) is an element into an associated algebra, while another infinite series of matrices of the algebra appears to be the natural way to going backward. A second door to passing from one structure to the other, when $\mathbf{r}$ is little appears to be the following approximation:
+\begin{align*}
+\exp(\mathbf{r}) \simeq I + \mathbf{r} 
+\qquad 
+\log(d\mathbf{r}) \simeq d\mathbf{r} - I
+\end{align*}
+In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta)^{-1} \simeq I$. \\
+xxx this may deserve an investigation about the errors in the approximations error!
+
+
+
+
+\section{The Set of Stationary Velocity Fields}
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -462,4 +483,17 @@ xxx \text{On some lost paper... to be computed again!}
 %	\end{enumerate}
 %	%
 
-
+\begin{corollary}
+	Using the 
+	If, with previous notations, the condition (1) is an approximation
+	\begin{align*}
+	\exp_{C}(\frac{\mathbf{k}}{2}) = \exp(\mathbf{\xi})\circ \exp_{M}(\frac{\mathbf{k}}{2}) 
+	\end{align*}
+	for some $ \mathbf{\xi}$ in  $\mathfrak{g}$ such that $\parallel\mathbf{\xi} \parallel < \delta$
+	then the approximation has error
+	\begin{align*}
+	O(\parallel \delta\mathbf{u}^{\parallel} \parallel^{2} )  
+	+ O(\parallel \mathbf{u} + \delta\mathbf{u}\parallel^{3})
+	+ \text{xxx something that must be investigated depending on } \delta
+	\end{align*}
+\end{corollary}
