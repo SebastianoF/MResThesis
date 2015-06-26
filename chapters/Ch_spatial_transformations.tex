@@ -1,19 +1,22 @@
-\chapter{Numerical computation of the Log-composition for SE(2) and SVF}\label{ch:spatial_transformations}
+\chapter{Spatial Transformations for the Computations of the Log-composition: SE(2) and SVF}\label{ch:spatial_transformations}
 
 
 \begin{flushright}
 	\emph{Every working mathematician knows that if one does not control oneself (best of all by examples), then after some ten pages half of all the signs in formulae will be wrong and twos will find their way from denominators into numerators. \\ -V.I. Arnold}
 \end{flushright}
 
+In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. They can be applied for several groups of transformation. In this research we show how they behave on two selected groups:
+\begin{enumerate}
+	\item[SE(2) -] The group of rigid body transformation of the plane (any combination of rotations, translations) is the optimal playground to test the introduced numerical methods. Here all the closed form can be derived analytically, and therefore a ground truth is always available for comparisons. A representation of this Lie group as a subgroup of the real linear group $GL(2)$, with corresponding Lie algebra will be provided, with all of the closed form of the numerical computations presented in this research.
+	\item[SVF -] As a subset of the group of Diffeomorphisms. why this, why only subset, the strategy to compute the ground truth.
+\end{enumerate}
 
-\section{The Group of Rigid Body Transformations}\label{se:rigid_body_transformations}
-
-In the previous chapter we have introduced some fundamental tools from differential geometry commonly utilized in computational anatomy. The core object of the theory, exponential and logarithmic map, as well as pole ladder, are obviously different for each manifold and each metric, if there is one: practical implementations have to be determined case by case.\\
+The core object of the theory, exponential and logarithmic map, as well as pole ladder, are obviously different for each manifold and each metric, if there is one: practical implementations have to be determined case by case.\\
 This chapter is aimed to go through the details of the generalized theory for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields.
 
 
-%
 
+\section{The Group of Rigid Body Transformations}\label{se:rigid_body_transformations}
 
 A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection, and forms the euclidean group $E(2)$. For 2d rigid registration usually reflections are not required and so we restrict our attention to the special euclidean group $SE(2)$.  We are interested in two things about them: their expression in matrix form, and the Lie group and the Lie algebra structures involved. \\
 We denote denoted with $M_{3}(\mathbb{R})$ the set of all of the $3\times 3$ matrices with real entries . 

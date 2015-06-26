@@ -19,23 +19,22 @@ We will focus out attention to transformations defined by matrices or diffeomorp
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
 Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold and manipulate them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure. The abstract idea of vector field over a manifold will be concretized for image registration introducing the concepts of \emph{displacement field}, \emph{deformation field} and \emph{velocity field (stationary or time varying)} that will be there presented. 
-Due to space limitations we will refer to \cite{do1976differential}, \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.\\
-Some notes about these topics, tailored for image registration can be found on the github repository \cite{notes_geometry_and_imaging}
+Due to space limitations we will refer to \cite{do1976differential}, \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula }\label{se:lie_exp_log_comp_bch}
-Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ and $V\in\mathcal{V}(\mathbb{G})$ the unique vector field defined by $\mathbf{v}$ over a local coordinate system around the origin. Let $\Phi_{V}$ be the flow associated with the vector field and $\gamma(t)$ the unique integral curve of $V$ passing through the identity of the group.  
-The \emph{Lie exponential} is defined as (\cite{do1992riemannian}, \cite{ebin2006singularities})
+Let $\mathbf{v}$ be an element in the tangent space fo the Lie group $\mathbb{G}$ indicated with $\mathfrak{g}$.
+The \emph{Lie exponential} is defined as 
 \begin{align*}
 \exp :  \mathfrak{g} & \longrightarrow  \mathbb{G}  \\
-\mathbf{v} &\longmapsto  \exp(\mathbf{v} ) = \gamma(1) \quad \dot{\gamma}(t) = V_{\gamma(t)}, \gamma(0) = e
+\mathbf{v} &\longmapsto  \exp(\mathbf{v} ) = \gamma(1) %\quad \dot{\gamma}(t) = V_{\gamma(t)}, \gamma(0) = e
 \end{align*}
+where $\gamma: [0,1]\rightarrow \mathbb{G} $ is the unique one-parameter subgroup of $\mathbb{G}$ having $\mathbf{v}$ as its tangent vector at the identity (\cite{do1992riemannian}, \cite{ebin2006singularities}, \cite{Arsigny:MRM:06}).
 It satisfies the following properties:
 \begin{enumerate}
-	\item $\exp(\mathbf{v}) = \Phi_{V}(e,1)$.
-	\item $\exp(t\mathbf{v}) =\gamma(t) = \Phi_{V}(e,t)$.
+	\item $\exp(t\mathbf{v}) =\gamma(t) $.
 	\item $\exp(\mathbf{v}) = e$ if $\mathbf{v} = \mathbf{0}$.
 	\item $\exp(\mathbf{v})\circ \exp(\mathbf{-v})  = e$
 	\item The exponential function satisfies the one parameter subgroup property:
@@ -45,7 +44,7 @@ It satisfies the following properties:
 	\item $\exp(\mathbf{v})$ is invertible and $(\exp(\mathbf{v}))^{-1} = \exp(-\mathbf{v})$.
 	\item $\exp$ is a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $e$ in $\mathbb{G}$.
 \end{enumerate}
-The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus\footnote{Here we define cut locus starting from the exp and log function, and in both domains. Traditionally it is defined only on Riemannian manifolds and using the geodesics (see \cite{do1992riemannian}, p. 267). For Levi Civita connection we have that the definition are coincident.}.\\
+The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus.\\
 When we deal with a matrix Lie group of dimension $n$, we have the following remarkable properties:
 \begin{enumerate}
 	\item for all $\mathbf{v}$ in a matrix Lie algebra $\mathfrak{g}$:
@@ -86,15 +85,19 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 	\end{align*}
 \end{enumerate} 
 Here we may see the beginning of the problem we have to deal with for the rest of the research, when passing from the finite dimensional case to the infinite dimensional case.\\
-The domain of the logarithm is the matrix Lie group in which only the composition is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense (and satisfy remarkable properties) when applied to the $\log$. On the other side the domain of the exponential is the matrix Lie algebra, but the exponential can be nevertheless applied to a generic matrix.\\
-\emph{This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrix}. In this structure the operation of sum is still defined over the group that admit only compositions. The sum between element of a group can be performed on a Lie group, every time he and its Lie algebra are subset of a bigger algebra \cite{kirillov2008introduction}. In these cases infinite series are doors to pass from the structure of group and the algebra. When presenting the rigid body transformation in chapter \ref{ch:spatial_transformations} we will see another couple of access doors based on numerical approximations.\\
+The domain of the logarithm is the matrix Lie group in which only the composition is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense (and satisfy remarkable properties) when applied to the $\log$. In addition the domain of the exponential is the matrix Lie algebra, but the exponential can be nevertheless applied to any matrix.\\
+\emph{This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrix}. In this structure the operation of sum is still defined over the group that admits only compositions, and infinite series are doors to pass from the structure of group to the algebra and vice versa. When presenting the rigid body transformation in chapter \ref{ch:spatial_transformations} we will see another couple of access doors based on numerical approximations.\\
 
-The (extremely) continuous nature of a diffeomorphism is not compatible with the (extremely) discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. As shown in \cite{hernandez2008comparing}, for some parameters the Stationary LDDMM and the diffeomorphic Demons, the transformations involved in diffeomorphic framework may not preserve the signs of the Jacobian determinant. As previously said, the only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, scaling and squaring and inverse scaling and squaring are proposed for the computation of exponential and logarithm respectively; they transform a vector field in another vector field, and reasonably the domain and codomain of these transformations are radically different from the exp and log function defined for diffeomorphisms. \\
-Matrices are much easier to handle, since the Lie group of a Lie algebra is still an algebraic structure defined by matrices, in which products are compatible with the composition. In this case the exponential and logarithm have domain and codomain in the appropriate restriction of the general linear group.\\
-Passing from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only vector fields to deal with. The strategy here proposed is to embed the Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$ in the Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$, whose implementation better reflect the discretization of the diffeomorphisms. This is done toward the definition of an operation, defined on $\mathfrak{g} $, that utilizes the group structure of $\mathbb{G}$ on its elements.\\
+When dealing with diffeomorphism in practical application we have to deal with a theoretical and a practical issues: 
+on one side the
+the operations in Lie algebra are not compatible with the composition in the Lie group: expression as $e + \mathbf{v}$ contains a sum that is undefined (and therefore meaningless) in the Lie group structure.
+On the other side 
+the (extremely) continuous nature of diffeomorphisms is not compatible with the (extremely) discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. The only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, scaling and squaring and inverse scaling and squaring are proposed for the computation of exponential and logarithm respectively; they transform a discretized vector field in another discretized vector field, while theoretical domain and codomain of these transformations are radically different. In addition, as shown in \cite{hernandez2008comparing} for some parameters of Stationary LDDMM and the diffeomorphic Demons the diffeomorphisms involved do not preserve the signs of the Jacobian determinant, and therefore are not diffeomorphisms anymore. \\
+A different situation arises when dealing with classic Lie group: their matrix representation is not only ideal for implementation, but the Lie algebra $\mathfrak{g}$ of a classic Lie group $\mathbb{G}$ can be still represented with a set of matrices whose sum and products are compatible with the composition, since $\mathfrak{g}$ and $\mathbb{G}$ are both subset of a bigger algebra of the general linear group $GL(n)$ \cite{kirillov2008introduction}. case the exponential and logarithm have domain and codomain in the appropriate restriction of $GL(n)$. \\
 
+The passage from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only discrete vector fields to deal with, where operations within Lie algebra and Lie group are not anymore compatible. The strategy here proposed is to define an operation in the Lie algebra Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$ that reflects the properties of the composition in the corresponding Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$.\\
 
-We define now the Lie Log-composition (Lie to distinguish it from the Affine Log-composition of the next section) as inner binary operation on the Lie algebra that reflects the composition on the lie group:
+The Lie Log-composition (Lie to distinguish it from the Affine Log-composition of the next section) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
 \begin{align*}
 \oplus : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
 (\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
@@ -160,9 +163,7 @@ The curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique one
 \begin{align*}
 \gamma(0) = p\qquad  \dot{\gamma}(0) =  \mathbf{v} \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
 \end{align*}
-This second kind of exponential is called affine exponential\footnote{
-	Little note about the notation: to distinguish the affine $\exp$ and $\log$ from the Lie $\exp$ and $\log$ presented in the previous section, the affine will always have the subscript of the point of application even when it is the identity.
-	}
+This second kind of exponential is called affine exponential.\\
 The following properties hold:
 \begin{enumerate}
 	\item If $\nabla$ is a Cartan connection then $\exp_{e}$ and $\exp$ coincides.
@@ -420,7 +421,7 @@ V_{1}
 =
 \sum_{n=0}^{\infty} \frac{B_{n}}{n!} \text{ad}_{\mathbf{u}}^{ n} 
 \end{align*}
-Where $\lbrace B_{n} \rbrace_{n=0}^{\infty} $ is the sequence of the second-kind Bernoulli number\footnote{If first-kind Bernoulli number are used, then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in \cite{klarsfeld1989baker}.}, and the denominator is defined within the structure of the formal power series ring \cite{mariconda2013calcolo}.\\
+Where $\lbrace B_{n} \rbrace_{n=0}^{\infty} $ is the sequence of the second-kind Bernoulli number. If first-kind Bernoulli number are used, then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in \cite{klarsfeld1989baker}. The denominator is defined within the structure of the formal power series ring \cite{mariconda2013calcolo}.\\
 In conclusion, the log-composition can expressed as:
 \begin{align*}
 \mathbf{u}\oplus \mathbf{v}  
@@ -467,7 +468,8 @@ To obtain a numerical computation for the log-composition using parallel transpo
 		\exp(\mathbf{u}) \simeq e + \mathbf{u}
 		\end{align*}
 \end{enumerate}
-% consequences of this...
+The second condition is valid if the hypothesis of proposition 8.6 pag. 163 \cite{younes2010shapes} holds. A deepening in this direction is not in the scope of this research. For our purposes we will consider $\mathbf{w}$ small enough to make the approximation questioned here reasonable.\\
+
 From these assumptions and from equation \ref{eq:parallel_transport_main_approximation} it follows that 
 \begin{align*}
 \mathbf{u}\oplus \mathbf{v}
