@@ -57,7 +57,7 @@ When we deal with a matrix Lie group of dimension $n$, we have the following rem
 	\item For any norm, $\euclideanMetric{\exp(\mathbf{v})} \leq \exp(\euclideanMetric{\mathbf{v}})$.
 	\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{v}}{m})\exp(\frac{\mathbf{v}}{m}))^{m}$
 	\item If $\exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$ then $\exp(\mathbf{-w}) = \exp(\mathbf{-v}) \circ \exp(\mathbf{-u})$.
-	\item For $\text{ad}$ adjoint map in the Lie algebra we have $ \exp(\text{Ad}_{\mathbf{u}}\mathbf{v} ) = \text{Ad}_{\mathbf{u}}\exp(\mathbf{v})$
+	%\item For $\text{ad}$ adjoint map in the Lie algebra we have $ \exp(\text{Ad}_{\mathbf{u}}\mathbf{v} ) = \text{Ad}_{\mathbf{u}}\exp(\mathbf{v})$
 \end{enumerate}
 The idea of defining an inverse of the Lie exponential leads to the idea of the Lie logarithm, defined
 \begin{align*}
@@ -138,83 +138,83 @@ BCH(\mathbf{u},\mathbf{v})
 \end{align*}
 This expansion will provide the most immediate way to obtain a numerical computation of the log-composition.
 
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Affine Exponential, Affine logarithm and affine log-composition}\label{se:affine_exp_log_comp}
-
-Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$ (that provides geodesics and curvature over manifold on which no Riemannian metric has been defined, see \cite{do1992riemannian}), the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the covariant derivative of $U$ in the direction of $V$. \\
-First consequence of the definition of the connection is the possibility of define \emph{geodesics} between points $p$ and $q$ of the manifold. A geodesic is a curve $\gamma$ such that:
-\begin{align*}
-\gamma:[0,1] \longrightarrow \mathbb{G} \qquad \gamma(0)=p,~ \gamma(1) = p,~ \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
-\end{align*} 
-Note that in this case the concept of geodesic did not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection (see \cite{do1992riemannian}).
-A connection is said to be left invariant if it is closed for left invariant vector fields, i.e. if for any $V, W \in Left\mathcal{V}(\mathbb{G}) $ their connection $ \nabla_{U}V$ is still left invariant.\\
-
-\noindent
-Second straight consequence of the definition of connection allows us to define a new kind of exponential from the Lie algebra to the Lie group that relies on the concept of geodesics. This time the tangent plane that defines the Lie algebra is considered at the point $p$ of the Lie group and $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ is a tangent vector at the point $p$: 
-\begin{align*}
-\exp :  \mathbb{G}  \times \mathfrak{g}     &\longrightarrow \mathbb{G}  
-\\ 
-(p,\mathbf{v}) &\longmapsto \exp_{p}(\mathbf{v})  = \gamma(1; p,\mathbf{v})
-\end{align*}
-The curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique one with the following features:  
-\begin{align*}
-\gamma(0) = p\qquad  \dot{\gamma}(0) =  \mathbf{v} \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
-\end{align*}
-This second kind of exponential is called affine exponential.\\
-The following properties hold:
-\begin{enumerate}
-	\item If $\nabla$ is a Cartan connection then $\exp_{e}$ and $\exp$ coincides.
-	\item For all $p$ in $\mathbb{G}$, $\mathbf{v} \in T_{p}\mathbb{G}$ and $t$ real
-	\begin{align*}
-	\exp _{p}(t\mathbf{v})  = \gamma(t; p,\mathbf{v})
-	\end{align*}
-	\item Given $\mathbf{u} \in T_{e}\mathbb{G}$, $\mathbf{v} \in T_{\exp _{e}(\mathbf{u})}\mathbb{G}$, exists a $\mathbf{w} \in T_{e}\mathbb{G}$ such that 
-	\begin{align*}
-	\exp_{e}(\mathbf{w})  = \exp_{\exp _{e}(\mathbf{u})}(\mathbf{v}) \circ  \exp _{e}(\mathbf{u})
-	\end{align*}
-	\item If $V$ is a unitary left-invariant vector field, then for $V_{e} \in T_{e}\mathbb{G}$
-	\begin{align*}
-	\exp_{e}(2V_{e})  = \exp_{\exp _{e}(V_{e})}(V_{\exp _{e}(V_{e})}) \circ  \exp _{e}(V_{e})
-	\end{align*}
-\end{enumerate}
-Last two properties provides the intuitive idea that it is possible to move on the fiber bundle of the Lie group transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possess a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same Lie algebra structure) may not be oriented in the same way. \\
-
-\noindent
-To approach the inverse of the affine exponential we consider the affine logarithm:
-\begin{align*}
-\log :  \mathbb{G}  \times \mathbb{G}   \longrightarrow T_{p}\mathbb{G}   \simeq \mathfrak{g} 
-\\ 
-(p,q) \longmapsto \log_{p}(q)  = \mathbf{v} 
-\end{align*}
-Where $\mathbf{v} $ is the vector at the tangent plane defined at $p$ such that the curve on $\mathbb{G} $ with the following features
-\begin{align*}
-\gamma(0) = p\qquad  \gamma(1) = q \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
-\end{align*}
-has as its tangent in $p$ the vector $\mathbf{v}$.\\
-
-\noindent
-Any Lie group $\mathbb{G}$ considered with a left-invariant connection $\nabla$ can be equipped with a metric,  based on the elements of its tangent space and on the log, for example: 
-\begin{align*} 
-\text{dist}(x,y) := \euclideanMetric{\log_{e}(x^{-1}\circ y) } \qquad \forall x, y \in \mathbb{G}
-\end{align*}
-This metric is not necessarily coincident with the Riemannian one. \\
-
-Is now time to extend the definition of Log-composition, with the definition of affine logarithm and affine exponential. The first step is to extend the definition of internal cut locus of the Lie algebra, even when not centered at the zero. 
-If the tangent space is not considered at $e$ of $\mathbb{G}$ but at some general point $p$, we still have a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $p$ in $\mathbb{G}$. The internal cut locus of $\mathfrak{g}$ this time is based on $p$ and it is denoted with $C_{\mathfrak{g}}(p)$.\\
-\noindent
-Given a point $p_1$ and a vector $\mathbf{v}_{1}$ on its tangent space $T_{p_1}\mathbb{G}$, the \emph{affine Log-composition} is defined as the operation $\tilde{\oplus} $ over the fiber bundle of $\mathbb{G}$ such that 
-\begin{align*}
-\cdot ~ \tilde{\oplus} ~ \mathbf{v}_{1}  : T_{\exp_{p_1}(\mathbf{v}_{1})}\mathbb{G}  & \longrightarrow T_{p_1}\mathbb{G}   
-\\
-\mathbf{v}_{2}&\longmapsto \mathbf{v}_{2}~\tilde{\oplus}~ \mathbf{v}_{1}
-=
-\log_{p_1}(\exp_{\exp_{p_1}(\mathbf{v}_{1})}(\mathbf{v}_{2})\circ\exp_{p_1}(\mathbf{v}_{1}))
-\end{align*}
-Note that not necessarily $\mathbf{v}_{1}~\tilde{\oplus}~ \mathbf{v}_{2}$ is a vector belonging to the internal cut locus based on the starting point $p_{1}$.
-
+%
+%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%% % SECTION
+%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%\section{Affine Exponential, Affine logarithm and affine log-composition}\label{se:affine_exp_log_comp}
+%
+%Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$ (that provides geodesics and curvature over manifold on which no Riemannian metric has been defined, see \cite{do1992riemannian}), the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the covariant derivative of $U$ in the direction of $V$. \\
+%First consequence of the definition of the connection is the possibility of define \emph{geodesics} between points $p$ and $q$ of the manifold. A geodesic is a curve $\gamma$ such that:
+%\begin{align*}
+%\gamma:[0,1] \longrightarrow \mathbb{G} \qquad \gamma(0)=p,~ \gamma(1) = p,~ \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
+%\end{align*} 
+%Note that in this case the concept of geodesic did not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection (see \cite{do1992riemannian}).
+%A connection is said to be left invariant if it is closed for left invariant vector fields, i.e. if for any $V, W \in Left\mathcal{V}(\mathbb{G}) $ their connection $ \nabla_{U}V$ is still left invariant.\\
+%
+%\noindent
+%Second straight consequence of the definition of connection allows us to define a new kind of exponential from the Lie algebra to the Lie group that relies on the concept of geodesics. This time the tangent plane that defines the Lie algebra is considered at the point $p$ of the Lie group and $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ is a tangent vector at the point $p$: 
+%\begin{align*}
+%\exp :  \mathbb{G}  \times \mathfrak{g}     &\longrightarrow \mathbb{G}  
+%\\ 
+%(p,\mathbf{v}) &\longmapsto \exp_{p}(\mathbf{v})  = \gamma(1; p,\mathbf{v})
+%\end{align*}
+%The curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique one with the following features:  
+%\begin{align*}
+%\gamma(0) = p\qquad  \dot{\gamma}(0) =  \mathbf{v} \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
+%\end{align*}
+%This second kind of exponential is called affine exponential.\\
+%The following properties hold:
+%\begin{enumerate}
+%	\item If $\nabla$ is a Cartan connection then $\exp_{e}$ and $\exp$ coincides.
+%	\item For all $p$ in $\mathbb{G}$, $\mathbf{v} \in T_{p}\mathbb{G}$ and $t$ real
+%	\begin{align*}
+%	\exp _{p}(t\mathbf{v})  = \gamma(t; p,\mathbf{v})
+%	\end{align*}
+%	\item Given $\mathbf{u} \in T_{e}\mathbb{G}$, $\mathbf{v} \in T_{\exp _{e}(\mathbf{u})}\mathbb{G}$, exists a $\mathbf{w} \in T_{e}\mathbb{G}$ such that 
+%	\begin{align*}
+%	\exp_{e}(\mathbf{w})  = \exp_{\exp _{e}(\mathbf{u})}(\mathbf{v}) \circ  \exp _{e}(\mathbf{u})
+%	\end{align*}
+%	\item If $V$ is a unitary left-invariant vector field, then for $V_{e} \in T_{e}\mathbb{G}$
+%	\begin{align*}
+%	\exp_{e}(2V_{e})  = \exp_{\exp _{e}(V_{e})}(V_{\exp _{e}(V_{e})}) \circ  \exp _{e}(V_{e})
+%	\end{align*}
+%\end{enumerate}
+%Last two properties provides the intuitive idea that it is possible to move on the fiber bundle of the Lie group transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possess a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same Lie algebra structure) may not be oriented in the same way. \\
+%
+%\noindent
+%To approach the inverse of the affine exponential we consider the affine logarithm:
+%\begin{align*}
+%\log :  \mathbb{G}  \times \mathbb{G}   \longrightarrow T_{p}\mathbb{G}   \simeq \mathfrak{g} 
+%\\ 
+%(p,q) \longmapsto \log_{p}(q)  = \mathbf{v} 
+%\end{align*}
+%Where $\mathbf{v} $ is the vector at the tangent plane defined at $p$ such that the curve on $\mathbb{G} $ with the following features
+%\begin{align*}
+%\gamma(0) = p\qquad  \gamma(1) = q \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
+%\end{align*}
+%has as its tangent in $p$ the vector $\mathbf{v}$.\\
+%
+%\noindent
+%Any Lie group $\mathbb{G}$ considered with a left-invariant connection $\nabla$ can be equipped with a metric,  based on the elements of its tangent space and on the log, for example: 
+%\begin{align*} 
+%\text{dist}(x,y) := \euclideanMetric{\log_{e}(x^{-1}\circ y) } \qquad \forall x, y \in \mathbb{G}
+%\end{align*}
+%This metric is not necessarily coincident with the Riemannian one. \\
+%
+%Is now time to extend the definition of Log-composition, with the definition of affine logarithm and affine exponential. The first step is to extend the definition of internal cut locus of the Lie algebra, even when not centered at the zero. 
+%If the tangent space is not considered at $e$ of $\mathbb{G}$ but at some general point $p$, we still have a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $p$ in $\mathbb{G}$. The internal cut locus of $\mathfrak{g}$ this time is based on $p$ and it is denoted with $C_{\mathfrak{g}}(p)$.\\
+%\noindent
+%Given a point $p_1$ and a vector $\mathbf{v}_{1}$ on its tangent space $T_{p_1}\mathbb{G}$, the \emph{affine Log-composition} is defined as the operation $\tilde{\oplus} $ over the fiber bundle of $\mathbb{G}$ such that 
+%\begin{align*}
+%\cdot ~ \tilde{\oplus} ~ \mathbf{v}_{1}  : T_{\exp_{p_1}(\mathbf{v}_{1})}\mathbb{G}  & \longrightarrow T_{p_1}\mathbb{G}   
+%\\
+%\mathbf{v}_{2}&\longmapsto \mathbf{v}_{2}~\tilde{\oplus}~ \mathbf{v}_{1}
+%=
+%\log_{p_1}(\exp_{\exp_{p_1}(\mathbf{v}_{1})}(\mathbf{v}_{2})\circ\exp_{p_1}(\mathbf{v}_{1}))
+%\end{align*}
+%Note that not necessarily $\mathbf{v}_{1}~\tilde{\oplus}~ \mathbf{v}_{2}$ is a vector belonging to the internal cut locus based on the starting point $p_{1}$.
+%
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
@@ -345,7 +345,7 @@ When considering the equation \ref{eq:lemma_pt}, we use implicitly the formula f
 \exp _{p}(\mathbf{u})  &= p\circ \exp_{e} (DL_{p}(e)^{-1} \mathbf{u})
 \end{align}
 \noindent
-Further theoretical developments are beyond the aim of this research, but the reader can refer to the bibliography, or to the last version of \emph{some notes on differential geometry for diffeomorphic image registration} on github \cite{xxx}, where proofs and examples are provided, and relations between equations \ref{eq:DL_DR} and parallel transport are investigated.
+Further theoretical developments are beyond the aim of this research, but the reader can refer to the bibliography.
 
 
 
