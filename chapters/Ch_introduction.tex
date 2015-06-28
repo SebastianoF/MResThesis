@@ -139,7 +139,6 @@ The image registration framework here presented can be see as a electronic devic
 \text{Res} &\in \{ \text{Resampling techniques}\}\\
 \end{align*}
 Under the hood of this ideal device we may see an engine that can be schematically represented as in figure \ref{fig:iterative_algorithm_scheme}.
-
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.235]{figures/iterative_algorithm.png}
@@ -152,7 +151,7 @@ Modulating on the value of each knob, changing for example the set of transforma
 
 \noindent
 Far from being a complete overview of all of the possible frameworks, it does not take into account the fact that each version or implementation inevitably involves different needs and consequent challenges. Solutions found for each case may fall outside this simplification scheme: for example the parametrization of the transformations (or the deformation field's update) at each iterative step do not appear in this picture, even though is a fundamental feature. \\
-In the following subsections we will going from the generalized framework to some specific algorithms. We are interested in particular in the parametrization of the \emph{diffeomorphisms} (bijective differentiable maps with differentiable inverse \cite{lee2012introduction}) of the latest important algorithms: the LDDMM and the diffeomorphic Demons.
+In the following subsections we will going from the generalized framework to some specific algorithms. We are interested in particular in the parametrization of the \emph{diffeomorphisms} (bijective differentiable maps with differentiable inverse, for example \cite{lee2012introduction}) of the latest important algorithms: the LDDMM and the diffeomorphic Demons.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
@@ -160,162 +159,79 @@ In the following subsections we will going from the generalized framework to som
 \subsection{LDDMM: Classic, Shooting and Stationary}
 
 As previously done in the elastic registration \cite{Broit:1981}, the LDDMM framework \cite{beg2005computing} originates by considering motion between images as the motion of a fluid, and utilizes ODE from fluid dynamics to compute the deformation between fixed and moving. 
+% V
  A generic time varying vector field (TVVF) is the continuously differentiable map defined as
  \begin{align*}
  	V:[0,1] & \longrightarrow  \mathcal{V}(\Omega)\\
  	t  &\longmapsto  V_{(t)}  : \Omega \longrightarrow   \mathbb{R}^{d} \\
  	& \qquad \quad \quad ~~~\mathbf{x} \longmapsto V_{(t,\mathbf{x} )}
  \end{align*}
+ % ODE
  Once initial conditions are given, at each TVVF, corresponds a unique time varying (or non-stationary) homomorphisms defined  by the following ODE 
  \begin{align}\label{eq:ode_phi_v}
  	\frac{d\phi_{t} (\mathbf{x})}{dt} = V_{(t,\phi_{t} (\mathbf{x}) )}
  \end{align}
- where the function $\phi$ is a path on the set of homeomorphisms $\text{Hom}(\Omega)$
+ % phi
+ where the function $\phi$ is a path on the set of homeomorphisms  (continuous function from the background space $\Omega$ to itself with continuous inverse) indicated with $\text{Hom}(\Omega)$:
  \begin{align*}
  	\phi : [0,1] & \longrightarrow  \text{Hom}(\Omega)\\
  	t  &\longmapsto \phi_{t}  : \Omega \longrightarrow    \Omega \\
  	& \qquad \quad \quad  \mathbf{x} \longmapsto \phi_{t}  (\mathbf{x} )
  \end{align*}
- The sought transformation $\varphi$ between fixed and moving images (such that it should satisfy $ F\circ \varphi^{-1} = M $), is modeled in the LDDMM as the solution of the equation \ref{eq:ode_phi_v} at time $1$. Using the fundamental theorem of calculus:
+%varphi
+The sought transformation $\varphi$ between fixed and moving images (such that it should satisfy $ F\circ \varphi^{-1} = M $), is modeled in the LDDMM as the solution of the equation \ref{eq:ode_phi_v} at time $1$. Using the fundamental theorem of calculus we obtain:
  \begin{align*}
- 	\varphi := \phi_{1} = \phi_{0} + \int_0^1 V^{(t)} (\phi) dt
+ 	\varphi := \phi_{1} = \phi_{0} + \int_0^1 V_{(t,\phi_{t} (\mathbf{x}) )} dt
  \end{align*}
- 
- 
- 
- 
-Consider the set of homeomorphisms $\text{Hom}(\Omega)$ (continuous function from the background space $\Omega$ to itself with continuous inverse) that act
-on the set of images from the background space $\mathcal{I}_{\Omega}$:
+ % Orbits
+Considering the set of homeomorphisms it justified by the fact that it enable the partitioning of the set of images into equivalence classes as orbits of the action on the set of images from the background space $\mathcal{I}_{\Omega}$ (see for example \cite{artin2011algebra}), in the following sense: given a subgroup of homeomorphisms $\mathbb{G}\subseteq \text{Hom}(\Omega)$ and an image $F$, the orbit of the action of $\mathbb{G}$ over $F$, given by
 \begin{align*}
-	\text{Hom}(\Omega) \times \mathcal{I}_{\Omega} & \longrightarrow  \mathcal{I}_{\Omega}   \\
-	(\varphi,F) &\longmapsto F\circ \varphi^{-1}
+\mathcal{O}_{\mathbb{G}}(F) = \{ F\circ \varphi^{-1} \mid \varphi \in \mathbb{G} \}
 \end{align*}
-its orbit, given an image $F$ and a subgroup of the homeomorphisms $\mathbb{G}\subseteq \text{Hom}(\Omega)$, consists in the set of the images having the same topology of $F$: 
+consists in the set of the images having the same topology of $F$.\\
+%Diff, geodesics
+The LDDMM framework put a first constraint $\mathbb{G}$ to the set of diffeomorphisms, and a second constraint considering $\phi_{t}$ as the shortest path between the identity function on $\mathbb{G}$ and $\varphi$. In this way the vector field $V_{(t,\phi_{t} (\mathbf{x}))}$ is the one that minimize the distance $l$ between transformations:
 \begin{align*}
-	\mathcal{E}_{\mathbb{G}}(F) = \{ F\circ \varphi^{-1} \mid \varphi \in \mathbb{G} \}
+\hat{l} = \inf_{V_{(t,\phi_{t} (\mathbf{x}))} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V_{(t,\phi_{t} (\mathbf{x}))}  
+				       }
+	\int_{0}^{1} \euclideanMetric{V_{(t,\phi_{t} (\mathbf{x}))}}_{L^2}^{2}dt
 \end{align*}
-
-
-The discretized vector fields that can be stored in the computers' memory, are 5-dimensional matrix on a regular lattice $L$ over the background space $\Omega$.
-The standard structure, used by most of the available software for image manipulation (\href{http://nipy.org/nibabel/}{Nibabel}, \href{http://niftilib.sourceforge.net/pynifti/intro.html}{py-NIfTI}, \href{http://niftilib.sourceforge.net/}{niftilib}, ... see \cite{modersitzki2009fair}) is 
-\begin{align}\label{eq:basic_data_structure}
-M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in L , ~~ t \in T  ~~ d = 1,2,3
-\end{align}
-where $(x_i,y_j,z_k)$ are discrete position of the lattice $L$, $t$ is the time parameter in a discretized domain $T$ and $d$ is index of the coordinate axis. So, the \emph{tangent vector} $\mathbf{v}_{\tau}(x_i,y_j,z_k)$ at time $t$, has coordinates defined by
-\begin{align*}
-\mathbf{v}_{t}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
-\end{align*}
-These fields can be underpinned by the discretized 
-
-
-Let $\mathcal{V}(\Omega)$ be the set of all of the vector field over $\Omega$.
-In consequence of this, the function $\phi$, paired with the vector field $V_{(t)}$, defines a continuous sequence of homorphisms in the same orbit of the fixed image $\mathcal{E}_{\text{Hom}(\Omega)}(F)$. \\
-To obtain an efficient algorithm and a meaningful constraint on the resulting transformation, it is reasonable to consider $\phi_{t}$ as the shortest path between the identity and $\varphi$, so to have $V_{(t)} $ as the one that minimize the distance between transformations:
-\begin{align*}
-	l = \inf_{V^{(t)} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} )}  \int_{0}^{1} \euclideanMetric{V^{(t)}}_{L^2}^{2}dt
-\end{align*}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Consider the set of homeomorphisms $\text{Hom}(\Omega)$ (continuous function from the background space $\Omega$ to itself with continuous inverse) that act
-on the set of images from the background space $\mathcal{I}_{\Omega}$:
-\begin{align*}
-\text{Hom}(\Omega) \times \mathcal{I}_{\Omega} & \longrightarrow  \mathcal{I}_{\Omega}   \\
-(\varphi,F) &\longmapsto F\circ \varphi^{-1}
-\end{align*}
-its orbit, given an image $F$ and a subgroup of the homeomorphisms $\mathbb{G}\subseteq \text{Hom}(\Omega)$, consists in the set of the images having the same topology of $F$: 
-\begin{align*}
-\mathcal{E}_{\mathbb{G}}(F) = \{ F\circ \varphi^{-1} \mid \varphi \in \mathbb{G} \}
-\end{align*}
-
-The similarity term in the LDDMM is the $L^{2}$ norm (see \cite{stein2009real}, chapter 4) between the moving image and the fixed image in the same orbit:
+% Sim Reg - optimization function:
+For the similarity term the LDDMM uses the $L^{2}$ norm (see for example \cite{stein2009real}, chapter 4) between the moving image and the fixed image in the same orbit:
 \begin{align*}
 \text{Sim}(F,M,\varphi) = \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
 \end{align*}
-while the regularization term, that provides the optimal $\varphi$ at each step, is defined on the norm of the velocity vector field tangent to the transformation. \\
-
-Let $\mathcal{V}(\Omega)$ be the set of all of the vector field over $\Omega$. A generic time varying vector field (TVVF) is the continuously differentiable map defined as
-\begin{align*}
-V:[0,1] & \longrightarrow  \mathcal{V}(\Omega)\\
-t  &\longmapsto  V_{(t)}  : \Omega \longrightarrow   \mathbb{R}^{d} \\
-& \qquad \quad \quad ~~~\mathbf{x} \longmapsto V_{(t,\mathbf{x} )}
-\end{align*}
- Once initial conditions are given, at each TVVF, corresponds a unique time varying (or non-stationary) homomorphisms defined  by the following ODE 
-\begin{align}\label{eq:ode_phi_v}
-\frac{d\phi_{t} (\mathbf{x})}{dt} = V_{(t,\mathbf{x} )}
-\end{align}
-where 
-\begin{align*}
-\phi : [0,1] & \longrightarrow  \text{Hom}(\Omega)\\
-t  &\longmapsto \phi_{t}  : \Omega \longrightarrow    \Omega \\
-& \qquad \quad \quad  \mathbf{x} \longmapsto \phi_{t}  (\mathbf{x} )
-\end{align*}
-The transformation $\varphi$ between fixed and moving images ($ F\circ \varphi^{-1} = M $), can be defined by the couple $(V_{(t)},\phi_{t})$, such that, for $t = 0$, $\phi_{t} = e$, identity of the group of homeomorphisms, and for $t = 1$, $\phi_{t} = \varphi$ is the sought homomorphism.
-\begin{align*}
-\varphi := \phi_{1} = \phi_{0} + \int_0^1 V^{(t)} (\phi) dt
-\end{align*}
-In consequence of this, the function $\phi$, paired with the vector field $V_{(t)}$, defines a continuous sequence of homorphisms in the same orbit of the fixed image $\mathcal{E}_{\text{Hom}(\Omega)}(F)$. \\
-To obtain an efficient algorithm and a meaningful constraint on the resulting transformation, it is reasonable to consider $\phi_{t}$ as the shortest path between the identity and $\varphi$, so to have $V_{(t)} $ as the one that minimize the distance between transformations:
-\begin{align*}
-l = \inf_{V^{(t)} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} )}  \int_{0}^{1} \euclideanMetric{V^{(t)}}_{L^2}^{2}dt
-\end{align*}
-Ending points of path on the set of diffeomorphisms, whose tangent vector field (that varies over time), are used as regularization term:
-\begin{align*}
-\text{Reg}(F,M,\varphi) =  \int_0^1  \euclideanMetric{L V^{(t)} }_{L^{2}}^{2}  dt
-\qquad 
-\dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} ) 
-\quad 
-\phi_{0} = e
-\quad 
-\phi_{1} = \varphi
-\end{align*}
-Were $L$ is a linear operator that can be dependent on some parameters that add additional constraint to the algorithm limiting the length of the speed of the transformation at each step. 
-With more details, it is defined as $L = (\alpha\vec \nabla^2 + \gamma)$ for $\alpha$ and $\gamma$ real parameters and $\vec \nabla^2$ the Laplace operator.
-From the differential equation \ref{eq:ode_phi_v}, and in consequence of the definition of $\varphi$ the energy function \ref{eq:general_cost_function} become
+while the regularization term is defined on the norm of the velocity vector field tangent to the transformation: the optimization function is given by 
 \begin{align*}
 %\argmin_{v_{t} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = v_{t}(\mathbf{x} ) } 
 \mathcal{E}(F, M, \varphi) 
 = 
 %\argmin_{v_{t} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = v_{t}(\mathbf{x} ) } 
-\int_0^1 \euclideanMetric{L V^{(t)} }_{L^{2}}^{2} dt + \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
+\int_0^1 \euclideanMetric{L V_{(t,\phi_{t} (\mathbf{x}))} }_{L^{2}}^{2} dt + \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
 \end{align*}
-And so the optimization algorithm, at each step of the registration will look for
+
+% discretization 
+In the LDDMM implementation, the data structure utilized to store deformation fields are the classical 5-dimensional matrices
+\begin{align}\label{eq:basic_data_structure}
+M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in L , ~~ t \in T  ~~ d = 1,2,3
+\end{align}
+where $(x_i,y_j,z_k)$ are discrete position of the lattice $L$, $t$ is the time parameter in a discretized domain $T$ and $d$ is index of the coordinate axis. So, the discretized \emph{tangent vector} $\mathbf{v}_{\tau}(x_i,y_j,z_k)$ at time $t$, has coordinates defined by
 \begin{align*}
-\hat{V} 
-= 
-\argmin_{V^{(t)} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} ) } 
-\int_0^1 \euclideanMetric{L V^{(t)} }_{L^{2}}^{2} dt + \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
+\mathbf{v}_{t}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
 \end{align*}
-Each transformation involved in the optimization algorithm are discretized time varying velocity fields; the update at each step is given by
+% update 
+Therefore at the v $k$-th step, the algorithm provides the 5-dim matrix $\mathbf{v}_{k}$ that is the approximation of the time varying velocity fields $V_{(t,\phi_{t} (\mathbf{x}))}$ discretized. The update at each step is computed as
 \begin{align*}
 \mathbf{v}_{k+1} = \mathbf{v}_{k} - \epsilon \nabla (\Delta\mathcal{E})
 \end{align*}
-where $\mathbf{v}_{k}$ is the $k$-th step of the approximation of the velocity vector field $V$ discretized according to \ref{eq:basic_data_structure}, while $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.\\
+where $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.\\
 
+% after LDDMM
 % shooting
 A direct upgrade of the classical LDDMM performs the optimization on the geodesic flows, defined by a set of Hamiltonian equation (Shooting LDDMM \cite{vialard2012diffeomorphic}). \\
 In this algorithm the iterative evolution of the deformation field, solution of the optimization algorithm, is regularized with the constraint imposed by an additional scalar field called \emph{initial momentum}. 
 %stationary: dartel and hernandez
 As proved by the authors, the evaluation of this constraint at each step provides geodesics flows of homeomorphisms, but it is computationally expensive. Using the log-Euclidean framework presented in \cite{Arsigny:MRM:06}, the algorithm proposed in \cite{Ashburner:07} uses a constraint based on the stationarity of the involved velocity field. Instead of considering time varying velocity fields constrained by a set of Hamiltonian equations, the domain of vector field is reduced to the stationary, which is an -almost- equivalent constraint, that considerably reduces the computational complexity. Resulting algorithm, the DARTEL (Diffeomorphic Anatomical Registration using Exponentiated Lie Algebra), was published in contemporary with \cite{hernandez2007registration} based on the same concept of the parametrization of geodesics path of diffeomorphisms with stationary velocity fields, and with \cite{vercauteren2007non} that uses SVF in the Demons framework instead on the LDDMM.
-
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -361,13 +277,13 @@ The final deformation, solution to the registration problem is obtained composin
 \end{align*}
 And the $k$-th deformation is computed by composition as:
 \begin{align*}
-T_{k+1}(\mathbf{x})  &:= (\delta T_{k}\circ T_{k})(\mathbf{x}) \\
+T_{k+1}(\mathbf{x})  :&= (\delta T_{k}\circ T_{k})(\mathbf{x}) \\
 &= \mathbf{x} + \delta V_{k}(\mathbf{x}) + V_{k}(\mathbf{x} + \delta V_{k}(\mathbf{x}))
 \end{align*}
 Since the third addend is close to $V_{k}(\mathbf{x})$, some implementation - as for example ITK - considered only the sum between 
 $ V_{k+1}$ and $V_{k}$ in the computation of the update:
 \begin{align*}
-T_{k+1}(\mathbf{x})  &:= (\delta T_{k} + T_{k})(\mathbf{x}) \\
+T_{k+1}(\mathbf{x})  :&= (\delta T_{k} + T_{k})(\mathbf{x}) \\
 &= \mathbf{x} + V_{k}(\mathbf{x}) + \delta V_{k}(\mathbf{x})
 \end{align*}
 Demons algorithms with this implementation are often called \emph{additive demons}.\\
