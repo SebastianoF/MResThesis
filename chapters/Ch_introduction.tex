@@ -159,7 +159,44 @@ In the following subsections we will going from the generalized framework to som
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{LDDMM: Classic, Shooting and Stationary}
 
-As previously done in the elastic registration \cite{Broit:1981}, the LDDMM framework \cite{beg2005computing} originates by considering motion between images as the motion of a fluid, and utilizes ODE from fluid dynamics to compute the deformation between fixed and moving. The discretized vector fields that can be stored in the computers' memory, are 5-dimensional matrix on a regular lattice $L$ over the background space $\Omega$.
+As previously done in the elastic registration \cite{Broit:1981}, the LDDMM framework \cite{beg2005computing} originates by considering motion between images as the motion of a fluid, and utilizes ODE from fluid dynamics to compute the deformation between fixed and moving. 
+ A generic time varying vector field (TVVF) is the continuously differentiable map defined as
+ \begin{align*}
+ 	V:[0,1] & \longrightarrow  \mathcal{V}(\Omega)\\
+ 	t  &\longmapsto  V_{(t)}  : \Omega \longrightarrow   \mathbb{R}^{d} \\
+ 	& \qquad \quad \quad ~~~\mathbf{x} \longmapsto V_{(t,\mathbf{x} )}
+ \end{align*}
+ Once initial conditions are given, at each TVVF, corresponds a unique time varying (or non-stationary) homomorphisms defined  by the following ODE 
+ \begin{align}\label{eq:ode_phi_v}
+ 	\frac{d\phi_{t} (\mathbf{x})}{dt} = V_{(t,\phi_{t} (\mathbf{x}) )}
+ \end{align}
+ where the function $\phi$ is a path on the set of homeomorphisms $\text{Hom}(\Omega)$
+ \begin{align*}
+ 	\phi : [0,1] & \longrightarrow  \text{Hom}(\Omega)\\
+ 	t  &\longmapsto \phi_{t}  : \Omega \longrightarrow    \Omega \\
+ 	& \qquad \quad \quad  \mathbf{x} \longmapsto \phi_{t}  (\mathbf{x} )
+ \end{align*}
+ The sought transformation $\varphi$ between fixed and moving images (such that it should satisfy $ F\circ \varphi^{-1} = M $), is modeled in the LDDMM as the solution of the equation \ref{eq:ode_phi_v} at time $1$. Using the fundamental theorem of calculus:
+ \begin{align*}
+ 	\varphi := \phi_{1} = \phi_{0} + \int_0^1 V^{(t)} (\phi) dt
+ \end{align*}
+ 
+ 
+ 
+ 
+Consider the set of homeomorphisms $\text{Hom}(\Omega)$ (continuous function from the background space $\Omega$ to itself with continuous inverse) that act
+on the set of images from the background space $\mathcal{I}_{\Omega}$:
+\begin{align*}
+	\text{Hom}(\Omega) \times \mathcal{I}_{\Omega} & \longrightarrow  \mathcal{I}_{\Omega}   \\
+	(\varphi,F) &\longmapsto F\circ \varphi^{-1}
+\end{align*}
+its orbit, given an image $F$ and a subgroup of the homeomorphisms $\mathbb{G}\subseteq \text{Hom}(\Omega)$, consists in the set of the images having the same topology of $F$: 
+\begin{align*}
+	\mathcal{E}_{\mathbb{G}}(F) = \{ F\circ \varphi^{-1} \mid \varphi \in \mathbb{G} \}
+\end{align*}
+
+
+The discretized vector fields that can be stored in the computers' memory, are 5-dimensional matrix on a regular lattice $L$ over the background space $\Omega$.
 The standard structure, used by most of the available software for image manipulation (\href{http://nipy.org/nibabel/}{Nibabel}, \href{http://niftilib.sourceforge.net/pynifti/intro.html}{py-NIfTI}, \href{http://niftilib.sourceforge.net/}{niftilib}, ... see \cite{modersitzki2009fair}) is 
 \begin{align}\label{eq:basic_data_structure}
 M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in L , ~~ t \in T  ~~ d = 1,2,3
@@ -168,6 +205,30 @@ where $(x_i,y_j,z_k)$ are discrete position of the lattice $L$, $t$ is the time 
 \begin{align*}
 \mathbf{v}_{t}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
 \end{align*}
+These fields can be underpinned by the discretized 
+
+
+Let $\mathcal{V}(\Omega)$ be the set of all of the vector field over $\Omega$.
+In consequence of this, the function $\phi$, paired with the vector field $V_{(t)}$, defines a continuous sequence of homorphisms in the same orbit of the fixed image $\mathcal{E}_{\text{Hom}(\Omega)}(F)$. \\
+To obtain an efficient algorithm and a meaningful constraint on the resulting transformation, it is reasonable to consider $\phi_{t}$ as the shortest path between the identity and $\varphi$, so to have $V_{(t)} $ as the one that minimize the distance between transformations:
+\begin{align*}
+	l = \inf_{V^{(t)} ~ : ~ \dot{\phi_{t}} (\mathbf{x}) = V^{(t)}(\mathbf{x} )}  \int_{0}^{1} \euclideanMetric{V^{(t)}}_{L^2}^{2}dt
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -190,6 +251,7 @@ The similarity term in the LDDMM is the $L^{2}$ norm (see \cite{stein2009real}, 
 \text{Sim}(F,M,\varphi) = \frac{1}{\sigma^2}\euclideanMetric{F(\varphi^{-1})  - M  }_{L^{2}}^{2}
 \end{align*}
 while the regularization term, that provides the optimal $\varphi$ at each step, is defined on the norm of the velocity vector field tangent to the transformation. \\
+
 Let $\mathcal{V}(\Omega)$ be the set of all of the vector field over $\Omega$. A generic time varying vector field (TVVF) is the continuously differentiable map defined as
 \begin{align*}
 V:[0,1] & \longrightarrow  \mathcal{V}(\Omega)\\
