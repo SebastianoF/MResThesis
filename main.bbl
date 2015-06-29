@@ -59,14 +59,6 @@ Martin Bauer, Philipp Harms, and Peter~W Michor.
 \newblock Sobolev metrics on shape space of surfaces in n-space.
 \newblock {\em Arxiv preprint arXiv:1009.3616}, 2010.
 
-\bibitem[BHO07]{Bossa2007}
-Matias Bossa, Monica Hernandez, and Salvador Olmos.
-\newblock {Contributions to 3D diffeomorphic atlas estimation: application to
-  brain images.}
-\newblock {\em Medical image computing and computer-assisted intervention :
-  MICCAI ... International Conference on Medical Image Computing and
-  Computer-Assisted Intervention}, 10:667--674, 2007.
-
 \bibitem[BMTY05]{beg2005computing}
 M~Faisal Beg, Michael~I Miller, Alain Trouv{\'e}, and Laurent Younes.
 \newblock Computing large deformation metric mappings via geodesic flows of
@@ -131,6 +123,12 @@ Nick~C Fox and Peter~A Freeborough.
   validation and application to alzheimer's disease.
 \newblock {\em Journal of Magnetic Resonance Imaging}, 7(6):1069--1075, 1997.
 
+\bibitem[Gal11]{gallier2011geometric}
+Jean Gallier.
+\newblock {\em Geometric methods and applications: for computer science and
+  engineering}, volume~38.
+\newblock Springer Science \& Business Media, 2011.
+
 \bibitem[GM98]{grenander1998computational}
 Ulf Grenander and Michael~I Miller.
 \newblock Computational anatomy: An emerging discipline.
@@ -160,12 +158,6 @@ Monica Hernandez, Salvador Olmos, and Xavier Pennec.
   and diffeomorphic demons.
 \newblock In {\em 2nd MICCAI workshop on mathematical foundations of
   computational anatomy}, pages 24--35, 2008.
-
-\bibitem[HS81]{horn1981determining}
-Berthold~K Horn and Brian~G Schunck.
-\newblock Determining optical flow.
-\newblock In {\em 1981 Technical Symposium East}, pages 319--331. International
-  Society for Optics and Photonics, 1981.
 
 \bibitem[KKK08]{kirillov2008introduction}
 Alexander~A Kirillov, Aleksandr~Aleksandrovi{\v{c}} Kirillov, and
@@ -263,11 +255,6 @@ J.~R. McClelland, D.~J. Hawkes, T.~Schaeffter, and A.~P. King.
 J~Milnor.
 \newblock Remarks on infinite-dimensional lie groups, in ‘relativity, groups
   and topology, ii’(les houches, 1983), 1007--1057, 1984.
-
-\bibitem[Mod09]{modersitzki2009fair}
-Jan Modersitzki.
-\newblock {\em FAIR: flexible algorithms for image registration}, volume~6.
-\newblock SIAM, 2009.
 
 \bibitem[MT13]{mariconda2013calcolo}
 Carlo Mariconda and Alberto Tonolo.
@@ -381,6 +368,12 @@ Fran{\c{c}}ois-Xavier Vialard, Laurent Risser, Daniel Rueckert, and Colin~J
 \newblock Diffeomorphic 3d image registration via geodesic shooting using an
   efficient adjoint calculation.
 \newblock {\em International Journal of Computer Vision}, 97(2):229--241, 2012.
+
+\bibitem[War13]{warner}
+Frank~W Warner.
+\newblock {\em Foundations of differentiable manifolds and Lie groups},
+  volume~94.
+\newblock Springer Science \& Business Media, 2013.
 
 \bibitem[Woj94]{wojtynski1994one}
 Wojciech Wojty{\'n}ski.

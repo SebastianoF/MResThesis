@@ -97,7 +97,7 @@ A different situation arises when dealing with classic Lie group: their matrix r
 
 The passage from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only discrete vector fields to deal with, where operations within Lie algebra and Lie group are not anymore compatible. The strategy here proposed is to define an operation in the Lie algebra Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$ that reflects the properties of the composition in the corresponding Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$.\\
 
-The Lie Log-composition (Lie to distinguish it from the Affine Log-composition of the next section) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
+The Lie Log-composition (because based on the Lie log and exp maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
 \begin{align*}
 \oplus : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
 (\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
@@ -355,7 +355,11 @@ Further theoretical developments are beyond the aim of this research, but the re
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Numerical Computations of the Log-composition}
 
-In this section we provide explicit formulas for the computation of the log composition, using the tools introduced in the previous sections.
+In this section we provide explicit formulas for the computation of the log composition:
+\begin{align*}
+\mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
+\end{align*}
+using the tools introduced in the previous sections.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
