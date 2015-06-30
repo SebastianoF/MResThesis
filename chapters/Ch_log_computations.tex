@@ -4,28 +4,28 @@
 	\emph{We believe that we know something about the things themselves when we speak of trees, colors, snow, and flowers; and yet we possess nothing but metaphors for things — metaphors which correspond in no way to the original entities.} \\ -Nietzsche, \emph{On Truth and Lies in extra-moral sense.}
 \end{flushright}
 
-zz write chapter intro.
+\vspace{0.5 cm}
 
-% this must be embedded in chapter 3
-%\section{Numerical Approximation to Compute the Lie logarithm}\label{ch:lie_log_computation}
+\noindent
+The \emph{logarithm computation problem} can be stated as follows:
+\begin{center}
+\begin{emph}
+	Given $p$ in a Lie group $\mathbb{G}$, \\ what is the element $\mathbf{u}$ in its Lie algebra $\mathfrak{g}$ such that $\exp(\mathbf{u}) = p$?  
+\end{emph}
+\end{center}
+This chapter is devote to the numerical computation of the logarithm, based on an iterative algorithm called here \emph{log-computation algorithm} \cite{Bossa:08}. Since the log-computation algorithm is based on the log-composition, each of the numerical methods presented in these pages can be applied to find a numerical method to solve the logarithm computation problem.\\
 
-The problem of the computation of the logarithm computation can be stated as follows:
-given $p \in \mathbb{G}$ the goal is to find $\mathbf{u}$ such that $\exp(\mathbf{u})$ is the best possible approximation of $p$.  \\
-This chapter is devote to the numerical computation of the logarithm, using an iterative algorithm based on the Log-composition. In this context each of the presented techniques are suitable to perform this computation.\\
-
-Before we need to introduce the space of the approximation of the Lie algebra and the Lie group.
+The first step is to introduce the space of the approximations of a Lie algebra and a the Lie group.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Space of approximations}
+\section{Spaces of Approximations}
 
 \noindent
-We emphasize the fact that if $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, then exp and log can be considered as infinite series.
-Remarkable consequence is the approximation of $\exp(\mathbf{v})$ with $1 + \mathbf{v}$ if the transformation $\mathbf{v}$ is small. This approximation is the base of what follows in this chapter.\\
-In parallel with the log-composition $ \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))$ 
-we define two approximating functions:
+As seen in section \ref{se:rigid_body_transformations} of the previous chapter for the particular case of $SE(2)$, if the matrix $dr$ is small enough we can approximate $\exp(dr)$ with $1 + dr$. Aim of this section is to generalize the same approximation for the SVF.  \\
+We define two approximating functions:
 \begin{align*}
 \text{app} : \mathfrak{g} & \longrightarrow  \mathfrak{g} ^{\sim}    \\
 \mathbf{u} &\longmapsto \exp(\mathbf{u}) - 1
@@ -34,19 +34,39 @@ we define two approximating functions:
 \text{App} : \mathbb{G} & \longrightarrow  \mathbb{G}^{\sim}   \\
 \exp(\mathbf{u}) &\longmapsto 1 + \mathbf{u}
 \end{align*}
-Where $\mathfrak{g} ^{\sim}$ is a space of approximations of elements of $\mathfrak{g} $, and $\mathbb{G}^{\sim} $ is a space of approximations of elements in $\mathbb{G}$ (xxx that requires some more investigations and formal definition in conjunction with truncated series).\\
-Consequence of this definition is the fact that
+Where $\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $\mathfrak{g} $, and $\mathbb{G}^{\sim} $ is the space of approximations of elements in $\mathbb{G}$, defined as
 \begin{align*}
-\mathbf{u} \simeq   \text{app} (\mathbf{u})
-\qquad \qquad 
-\exp(\mathbf{u}) \simeq   \text{App} (\exp(\mathbf{u})) 
+\mathfrak{g} ^{\sim} & := \{ \exp(\mathbf{u}) - 1 \mid \mathbf{u}\in \mathfrak{g}\} \cup \mathfrak{g} \\
+\mathbb{G}^{\sim}  & := \{ 1 + \mathbf{u} \mid \mathbf{u}\in \mathbb{G}\} \cup \mathbb{G} \\
 \end{align*}
-The two following straightforward properties, that holds for all $\mathbf{u}, \mathbf{v} $ in the Lie algebra
+In general $\mathfrak{g} ^{\sim} \neq \mathfrak{g}$ and $\mathbb{G}^{\sim} \neq \mathbb{G}$, but in the considered cases of $\mathfrak{se}(2)$ and SVF, when $\mathbf{u}$ is \emph{small enough}
+it follows that $\exp(\mathbf{u}) - 1 \in \mathfrak{g} $ and $1 + \mathbf{u}\in\mathbb{G}$. Therefore the elements of $\mathfrak{g}^{\sim} $ are compatible with all of the operations of Lie algebra $\mathfrak{g}$ and the elements of $\mathbb{G}^{\sim}$ are compatible with all of the operations of Lie group $\mathbb{G}$.\\
+Lets examine what does \emph{small enough} means in these two cases:
 \begin{enumerate}
+	\item[$\mathfrak{se}(2)$ -] Since $\mathfrak{se}(2)$ and $SE(2)$ are subset of the bigger algebra $SE(2)$ then exp and log can be defined as infinite series. From 
+	\begin{align*}
+	\exp(\mathbf{u}) = I + \mathbf{u} + O(\mathbf{u}^2) = \text{app}(\mathbf{u}) + O(\mathbf{u}^2)
+	\end{align*}
+	It follows that for all $\mathbf{u}$ smaller than $\delta$ for any norm, exists $M(\delta)$ such that
+	\begin{align*}
+	\euclideanMetric{\exp(\mathbf{u}) - \text{app}(\mathbf{u}) } < M(\delta) \euclideanMetric{\mathbf{u}^2}
+	\end{align*}
+	\item[SVF -] In case of SVF we do not have any big-O notation available but, according to the proposition 8.6 at page 163 of \cite{younes2010shapes}, if $\mathbf{u}$ is, for any norm, smaller than $\epsilon<1/C$, where $C$ is the Lipschitz constant of the same norm, then $e + \mathbf{u}$ is a diffeomorphism. With this condition holds that
+	$\text{SVF}^{\sim} = \text{SVF}$. 
+\end{enumerate}
+
+\noindent
+Therefore, for each small enough $\mathbf{u}$ in $\mathfrak{se}(2)$ or SVF, 
+and considering the definition of the log-composition (equation \ref{eq:main_def_log_composition}) 
+the following properties holds:
+\begin{enumerate}
+	\item The approximations $\mathbf{u} \simeq   \text{app} (\mathbf{u})$, $\exp(\mathbf{u}) \simeq   \text{App} (\exp(\mathbf{u})) $ are well defined.
 	\item $\mathbf{u} = \mathbf{v} \oplus (-\mathbf{v} \oplus  \mathbf{u} )$
 	\item $\text{app} (\mathbf{v} \oplus  \mathbf{u}) = \exp(\mathbf{v})\exp(\mathbf{u}) - 1 \in \mathfrak{g} ^{\sim}$
 \end{enumerate}
-lead us to consider the algorithm presented in \cite{Bossa:08}, here called log-computation, with a new reformulation. 
+
+\noindent
+We can finally reformulate the algorithm presented in \cite{Bossa:08} for the numerical computation of the Lie logarithm map using the log-composition.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
@@ -79,7 +99,7 @@ Each strategy that we have examined to compute the Lie composition, become a num
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{BCH Strategy}
+\subsection{Truncated BCH Strategy}
 At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th truncation of the BCH formula:
 \begin{equation}\label{eq:bossa_strat}
 \begin{cases}
@@ -105,60 +125,39 @@ For the second degree we have:
 &+ \frac{1}{2}(  \mathbf{u}_{j}( \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1) -  ( \exp(-\mathbf{u}_{j}) \exp( \mathbf{u})  - 1)\mathbf{u}_{j})
 \end{align*}
 
-
-%\begin{align*}
-%\tilde{\delta} \mathbf{v}_{n-1} =  \exp(-\mathbf{v}_{n-1} )\circ \Phi - e
-%\end{align*}
-%%
-%\begin{proof}  
-%	Let $\mathbf{v}_{0}$ be an element of $\mathfrak{g}$ in some sense close to $\mathbf{v}$ then:
-%	\begin{align*}
-%	p = \exp(\mathbf{v}) &= \exp(\mathbf{v}_{0})\circ (\exp(-\mathbf{v}_{0})\circ p)
-%	\end{align*}
-%	We define $\delta \mathbf{v}_{0} \in\mathfrak{g}$ as $\delta \mathbf{v}_{0} = \exp(-\mathbf{v}_{0})\circ p$. Then
-%	\begin{align*}
-%	p &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}) \\
-%	\exp(V) &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}) \\
-%	\mathbf{v} &= \log(\exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0}))\\
-%	\mathbf{v} &\simeq \text{BCH}^{k}(\mathbf{v}_{0},\delta \mathbf{v}_{0})
-%	\end{align*}
-%	We approaching the tangent vector $\mathbf{v}$ using an iterative algorithm based on the $\text{BCH}$ formula and the lemma \ref{le:taylorlemma}.
-%	\begin{align*}
-%	\exp(\delta \mathbf{v}_{0}) \approx e + \delta \mathbf{v}_{0} \Longrightarrow \delta \mathbf{v}_{0} \approx  \exp(\delta \mathbf{v}_{0}) - e
-%	\end{align*}
-%	Having $\mathbf{v}_{0}$ as our initial value we define
-%	\begin{align*}
-%	\tilde{\delta} \mathbf{v}_{0} := \exp(\delta \mathbf{v}_{0}) - e
-%	\end{align*}
-%	Using $p = \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0})$ we can say that $\exp(\delta \mathbf{v}_{0}) =  \exp(-\mathbf{v}_{0})\circ p$ and then
-%	\begin{align*}
-%	\tilde{\delta} \mathbf{v}_{0} = \exp(-\mathbf{v}_{0})\circ p - e
-%	\end{align*}
-%	just by definition. Since $p$ is known we can start our successive approximation, and if we set $\mathbf{v}_{0} = \mathbf{0}$ we end up with the iterative algorithm (\ref{eq:bossa_strat}).
-%\end{proof}
-
+The following results provides an error bound when $k = \infty$ so when the BCH formula is used, instead one of its truncation.
 \begin{theorem}[Bossa]\label{th:bossa}
-	The iterative algorithm (\ref{eq:bossa_strat}) converges to $\mathbf{v}$ with error $\delta_n \in \mathbb{G}$, where
+	The iterative algorithm 
+	\begin{equation}
+	\begin{cases}
+	\mathbf{u}_0 = 0 \\
+	\mathbf{u}_{j+1} = \text{BCH}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
+	                          = \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
+	\end{cases}
+	\end{equation}
+	converges to $\mathbf{v}$ with error $\delta_n \in \mathbb{G}$, where
 	\begin{align*}
 	\delta_{n} := \log(\exp(\mathbf{v})\circ \exp(-\mathbf{v}_{n})) \in O(\euclideanMetric{p - e}^{2^{n}})
 	\end{align*}
 \end{theorem}
-%\begin{proof}
-%	TODO See notebook or \cite{bossa}.
-%\end{proof}
+\begin{proof}
+See \cite{Bossa:08} pag. 17.
+\end{proof}
+We observe that this upper limit holds only when a closed-form for the log-composition is available, as for example $\mathfrak{se}(2)$. In these cases the log can be computed directly and the log-computation algorithm is not necessarily.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Parallel Transport Strategy}
 
-If we use the parallel transport for the computation of the log-composition, we obtain:
+If we apply the parallel transport method for the computation of the log-composition, we obtain another version of the log-computation algorithm:
 \begin{equation}\label{eq:parallel_strategy}
 \begin{cases}
 \mathbf{u}_0 = \mathbf{0} \\
-\mathbf{u}_{t} = \mathbf{u}_{t-1} + \exp(-\frac{\mathbf{u}_{t-1}}{2}) \circ \exp(\delta \mathbf{u}_{t-1}) \circ \exp(\frac{\mathbf{u}_{t-1}}{2}) - e
+\mathbf{u}_{t} = \mathbf{u}_{t-1} + \exp(\frac{\mathbf{u}_{t-1}}{2}) \circ \exp(-\delta \mathbf{u}_{t-1}) \circ \exp(\frac{\mathbf{u}_{t-1}}{2}) - e
 \end{cases}
 \end{equation}
+Analytical computation of an upper bound error is not straightforward. See section \ref{ch:conclusions} for further details and other possible researches.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
@@ -246,6 +245,9 @@ We conclude with a formula that relates $\tilde{\delta} \mathbf{v}^{L}_{t}$ with
 	\delta \mathbf{v}^{R}_{t} &= \exp(-\mathbf{v}_{t})\circ \delta \mathbf{v}^{L}_{t} \circ \exp(\mathbf{v}_{t})
 	\end{align*}
 \end{proof}
+
+
+
 %
 %% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 %% % SUBSECTION
