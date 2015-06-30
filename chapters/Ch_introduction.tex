@@ -159,7 +159,7 @@ In the following subsections we will going from the generalized framework to som
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{LDDMM: Classic, Shooting and Stationary}
+\subsection{LDDMM: Classic, Shooting and Stationary}\label{se:intro_lddmm}
 
 As previously done in the elastic registration \cite{Broit:1981}, the LDDMM framework \cite{beg2005computing} originates by considering motion between images as the motion of a fluid, and utilizes ODE from fluid dynamics to compute the deformation between fixed and moving. 
 % V
@@ -385,25 +385,25 @@ As we will see in this research, it involves an infinite series of nested Lie br
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{The Log-composition of SVF in the Diffeomorphisms Group}
+\section{The Log-composition at the Service of Image Registration}
 
 Every non-rigid registration algorithm requires to be implemented and to work with discretized images.
-The nature of the computers' memory prevent from the possibility of storing the continuous fluid transformations that solves the differential equations of the LDDMM or any of the diffeomorphisms resulting from the demons: the only thing that we can do, unfortunately, is to store the discretized vector fields and resampling them with the images using one of the available techniques.\\
+The nature of the computers' memory prevent from the possibility of storing the continuous fluid transformations that, for example, solves the differential equations of the LDDMM or any of the diffeomorphisms resulting from the demons. The only manipulation we are allowed to perform, unfortunately, are storing the discretized vector fields and resampling them with the images using one of the available techniques.\\
 % why log composition:
-When relying on diffeomorphisms, we still have to consider discretized vector fields our objects, but we need the Lie group of diffeomorphisms as support to compute their composition \ref{eq:bch_problem}.
-This operation of composition is baptized under the name of \emph{log-composition} and it is defined as
+When relying on diffeomorphisms, we still have to consider discretized vector fields our objects, but we need the Lie group of diffeomorphisms as support to compute their composition in the equation \ref{eq:bch_problem}.
+This operation of composition is baptized here under the name of \emph{log-composition} and it is defined as
 \begin{align*}
 X \oplus Y := \log(\exp(X)\circ\exp( Y))
 \qquad \qquad
 \forall ~X, Y \in \mathfrak{g}
 \end{align*}
-The main aim of this research is to find and compare numerical ways to compute it, and so to have a method for the computation of the update \ref{eq:bch_problem}. \\
+The main aim of this document is to present a comparison between numerical methods to compute it. \\
 
 % where we can use the log composition
 It is worthed to notice that a fast log-composition is not useful only for the diffeomorphic demons. It may be used to solve some of the problems that rely on Lie groups and need to be implemented in a computer. In medical imaging it can be used for
 \begin{enumerate}
 	\item Diffeomorphic demon, and symmetric diffeomorphic demon \cite{vercauteren2006robust, vercauteren08}.
-	\item Fast computation of the logarithm \cite{Bossa:08}.
+	\item Fast computation of the logarithm \cite{Bossa:08} (discussed in chapter \ref{ch:log_computations}).
 	\item Calculus on diffusion tensor \cite{Arsigny:MRM:06}. 
 	\item Compute the discrete ladder for Parallel Transport in Transformation Groups \cite{Lorenzi:discrete_ladders:14}.
 \end{enumerate}	

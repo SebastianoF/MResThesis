@@ -196,21 +196,21 @@ At this point it is important to notice that:
 	\end{align*}
 	In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta)^{-1} \simeq I$.
 	% restriction of the domain.
-	\item The map $\exp$ is not well defined over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dt_0x, dt_0y)$ and $(\theta_1, dt_1x, dt_1y)$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
+	\item The map $\exp$ is not well defined over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dr_{0x}, dr_{0y})$ and $(\theta_1, dr_{1x}, dr_{1y})$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
 	\begin{enumerate}
 		\item[i)] Exists an integer $k$ such that $\theta_0 = \theta_1 + 2k\pi$.
-		\item[ii)] the translation $(dt_0x, dt_0y)$ coincides with $(dt_1x, dt_1y)$ up to a factor $\frac{\theta_0 \mod 2\pi}{\theta_1}$.
+		\item[ii)] the translation $(dr_{0x}, dr_{0y})$ coincides with $(dr_{1x}, dr_{1y})$ up to a factor $\frac{\theta_0 \mod 2\pi}{\theta_1}$.
 	\end{enumerate}
-	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dt_0x,d t_0y) = \exp(\theta_1, dt_1x, dt_1y)$ it implies  $(\theta_0, dt_0x, dt_0y) = (\theta_1, dt_1x, dt_1y)$.
+	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dr_{0x},d t_0y) = \exp(\theta_1, dr_{1x}, dr_{1y})$ it implies  $(\theta_0, dr_{0x}, dr_{0y}) = (\theta_1, dr_{1x}, dr_{1y})$.
 	It can be easy to prove that the sought space is the quotient of $\mathfrak{se}(2)$ over the equivalence relation $\sim$, defined as 
 	\begin{align*}
-		(\theta_0, dt_0x, dt_0y & ) \sim (\theta_1, dt_1x, dt_1y)
+		(\theta_0, dr_{0x}, dr_{0y} & ) \sim (\theta_1, dr_{1x}, dr_{1y})
 		\\
 		~^{\text{def}}&\iff
 		\\
 		\exists k\in\mathbb{Z} \mid \theta_0 = \theta_1 + 2k\pi 
 		&~\text{ and }~
-		(dt_0x, dt_0y) = \frac{\theta_0 \mod 2\pi}{\theta_1}(dt_1x, dt_1y)
+		(dr_{0x}, dr_{0y}) = \frac{\theta_0 \mod 2\pi}{\theta_1}(dr_{1x}, dr_{1y})
 	\end{align*}
 	The new algebra defined by the set of equivalence classes of this relation is indicated - with the standard convention, see \cite{artin2011algebra} - with $\mathfrak{se}(2)/\sim$. With this restriction of the domain$\exp$ is a bijection having $\log$ as its inverse.
 	What said so far can be summarize in the following commutative diagram:
@@ -244,401 +244,224 @@ At this point it is important to notice that:
 	
 \end{enumerate}
 
-\noindent
-The log composition of two elements in $dr_0 = (\theta_0, dt_0x, dt_0y), dr_1 = (\theta_1, dt_1x, dt_1y) \in \mathfrak{se}(2)/\sim$ is provided as a direct applications of the definitions provided for this case. It results
+% % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % %
+\subsubsection{Computations of Log-composition in SE(2)}
+The log composition of two elements $dr_0 = (\theta_0, dr_{0x}, dr_{0y}), dr_1 = (\theta_1, dr_{1x}, dr_{1y})$ in $ \mathfrak{se}(2)/\sim$ is provided as a direct applications of the definitions provided for this case. It results
 \begin{align*}
-dr_0 \oplus dr_1 =  \log(\exp(dr_0)\circ \exp(dr_1))
+& dr_0 \oplus dr_1 =  \log(\exp(dr_0)\circ \exp(dr_1)) 
+\end{align*}
+for the computation of the ground truth.\\
+The approximations of the log-composition using truncated BCH formulas are straightforward:
+\begin{align*}
+dr_0 \oplus dr_1 &\simeq  BCH^{0}(dr_0,dr_1 ) = dr_0 + dr_1  \\
+dr_0 \oplus dr_1 &\simeq BCH^{1}(dr_0,dr_1 ) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] \\
+dr_0 \oplus dr_1 &\simeq BCH^{2}(\mathbf{u},\mathbf{v}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}([dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]] )
 \end{align*}
 
+To compute the approximation with the Taylor method, and so to compute the equation \ref{eq:taylor}, we observe that the vector form of the Lie bracket is given by
+\begin{align*}
+[dr_0, dr_1] &= (0, dR(\theta_0)dt_1 - dR(\theta_1)dt_0)^T \\
+& = (0, -\theta_0 dr_{1y} + \theta_1 dr_{0y} ,  \theta_0 dr_{1x} - \theta_1 dr_{0x})^T
+\end{align*} 
+Therefore, the adjoint operator can be written in matrix form as a dual matrix of $dr$:
+\begin{align*}
+\text{ad}_{dr} = 
+\left (
+\begin{array} {c c c}
+0            &  0        &      0\\
+dr_y       &  0        & - \theta \\
+- dr_x   & \theta &  0
+\end{array}
+\right )
+\end{align*} 
+In fact, when applied to $dr_1$ it results in the Lie bracket:
+\begin{align*}
+\text{ad}_{dr_0} dr_1= 
+\left (
+\begin{array} {c c c}
+0            &  0        &      0\\
+dr_{0y}       &  0        & - \theta_0 \\
+- dr_{0x}   & \theta_0 &  0
+\end{array}
+\right )
+\left (
+\begin{array} {c }
+\theta_1   \\
+dt_{1x}    \\
+dt_{1y}  
+\end{array}
+\right )
+=
+\left (
+\begin{array} {c }
+0  \\
+-\theta_0 dt_{1y} + \theta_1 dt_{0y} \\ 
+ \theta_0 dt_{1x} - \theta_1 dt_{0x} 
+\end{array}
+\right )
+\end{align*} 
+To compute the Taylor approximation proposed in equation \ref{eq:taylor} of the log composition, indicating $dt^{\star} = (dt_{y}, - dt_{x})$ it can be proved easily by induction that
+\begin{align*}
+\text{ad}_{dr}^{n} 
+= 
+\left (
+\begin{array} {c c}
+0            &  0        \\
+dt^{\star}      &  dR(\theta)      
+\end{array}
+\right )^n
+=
+\left (
+\begin{array} {c c}
+0            &  0        \\
+dR(\theta)^{n-1}dt^{\star}      &  dR(\theta)^{n}      
+\end{array}
+\right )
+\end{align*}
+And so the series involved in the equation $\ref{eq:taylor}$ become
+\begin{align*}
+\sum_{n=0}^{\infty} \frac{B_{n}}{n!} \text{ad}_{dr}^{ n} 
+=
+\sum_{n=0}^{\infty} \frac{B_{n}}{n!} \left (
+\begin{array} {c c}
+0            &  0        \\
+dR(\theta)^{n-1}dt^{\star}      &  dR(\theta)^{n}      
+\end{array}
+\right ) 
+\end{align*}
+We can split it in two part, the rotational part and the translational part. The rotational part, using the nature of Bernoulli numbers and its generative equation, when $\theta \neq 0$ become
+\begin{align*}
+\sum_{n=0}^{\infty} \frac{B_{n}}{n!} dR(\theta)^{n}  
+&=
+I + \frac{1}{2}dR(\theta) + \sum_{n=1}^{\infty}\frac{B_{2n}}{2n!} dR(\theta)^{2n}  \\
+&=
+I + \frac{1}{2}dR(\theta) + (\sum_{n=1}^{\infty}\frac{B_{2n}}{2n!} (i \theta)^{2n})I  \\
+&=
+\frac{1}{2}dR(\theta) + (\sum_{n=0}^{\infty}\frac{B_{n}}{n!}(i \theta)^{n} - \frac{1}{2} i\theta) I  \\
+&=
+\frac{1}{2}dR(\theta) + (\sum_{n=0}^{\infty} \frac{i\theta e^{i\theta}}{e^{i\theta} - 1} - \frac{1}{2} i\theta) I  \\
+&=
+\frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2} I  
+\end{align*}
+while for the translational part
+\begin{align*}
+\sum_{n=1}^{\infty} \frac{B_{n}}{n!} dR(\theta)^{n-1} dt^{\star} 
+&=
+dR(\theta)^{-1} \Big(\sum_{n=1}^{\infty}\frac{B_{n}}{n!} dR(\theta)^{n}\Big)dt^{\star} \\
+&=
+dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty}\frac{B_{n}}{n!} dR(\theta)^{n} - I \Big)dt^{\star}  \\
+&=
+dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2} I  - I \Big) dt^{\star} \\ 
+&=
+dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2} I  - I \Big)dt^{\star} \\
+&=
+\Big(\frac{1}{2} I + (\frac{\theta /2}{\tan(\theta/2} - 1)dR(\theta)^{-1}   \Big) dt^{\star}    \\
+\end{align*}
+Finally the closed form for the Taylor approximation of the log-composition is \cite{vercauteren2014preprint}:
+\begin{align}\label{eq:taylor_se2}
+dr_{0}\oplus dr_{1}
+=
+dr_{0}
++
+\sum_{n=0}^{\infty} \frac{B_{n}}{n!} \text{ad}_{dr_{0}}^{ n} 
+dr_{1}
++
+\mathcal{O}(dr_{1}^2)
+=
+dr_{0}
++
+\mathbf{J}(dr_{0}, dr_{1})
+dr_{1}
++
+\mathcal{O}(dr_{1}^2)
+\end{align}
+where 
+\begin{align*}
+\mathbf{J}(dr_{0}, dr_{1})
+=
+\left (
+\begin{array} {c c c}
+1            &  0        &      0
+\\
+-\frac{\theta_0/2 - \tan(\theta_0/2)}{\theta_0\tan(\theta_0/2)}  dr_{0x} + \frac{1}{2}dr_{0y}       
+&  \frac{\theta_0 /2}{\tan(\theta_0/2)} 
+& - \theta_0/2 
+\\
+-  \frac{1}{2} dr_{0x} -\frac{\theta_0/2 - \tan(\theta_0/2)}{\theta_0\tan(\theta_0/2)} dr_{0y}       
+& \theta_0/2 
+&  \frac{\theta_0 /2}{\tan(\theta_0/2)}
+\end{array}
+\right )
+\end{align*}
 
-
-
-
-
-
-
-
-
-
+The approximation of the log-composition using parallel transport is a straightforward application of the equation \ref{eq:parallel_transport}: 
+\begin{align}\label{eq:parallel_transport_se2}
+dr_{0}\oplus dr_{1}
+&\simeq
+dr_{0}
++
+\exp\big(\frac{dr_{0}}{2}\big)   
+\exp(dr_{1}) 
+\exp\big(-\frac{dr_{0}}{2}\big)
+-
+I
+\end{align}
+where the composition in the Lie group coincides with the product of matrix in the bigger algebra $GL(3)$ that contains both the Lie group $SE(2)$ and the Lie algebra $\mathfrak{se}(2)$.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{The Set of Stationary Velocity Fields}
+\section{The Group of Stationary Velocity Fields}
+
+As previously said, the passage from the finite to the infinite dimensional case is not free of deceptions. For the particular case of diffeomorphisms over the compact subset $\Omega\subset\mathbb{R}^d$, indicated with $\text{\emph{Diff}}(\Omega)$, the exponential map is not a local bijection (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115). 
+We will consider only the subset $G$ of $\text{\emph{Diff}}(\Omega)$ that are in the image of the exponential function $\exp$, or, in other world, the diffeomorphisms that belongs to the one-parameter subgroup.\\
+If we indicate with $G$ the one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, each of the element of $G$ are generated by a tangent vector field in $\mathcal{C}^{\infty}(\Omega)$ (see definitions in subsection \ref{se:intro_lddmm}) toward an ODE (see \cite{arnold2006ordinary}). These generating tangent vector field can be divided into two classes that split the ODE in two classes:
+\begin{enumerate}
+	\item Stationary  - or homogeneous
+	\begin{align*}
+	\frac{d\varphi(t)}{dt} = V_{\varphi(t)}
+	\end{align*}
+	\item Non-stationary - or non-homogeneous
+	\begin{align*}
+	\frac{d\varphi(t)}{dt} = V_{(t, \varphi(t))}
+	\end{align*}
+\end{enumerate}
+For a fixed $t$ both the stationary vector field (or SVF) $V_{\varphi(t)}$ and the time varying vector field (or TVVF) $V_{(t, \varphi(t))}$ belong to $G$. When varying $t$, the TVVFs behave as continuous paths over the tangent vector field, corresponding to the one-parameter subgroup $G$ through the map $\exp$.\\
+Thanks to the Cauchy theorem that ensures the uniqueness of the solution of the ODE, under the initial condition $\varphi(0) = e$, the local bijection between $G$ and the Lie algebra of the tangent vector fields over $\Omega$ is ensured (see \cite{milnor1982infinite}, \cite{khesin2008geometry}):
+\begin{align*}
+\mathcal{V}(\Omega) \simeq  G \subset \text{Diff}(\Omega)
+\end{align*}
+and, as consequence of the definition of $\exp$ and $\log$ it follows that
+\begin{align*}
+G &= \exp( \mathcal{V}(\Omega))\\
+\mathcal{V}(\Omega) &= \log(G)
+\end{align*}
+In the LDDMM framework only TVVFs were considered, while after \cite{arsigny2006log} only SVF has been considered for practical applications.\\
+For our purposes when talking about diffeomorphisms, we will take into account only the one-parameter subgroup $G$, or in other world the image of a SVF through the $\exp$ map. 
+
+% % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % %
+\subsubsection{Computations of Log-composition for SVF}
+A closed-form for the Taylor Expansion method \ref{se:taylor_expansion} to compute the log-composition with SVF is not known. We will therefore compare the truncated BCH formula with the parallel transport method \ref{se:parallel_transport}. Since there is closed form for the log-composition, we will exploit the parametrization of discretized SVF using matrices to have a ground truth to compare results. Norm will be computed in the group as the $L_2$ norm of matrices that represents the SVF. \\ 
+Given $\mathbf{u}$ and $\mathbf{v}$ SVF, $\mathbf{w}_{\text{ground}} = \mathbf{u}\oplus \mathbf{v}$ solution of the log-composition and $\mathbf{w}_{\text{app}}$ its approximation using a numerical method, then their difference is computed in the group as:
+\begin{align*}
+\text{error} = \euclideanMetric{\exp(\mathbf{w}_{\text{ground}}) - \exp(\mathbf{w}_{\text{app}})}_{L^{2}}
+\end{align*}
+where $\exp(\mathbf{w}_{\text{ground}})$ is computed as the composition of the exponentials of $\mathbf{u}$ and $\mathbf{v}$:
+\begin{align*}
+\exp(\mathbf{w}_{\text{ground}}) = \exp(\mathbf{u})\circ \exp(\mathbf{v})
+\end{align*}
+As previously said, the norm $L^2$ is meaningful in a group only because of the discrete implementation of the SVF in 5-dimensional matrices (see equation \ref{eq:basic_data_structure}).\\
+(TODO: restate this in the limitations suggesting an alternative computation of the error as future work)\\
 
 
-
-
-
-%% vect function for Lie algebra: vectorization
-%The vectorization map transform each matrix $A = \{a_{i,j}\}$ of $M_{3}(\mathbb{R})$ in a $n\times n$ dimensional vector:
-%\begin{align*}
-%\text{vect} : M_{3}(\mathbb{R}) & \longrightarrow  \text{rbt} 
-%\end{align*}
-%%
-%%Its restriction is an isomorphism between $\text{rbt} $ and $SE(2) $ are isomorphic through the restriction of the vectorization map
-%%\begin{align*}
-%%\text{vect}_{r} : \mathfrak{se}(2) & \longrightarrow  \text{rbt} 
-%%\\
-%%\left (
-%%\begin{array} {c c c }
-%%0 & 0 &  1\\
-%%\cos(\theta) & - \sin(\theta)& t_{x} \\
-%%\sin(\theta) & \cos(\theta) & t_{y}
-%%\end{array}
-%%\right )
-%%&\longmapsto  (\theta, t_{x}, t_{y}) 
-%%\end{align*}
-% two doors to going from the lie group to the lie algebra
-% passage from restricted to matrix form
-%Aimed to restrict the domain... we provide explicitly the bijections to pass in both structure from the vector to the matrix form and vice versa:
-%\begin{align*}
-%\rho_{SE(2)}: SE(2)^{v} &\longrightarrow SE(2)\\
-%(\theta, tx, ty) 
-%& \longmapsto
-%\left (
-%\begin{array} {c c c }
-%\cos(\theta) & - \sin(\theta)& tx \\
-%\sin(\theta) & \cos(\theta) & ty\\
-%0 & 0 &  1
-%\end{array}
-%\right )
-%\end{align*}
-%
-%\begin{align*}
-%\rho_{\mathfrak{se}(2)} : \mathfrak{se}(2)^{v}&\longrightarrow  \mathfrak{se}(2)\\
-%(\theta, dtx, dty) 
-%& \longmapsto
-%\left (
-%\begin{array} {c c c }
-%0 & -\theta & dtx \\
-%\theta & 0 & dty\\
-%0 & 0 &  1
-%\end{array}
-%\right )
-%\end{align*}
-
-
-
-%
-%
-%
-%A rigid body transformation in a normed vector space is a transformation that preserves distances. The set of rigid body transformations is constructed as any combination of rotations, translations and reflection, and forms the euclidean group $E(2)$. For 2d rigid registration usually reflections are not required and so we restrict our attention to the special euclidean group $SE(2)$.  We are interested in two things about them: their expression in matrix form, and the Lie group and the Lie algebra structures involved. \\
-%We denote denoted with $M_{3}(\mathbb{R})$ the set of all of the $3\times 3$ matrices with real entries . 
-%Its subset, defined by all the matrices with non-zero determinant, and thus by all the invertible matrices, is denoted with $GL_3 (\mathbb{R})$. A \emph{matrix group} is any proper or improper subgroup of  $GL_3 (\mathbb{R})$.
-%The group of 2d rigid body transformation 
-%\begin{align*}
-%\mathbb{G} =
-%\{ (\theta, tx, ty) \mid \theta \in [0, 2\pi),   tx, ty \in\mathbf{R}^2  \}
-%\end{align*}
-%using matrices, so as a subgroup of $GL_3 (\mathbb{R})$.
-%Rotation in the plane can be expressed using matrix of the orthogonal group $SO(2)$, linear subgroup of $GL_2 (\mathbb{R})$, so that rotations' actions on planes' points are simply defined as a product: 
-%\begin{align*}
-%SO(2) = 
-%\left \{
-%\left (
-%\begin{array} {c c }
-%\cos(\theta) & - \sin(\theta) \\
-%\sin(\theta) & \cos(\theta) 
-%\end{array}
-%\right )
-%\mid
-%\theta \in  [0, 2\pi)
-%\right \}
-%\end{align*}
-%To include the translation we can add its $(tx, ty)^{T}$ parameter to the action of the rotation over the initial point $(x_{i}, y_{i})^{T}$ to obtain the transformed $(x_{t}, y_{t})^{T}$. So each element of the group $\mathbb{G}$ act over $\mathbf{R}^2$ as
-%\begin{align*}
-%\left (  
-%\begin{array} {c }
-%x_{t} \\
-%y_{t}
-%\end{array}
-%\right ) 
-%= 
-%\left (
-%\begin{array} {c c }
-%\cos(\theta) & - \sin(\theta) \\
-%\sin(\theta) & \cos(\theta) 
-%\end{array}
-%\right )
-%\left (  
-%\begin{array} {c }
-%x_{i} \\
-%y_{i}
-%\end{array}
-%\right ) 
-%+
-%\left (  
-%\begin{array} {c }
-%tx \\
-%ty
-%\end{array}
-%\right ) 
-%\end{align*}
-%Another way to express rigid body transformation group's elements is to include the translation in a bigger matrix, subgroup (not linear, since the translation is not linear) of $GL_3 (\mathbb{R})$. This is defined as the group $SE(2)$:
-%\begin{align*}
-%SE(2) = 
-%\left \{
-%\left (
-%\begin{array} {c c c }
-%\cos(\theta) & - \sin(\theta)& t_{x} \\
-%\sin(\theta) & \cos(\theta) & t_{y}\\
-%0 & 0 &  1
-%\end{array}
-%\right )
-%\mid
-%\theta \in  [0, 2\pi), (tx, ty) \in\mathbf{R}^2
-%\right \}
-%\end{align*}
-%Expressed in this way the matrices act on the point of the plane represented as the elements of the vector space $\{1 \} \times \mathbf{R}^2$.\\ 
-%The passage between the restricted form $\mathbb{G} $ and $SE(2)$ is defined by the injection:
-%\begin{align*}
-%\rho^{v} : \mathbb{G} &\longrightarrow   SE(2)\\
-%(\theta, tx, ty) 
-%& \longmapsto
-%\left (
-%\begin{array} {c c c }
-%\cos(\theta) & - \sin(\theta)& tx \\
-%\sin(\theta) & \cos(\theta) & ty\\
-%0 & 0 &  1
-%\end{array}
-%\right )
-%\end{align*}
-%We are now interested the Lie algebra of the Lie group $SE(2)$. 
-%%In general a matrix Lie group is any complete subgroup of $GL(n,\mathbb{R})$ while its Lie algebra is a particular subset (not necessarily a group) of $GL(n,\mathbb{R})$. 
-%%\begin{prop}\label{pr:matrixLiealgebra}
-%%	Be $\mathbb{G}$ a matrix Lie group.
-%%	\begin{itemize}
-%%		\item[a)] If $\mathbb{G} = GL(n,\mathbb{R})$ then $T_{e}\mathbb{G} = M(n,\mathbb{R})$.  
-%%		\item[b)] If $\mathbb{G} \subseteq GL(n,\mathbb{R})$ then $T_{e}\mathbb{G} \subseteq M(n,\mathbb{R})$.
-%%	\end{itemize}
-%%\end{prop}
-%%\begin{proof}
-%%	since $det$ is a continuous function we have that 
-%%	\begin{align*}
-%%	\forall X \in M(n,\mathbb{R})~~ \exists &\eta > 0 \text{ such that } \forall t \in(-\eta , \eta) \\
-%%	&det(I+tX) \neq 0
-%%	\end{align*}
-%%	where $I$ is the identity matrix. If we consider the path
-%%	\begin{align*}
-%%	\gamma : [0,1] & \longrightarrow  GL(n,\mathbb{R}) \\
-%%	t &\longmapsto I+tX
-%%	\end{align*}
-%%	as the path joining $I$ and $X$, it follows
-%%	\begin{align*}
-%%	\frac{d }{dt}(I+tX)~\Bigr|_{t = 0}  = X \in M(n,\mathbb{R})
-%%	\end{align*}
-%%\end{proof}
-%It is defined as:
-%\begin{align*}
-%\mathfrak{se}(2) = 
-%\left \{
-%\left (
-%\begin{array} {c c c }
-%0 & -\theta &  dt_{x} \\
-%\theta & 0 & dt_{y} \\
-%0& 0 & 1
-%\end{array}
-%\right )
-%\mid
-%\theta \in  [0, 2\pi), (tx, ty) \in\mathbf{R}^2
-%\right \}
-%\end{align*}
-%Expressing $r\in SE(2)$ as:
-%\begin{align*}
-%\mathbf{r} = 
-%\left (
-%\begin{array} {c c }
-%R(\theta) & t \\
-%0 & 1 
-%\end{array}
-%\right )
-%\qquad
-%R(\theta) \in SO(2) 
-%\quad
-%t \in \mathbb{R}^{2}
-%\end{align*}
-%for $t$ plane translation and $R(\theta)$ in $SO(2)$, then the element of the Lie algebra can be expressed as:
-%\begin{align*}
-%d\mathbf{r} 
-%= 
-%\left (
-%\begin{array} {c c }
-%dR(\theta) & dt \\
-%0 & 1 
-%\end{array}
-%\right )
-%\qquad
-%R(\theta) \in SO(2) 
-%\quad
-%t \in \mathbb{R}^{2}
-%\end{align*}
-%Both $SE(2)$ and $\mathfrak{se}(2)$ are in bijective correspondence with $\mathbb{G}$, and both are subset of the bigger algebra of, The algebra $\mathfrak{se}(2)$ do not form a group with the operation of composition, but it is provided with the lie bracket defined by the commutator:
-%\begin{align*}
-%[d\mathbf{r}, d\mathbf{s}] = d\mathbf{r} d\mathbf{s} - d\mathbf{s} d\mathbf{r}
-%\end{align*}
-%The Lie logarithm between Lie group and Lie algebra is given by:
-%\begin{align*}
-%\log : \mathfrak{se}(2) & \longrightarrow SE(2)
-%\\
-%\left (
-%\begin{array} {c c }
-%R(\theta) & t \\
-%0 & 1 
-%\end{array}
-%\right )
-%&\longmapsto  
-%\left (
-%\begin{array} {c c }
-%dR(\theta) & dt \\
-%0 & 1 
-%\end{array}
-%\right )
-%\end{align*}
-%Where 
-%\begin{align*}
-%dR(\theta) = 
-%\left (
-%\begin{array} {c c }
-%0 & -\theta \\
-%\theta & 0 
-%\end{array}
-%\right )
-%\end{align*}
-%and $dt = L(\theta)t$ for 
-%\begin{align*}
-%L(\theta) = 
-%\frac{\theta}{2}
-%\left (
-%\begin{array} {c c }
-%\frac{\sin(\theta)}{1-\cos(\theta)} & 1 \\
-%-1 & \frac{\sin(\theta)}{1-\cos(\theta)}
-%\end{array}
-%\right )
-%\end{align*}
-%The inverse function, Lie exponential is given by:
-%\begin{align*}
-%\exp : SE(2) & \longrightarrow \mathfrak{se}(2) 
-%\\
-%\left (
-%\begin{array} {c c }
-%dR(\theta) & dt \\
-%0 & 1 
-%\end{array}
-%\right )
-%&\longmapsto  
-%\left (
-%\begin{array} {c c }
-%R(\theta) & t \\
-%0 & 1 
-%\end{array}
-%\right )
-%\end{align*}
-%where $t = L(\theta)^{-1}dt$ for 
-%\begin{align*}
-%L(\theta)^{-1} = 
-%\frac{1}{\theta}
-%\left (
-%\begin{array} {c c }
-%\sin(\theta) & -(1-\cos(\theta)) \\
-%(1-\cos(\theta)) & \sin(\theta)
-%\end{array}
-%\right )
-%\end{align*}
-
-
-
-
-
-%
-%If the tangent space to the group of diffeomorphisms is defined in analogy with the finite dimensional case, it turns out that the exponential map is not a bijection in a local neighborhood of the identity. That means that there are non-trivial elements in the group that are not the image of any tangent vector in the Lie algebra. Taking into account exponential and logarithm implies a restriction in the diffeomorphisms to the image of exp.
-%For this reason it is improper to talk about Diffeomorphisms if the Log and exponential maps are taken into account in the framework: in image registration literature it is used instead time varying velocity fields (TVVF), or stationary velocity field (SVF), according to the nature of the differential equation that governs the correspondence between Lie algebra and Lie group. In the case of 
-%Therefore considering only a subset of diffeomorphisms that are lost in considering the Log-euclidean framework
-%
-%... la struttura di gruppo e' comunque recuperata, in modo banale nel caso dei SVF e in modo un po' meno banale nel caso dei TVVF, se si considera il sottogruppo ad un parametro, rispetto al quale l'operazione di composizione e' chiusa e ben definita.
-%
-%with the exponential map. that Instead of considering all of the diffeomorphisms in the infinite dimensional group on the compact subset $\Omega$ of $\mathbb{R}^d$d, we consider only the diffeomorphisms that are in the image one parameter subgroup. This restriction appears to not have any negative consequences for practical applications, but enable to treat diffeomorphisms, why only subset, the strategy to compute the ground truth.
+Further details about the methodology utilized to compare log-composition for SVF are provided in chapter \ref{ch:results}.
 
 
 
 
 
 
-
-% %
-% \begin{lemma}\label{le:D1equalsD}
-%  Given $\varphi_{t}^{\alpha}(e)$, for each $t \in \mathbb{R}$ exists $V^{\beta} \in left\mathfrak{X}(\mathbb{G})$ such that 
-%  \begin{align*}
-%    \varphi_{t}^{\alpha}(e) = \varphi_{1}^{\beta}(e) 
-%  \end{align*}
-% \end{lemma}
-% %
-% Immediate consequence of the previous lemma is:
-% \begin{prop}
-% Using the above definitions, it follows that
-%  \begin{align*}
-%   Diff_{1} = \mathbb{G}
-%  \end{align*}
-% \end{prop} 
-% We defined $Diff_{1}$ in order to reflect the lenght of the vectors in $\mathfrak{g}$ immediately over $\mathbb{G}$. This lead to have a sraight correspondence between vectors in the Lie algebra and elements in the Lie group, that we will investigate in the next subsection.
-
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-%\subsubsection{Metrics in $\text{Diff}(\Omega)$}
-%Relying on the Lie algebra tangent structure it is possible to define a family of metrics in the Lie group as follows:
-%\begin{align*}
-%\text{dist}(p,q) := \euclideanMetric{\mathbf{u}  - \mathbf{v} }_{\mathfrak{g}}
-%\end{align*}
-%$(\text{Diff}(\Omega), \text{dist})$ is a metric space. For the finite dimensional case if $\mathfrak{g}$ is complete then $(Diff, dist)$ is complete (.... investigate the if it is complete even in the infinite dimensional case!).\\
-%It is possible to define sum in the Lie group, compatible with the metric using the sum in the Lie algebra and the function exp and log.
-%	\begin{align*}
-%	\odot : \text{Diff}(\Omega) \times \text{Diff}(\Omega) & \longrightarrow  \text{Diff}(\Omega)    \\
-%	(p, q) &\longmapsto \exp(log(p) + log(q))
-%	\end{align*}
-%	Note that $log(p) + log(q)$ is an element of the Lie algebra$\mathfrak{g}$ while  $\exp(log(p) + log(q))$ is in $\mathbb{G}$. Following properties hold
-%
-%	\begin{enumerate}
-%		%
-%		\item $\odot$ is well defined.
-%		%
-%		\item Closure of $\odot$ under inverse element: if $p \in \mathbb{G}$ then $p^{-1} \in \mathbb{G}$.
-%		%
-%		\item Distance is inversion invariant:
-%		\begin{align*}
-%		\text{dist}(p,q) = dist(p^{-1},q^{-1})
-%		\end{align*}
-%		%
-%		\item Distance is invariant under $\odot$:
-%		\begin{align*}
-%		\text{dist}(p,q) = dist(p \odot r,q \odot r)
-%		\end{align*}
-%		%
-%		\item The distance is not invariant under the composition of group structure of $\mathbb{G}$:
-%		\begin{align*}
-%		\text{dist}(p,q) \neq dist(p\circ r,q \circ r)
-%		\end{align*}
-%		%
-%	\end{enumerate}
-%	%
-
-%\begin{corollary}
-%	Using the 
-%	If, with previous notations, the condition (1) is an approximation
-%	\begin{align*}
-%	\exp_{C}(\frac{\mathbf{k}}{2}) = \exp(\mathbf{\xi})\circ \exp_{M}(\frac{\mathbf{k}}{2}) 
-%	\end{align*}
-%	for some $ \mathbf{\xi}$ in  $\mathfrak{g}$ such that $\parallel\mathbf{\xi} \parallel < \delta$
-%	then the approximation has error
-%	\begin{align*}
-%	O(\parallel \delta\mathbf{u}^{\parallel} \parallel^{2} )  
-%	+ O(\parallel \mathbf{u} + \delta\mathbf{u}\parallel^{3})
-%	+ \text{xxx something that must be investigated depending on } \delta
-%	\end{align*}
-%\end{corollary}

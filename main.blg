@@ -13,19 +13,19 @@ You're missing a field part---line 53 of file frontback/mres_bib.bib.bib
  :  year    = 
  :            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 408 of file frontback/mres_bib.bib.bib
+Repeated entry---line 442 of file frontback/mres_bib.bib.bib
  : @inproceedings{hernandez2007registration
  :                                         ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 600 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 634 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 693 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 727 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 906 of file frontback/mres_bib.bib.bib
+I was expecting a `,' or a `}'---line 940 of file frontback/mres_bib.bib.bib
  :  
  :  keywords={biomedical MRI;image registration;image resolution;medical image processing;Cartesian diffusion tensors;diffusion profile image registration;multi-resolution framework;nonlinear registration;piece-wise local affine registration;signal analysis;Algorithm design and analysis;Anisotropic magnetoresistance;Data analysis;Image registration;Large-scale systems;Magnetic resonance imaging;Processor scheduling;Robustness;Signal analysis;Tensile stress},
 (Error may have been on previous line)
@@ -36,45 +36,46 @@ Warning--empty journal in bauer2011geodesic
 Warning--empty school in Broit:1981
 Warning--empty publisher in do1992riemannian
 Warning--there's a month but no year in mcclelland
-You've used 65 entries,
+Warning--empty booktitle in vercauteren2014preprint
+You've used 69 entries,
             2543 wiz_defined-function locations,
-            938 strings with 16355 characters,
-and the built_in function-call counts, 27427 in all, are:
-= -- 2728
-> -- 1360
-< -- 45
-+ -- 477
-- -- 469
-* -- 1997
-:= -- 4482
-add.period$ -- 202
-call.type$ -- 65
-change.case$ -- 411
-chr.to.int$ -- 63
-cite$ -- 71
-duplicate$ -- 1084
-empty$ -- 1968
-format.name$ -- 548
-if$ -- 5611
+            958 strings with 16830 characters,
+and the built_in function-call counts, 28596 in all, are:
+= -- 2842
+> -- 1392
+< -- 49
++ -- 485
+- -- 477
+* -- 2062
+:= -- 4670
+add.period$ -- 213
+call.type$ -- 69
+change.case$ -- 431
+chr.to.int$ -- 67
+cite$ -- 76
+duplicate$ -- 1142
+empty$ -- 2072
+format.name$ -- 564
+if$ -- 5851
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 73
-newline$ -- 326
-num.names$ -- 201
-pop$ -- 432
+missing$ -- 76
+newline$ -- 345
+num.names$ -- 213
+pop$ -- 460
 preamble$ -- 1
-purify$ -- 490
+purify$ -- 514
 quote$ -- 0
-skip$ -- 905
+skip$ -- 949
 stack$ -- 0
-substring$ -- 1496
-swap$ -- 201
-text.length$ -- 45
-text.prefix$ -- 20
+substring$ -- 1549
+swap$ -- 204
+text.length$ -- 49
+text.prefix$ -- 24
 top$ -- 0
-type$ -- 468
-warning$ -- 6
-while$ -- 267
-width$ -- 73
-write$ -- 839
+type$ -- 500
+warning$ -- 7
+while$ -- 277
+width$ -- 77
+write$ -- 886
 (There were 5 error messages)
