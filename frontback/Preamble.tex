@@ -3,18 +3,6 @@
 \pagestyle{empty}
 \newpage
 
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUB SECTION
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section*{Abstract}
-
-Medical imaging employs techniques and tools belonging to several branches of mathematics and physics that, when applied to morphometric and statistical study of biological shape variability, are collected under the name of \emph{computational anatomy}. 
-One of its critical tool, image registration, is widely used in both academical studies and applications, and continuously challenges researchers to enhance accuracy, improve reliability and reduce the time of the computations. The use of diffeomorphisms in image registration and the concomitant introduction of the log-euclidean framework to compute statistics, provide an interesting options to model the organs' deformations and to quantify the variations of anatomies.
-One of the challenges of this setting is the numerical computation of the Lie exponential of stationary velocity fields (SVF), the Lie logarithm of the corresponding transformation and their combinations as they appear in the BCH formula: concept at the core of the underpinning theory of the \emph{log-demons} algorithm.\\
-The necessity of finding fast numerical computation techniques of the BCH formula gave birth to the concept of log-composition presented in this thesis, with some strategies for its computation.
-
-\vspace{0.5cm}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUB SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -26,31 +14,55 @@ The necessity of finding fast numerical computation techniques of the BCH formul
 %Qui le costruzioni nate dai linguaggi formali propri della matematica trovano spazio solo parzialmente, e non possiamo fare di meglio che rubarne alcune parti ed utilizzarle come turisti che chiedono informazioni a qualche passante in un paese straniero.
 %Non e' stato, e non e' tuttora semplice per me il passaggio dal giardino della matematica pura al mondo delle applicazioni pratiche. Ma e' stato fondamentale avere avuto delle guide che sono passate prima di me per gli stessi tortuosi percorsi, e che mi hanno accompagnato in questo ultimo anno. Il contributo principale e' arrivato da Marco Lorenzi il quale ha contribuito in modo determinante non solo allo sviluppo di questa tesi, e alla soluzione di diversi dubbi e problemi pratici ma soprattutto all'avermi - faticosamente - introdotto al mestiere del ricercatore biomedico. \\
 
-There are places where the problem that must be faced do not grow on steadfast certainties and in predictable directions.
-Places where there is no room for the construction of a solid, sleek and clean mathematical structure, aimed to help us getting closer to the solution.
-Places, that require nevertheless simplicity with a high level of precision to achieve the desired results.\\
-Here any language created by the harsh formalisms of mathematics does not work smoothly and we can not do any better than stealing some of their words and use them as tourists in a foreign land.\\
+% % % % % % % % % % % % % % %
 
-It was not, and it is still not easy for me, the trail from the garden of pure mathematics to the world of practical applications. But it was crucial to have had guides, who have gone before me for the same tortuous paths and who accompanied me in this last year. The main contribution arrived from Marco Lorenzi who has helped significantly, not only to the development of this thesis, and to the solution of various doubts, but especially in having - laboriously - introduced to the craft of the biomedical research.\\
+%There are places where the problem that must be faced do not grow on steadfast certainties and in predictable directions.
+%Places where there is no room for the construction of a solid, sleek and clean mathematical structure, aimed to help us getting closer to the solution.
+%Places, that require nevertheless simplicity with a high level of precision to achieve the desired results.\\
+%
+%In these places any language created by the harsh formalisms of mathematics does not work smoothly and we can not do any better than stealing some of their words and use them as tourists in a foreign land.\\
+%
+%It was not, and it is still not easy for me, the trail from the garden of pure mathematics to the world of practical applications. But it was crucial to have had guides, who have gone before me through the same tortuous paths and who accompanied me in this last year. The main contribution arrived from Marco Lorenzi who has helped significantly, not only to the development of this thesis, and to the solution of various doubts, but especially in having - laboriously - introduced to the craft of the biomedical research.\\
+%
+%To these pages, also contributed...\\
+%
+%I would like to thank as well the rowing fellow with whom I shared commitment, challenges and happiness of this first fascinating and demanding year at the GIFT-Surg Project: 
+%Francois Chadebecq, 
+%Pankaj Daga, 
+%Tom Doel, 
+%George Dwyer,
+%Michael Ebner,
+%Luis Herrera,
+%Ioannis Kourouklides,
+%Efthymios Maneas,
+%Sacha Noimark,
+%Rosalind Pratt,
+%Marcel Tella,
+%Gustavo Santos,
+%Dzhoshkun Shakir,
+%Guotai Wang and Maria A. Zuluaga.\\
+%
+%The eclectic buildings of the UCL would have been unseen for me without Tom Vercauteren, Sebastien Ourselin and Gary Zhang. Their work and their decision, in a warm day of June 2014, to offer me support - other than a desk, a laptop and a coffee machine -  at TIG, opened the greatest and important opportunities I've ever went through.\\
+%
+%In conclusion, it is well known that in every classical music concert the two most important tunes are the first one and the last one. Following the same rule I terminate here acknowledging for her love, support and patient, Carole Sudre.
 
-I would like to thank as well the rowing fellow with whom I shared commitment, challenges and happiness of this first fascinating and demanding year at the GIFT-Surg Project: 
-Francois Chadebecq, 
-Pankaj Daga, 
-Tom Doel, 
-George Dwyer,
-Michael Ebner,
-Luis Herrera,
-Ioannis Kourouklides,
-Efthymios Maneas,
-Sacha Noimark,
-Rosalind Pratt,
-Marcel Tella,
-Gustavo Santos,
-Dzhoshkun Shakir,
-Guotai Wang and Maria A. Zuluaga.\\
-I would have never seen the eclectic buildings of the UCL without Tom Vercauteren, Sebastien Ourselin and Gary Zhang. Their work and their decision, in a warm day of June 2014, to offer me support - other than a desk, a laptop and a coffee machine -  at TIG, opened unexpected opportunities.\\
+% % % % % % % % % % % % % % %
 
-In conclusion, it is well known that in every classical music concert the two most important tunes are the first one and the last one. Following the same rule I terminate here this paragraph acknowledging Carole Sudre.
+\qquad
+\pagestyle{empty}
+\newpage
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % SUB SECTION
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section*{Abstract}
+
+Medical imaging employs techniques and tools belonging to several branches of mathematics and physics that, when applied to morphometric and statistical study of biological shape variability, are collected under the name of \emph{computational anatomy}. 
+One of its critical tool, image registration, is widely used in both academical studies and applications, and continuously challenges researchers to enhance accuracy, improve reliability and reduce the time of the computations. The use of diffeomorphisms in image registration and the concomitant introduction of the log-euclidean framework to compute statistics, provide an interesting options to model the organs' deformations and to quantify the variations of anatomies.
+One of the challenges of this setting is the numerical computation of the Lie exponential of stationary velocity fields (SVF), the Lie logarithm of the corresponding transformation and their combinations as they appear in the BCH formula: concept at the core of the underpinning theory of the \emph{log-demons} algorithm.\\
+The necessity of finding fast numerical computation techniques of the BCH formula gave birth to the concept of log-composition presented in this thesis, with some strategies for its computation.
+
 
 
 

@@ -266,10 +266,15 @@ John Milnor.
 \newblock On infinite dimensional lie groups.
 \newblock {\em Preprint, Institute for Advanced Study, Princeton}, 1982.
 
-\bibitem[Mil84]{Milnor:84:remarks}
+\bibitem[Mil84a]{Milnor:84:remarks}
 J~Milnor.
 \newblock Remarks on infinite-dimensional lie groups, in ‘relativity, groups
   and topology, ii’(les houches, 1983), 1007--1057, 1984.
+
+\bibitem[Mil84b]{milnor1984remarks}
+John Milnor.
+\newblock Remarks on infinite-dimensional lie groups.
+\newblock In {\em Relativity, groups and topology. 2}. 1984.
 
 \bibitem[MT13]{mariconda2013calcolo}
 Carlo Mariconda and Alberto Tonolo.
