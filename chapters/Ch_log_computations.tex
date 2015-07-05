@@ -1,4 +1,4 @@
-\chapter{Log-computation Algorithm using Log-composition}\label{ch:log_computations}
+\chapter{Log-Algorithm using Log-composition}\label{ch:log_algorithm}
 
 \begin{flushright}
 	I think you might do something better with the time \\ than wasting it in asking riddles that have no answers. \\ -\emph{Alice in Wonderland.}
@@ -15,7 +15,7 @@ The \emph{logarithm computation problem} can be stated as follows:
 	such that $\exp(\mathbf{u}) = p$ ?  
 }
 \end{center}
-This chapter is devote to the numerical computation of the logarithm, based on an iterative algorithm called here \emph{log-computation algorithm} \cite{Bossa:08}. Since the log-computation algorithm is based on the log-composition, each of the numerical methods presented in these pages can be applied to find a numerical method to solve the logarithm computation problem.\\
+There are several numerical methods to compute the approximation of the problem's solution. Arsigny, who first pointed the applications of the Lie logarithm in medical image registration in\cite{Arsigny:MRM:06} and \cite{arsigny2006bi}, proposed the Inverse scaling and squaring. Here we are interested in the numerical iterative algorithm for the computation of the Lie logarithm, called here \emph{log-algorithm}, presented for the first time in \cite{Bossa:08}. In this chapter we present a strong relation between the log-algorithm and the log-composition: in consequence of this, each numerical methods presented in these pages can be applied to find a numerical method to solve the logarithm computation problem.\\
 The first step toward this direction is to introduce the space of the approximations of a Lie algebra and a the Lie group.
 
 
@@ -102,13 +102,13 @@ Each strategy that we have examined to compute the Lie composition, become a num
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Truncated BCH Strategy}
 At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th truncation of the BCH formula:
-\begin{equation}\label{eq:bossa_strat}
+\begin{equation}\label{eq:bossa_bch_strat}
 \begin{cases}
 \mathbf{u}_0 = 0 \\
 \mathbf{u}_{j+1} = \text{BCH}^{k}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 \end{cases}
 \end{equation}
-thus, for $k=1$ results 
+For $k = 0$, the approximation $\mathbf{u}_{j+1}$ results simply the sum $\mathbf{u}_{j} + \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )$. When $k=1$, it results 
 \begin{align*}
 \text{BCH}^{1}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 &=
@@ -132,7 +132,7 @@ The following theorem presented in \cite{Bossa:08}, provides an error bound when
 	\begin{equation}
 	\begin{cases}
 	\mathbf{u}_0 = 0 \\
-	\mathbf{u}_{j+1} = \text{BCH}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
+	\mathbf{u}_{j+1} %= \text{BCH}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 	                          = \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 	\end{cases}
 	\end{equation}
@@ -142,15 +142,15 @@ The following theorem presented in \cite{Bossa:08}, provides an error bound when
 	\end{align*}
 \end{theorem}
 
-We observe that this upper limit holds only when a closed-form for the log-composition is available, as for example $\mathfrak{se}(2)$.
+We observe that this upper limit can be computed only when a closed-form for the log-composition is available, as for example $\mathfrak{se}(2)$.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Parallel Transport Strategy}
 
-If we apply the parallel transport method for the computation of the log-composition, we obtain another version of the log-computation algorithm:
-\begin{equation}\label{eq:parallel_strategy}
+If we apply the parallel transport method for the computation of the log-composition, we obtain another version of the log-algorithm:
+\begin{equation}\label{eq:bossa_parallel_strategy}
 \begin{cases}
 \mathbf{u}_0 = \mathbf{0} \\
 \mathbf{u}_{t} = \mathbf{u}_{t-1} + \exp(\frac{\mathbf{u}_{t-1}}{2}) \circ \exp(\delta \mathbf{u}_{t-1}) \circ \exp(-\frac{\mathbf{u}_{t-1}}{2}) - e

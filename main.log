@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  1 JUL 2015 18:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  5 JUL 2015 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -642,7 +642,7 @@ LaTeX Info: Redefining \nameref on input line 67.
 \openout4 = `main.out'.
 
 
-<figures/UCL_logo.jpg, id=164, 438.63875pt x 533.995pt>
+<figures/UCL_logo.jpg, id=176, 438.63875pt x 533.995pt>
 File: figures/UCL_logo.jpg Graphic file (type jpg)
 
 <use figures/UCL_logo.jpg>
@@ -684,31 +684,58 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 
 (./chapters/Ch_introduction.tex
 Chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 
-      [1
+l.23 I
+      n both cases an accurate comparison between images and the parameters ...
+[1
 
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
- been already used, duplicate ignored
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.51 
-      [2]
+l.44 	\item[2005-2006 $\triangleright$]
+                                        The almost concomitant publication o...
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 60--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
+Underfull \hbox (badness 10000) in paragraph at lines 65--67
 
  []
 
@@ -716,79 +743,80 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.69 
+l.67 
       [3]
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.118 \]
-         [4]
-Underfull \hbox (badness 10000) in paragraph at lines 118--122
+l.100 
+       [4]
+Underfull \hbox (badness 10000) in paragraph at lines 116--120
 
  []
 
-<figures/iterative_algorithm.png, id=347, 1279.78125pt x 803.0pt>
+
+Underfull \vbox (badness 4899) has occurred while \output is active []
+
+ [5]
+<figures/iterative_algorithm.png, id=366, 1279.78125pt x 803.0pt>
 File: figures/iterative_algorithm.png Graphic file (type png)
 
 <use figures/iterative_algorithm.png>
-Package pdftex.def Info: figures/iterative_algorithm.png used on input line 149
+Package pdftex.def Info: figures/iterative_algorithm.png used on input line 147
 .
 (pdftex.def)             Requested size: 300.74864pt x 188.70502pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--156
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
 
  []
 
-[5] [6 <./figures/iterative_algorithm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 233--235
+[6 <./figures/iterative_algorithm.png>] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
 
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 254--278
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--276
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--324
+Underfull \hbox (badness 10000) in paragraph at lines 319--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--340
+Underfull \hbox (badness 10000) in paragraph at lines 335--338
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 401--403
+Underfull \hbox (badness 10000) in paragraph at lines 399--401
 
  []
 
@@ -798,14 +826,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 401--403
  (./chapters/Ch_tools.tex
 Chapter 2.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3989) has occurred while \output is active []
 
  [11
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
@@ -816,62 +844,62 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--99
+Underfull \hbox (badness 10000) in paragraph at lines 95--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-[13] <figures/log_composition.png, id=469, 675.52374pt x 646.415pt>
+[13] <figures/log_composition.png, id=485, 675.52374pt x 646.415pt>
 File: figures/log_composition.png Graphic file (type png)
 
 <use figures/log_composition.png>
-Package pdftex.def Info: figures/log_composition.png used on input line 110.
+Package pdftex.def Info: figures/log_composition.png used on input line 112.
 (pdftex.def)             Requested size: 236.43684pt x 226.24864pt.
  [14 <./figures/log_composition.png>]
-<figures/inversion_1.png, id=495, 657.45625pt x 460.72125pt>
+<figures/inversion_1.png, id=510, 657.45625pt x 460.72125pt>
 File: figures/inversion_1.png Graphic file (type png)
 
 <use figures/inversion_1.png>
-Package pdftex.def Info: figures/inversion_1.png used on input line 256.
+Package pdftex.def Info: figures/inversion_1.png used on input line 258.
 (pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
 
-<figures/inversion_2.png, id=496, 708.6475pt x 419.5675pt>
+<figures/inversion_2.png, id=511, 708.6475pt x 419.5675pt>
 File: figures/inversion_2.png Graphic file (type png)
 
 <use figures/inversion_2.png>
-Package pdftex.def Info: figures/inversion_2.png used on input line 263.
+Package pdftex.def Info: figures/inversion_2.png used on input line 265.
 (pdftex.def)             Requested size: 184.9429pt x 109.4947pt.
 
-Overfull \hbox (71.13188pt too wide) in paragraph at lines 263--264
+Overfull \hbox (71.13188pt too wide) in paragraph at lines 265--266
  [][] 
  []
 
-<figures/sign_1.png, id=497, 1356.06625pt x 926.46124pt>
+<figures/sign_1.png, id=512, 1356.06625pt x 926.46124pt>
 File: figures/sign_1.png Graphic file (type png)
 
 <use figures/sign_1.png>
-Package pdftex.def Info: figures/sign_1.png used on input line 281.
+Package pdftex.def Info: figures/sign_1.png used on input line 283.
 (pdftex.def)             Requested size: 270.30118pt x 184.66695pt.
 
-<figures/theorem_pict.png, id=498, 760.8425pt x 698.61pt>
+<figures/theorem_pict.png, id=513, 760.8425pt x 698.61pt>
 File: figures/theorem_pict.png Graphic file (type png)
 
 <use figures/theorem_pict.png>
-Package pdftex.def Info: figures/theorem_pict.png used on input line 300.
+Package pdftex.def Info: figures/theorem_pict.png used on input line 302.
 (pdftex.def)             Requested size: 270.30118pt x 248.19482pt.
  [15] [16 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/si
 gn_1.png>] [17 <./figures/theorem_pict.png>]
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
  []
 
@@ -902,7 +930,7 @@ Overfull \hbox (17.23523pt too wide) in paragraph at lines 204--206
 ; dr[]\OT1/cmr/m/n/10 )$.
  []
 
-<figures/exp_se2.png, id=593, 1126.2075pt x 701.62125pt>
+<figures/exp_se2.png, id=609, 1126.2075pt x 701.62125pt>
 File: figures/exp_se2.png Graphic file (type png)
 
 <use figures/exp_se2.png>
@@ -917,15 +945,11 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 249.
 
-[23] [24 <./figures/exp_se2.png>] [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 456--459
-
- []
-
-) [27]
+[23] [24 <./figures/exp_se2.png>] [25] [26]) [27]
 \openout2 = `chapters/Ch_log_computations.aux'.
 
- (./chapters/Ch_log_computations.tex [28
+
+(./chapters/Ch_log_computations.tex [28
 
 
 
@@ -941,43 +965,74 @@ Overfull \hbox (25.47949pt too wide) in paragraph at lines 75--75
 
  (./chapters/Ch_results.tex
 Chapter 5.
+[33
+
+
+
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 17.
+(hyperref)                removing `math shift' on input line 37.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 17.
+(hyperref)                removing `math shift' on input line 37.
 
-) [33
+<figures/se2_four_BCH.png, id=732, 867.24pt x 578.16pt>
+File: figures/se2_four_BCH.png Graphic file (type png)
+
+<use figures/se2_four_BCH.png>
+Package pdftex.def Info: figures/se2_four_BCH.png used on input line 69.
+(pdftex.def)             Requested size: 563.69934pt x 375.79955pt.
+
+Overfull \hbox (80.5633pt too wide) in paragraph at lines 68--70
+[]  [] 
+ []
+
+<figures/se2_pt_taylor.png, id=733, 578.16pt x 433.62pt>
+File: figures/se2_pt_taylor.png Graphic file (type png)
+
+<use figures/se2_pt_taylor.png>
+Package pdftex.def Info: figures/se2_pt_taylor.png used on input line 77.
+(pdftex.def)             Requested size: 346.89867pt x 260.17401pt.
+
+<figures/se2_boxplot.png, id=734, 722.7pt x 505.89pt>
+File: figures/se2_boxplot.png Graphic file (type png)
+
+<use figures/se2_boxplot.png>
+Package pdftex.def Info: figures/se2_boxplot.png used on input line 85.
+(pdftex.def)             Requested size: 542.02367pt x 379.41655pt.
+
+Overfull \hbox (87.34038pt too wide) in paragraph at lines 84--86
+[]  [] 
+ []
+
+) [34] [35 <./figures/se2_four_BCH.png>] [36 <./figures/se2_pt_taylor.png>]
+[37 <./figures/se2_boxplot.png>] (./main.bbl [38
 
 
-
-] (./main.bbl [34
-
-
-] [35] [36] [37] [38])
+] [39] [40] [41] [42])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
- [39]
+ [43]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
- (./main.aux
-(./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
+
+(./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
 (./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
 (./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 225.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B3C3C9C8945248D4A07D5E77E8BEF3C1;3387.
+(rerunfilecheck)             Checksum: CE05808B3AF7ED6518DAD98DC9951A7F;3674.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 225.
  ) 
 Here is how much of TeX's memory you used:
- 8214 strings out of 493117
- 114138 string characters out of 6135433
- 238257 words of memory out of 5000000
- 11255 multiletter control sequences out of 15000+600000
+ 8256 strings out of 493117
+ 114849 string characters out of 6135433
+ 238640 words of memory out of 5000000
+ 11275 multiletter control sequences out of 15000+600000
  18251 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,15n,43p,1095b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,15n,43p,1095b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></
@@ -1000,10 +1055,10 @@ f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 14/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (45 pages, 809532 bytes).
+Output written on main.pdf (49 pages, 913513 bytes).
 PDF statistics:
- 845 PDF objects out of 1000 (max. 8388607)
- 753 compressed objects within 8 object streams
- 229 named destinations out of 1000 (max. 500000)
- 361 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 913 PDF objects out of 1000 (max. 8388607)
+ 810 compressed objects within 9 object streams
+ 248 named destinations out of 1000 (max. 500000)
+ 400 words of extra memory for PDF output out of 10000 (max. 10000000)
 
