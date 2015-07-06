@@ -17,12 +17,12 @@
 
 %%introductory definition
 We consider every group $\mathbb{G}$ as a group of transformations acting on $\mathbb{R}^{d}$, having in mind the particular case $d=2,3$ for 2-dimensional or 3-dimensional images.
-We will focus out attention to transformations defined by matrices or diffeomorphism. Other than group they also have the structure of Lie group: they are considered with a maximal atlas that makes them differentiable manifold, in which the composition of two transformation and the inverse of each transformation are well defined differentiable maps:
+We will focus our attention to transformations defined by matrices or diffeomorphism. Other than group they also have the structure of Lie group: they are considered with a maximal atlas that makes them differentiable manifold, in which the composition of two transformation and the inverse of each transformation are well defined differentiable maps:
 \begin{align*}
 \mathbb{G} \times \mathbb{G} & \longrightarrow  \mathbb{G}    \\
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
-Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold and manipulate them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure. The abstract idea of vector field over a manifold will be concretized for image registration introducing the concepts of \emph{displacement field}, \emph{deformation field} and \emph{velocity field (stationary or time varying)} that will be there presented. 
+Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold and manipulate them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure.
 Due to space limitations we will refer to \cite{do1976differential}, \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -41,27 +41,27 @@ It satisfies the following properties:
 	\item $\exp(t\mathbf{v}) =\gamma(t) $.
 	\item $\exp(\mathbf{v}) = e$ if $\mathbf{v} = \mathbf{0}$.
 	\item $\exp(\mathbf{v})\circ \exp(\mathbf{-v})  = e$
-	\item The exponential function satisfies the one parameter subgroup property:
+	\item It satisfies the one parameter subgroup property:
 	\begin{align*}
 	\exp((t+s)\mathbf{v}) = \gamma(t+s) = \gamma(t)\circ \gamma(s) = \exp(t\mathbf{v})\exp(s\mathbf{v})
 	\end{align*}
 	\item $\exp(\mathbf{v})$ is invertible and $(\exp(\mathbf{v}))^{-1} = \exp(-\mathbf{v})$.
-	\item $\exp$ is a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $e$ in $\mathbb{G}$.
+		\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{v}}{m}) \circ\exp(\frac{\mathbf{v}}{m}))^{m}$
+	\item $\exp$ is a local isomorphism: which means that it is an isomorphisms between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $e$ in $\mathbb{G}$.
 \end{enumerate}
 The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus.\\
-When we deal with a matrix Lie group of dimension $n$, we have the following remarkable properties:
+
+When we deal with a matrix Lie group of dimension $n$, the composition in the Lie group consists in the matrix product and we have the following remarkable properties \cite{hall2015lie}, \cite{kirillov2008introduction}:
 \begin{enumerate}
 	\item for all $\mathbf{v}$ in a matrix Lie algebra $\mathfrak{g}$:
-	\begin{align*}
+	\begin{align}\label{eq:exp_as_inf_sum}
 	\exp(\mathbf{v}) = \sum_{k=0}^{\infty} \frac{\mathbf{v}^{k}}{k!}
-	\end{align*}
+	\end{align}
 	\item If $\mathbf{u}$ and $\mathbf{v}$ are commutative then $\exp(\mathbf{u} + \mathbf{v}) = \exp(\mathbf{u})\exp(\mathbf{v})$.
 	\item If $\mathbf{c}$ is an invertible matrix then $\exp(\mathbf{c}\mathbf{v}\mathbf{c}^{-1}) = \mathbf{c}\exp(\mathbf{v})\mathbf{c}^{-1}$.
 	\item $\det(\exp(\mathbf{v})) = \exp(\text{trace}(\mathbf{v}))$
 	\item For any norm, $\euclideanMetric{\exp(\mathbf{v})} \leq \exp(\euclideanMetric{\mathbf{v}})$.
-	\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{v}}{m})\exp(\frac{\mathbf{v}}{m}))^{m}$
-	\item If $\exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$ then $\exp(\mathbf{-w}) = \exp(\mathbf{-v}) \circ \exp(\mathbf{-u})$.
-	%\item For $\text{ad}$ adjoint map in the Lie algebra we have $ \exp(\text{Ad}_{\mathbf{u}}\mathbf{v} ) = \text{Ad}_{\mathbf{u}}\exp(\mathbf{v})$
+	\item If $\exp(\mathbf{w}) = \exp(\mathbf{u})  \exp(\mathbf{v})$ then $\exp(\mathbf{-w}) = \exp(\mathbf{-v}) \exp(\mathbf{-u})$.
 \end{enumerate}
 The idea of defining an inverse of the Lie exponential leads to the idea of the Lie logarithm, defined
 \begin{align*}
@@ -70,14 +70,13 @@ p &\longmapsto \log (p)  =  \mathbf{v}
 \end{align*}
 where $\mathbf{v}  $ is the tangent vector having $p$ as it $\exp$.\\
 
-
 \noindent
 If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties hold:
 \begin{enumerate}
 	\item for all $\mathbf{v}$ in the matrix Lie algebra $\mathfrak{g}$:
-	\begin{align*}
+	\begin{align}\label{eq:log_as_inf_sum}
 	\log(\mathbf{v}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k!}
-	\end{align*}
+	\end{align}
 	where $I$ is the identity matrix.
 	\item For any norm, and for any $n\times n$ matrix $\mathbf{c}$, exists an $\alpha$ such that 
 	\begin{align*}
@@ -88,20 +87,19 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 	\lim_{k\rightarrow \infty} \big( I + \frac{\mathbf{c}}{k} + \mathbf{d}_{k} \big)^{k} = \exp{(\mathbf{c})}
 	\end{align*}
 \end{enumerate} 
-Here we may see the beginning of the problem we have to deal with for the rest of the research, when passing from the finite dimensional case to the infinite dimensional case.\\
-The domain of the logarithm is the matrix Lie group in which only the composition is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense (and satisfy remarkable properties) when applied to the $\log$. In addition the domain of the exponential is the matrix Lie algebra, but the exponential can be nevertheless applied to any matrix.\\
-\emph{This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrix}. In this structure the operation of sum is still defined over the group that admits only compositions, and infinite series are doors to pass from the structure of group to the algebra and vice versa. When presenting the rigid body transformation in chapter \ref{ch:spatial_transformations} we will see another couple of access doors based on numerical approximations.\\
+Here it may be possible to see the beginning of the problem we have to deal with for the rest of the research, each time passing from the finite dimensional case to the infinite dimensional case.\\
+The domain of the logarithm is the matrix Lie group $\mathbb{G}$ in which only the composition (the matrix product) is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense, and satisfy remarkable properties, when applied to the $\log$. In addition the domain of the exponential is the matrix Lie algebra $\mathfrak{g}$, but the exponential can be nevertheless applied to any matrix, and still be defined.\\
+\emph{This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrices $GL(n)$ \cite{kirillov2008introduction}}. In this structure the operation of sum is still defined over the group that in the general case admits only compositions, and the infinite series \ref{eq:exp_as_inf_sum}, \ref{eq:log_as_inf_sum} are doors to pass from the structure of group to the algebra and vice versa. When presenting the rigid body transformation in chapter \ref{ch:spatial_transformations} we will may open another couple of access doors based on numerical approximations.\\
 
-When dealing with diffeomorphism in practical application we have to deal with a theoretical and a practical issues: 
+When dealing with diffeomorphism in practical application we have to deal also with a theoretical:
 on one side the
 the operations in Lie algebra are not compatible with the composition in the Lie group: expression as $e + \mathbf{v}$ contains a sum that is undefined (and therefore meaningless) in the Lie group structure.
 On the other side 
-the (extremely) continuous nature of diffeomorphisms is not compatible with the (extremely) discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. The only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, scaling and squaring and inverse scaling and squaring are proposed for the computation of exponential and logarithm respectively; they transform a discretized vector field in another discretized vector field, while theoretical domain and codomain of these transformations are radically different. In addition, as shown in \cite{hernandez2008comparing} for some parameters of Stationary LDDMM and the diffeomorphic Demons the diffeomorphisms involved do not preserve the signs of the Jacobian determinant, and therefore are not diffeomorphisms anymore. \\
-A different situation arises when dealing with classic Lie group: their matrix representation is not only ideal for implementation, but the Lie algebra $\mathfrak{g}$ of a classic Lie group $\mathbb{G}$ can be still represented with a set of matrices whose sum and products are compatible with the composition, since $\mathfrak{g}$ and $\mathbb{G}$ are both subset of a bigger algebra of the general linear group $GL(n)$ \cite{kirillov2008introduction}. case the exponential and logarithm have domain and codomain in the appropriate restriction of $GL(n)$. \\
+the (extremely) continuous nature of diffeomorphisms is not compatible with the (extremely) discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. The only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, \emph{scaling and squaring} and \emph{inverse scaling and squaring} are proposed for the computation of exponential and logarithm respectively; these algorithms transform a discretized vector field in another discretized vector field, while theoretical domain and codomain of these transformations are radically different. In addition, as shown in \cite{hernandez2008comparing} for some parameters of Stationary LDDMM and the diffeomorphic Demons the diffeomorphisms involved do not preserve the signs of the Jacobian determinant, and therefore are not diffeomorphisms anymore. \\
 
-The passage from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only discrete vector fields to deal with, where operations within Lie algebra and Lie group are not anymore compatible. The strategy here proposed is to define an operation in the Lie algebra Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$ that reflects the properties of the composition in the corresponding Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$.\\
+The passage from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only discrete vector fields to deal with, where operations within Lie algebra and Lie group are not anymore compatible. The strategy here proposed is to define an operation in the Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$ that reflects the properties of the composition in the corresponding Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$.\\
 
-The Lie log-composition (because based on the Lie log and exp maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
+The Lie log-composition (because based on the Lie logarithm and Lie exponential maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
 \begin{align}\label{eq:main_def_log_composition}
 \oplus : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
 (\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
@@ -132,15 +130,15 @@ Following properties holds for the Lie log-composition:
 \end{enumerate}
 
 \noindent
-We refer to $(\mathfrak{g} , \oplus)$ as the Lie Log-group. Additional observation of this algebraic structure in the particular case of diffeomorphisms, are contained in the next chapter.\\
-To compute the log-composition there is a formula, the BCH (for Lie group \cite{hall2015lie}, general case \cite{wojtynski1994one}, applied to medical imaging \cite{vercauteren08}), that provides the exact solution to the Log-composition. 
+The algebraic structure $(\mathfrak{g} , \oplus)$ is called Lie log-group. Additional observations on this algebraic structure in the particular case of diffeomorphisms, are proposed in the next chapter.\\
+To compute the log-composition there is a formula, the BCH (for matrix Lie group \cite{hall2015lie}, general case \cite{wojtynski1994one}, applied to medical imaging \cite{vercauteren08}), that provides the exact solution to the Log-composition. 
 \begin{align*}
 BCH(\mathbf{u},\mathbf{v}) 
 = 
 \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
-This expansion will provide the most immediate way to obtain a numerical computation of the log-composition.
+This expansion will provide the most immediate way to obtain a numerical computation of $\mathbf{v}_{1}\oplus \mathbf{v}_{2}$.
 
 %
 %% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -148,100 +146,61 @@ This expansion will provide the most immediate way to obtain a numerical computa
 %% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 %\section{Affine Exponential, Affine logarithm and affine log-composition}\label{se:affine_exp_log_comp}
 %
-%Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$ (that provides geodesics and curvature over manifold on which no Riemannian metric has been defined, see \cite{do1992riemannian}), the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the covariant derivative of $U$ in the direction of $V$. \\
-%First consequence of the definition of the connection is the possibility of define \emph{geodesics} between points $p$ and $q$ of the manifold. A geodesic is a curve $\gamma$ such that:
-%\begin{align*}
-%\gamma:[0,1] \longrightarrow \mathbb{G} \qquad \gamma(0)=p,~ \gamma(1) = p,~ \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
-%\end{align*} 
-%Note that in this case the concept of geodesic did not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection (see \cite{do1992riemannian}).
-%A connection is said to be left invariant if it is closed for left invariant vector fields, i.e. if for any $V, W \in Left\mathcal{V}(\mathbb{G}) $ their connection $ \nabla_{U}V$ is still left invariant.\\
-%
-%\noindent
-%Second straight consequence of the definition of connection allows us to define a new kind of exponential from the Lie algebra to the Lie group that relies on the concept of geodesics. This time the tangent plane that defines the Lie algebra is considered at the point $p$ of the Lie group and $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ is a tangent vector at the point $p$: 
-%\begin{align*}
-%\exp :  \mathbb{G}  \times \mathfrak{g}     &\longrightarrow \mathbb{G}  
-%\\ 
-%(p,\mathbf{v}) &\longmapsto \exp_{p}(\mathbf{v})  = \gamma(1; p,\mathbf{v})
-%\end{align*}
-%The curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique one with the following features:  
-%\begin{align*}
-%\gamma(0) = p\qquad  \dot{\gamma}(0) =  \mathbf{v} \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
-%\end{align*}
-%This second kind of exponential is called affine exponential.\\
-%The following properties hold:
-%\begin{enumerate}
-%	\item If $\nabla$ is a Cartan connection then $\exp_{e}$ and $\exp$ coincides.
-%	\item For all $p$ in $\mathbb{G}$, $\mathbf{v} \in T_{p}\mathbb{G}$ and $t$ real
-%	\begin{align*}
-%	\exp _{p}(t\mathbf{v})  = \gamma(t; p,\mathbf{v})
-%	\end{align*}
-%	\item Given $\mathbf{u} \in T_{e}\mathbb{G}$, $\mathbf{v} \in T_{\exp _{e}(\mathbf{u})}\mathbb{G}$, exists a $\mathbf{w} \in T_{e}\mathbb{G}$ such that 
-%	\begin{align*}
-%	\exp_{e}(\mathbf{w})  = \exp_{\exp _{e}(\mathbf{u})}(\mathbf{v}) \circ  \exp _{e}(\mathbf{u})
-%	\end{align*}
-%	\item If $V$ is a unitary left-invariant vector field, then for $V_{e} \in T_{e}\mathbb{G}$
-%	\begin{align*}
-%	\exp_{e}(2V_{e})  = \exp_{\exp _{e}(V_{e})}(V_{\exp _{e}(V_{e})}) \circ  \exp _{e}(V_{e})
-%	\end{align*}
-%\end{enumerate}
-%Last two properties provides the intuitive idea that it is possible to move on the fiber bundle of the Lie group transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possess a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same Lie algebra structure) may not be oriented in the same way. \\
-%
-%\noindent
-%To approach the inverse of the affine exponential we consider the affine logarithm:
-%\begin{align*}
-%\log :  \mathbb{G}  \times \mathbb{G}   \longrightarrow T_{p}\mathbb{G}   \simeq \mathfrak{g} 
-%\\ 
-%(p,q) \longmapsto \log_{p}(q)  = \mathbf{v} 
-%\end{align*}
-%Where $\mathbf{v} $ is the vector at the tangent plane defined at $p$ such that the curve on $\mathbb{G} $ with the following features
-%\begin{align*}
-%\gamma(0) = p\qquad  \gamma(1) = q \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
-%\end{align*}
-%has as its tangent in $p$ the vector $\mathbf{v}$.\\
-%
-%\noindent
-%Any Lie group $\mathbb{G}$ considered with a left-invariant connection $\nabla$ can be equipped with a metric,  based on the elements of its tangent space and on the log, for example: 
-%\begin{align*} 
-%\text{dist}(x,y) := \euclideanMetric{\log_{e}(x^{-1}\circ y) } \qquad \forall x, y \in \mathbb{G}
-%\end{align*}
-%This metric is not necessarily coincident with the Riemannian one. \\
-%
-%Is now time to extend the definition of Log-composition, with the definition of affine logarithm and affine exponential. The first step is to extend the definition of internal cut locus of the Lie algebra, even when not centered at the zero. 
-%If the tangent space is not considered at $e$ of $\mathbb{G}$ but at some general point $p$, we still have a diffeomorphism between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $p$ in $\mathbb{G}$. The internal cut locus of $\mathfrak{g}$ this time is based on $p$ and it is denoted with $C_{\mathfrak{g}}(p)$.\\
-%\noindent
-%Given a point $p_1$ and a vector $\mathbf{v}_{1}$ on its tangent space $T_{p_1}\mathbb{G}$, the \emph{affine Log-composition} is defined as the operation $\tilde{\oplus} $ over the fiber bundle of $\mathbb{G}$ such that 
-%\begin{align*}
-%\cdot ~ \tilde{\oplus} ~ \mathbf{v}_{1}  : T_{\exp_{p_1}(\mathbf{v}_{1})}\mathbb{G}  & \longrightarrow T_{p_1}\mathbb{G}   
-%\\
-%\mathbf{v}_{2}&\longmapsto \mathbf{v}_{2}~\tilde{\oplus}~ \mathbf{v}_{1}
-%=
-%\log_{p_1}(\exp_{\exp_{p_1}(\mathbf{v}_{1})}(\mathbf{v}_{2})\circ\exp_{p_1}(\mathbf{v}_{1}))
-%\end{align*}
-%Note that not necessarily $\mathbf{v}_{1}~\tilde{\oplus}~ \mathbf{v}_{2}$ is a vector belonging to the internal cut locus based on the starting point $p_{1}$.
-%
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Parallel Transport: Definition and Properties}\label{se:parallel_transport}
+\section{Affine Exponential, Affine Logarithm and Parallel Transport: Definition and Properties}\label{se:parallel_transport}
 
-In this section we introduce the concept of parallel transport for a generic Lie group $\mathbb{G}$. On this definition, again borrowed from differential geometry (for introduction and general definition: \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild}. For medical imaging applications \cite{lorenzi2011schild}, \cite{lorenzi2013geodesics} \cite{lorenzi2014efficient}, \cite{pennec2011parallel} ), relies an important method for the computation of the Log-composition.
+Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$ (that provides geodesics and curvature over manifold on which no Riemannian metric has been defined, see \cite{do1992riemannian}), the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the covariant derivative of $U$ in the direction of $V$. \\
+First consequence of the definition of the connection is the possibility of define \emph{geodesics} between points $p$ and $q$ of the manifold. 
+Note that in this case the concept of geodesic does not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection (see \cite{do1992riemannian}).
+
+Another consequence of the definition of connection allows to define a new kind of exponential from the Lie algebra to the Lie group that relies on the concept of geodesics. This time the tangent plane that defines the Lie algebra is considered at the point $p$ of the Lie group and $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ is a tangent vector at the point $p$: 
+\begin{align*}
+\exp :  \mathbb{G}  \times \mathfrak{g}     &\longrightarrow \mathbb{G}  
+\\ 
+(p,\mathbf{v}) &\longmapsto \exp_{p}(\mathbf{v})  = \gamma(1; p,\mathbf{v})
+\end{align*}
+The curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique one with the following features:  
+\begin{align*}
+\gamma(0) = p\qquad  \dot{\gamma}(0) =  \mathbf{v} \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
+\end{align*}
+This second kind of exponential is called \emph{affine exponential}.\\
+
+\noindent
+The inverse of the affine exponential, the affine logarithm is defined as:
+\begin{align*}
+\log :  \mathbb{G}  \times \mathbb{G}   \longrightarrow T_{p}\mathbb{G}   \simeq \mathfrak{g} 
+\\ 
+(p,q) \longmapsto \log_{p}(q)  = \mathbf{v} 
+\end{align*}
+Where $\mathbf{v} $ is the vector at the tangent plane defined at $p$ such that the curve on $\mathbb{G} $ with the following features
+\begin{align*}
+\gamma(0) = p\qquad  \gamma(1) = q \qquad \nabla_{\dot{\gamma}}\dot{\gamma} = 0 
+\end{align*}
+has as its tangent in $p$ the vector $\mathbf{v}$.\\
+
+For further details and properties properties we refer to the literature; here we wish to provide only the intuitive idea that it is possible to move on the fiber bundle of the Lie group transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possess a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same Lie algebra structure) may not be oriented in the same way. \\
+
+In this section we introduce the concept of parallel transport for the Lie group $\mathbb{G}$. On this definition, again borrowed from differential geometry (for introduction and general definition: \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild} and \cite{warner} for a definition of tangent vector field well suited for the parallel transport. For medical imaging applications \cite{lorenzi2011schild}, \cite{pennec2011parallel}, \cite{lorenzi2013geodesics}, \cite{lorenzi2014efficient}), relies a method for the computation of the log-composition developed in this research for the first time.
 
 \begin{definition}
-	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, then the vector $V_{p} \in T_{p}\mathbb{G}$, belonging to some vector field $V$ is parallel transported along $\gamma$ up to $T_{q}\mathbb{G}$ if $V$ satisfies
+	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$ and $V$ a $\mathcal{C}^{\infty}$ vector field defined over $\mathbb{G}$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, the vector $V_{p} \in T_{p}\mathbb{G}$, is \emph{parallel transported along $\gamma$} up to $T_{q}\mathbb{G}$ if $V$ satisfies
 	\begin{align*}
 	\forall t \in  [0,1]
 	\qquad
 	\nabla_{\dot{\gamma}}V_{\gamma(t)} = 0
 	\end{align*}
-	The parallel transport is the function that maps $V_{p}$ from $T_{p}\mathbb{G}$ to $T_{q}\mathbb{G}$ along $\gamma$:
+	The \emph{parallel transport} is the function that maps $V_{p}$ from $T_{p}\mathbb{G}$ to $T_{q}\mathbb{G}$ along $\gamma$:
 	\begin{align*}
 	\Pi(\gamma)_{p}^{q} :  T_{p}\mathbb{G} & \longrightarrow T_{q}\mathbb{G}  \\
 	V_{p}&\longmapsto \Pi(\gamma)_{p}^{q}(V_{p}) = V_{q}
 	\end{align*}
 \end{definition}
 \noindent
-In the next properties we explore how did parallel transport and affine exponential behave when expressed as a composition and when there are changing in the signs.
+In the next properties we explore how did parallel transport and affine exponential behave when expressed as a composition and when the signs change.
 \begin{prop}[Inversion]
 	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= p$, $\gamma(1)=q$ and $\mathbf{u}\in T_{p}\mathbb{G}$, we have:
 	\begin{enumerate}
@@ -307,7 +266,7 @@ In the next properties we explore how did parallel transport and affine exponent
 The following theorem is an application of the pole ladder \cite{lorenzi2011schild} for the computation of the exponential that will underpin one of the numerical methods for the computation of the log-composition.
 \begin{theorem}\label{th:local_approximation_theorem}
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a Cartan connection $\nabla$. 
-	If, for each couple of linearly independent vectors $\mathbf{u}, \mathbf{v} \in T_{e}\mathbb{G}$, we consider the following elements:
+	If, for each couple of linearly independent vectors $\mathbf{u}, \mathbf{v} \in T_{e}\mathbb{G}$, the following conditions hold:
 	\begin{align*}
 	a = \exp_{e}(\mathbf{u}) 
 	\quad & \quad  
@@ -350,7 +309,7 @@ When considering the equation \ref{eq:lemma_pt}, we use implicitly the formula f
 \end{align}
 \noindent
 Further theoretical developments are beyond the aim of this research, but the reader can refer to the bibliography.
-
+In the next section we present the numerical methods for the computation of the log composition.
 
 
 
@@ -360,9 +319,9 @@ Further theoretical developments are beyond the aim of this research, but the re
 \section{Numerical Computations of the Log-composition}
 
 In this section we provide explicit formulas for the computation of the log composition:
-\begin{align*}
+\begin{align}\label{eq:general_numerical_log_composition}
 \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
-\end{align*}
+\end{align}
 using the tools introduced in the previous sections.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -370,7 +329,7 @@ using the tools introduced in the previous sections.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Truncated BCH formula for the Log-composition}\label{se:bch_formula}
 
-To compute the Lie log-composition, literature provides the BCH formula (for matrices \cite{hall2015lie}, general case: \cite{klarsfeld1989baker} , \cite{serre2009lie}), defined as the solution of the equation $exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
+To compute the Lie log-composition, literature provides the BCH formula (for matrices \cite{hall2015lie}, general case: \cite{klarsfeld1989baker} , \cite{serre2009lie}), defined as the solution of the equation $\exp(\mathbf{w}) = \exp(\mathbf{u}) \circ \exp(\mathbf{v})$, for $\bf{u}$ and $\bf{v}$ in the Lie algebra $\mathfrak{g}$:
 \begin{align}\label{eq:bch_definition}
 	BCH(\mathbf{u},\mathbf{v}) 
 	= 
@@ -381,7 +340,8 @@ It consists of an infinite series of Lie bracket whose asymptotic behaviour cann
 \begin{align*}
 BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
 BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
-BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])
+BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) \\
+BCH^{3}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])- \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] 
 \end{align*}
 These numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{v}$ can be considered as a first step but are not satisfactory since they do not provide any condition to consider the error carried by each term.
 
@@ -391,7 +351,7 @@ These numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Taylor Expansion Method for the Log-composition}\label{se:taylor_expansion}
 
-A more sophisticated numerical method for the computation of the log-composition that relies on the Taylor expansion, that holds only for matrix Lie groups. \\
+A more sophisticated numerical method to manage the nested Lie brackets for the computation of the log-composition is based on the Taylor expansion. \\
 As shown in the appendix of \cite{klarsfeld1989baker} the terms of the BCH can be recollected using the Hausdorff method: each of the therm containing the n-th power of the vector $\mathbf{v}$ are collected together in the formal series $V^{n}$. Therefore
 \begin{align*}
 %\mathbf{u}\oplus \mathbf{v}  
@@ -415,7 +375,7 @@ and the multiple adjoint maps, defined as:
 &:= [[...[  \mathbf{v}, \underbrace{   \mathbf{u}]...],\mathbf{u}}_{\text{n-times}}]
 = (-1)^n \text{ad}_{\mathbf{u}}^{n} \mathbf{v} 
 \end{align*}
-it can be proved that the operator $V_{1}$ that when applied to $\mathbf{v}$ provides the linear part of $\mathbf{v}$ in the BCH results in
+it can be proved that hen the operator $V^{1}$ is applied to $\mathbf{v}$, it provides the linear part of $\mathbf{v}$ in the BCH formula. It results
 \begin{align*}
 V_{1}
 = 
@@ -429,7 +389,7 @@ V_{1}
 =
 \sum_{n=0}^{\infty} \frac{B_{n}}{n!} \text{ad}_{\mathbf{u}}^{ n} 
 \end{align*}
-Where $\lbrace B_{n} \rbrace_{n=0}^{\infty} $ is the sequence of the second-kind Bernoulli number. If first-kind Bernoulli number are used, then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in \cite{klarsfeld1989baker}. The denominator is defined within the structure of the formal power series ring \cite{mariconda2013calcolo}.\\
+where $\lbrace B_{n} \rbrace_{n=0}^{\infty} $ is the sequence of the second-kind Bernoulli number. If first-kind Bernoulli number are used, then each term of the summation must be multiplied for $(-1)^{n}$, as did for example in \cite{klarsfeld1989baker}. The denominator is defined within the structure of the formal power series ring \cite{mariconda2013calcolo}.\\
 In conclusion, the log-composition can expressed as:
 \begin{align*}
 \mathbf{u}\oplus \mathbf{v}  
@@ -453,13 +413,14 @@ In conclusion, the log-composition can expressed as:
 +
 \mathcal{O}(\mathbf{v} ^2)
 \end{align}
-that will turn out to be an important tool for the computation of the log-composition in the finite dimensional case. 
+that will turn out to be an important tool for the computation of the log-composition in the finite dimensional case. \\
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Parallel Transport Method for the Log-composition}
-To obtain a numerical computation for the log-composition using parallel transport, three assumptions has to be made: 
+To obtain a numerical computation for the log-composition using parallel transport, we have to consider two assumptions: 
 \begin{enumerate}
 	\item If $\mathbf{v}^{\parallel} $ is defined as in theorem \ref{th:local_approximation_theorem}, then exists an $\hat{\epsilon} > 0$ such that
 	\begin{align*}
@@ -476,7 +437,8 @@ To obtain a numerical computation for the log-composition using parallel transpo
 		\exp(\mathbf{u}) \simeq e + \mathbf{u}
 		\end{align*}
 \end{enumerate}
-The second condition is valid if the hypothesis of proposition 8.6 pag. 163 \cite{younes2010shapes} holds. A deepening in this direction is not in the scope of this research. For our purposes we will consider $\mathbf{w}$ small enough to make the approximation questioned here reasonable.\\
+The first assumption is a consequence of geometrical intuition, while
+the second one is valid if the hypothesis of proposition 8.6 pag. 163 \cite{younes2010shapes} holds. A deepening in this direction is not in the scope of this research. For our purposes we will consider the vector $\mathbf{w}$ small enough to make the approximation questioned here reasonable.\\
 
 From these assumptions and from equation \ref{eq:parallel_transport_main_approximation} it follows that 
 \begin{align*}
@@ -502,12 +464,12 @@ Therefore
  -
  e
 \end{align}
-This is the third numerical method for the computation of the log-composition explored in this thesis.\\
+With the truncated BCH and the Taylor expansion, this is the third numerical method for the computation of the log-composition explored in this thesis.\\
 We have to notice that when we apply it on the infinite dimensional case, the approximation \ref{eq:parallel_transport} holds under the following additional assumption:
 \begin{enumerate}
 \item[3.] Theorem \ref{th:local_approximation_theorem} holds when the Lie group is infinite dimensional.
 \end{enumerate}
-whose eventual confirmation is at the moment not known to the author. We assume it is true in coherence with what has been said in the introduction, section \ref{se:diffe_util_and_liab}.
+An eventual confirmation is at the moment not known to the author. We assume it is true in coherence with what has been said in the introduction, section \ref{se:diffe_util_and_liab}.
 
 
 

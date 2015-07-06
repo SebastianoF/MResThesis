@@ -169,6 +169,12 @@ Monica Hernandez, Salvador Olmos, and Xavier Pennec.
 \newblock In {\em 2nd MICCAI workshop on mathematical foundations of
   computational anatomy}, pages 24--35, 2008.
 
+\bibitem[HS81]{horn1981determining}
+Berthold~K Horn and Brian~G Schunck.
+\newblock Determining optical flow.
+\newblock In {\em 1981 Technical Symposium East}, pages 319--331. International
+  Society for Optics and Photonics, 1981.
+
 \bibitem[KKK08]{kirillov2008introduction}
 Alexander~A Kirillov, Aleksandr~Aleksandrovi{\v{c}} Kirillov, and
   Aleksandr~Aleksandrovi{\v{c}} Kirillov.

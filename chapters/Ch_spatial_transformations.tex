@@ -5,14 +5,13 @@
 	\emph{Every working mathematician knows that if one does not control oneself (best of all by examples), then after some ten pages half of all the signs in formulae will be wrong and twos will find their way from denominators into numerators. \\ -V.I. Arnold}
 \end{flushright}
 
-In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. They can be applied for several groups of transformation. In this research we show how they behave on two selected groups:
+In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, in this chapter we will see how they can be applied for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields:
 \begin{enumerate}
-	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is the optimal playground to test the numerical methods introduced so far. Here all the closed form can be derived analytically, and therefore a ground truth is always available for comparisons. A representation of this Lie group as a subgroup of the real linear group $GL(2)$, with corresponding Lie algebra will be provided, with all of the closed form of the numerical computations presented in this research.
-	\item[SVF -] The subgroup of the set of diffeomorphisms parametrized by SVF, is the second group used to test the numerical methods here presented for the computation of the log-composition. Each one of the numerical methods can be applied for the composition of SVF in the diffeomorphic demons and for the log-demons. In this case we do not know any closed form, but if we consider an improper norm in the space of transformation we still have a method to compare SVF and assess the quality of the results.
+	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods introduced so far, since results can be compared with a closed form.
+	A representation of this Lie group as a subgroup of the general linear group $GL(2)$, with corresponding Lie algebra will be provided, with closed form for the log-computation.
+	\item[SVF -] The subgroup of the set of diffeomorphisms parametrized by SVF, is the second group utilized to test the numerical methods here presented for the computation of the log-composition. In this case we do not know any closed form, but if we consider an \lq\lq improper norm\rq\rq~ in the space of transformation we still have a method to compare SVF and assess the quality of the results.
 \end{enumerate}
 
-\noindent
-Since each of the theoretical elements at the core of the Lie group theory, depends strongly on the transformations considered, in this chapter we will see how they can be applied for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields.
 
 \section{The Lie Group of Rigid Body Transformations}\label{se:rigid_body_transformations}
 % group
@@ -50,8 +49,8 @@ y
 +
 \left (  
 \begin{array} {c }
-t_x \\
-t_y
+t^x \\
+t^y
 \end{array}
 \right ) 
 \end{align*}
@@ -60,7 +59,7 @@ We can represent the elements of $SE(2)$ in two different form: as ternary vecto
 \begin{align*}
 SE(2)^{v} 
 :=
-\{ (\theta, t_x, t_y) \mid \theta \in [0, 2\pi),   t_x, t_y \in\mathbf{R}^2  \}
+\{ (\theta, t^x, t^y) \mid \theta \in [0, 2\pi),   t^x, t^y \in\mathbf{R}^2  \}
 \end{align*}
 or with matrices (matrix form)
 \begin{align*}
@@ -76,13 +75,13 @@ R(\theta) & t \\
 =
 \left (
 \begin{array} {c c c }
-\cos(\theta) & - \sin(\theta)& t_{x} \\
-\sin(\theta) & \cos(\theta) & t_{y}\\
+\cos(\theta) & - \sin(\theta)& t^{x} \\
+\sin(\theta) & \cos(\theta) & t^{y}\\
 0 & 0 &  1
 \end{array}
 \right )
 \mid
-\theta \in  [0, 2\pi), (t_x, t_y) \in\mathbf{R}^2
+\theta \in  [0, 2\pi), (t^x, t^y) \in\mathbf{R}^2
 \right \}
 \end{align*}
 The group $SE(2)$ it is a manifold with a differentiable structure compatible with the operation of composition, whose Lie algebra is given in matrix form by (see \cite{hall2015lie, gallier2011geometric} for an introduction).
@@ -98,8 +97,8 @@ dR(\theta) & dt \\
 =
 \left (
 \begin{array} {c c c }
-0 & -\theta &  dt_{x} \\
-\theta & 0 & dt_{y} \\
+0 & -\theta &  dt^{x} \\
+\theta & 0 & dt^{y} \\
 0& 0 & 0
 \end{array}
 \right )
@@ -107,7 +106,7 @@ dR(\theta) & dt \\
 \theta \in  [0, 2\pi), (tx, ty) \in\mathbf{R}^2
 \right \}
 \end{align*}
-and it is indicated with $\mathfrak{se}(2)^{v}$ in its vector form.\\
+and it is indicated with $\mathfrak{se}(2)^{v}$ in its restricted form.\\
 
 Given $r$, element of $SE(2)$ with $\theta\neq 0$. Its image with the Lie group logarithm is
 \begin{align*}
@@ -125,8 +124,8 @@ dR(\theta) & L(\theta)t \\
 &=
 \left (
 \begin{array} {c c c}
-0   & - \theta& \frac{\theta}{2} (\frac{\sin(\theta)}{1-\cos(\theta)} t_x + t_y )\\
-\theta & 0     & \frac{\theta}{2} (- t_x + \frac{\sin(\theta)}{1-\cos(\theta)} t_y )\\
+0   & - \theta& \frac{\theta}{2} (\frac{\sin(\theta)}{1-\cos(\theta)} t^x + t^y )\\
+\theta & 0     & \frac{\theta}{2} (- t^x + \frac{\sin(\theta)}{1-\cos(\theta)} t^y )\\
 0 & 0 &  0
 \end{array}
 \right )
@@ -166,8 +165,8 @@ R(\theta) & L(\theta)^{-1}t \\
 &=
 \left (
 \begin{array} {c c c}
-\cos(\theta)   & - \sin(\theta)& \frac{1}{\theta} (\sin(\theta)dt_x - (1-\cos(\theta)) dt_y )\\
-\sin(\theta) & \cos(\theta)     & \frac{1}{\theta} (- (1-\cos(\theta))dt_x + \sin(\theta) dt_y )\\
+\cos(\theta)   & - \sin(\theta)& \frac{1}{\theta} (\sin(\theta)dt^x - (1-\cos(\theta)) dt^y )\\
+\sin(\theta) & \cos(\theta)     & \frac{1}{\theta} (- (1-\cos(\theta))dt^x + \sin(\theta) dt^y )\\
 0 & 0 &  1
 \end{array}
 \right )
@@ -188,29 +187,29 @@ When $\theta$ is zero, $R(\theta)$ and $dR(\theta)$ coincide with the identity, 
 At this point it is important to notice that: 
 \begin{enumerate}
 	%infinite series 
-	\item The infinite series of matrices  do not raises any theoretical issues, since the sum is defined in the group as subset of a bigger algebra that contains both the Lie group and the Lie algebra. The infinite series of matrices appears to be the natural way to back and forth from the group to the algebra. A second door to passing from one structure to the other, when $\mathbf{r}$ has a little rotation element appears to be provided by the following approximations:
+	\item The infinite series of matrices  do not raises any theoretical issues, since the sum is defined in the group as subset of a bigger algebra that contains both the Lie group and the Lie algebra. It appears to be the natural way to move back and forth from the group to the algebra. A second door to passing from one structure to the other, when the rotation $\theta$ is little is provided by the following approximations:
 	\begin{align*}
 	\exp(r) \simeq I + r
 	\qquad 
 	\log(dr) \simeq dr - I
 	\end{align*}
-	In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta)^{-1} \simeq I$.
+	In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta) \simeq I$.
 	% restriction of the domain.
-	\item The map $\exp$ is not well defined over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dr_{0x}, dr_{0y})$ and $(\theta_1, dr_{1x}, dr_{1y})$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
+	\item The map $\exp$ is not well defined over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dt^{x}_0, dt^{y}_0)$ and $(\theta_1, dt^{x}_1, dt^{y}_1)$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
 	\begin{enumerate}
 		\item[i)] Exists an integer $k$ such that $\theta_0 = \theta_1 + 2k\pi$.
-		\item[ii)] the translation $(dr_{0x}, dr_{0y})$ coincides with $(dr_{1x}, dr_{1y})$ up to a factor $\frac{\theta_0 \mod 2\pi}{\theta_1}$.
+		\item[ii)] the translation $(dt^{x}_0, dt^{y}_0)$ coincides with $(dt^{x}_1, dt^{y}_1)$ up to a factor $\frac{\theta_0 \mod 2\pi}{\theta_1}$.
 	\end{enumerate}
-	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dr_{0x},d t_0y) = \exp(\theta_1, dr_{1x}, dr_{1y})$ it implies  $(\theta_0, dr_{0x}, dr_{0y}) = (\theta_1, dr_{1x}, dr_{1y})$.
+	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dt^{x}_0,d t_0y) = \exp(\theta_1, dt^{x}_1, dt^{y}_1)$ implies  $(\theta_0, dt^{x}_0, dt^{y}_0) = (\theta_1, dt^{x}_1, dt^{y}_1)$.
 	It can be easy to prove that the sought space is the quotient of $\mathfrak{se}(2)$ over the equivalence relation $\sim$, defined as 
 	\begin{align*}
-		(\theta_0, dr_{0x}, dr_{0y} & ) \sim (\theta_1, dr_{1x}, dr_{1y})
+		(\theta_0, dt^{x}_0, dt^{y}_0 & ) \sim (\theta_1, dt^{x}_1, dt^{y}_1)
 		\\
 		~^{\text{def}}&\iff
 		\\
 		\exists k\in\mathbb{Z} \mid \theta_0 = \theta_1 + 2k\pi 
 		&~\text{ and }~
-		(dr_{0x}, dr_{0y}) = \frac{\theta_0 \mod 2\pi}{\theta_1}(dr_{1x}, dr_{1y})
+		(dt^{x}_0, dt^{y}_0) = \frac{\theta_0 \mod 2\pi}{\theta_1}(dt^{x}_1, dt^{y}_1)
 	\end{align*}
 	The new algebra defined by the set of equivalence classes of this relation is indicated - with the standard convention, see \cite{artin2011algebra} - with $\mathfrak{se}(2)/\sim$. With this restriction of the domain$\exp$ is a bijection having $\log$ as its inverse.
 	What said so far can be summarize in the following commutative diagram:
@@ -247,22 +246,21 @@ At this point it is important to notice that:
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
 \subsection{Computations of Log-composition in $\mathfrak{se}(2)$}
-The log composition of two elements $dr_0 = (\theta_0, dr_{0x}, dr_{0y}), dr_1 = (\theta_1, dr_{1x}, dr_{1y})$ in $ \mathfrak{se}(2)/\sim$ is provided as a direct applications of the definitions provided for this case. It results
+The log-composition of two elements $dr_0 = (\theta_0, dt^{x}_0, dt^{y}_0)$ ans $dr_1 = (\theta_1, dt^{x}_1, dt^{y}_1)$ of $ \mathfrak{se}(2)/\sim$ results, in consequence of \cite{eq:general_numerical_log_composition} as
 \begin{align}\label{eq:log_composition_se2_closed_form}
 & dr_0 \oplus dr_1 =  \log(\exp(dr_0)\circ \exp(dr_1)) 
 \end{align}
-for the computation of the ground truth.\\
 The approximations of the log-composition using truncated BCH formulas are straightforward:
 \begin{align*}
 dr_0 \oplus dr_1 &\simeq  BCH^{0}(dr_0,dr_1 ) = dr_0 + dr_1  \\
 dr_0 \oplus dr_1 &\simeq BCH^{1}(dr_0,dr_1 ) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] \\
-dr_0 \oplus dr_1 &\simeq BCH^{2}(\mathbf{u},\mathbf{v}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}([dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]] )
+dr_0 \oplus dr_1 &\simeq BCH^{2}(dr_{0}, dr_{1}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}([dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]] )
 \end{align*}
 
-To compute the approximation with the Taylor method, and so to compute the equation \ref{eq:taylor}, we observe that the vector form of the Lie bracket is given by
+To compute the approximation with the Taylor method, and so to compute the equation \ref{eq:taylor}, we observe that the restricted form of the Lie bracket is given by
 \begin{align*}
 [dr_0, dr_1] &= (0, dR(\theta_0)dt_1 - dR(\theta_1)dt_0)^T \\
-& = (0, -\theta_0 dr_{1y} + \theta_1 dr_{0y} ,  \theta_0 dr_{1x} - \theta_1 dr_{0x})^T
+& = (0, -\theta_0 dt^{y}_1 + \theta_1 dt^{y}_0 ,  \theta_0 dt^{x}_1 - \theta_1 dt^{x}_0)^T
 \end{align*} 
 Therefore, the adjoint operator can be written in matrix form as a dual matrix of $dr$:
 \begin{align*}
@@ -270,8 +268,8 @@ Therefore, the adjoint operator can be written in matrix form as a dual matrix o
 \left (
 \begin{array} {c c c}
 0            &  0        &      0\\
-dr_y       &  0        & - \theta \\
-- dr_x   & \theta &  0
+dt^y       &  0        & - \theta \\
+- dt^x   & \theta &  0
 \end{array}
 \right )
 \end{align*} 
@@ -281,27 +279,27 @@ In fact, when applied to $dr_1$ it results in the Lie bracket:
 \left (
 \begin{array} {c c c}
 0            &  0        &      0\\
-dr_{0y}       &  0        & - \theta_0 \\
-- dr_{0x}   & \theta_0 &  0
+dt^{y}_0       &  0        & - \theta_0 \\
+- dt^{x}_0   & \theta_0 &  0
 \end{array}
 \right )
 \left (
 \begin{array} {c }
 \theta_1   \\
-dt_{1x}    \\
-dt_{1y}  
+dt^{x}_1   \\
+dt^{y}_1 
 \end{array}
 \right )
 =
 \left (
 \begin{array} {c }
 0  \\
--\theta_0 dt_{1y} + \theta_1 dt_{0y} \\ 
- \theta_0 dt_{1x} - \theta_1 dt_{0x} 
+-\theta_0 dt^{y}_1+ \theta_1 dt^{y}_0\\ 
+ \theta_0 dt^{x}_1- \theta_1 dt^{x}_0
 \end{array}
 \right )
 \end{align*} 
-To compute the Taylor approximation proposed in equation \ref{eq:taylor} of the log composition, indicating $dt^{\star} = (dt_{y}, - dt_{x})$ it can be proved easily by induction that
+To compute the Taylor approximation proposed in equation \ref{eq:taylor} of the log composition, indicating $dt^{\star} = (dt^{y}, - dt^{x})$ it can be proved easily by induction that
 \begin{align*}
 \text{ad}_{dr}^{n} 
 = 
@@ -330,7 +328,7 @@ dR(\theta)^{n-1}dt^{\star}      &  dR(\theta)^{n}
 \end{array}
 \right ) 
 \end{align*}
-We can split it in two part, the rotational part and the translational part. The rotational part, using the nature of Bernoulli numbers and its generative equation, when $\theta \neq 0$ become
+We can split it in two part, the rotational part $dR(\theta)^{n}$ and the translational part $dR(\theta)^{n-1}dt^{\star}$. The rotational part, using the nature of Bernoulli numbers and its generative equation, when $\theta \neq 0$ become
 \begin{align*}
 \sum_{n=0}^{\infty} \frac{B_{n}}{n!} dR(\theta)^{n}  
 &=
@@ -340,11 +338,11 @@ I + \frac{1}{2}dR(\theta) + (\sum_{n=1}^{\infty}\frac{B_{2n}}{2n!} (i \theta)^{2
 &=
 \frac{1}{2}dR(\theta) + (\sum_{n=0}^{\infty}\frac{B_{n}}{n!}(i \theta)^{n} - \frac{1}{2} i\theta) I  \\
 &=
-\frac{1}{2}dR(\theta) + (\sum_{n=0}^{\infty} \frac{i\theta e^{i\theta}}{e^{i\theta} - 1} - \frac{1}{2} i\theta) I  \\
+\frac{1}{2}dR(\theta) + (\frac{i\theta e^{i\theta}}{e^{i\theta} - 1} - \frac{1}{2} i\theta) I  \\
 &=
-\frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2} I  
+\frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2)} I  
 \end{align*}
-while for the translational part
+where the equation $dR(\theta)^{2n} =  (i \theta)^{2n}I  $. For the translational part we have
 \begin{align*}
 \sum_{n=1}^{\infty} \frac{B_{n}}{n!} dR(\theta)^{n-1} dt^{\star} 
 &=
@@ -352,11 +350,11 @@ dR(\theta)^{-1} \Big(\sum_{n=1}^{\infty}\frac{B_{n}}{n!} dR(\theta)^{n}\Big)dt^{
 &=
 dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty}\frac{B_{n}}{n!} dR(\theta)^{n} - I \Big)dt^{\star}  \\
 &=
-dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2} I  - I \Big) dt^{\star} \\ 
+dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2)} I  - I \Big) dt^{\star} \\ 
 &=
-dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2} I  - I \Big)dt^{\star} \\
+dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta /2}{\tan(\theta/2)} I  - I \Big)dt^{\star} \\
 &=
-\Big(\frac{1}{2} I + (\frac{\theta /2}{\tan(\theta/2} - 1)dR(\theta)^{-1}   \Big) dt^{\star}    \\
+\Big(\frac{1}{2} I + (\frac{\theta /2}{\tan(\theta/2)} - 1)dR(\theta)^{-1}   \Big) dt^{\star}    \\
 \end{align*}
 Finally the closed form for the Taylor approximation of the log-composition is \cite{vercauteren2014preprint}:
 \begin{align}\label{eq:taylor_se2}
@@ -384,11 +382,11 @@ where
 \begin{array} {c c c}
 1            &  0        &      0
 \\
--\frac{\theta_0/2 - \tan(\theta_0/2)}{\theta_0\tan(\theta_0/2)}  dr_{0x} + \frac{1}{2}dr_{0y}       
+-\frac{\theta_0/2 - \tan(\theta_0/2)}{\theta_0\tan(\theta_0/2)}  dt^{x}_0 + \frac{1}{2}dt^{y}_0       
 &  \frac{\theta_0 /2}{\tan(\theta_0/2)} 
 & - \theta_0/2 
 \\
--  \frac{1}{2} dr_{0x} -\frac{\theta_0/2 - \tan(\theta_0/2)}{\theta_0\tan(\theta_0/2)} dr_{0y}       
+-  \frac{1}{2} dt^{x}_0 -\frac{\theta_0/2 - \tan(\theta_0/2)}{\theta_0\tan(\theta_0/2)} dt^{y}_0       
 & \theta_0/2 
 &  \frac{\theta_0 /2}{\tan(\theta_0/2)}
 \end{array}

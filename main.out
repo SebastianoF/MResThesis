@@ -11,7 +11,7 @@
 \BOOKMARK [0][-]{chapter.2}{Tools from Differential Geometry}{}% 11
 \BOOKMARK [1][-]{section.2.1}{A Lie Group Structure for the Set of Transformation}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.2}{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula }{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.3}{Parallel Transport: Definition and Properties}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.3}{Affine Exponential, Affine Logarithm and Parallel Transport: Definition and Properties}{chapter.2}% 14
 \BOOKMARK [1][-]{section.2.4}{Numerical Computations of the Log-composition}{chapter.2}% 15
 \BOOKMARK [2][-]{subsection.2.4.1}{Truncated BCH formula for the Log-composition}{section.2.4}% 16
 \BOOKMARK [2][-]{subsection.2.4.2}{Taylor Expansion Method for the Log-composition}{section.2.4}% 17
