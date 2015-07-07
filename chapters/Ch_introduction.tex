@@ -109,7 +109,7 @@ If $\Omega_{F} \neq \Omega_{M}$, it is always possible to apply an homeomorphism
 This leaves two key degrees of freedom in searching for a solution: the transformation's domain (also called \emph{deformation model}), and the metric to measure the similarity between images. \\
 Once these are chosen, they can be used as constituent of an \emph{image registration framework}: 
 an iterative process that provides at each step a new function $\varphi$ that approaches $f$ to the identity.\\
-Each iteration involves the optimization of an \emph{energy function} that measure the similarity between the fixed image and the warped image computed at the previous step. Moreover the metric can be considered with an additive regularization term, that introduces a constraint defined according to the model:
+Each iteration involves the optimization of an \emph{energy function}  (or objective function) that measure the similarity between the fixed image and the warped image computed at the previous step. Moreover the metric can be considered with an additive regularization term, that introduces a constraint defined according to the model:
 \begin{align}\label{eq:general_cost_function}
 \mathcal{E}(F, M, \varphi) = \text{Sim}(F,M,\varphi) + \text{Reg}(\varphi) 
 \end{align}

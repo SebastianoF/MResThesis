@@ -7,34 +7,36 @@
 
 \vspace{0.6cm}
 
-In {\bf chapter \ref{ch:introduction}}, we introduced the concept of log-composition, whose computation is involved in some tools of medical imaging, as diffeomorphic registration and computation of the logarithm in the log-Euclidean framework. 
-{\bf Chapter \ref{ch:tools}} is devoted to the introduction of the underpinning mathematical theory. Here three numerical methods for the computation of the log-composition are presented:
+In {\bf chapter \ref{ch:introduction}} the concept of log-composition is introduced, with its implications in medical imaging, as in diffeomorphic registration and in the computation of the logarithm in the log-Euclidean framework. 
+{\bf Chapter \ref{ch:tools}} is devoted to the introduction of the underpinning mathematical theory. Here are presented three numerical methods for the computation of the log-composition:
 \begin{enumerate}
 	\item Truncated BCH formula of degree $k=1,2,3$ - equation \ref{eq:bch_definition}.
 	\item Taylor expansion - equation \ref{eq:taylor}.
 	\item Parallel transport - equation \ref{eq:parallel_transport}.
 \end{enumerate}
-To evaluate their performance, two groups of transformations has been placed in a playground:
+To evaluate their performance, two groups of transformations are presented in {\bf chapter \ref{ch:spatial_transformations}} with respective numerical methods for their log-composition:
 \begin{enumerate}
-	\item The special euclidean group SE(2) - section \ref{se:rigid_body_transformations}
-	\item The group diffeomorphisms corresponding to SVF - section \ref{se:svf}
+	\item The finite dimensional Lie group of euclidean transformation SE(2) - section \ref{se:rigid_body_transformations}
+	\item The infinite dimensional Lie group diffeomorphisms, set of images of SVF through the Lie exponential map - section \ref{se:svf}
 \end{enumerate}
-The first one is commonly used in medical image registration for rigid registration: it is a finite dimensional group and all of the computations involved in this research possess a closed formula. The second one is used in diffeomorphic image registration (section \ref{se:registration_framework}): it is an infinite dimensional group where no closed formulas are available. 
-These are presented in {\bf chapter \ref{ch:spatial_transformations}} with respective numerical methods for their log-composition.\\
-The computation of the logarithm appears to be an important piece in the jigsaw puzzle of the log-euclidean framework. The algorithm presented in 2008 in \cite{Bossa:08}, here called log-algorithm, can be an alternative to the usual inverse scaling and squaring algorithm initially proposed.  
-The {\bf chapter \ref{ch:log_algorithm}} explains how the log-composition is involved in the log-algorithm and how each numerical methods for its computation implies a structural modification in the log-algorithm. The numerical methods tailored for the log-algorithm here presented are
+
+The computation of the Lie logarithm as an important piece in the jigsaw puzzle of the log-euclidean framework is presented in {\bf chapter \ref{ch:log_algorithm}} within the log-algorithm \cite{Bossa:08}. 
+The numerical methods tailored for the computation of the log-algorithm here proposed are
 \begin{enumerate}
 	\item Truncated BCH formula of degree $k=1,2,3$ - equation \ref{eq:bossa_bch_strat}.
 	\item Parallel transport - equation \ref{eq:bossa_parallel_strategy}.
 	\item Symmetric parallel transport - equation \ref{eq:bossa_symmetric}.
 \end{enumerate}
 
+In this last chapter we will compare the results of the numerical methods presented so far.
 The performance of the log-composition with each of the presented methods, applied to the groups of transformations $SE(2)$ and diffeomorphisms parametrized by SVF, is evaluated over synthetic datasets.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Log-composition for $\mathfrak{se}(2)$}
+
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -65,7 +67,7 @@ on with frobenius norm between $0.0$ and $1.0$
 
 \begin{figure}[!ht]
 	%\centering
-	\hspace{-3cm}
+	\hspace{-1cm}
 	\includegraphics[scale=0.65]{figures/se2_four_BCH.png}
 	\caption{comparisons between BCH methods. TODO}
 	\label{fig:se2_four_BCH}
@@ -100,6 +102,15 @@ Using a python software, we created synthetic random matrices in $\mathfrak{se}(
 A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are created, 
 
 
+
+\begin{figure}[!ht]
+	\hspace{-1cm}
+	\includegraphics[scale=0.75]{figures/gaussian_smoothing_effect.png}
+	\caption{Random generated vector field: }
+	\label{fig:svf_gaussian_smoothing_effects}
+\end{figure}
+
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Methods}
@@ -115,7 +126,7 @@ A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are cr
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Log-computation Algorithm for SVF}
+\section{Log-Algorithm for SVF}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
