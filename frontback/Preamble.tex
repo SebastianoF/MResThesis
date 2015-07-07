@@ -54,11 +54,11 @@
 \emph{Image registration} is one of the critical tool in medical imaging. It consists in the process of alignment of two or more patients' images with the aim of determining and quantifying the occurring anatomies' correspondences and differences.
 It is widely used in both academical studies and applications, and it continuously challenges researchers to enhance accuracy, improve reliability and reduce computational time.\\
 
-The introduction of the \emph{Lie group of diffeomorphisms} from differential geometry to image registration provides an interesting option to model the organs' deformations and to quantify them, thanks to the \emph{log-euclidean framework} for the computation of statistics.
-This enables the representation of diffeomorphisms embedded in the one-parameter subgroup as \emph{stationary velocity field} (SVF) in the Lie group's tangent space (the \emph{Lie algebra}). In this space statistics can be computed easily and consistently, but one of the challenges remains the numerical computation of the map that transforms SVF in the corresponding diffeomorphisms, the Lie exponential, as well as the numerical computation of its inverse function, the Lie logarithm. \\
+The introduction of the \emph{Lie group of diffeomorphisms} from differential geometry to image registration provides an interesting option to model the organs' deformations, and to quantify them, thanks to the \emph{log-euclidean framework} for the computation of statistics.
+This machinery enables the representation of diffeomorphisms embedded in the one-parameter subgroup as \emph{stationary velocity field} (SVF) in the Lie group's tangent space (the \emph{Lie algebra}). Despite the fact that statistics can be computed easily and consistently, one of the challenges remains the numerical computation of the map that transforms SVF in the corresponding diffeomorphisms, the Lie exponential, as well as the numerical computation of its inverse function, the Lie logarithm. \\
 
 These two transformations allow in particular the computation of the composition of diffeomorphisms in the tangent space, operation called in this thesis \emph{log-composition}. 
-The necessity of finding fast numerical computation of the log-composition arises for example in the \emph{log-demons} and in the \emph{symmetric log-demon} registration algorithm as well as in the fast computation of the Lie logarithm itself.\\
+The necessity of finding fast numerical methods for its computation arises for example in the \emph{log-demons} and in the \emph{symmetric log-demon} registration algorithm and in the fast computation of the Lie logarithm.\\
 
 In this research we analyze existing numerical method for the computation of the log-composition, based on the BCH formula and we compare them with two new methods developed in this research, one based on the Taylor expansion and the other on the geometrical concept of parallel transport. 
 
