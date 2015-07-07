@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  7 JUL 2015 14:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  7 JUL 2015 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1078,15 +1078,15 @@ Overfull \hbox (87.34038pt too wide) in paragraph at lines 86--88
 []  [] 
  []
 
-<figures/gaussian_smoothing_effect.png, id=744, 657.657pt x 388.8126pt>
+<figures/gaussian_smoothing_effect.png, id=744, 621.522pt x 400.3758pt>
 File: figures/gaussian_smoothing_effect.png Graphic file (type png)
 
 <use figures/gaussian_smoothing_effect.png>
 Package pdftex.def Info: figures/gaussian_smoothing_effect.png used on input li
 ne 108.
-(pdftex.def)             Requested size: 493.24155pt x 291.60873pt.
+(pdftex.def)             Requested size: 466.14037pt x 300.2811pt.
 
-Overfull \hbox (67.01102pt too wide) in paragraph at lines 107--109
+Overfull \hbox (28.5289pt too wide) in paragraph at lines 107--109
 []  [] 
  []
 
@@ -1118,10 +1118,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 221.
  ) 
 Here is how much of TeX's memory you used:
- 8267 strings out of 493117
- 115243 string characters out of 6135433
- 240057 words of memory out of 5000000
- 11284 multiletter control sequences out of 15000+600000
+ 8268 strings out of 493117
+ 115261 string characters out of 6135433
+ 240694 words of memory out of 5000000
+ 11285 multiletter control sequences out of 15000+600000
  18251 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,15n,43p,1039b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1147,7 +1147,7 @@ f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 14/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (47 pages, 1084120 bytes).
+Output written on main.pdf (47 pages, 1090382 bytes).
 PDF statistics:
  923 PDF objects out of 1000 (max. 8388607)
  820 compressed objects within 9 object streams
