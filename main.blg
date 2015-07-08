@@ -13,19 +13,24 @@ You're missing a field part---line 51 of file frontback/mres_bib.bib.bib
  :  year    = 
  :            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 448 of file frontback/mres_bib.bib.bib
+I was expecting a `,' or a `}'---line 100 of file frontback/mres_bib.bib.bib
+ :   
+ :   year={2015},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 456 of file frontback/mres_bib.bib.bib
  : @inproceedings{hernandez2007registration
  :                                         ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 640 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 648 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 733 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 741 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 953 of file frontback/mres_bib.bib.bib
+I was expecting a `,' or a `}'---line 961 of file frontback/mres_bib.bib.bib
  :  
  :  keywords={biomedical MRI;image registration;image resolution;medical image processing;Cartesian diffusion tensors;diffusion profile image registration;multi-resolution framework;nonlinear registration;piece-wise local affine registration;signal analysis;Algorithm design and analysis;Anisotropic magnetoresistance;Data analysis;Image registration;Large-scale systems;Magnetic resonance imaging;Processor scheduling;Robustness;Signal analysis;Tensile stress},
 (Error may have been on previous line)
@@ -36,48 +41,50 @@ Warning--can't use both volume and number fields in arnold1966geometrie
 Warning--empty journal in bauer2011geodesic
 Warning--empty school in Broit:1981
 Warning--empty publisher in do1992riemannian
+Warning--empty journal in huanglog
+Warning--empty year in huanglog
 Warning--there's a month but no year in mcclelland
 Warning--empty publisher in milnor1984remarks
 Warning--empty booktitle in vercauteren2014preprint
-You've used 71 entries,
+You've used 72 entries,
             2543 wiz_defined-function locations,
-            968 strings with 17122 characters,
-and the built_in function-call counts, 29453 in all, are:
-= -- 2933
-> -- 1419
+            971 strings with 17325 characters,
+and the built_in function-call counts, 29869 in all, are:
+= -- 2968
+> -- 1454
 < -- 51
-+ -- 494
-- -- 485
-* -- 2111
-:= -- 4796
-add.period$ -- 221
-call.type$ -- 71
-change.case$ -- 442
-chr.to.int$ -- 68
-cite$ -- 79
-duplicate$ -- 1187
-empty$ -- 2147
-format.name$ -- 575
-if$ -- 6044
++ -- 507
+- -- 498
+* -- 2148
+:= -- 4872
+add.period$ -- 223
+call.type$ -- 72
+change.case$ -- 451
+chr.to.int$ -- 69
+cite$ -- 82
+duplicate$ -- 1200
+empty$ -- 2167
+format.name$ -- 588
+if$ -- 6119
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 78
-newline$ -- 355
-num.names$ -- 219
-pop$ -- 478
+missing$ -- 79
+newline$ -- 359
+num.names$ -- 222
+pop$ -- 492
 preamble$ -- 1
-purify$ -- 527
+purify$ -- 537
 quote$ -- 0
-skip$ -- 981
+skip$ -- 989
 stack$ -- 0
-substring$ -- 1595
+substring$ -- 1602
 swap$ -- 216
 text.length$ -- 51
 text.prefix$ -- 25
 top$ -- 0
-type$ -- 516
-warning$ -- 8
-while$ -- 285
-width$ -- 79
-write$ -- 912
-(There were 5 error messages)
+type$ -- 524
+warning$ -- 10
+while$ -- 288
+width$ -- 80
+write$ -- 921
+(There were 6 error messages)

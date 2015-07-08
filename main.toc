@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {5.1.2}Results}{32}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}Empirical Evaluations of Computational Time}{32}{subsection.5.1.3}
 \contentsline {section}{\numberline {5.2}Log-composition for SVF}{32}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Methods}{33}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.1}Methods}{32}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Results}{33}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Empirical Evaluations of Computational Time}{33}{subsection.5.2.3}
 \contentsline {section}{\numberline {5.3}Log-Algorithm for SVF}{33}{section.5.3}

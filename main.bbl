@@ -175,6 +175,11 @@ Berthold~K Horn and Brian~G Schunck.
 \newblock In {\em 1981 Technical Symposium East}, pages 319--331. International
   Society for Optics and Photonics, 1981.
 
+\bibitem[HWS{\etalchar{+}}]{huanglog}
+Zhiwu Huang, Ruiping Wang, Shiguang Shan, Xianqiu Li, and Xilin Chen.
+\newblock Log-euclidean metric learning on symmetric positive definite manifold
+  with application to image set classification.
+
 \bibitem[KKK08]{kirillov2008introduction}
 Alexander~A Kirillov, Aleksandr~Aleksandrovi{\v{c}} Kirillov, and
   Aleksandr~Aleksandrovi{\v{c}} Kirillov.

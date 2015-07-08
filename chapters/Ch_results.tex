@@ -58,18 +58,11 @@ on with frobenius norm between $0.0$ and $1.0$
 \subsection{Results}
 
 
-
-
-
-
-
-
-
 \begin{figure}[!ht]
 	%\centering
 	\hspace{-1cm}
 	\includegraphics[scale=0.65]{figures/se2_four_BCH.png}
-	\caption{comparisons between BCH methods. TODO}
+	\caption{Log composition in $\mathfrak{se}(2)$. Comparisons between BCH methods. TODO}
 	\label{fig:se2_four_BCH}
 \end{figure}
 
@@ -77,7 +70,7 @@ on with frobenius norm between $0.0$ and $1.0$
 	%\centering
 	\hspace{-2cm}
 	\includegraphics[scale=0.6]{figures/se2_pt_taylor.png}
-	\caption{comparisons between Parallel Transport method and Taylor method. TODO}
+	\caption{Log composition in $\mathfrak{se}(2)$. Comparisons between Parallel Transport method and Taylor method. TODO}
 	\label{fig:se2_pt_taylor}
 \end{figure}
 
@@ -85,7 +78,7 @@ on with frobenius norm between $0.0$ and $1.0$
 \begin{figure}[!ht]
 	\hspace{-2cm}
 	\includegraphics[scale=0.75]{figures/se2_boxplot.png}
-	\caption{comparisons between all the methods. TODO}
+	\caption{Log composition in $\mathfrak{se}(2)$. comparisons between all the methods. TODO}
 	\label{fig:se2_boxplot}
 \end{figure}
 
@@ -95,9 +88,16 @@ on with frobenius norm between $0.0$ and $1.0$
 \subsection{Empirical Evaluations of Computational Time}
 
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Log-composition for SVF}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Methods}
 Using a python software, we created synthetic random matrices in $\mathfrak{se}(2)$. We considered the difference between the log composition computed with the closed form \ref{eq:log_composition_se2_closed_form}. 
 A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are created, 
 
@@ -111,9 +111,27 @@ A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are cr
 \end{figure}
 
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Methods}
+\begin{figure}[!ht]
+	\hspace{-3cm}
+	\includegraphics[scale=0.65]{figures/SVF_four_bch.png}
+	\caption{Log-composition for SVF computed using numerical methods of truncated BCH of degree 0, 1 and 2. How can we show formally that the error in the case $k=2$ make it not worthed to be computed?}
+	\label{fig:SVF_four_bch}
+\end{figure}
+
+\begin{figure}[!ht]
+	\hspace{-3cm}
+	\includegraphics[scale=0.65]{figures/SVF_bch_parallel_transport.png}
+	\caption{Log-composition for SVF computed using numerical methods of truncated BCH of degree 0,1 and parallel transport.}
+	\label{fig:SVF_bch_parallel_transport}
+\end{figure}
+
+\begin{figure}[!ht]
+	\hspace{-2cm}
+	\includegraphics[scale=0.69]{figures/SVF_boxplot.png}
+	\caption{Log-composition for SVF computed using numerical methods of truncated BCH of degree 0,1 and parallel transport, represented in a boxplot.}
+	\label{fig:SVF_boxplot}
+\end{figure}
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
