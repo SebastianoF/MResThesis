@@ -41,4 +41,4 @@
 \contentsline {subsection}{\numberline {5.3.1}Methods}{35}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Results}{35}{subsection.5.3.2}
 \contentsline {subsection}{\numberline {5.3.3}Empirical Evaluations of Computational Time}{35}{subsection.5.3.3}
-\contentsline {section}{\numberline {5.4}Conclusion and Further Research}{35}{section.5.4}
+\contentsline {section}{\numberline {5.4}Conclusions and Further Research}{35}{section.5.4}
