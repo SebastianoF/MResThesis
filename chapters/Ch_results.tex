@@ -29,7 +29,8 @@ The numerical methods tailored for the computation of the log-algorithm here pro
 \end{enumerate}
 
 In this last chapter we will compare the results of the numerical methods presented so far.
-The performance of the log-composition with each of the presented methods, applied to the groups of transformations $SE(2)$ and diffeomorphisms parametrized by SVF, is evaluated over synthetic datasets.
+The performance of the log-composition with each of the presented methods, applied to the groups of transformations $SE(2)$ and diffeomorphisms parametrized by SVF, is evaluated over synthetic datasets.\\
+Following results are computed using a software written in Python (available on gitlab at ... add ref).
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -48,9 +49,6 @@ A set of $500$ transformations in $\mathfrak{se}(2)$ are sampled with a randomiz
 \end{align*}
 
 
-
-
-on with frobenius norm between $0.0$ and $1.0$
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -97,11 +95,13 @@ on with frobenius norm between $0.0$ and $1.0$
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Methods}
-Using a python software, we created synthetic random matrices in $\mathfrak{se}(2)$. We considered the difference between the log composition computed with the closed form \ref{eq:log_composition_se2_closed_form}. 
+\subsection{Methods: random generated SVF, and norm comparisons.}
+We created synthetic random matrices in $\mathfrak{se}(2)$. We considered the difference between the log composition computed with the closed form \ref{eq:log_composition_se2_closed_form}. 
 A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are created, 
 
+norm in the lie algebra
 
+norm in the lie group
 
 \begin{figure}[!ht]
 	\hspace{-1.4cm}
@@ -130,6 +130,24 @@ A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are cr
 	\includegraphics[scale=0.69]{figures/SVF_boxplot.png}
 	\caption{Log-composition for SVF computed using numerical methods of truncated BCH of degree 0,1 and parallel transport, represented in a boxplot.}
 	\label{fig:SVF_boxplot}
+\end{figure}
+
+\begin{figure}[!ht]
+	\hspace{-2.5cm}
+	\includegraphics[scale=0.6]{figures/SVF_sigma_means_comparisons.png}
+	\caption{Norm of random generated of SVF with initial standard deviation $\sigma_{\text{init}}$ (on the x-axis) and Gaussian filter with standard deviation $\sigma_{\text{gf}}$ (different colors). On the left is shown the the Frobenius norm computed on the SVF in the Lie algebra, while on the right the same norm is computed after the exponentiations. In this second case, the norm refers to the norm data structure (DS-norm). Each dot represents the mean of the norm of $10$ an SVF randomly generated with the parameters indicated on the axes and in the legend. We observe that the exponential bend the shape of the random SVF when the Gaussian filter is $0$ (thus we talk about an improper SVF). The decrease in the slope when $\sigma_{\text{gf}}=0$ do not appears for any other value.}
+	\label{fig:SVF_sigma_means_comparisons}
+\end{figure}
+
+
+
+
+
+\begin{figure}[!ht]
+	\hspace{-2.1cm}
+	\includegraphics[scale=0.53]{figures/SVF_image_scale.png}
+	\caption{Log-composition for SVF; the operation $\mathbf{u}_0\oplus \mathbf{u}_1$ is computed using numerical methods of truncated BCH of degree 0,1 and parallel transport. Respective standard deviation of the random generated SVF given by $\sigma_0$ and $\sigma_1$, ranges between $0.3$ and $2.0$ for $\sigma_0$ and between $0.2$ and $2.0$ for $\sigma_1$. Each value in the image scale is the mean of $10$ results of the log-computation of random SVF generated with given standard deviation. For lower values of $\mathbf{u}_1$, that in the image registration algorithms are given by the update, parallel transport method and truncated BCH of degree 1 have comparable results. We can also notice that for truncated BCH methods the results are symmetric, while for parallel transport, as expected from the formula, results are not symmetric respect to the size of the input vectors. }
+	\label{fig:SVF_image_scale}
 \end{figure}
 
 
