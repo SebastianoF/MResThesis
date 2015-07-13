@@ -22,6 +22,7 @@ We will focus our attention to transformations defined by matrices or diffeomorp
 \mathbb{G} \times \mathbb{G} & \longrightarrow  \mathbb{G}    \\
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
+
 Differential geometry is in general a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold and manipulate them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure.
 Due to space limitations we will refer to \cite{do1976differential}, \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.
 
@@ -87,15 +88,16 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 	\lim_{k\rightarrow \infty} \big( I + \frac{\mathbf{c}}{k} + \mathbf{d}_{k} \big)^{k} = \exp{(\mathbf{c})}
 	\end{align*}
 \end{enumerate} 
+
 Here it may be possible to see the beginning of the problem we have to deal with for the rest of the research, each time passing from the finite dimensional case to the infinite dimensional case.\\
 The domain of the logarithm is the matrix Lie group $\mathbb{G}$ in which only the composition (the matrix product) is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense, and satisfy remarkable properties, when applied to the $\log$. In addition the domain of the exponential is the matrix Lie algebra $\mathfrak{g}$, but the exponential can be nevertheless applied to any matrix, and still be defined.\\
 \emph{This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrices $GL(n)$ \cite{kirillov2008introduction}}. In this structure the operation of sum is still defined over the group that in the general case admits only compositions, and the infinite series \ref{eq:exp_as_inf_sum}, \ref{eq:log_as_inf_sum} are doors to pass from the structure of group to the algebra and vice versa. When presenting the rigid body transformation in chapter \ref{ch:spatial_transformations} we will may open another couple of access doors based on numerical approximations.\\
 
-When dealing with diffeomorphism in practical application we have to deal also with a theoretical:
-on one side the
+When dealing with diffeomorphism in practical applications we have to deal with a theoretical as well as with a practical issue.
+On one side the
 the operations in Lie algebra are not compatible with the composition in the Lie group: expression as $e + \mathbf{v}$ contains a sum that is undefined (and therefore meaningless) in the Lie group structure.
 On the other side 
-the (extremely) continuous nature of diffeomorphisms is not compatible with the (extremely) discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. The only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, \emph{scaling and squaring} and \emph{inverse scaling and squaring} are proposed for the computation of exponential and logarithm respectively; these algorithms transform a discretized vector field in another discretized vector field, while theoretical domain and codomain of these transformations are radically different. In addition, as shown in \cite{hernandez2008comparing} for some parameters of Stationary LDDMM and the diffeomorphic Demons the diffeomorphisms involved do not preserve the signs of the Jacobian determinant, and therefore are not diffeomorphisms anymore. \\
+the - extremely - continuous nature of diffeomorphisms is not compatible with the - extremely - discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. The only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, \emph{scaling and squaring} and \emph{inverse scaling and squaring} are proposed for the computation of exponential and logarithm respectively; these algorithms transform a discretized vector field in another discretized vector field, while theoretical domain and codomain of these transformations are radically different. In addition, as shown in \cite{hernandez2008comparing} for some parameters of Stationary LDDMM and the diffeomorphic Demons the diffeomorphisms involved do not preserve the signs of the Jacobian determinant, and therefore are not diffeomorphisms anymore. \\
 
 The passage from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only discrete vector fields to deal with, where operations within Lie algebra and Lie group are not anymore compatible. The strategy here proposed is to define an operation in the Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$ that reflects the properties of the composition in the corresponding Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$.\\
 
@@ -138,7 +140,7 @@ BCH(\mathbf{u},\mathbf{v})
 \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
-This expansion will provide the most immediate way to obtain a numerical computation of $\mathbf{v}_{1}\oplus \mathbf{v}_{2}$.
+This expansion will provide the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$.
 
 %
 %% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -154,8 +156,9 @@ This expansion will provide the most immediate way to obtain a numerical computa
 \section{Affine Exponential, Affine Logarithm and Parallel Transport: Definition and Properties}\label{se:parallel_transport}
 
 Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$ (that provides geodesics and curvature over manifold on which no Riemannian metric has been defined, see \cite{do1992riemannian}), the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the covariant derivative of $U$ in the direction of $V$. \\
+
 First consequence of the definition of the connection is the possibility of define \emph{geodesics} between points $p$ and $q$ of the manifold. 
-Note that in this case the concept of geodesic does not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection (see \cite{do1992riemannian}).
+Note that in this case the concept of geodesic does not involves any metric defined on the surface of the manifold. If also a Riemannian metric is defined on $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular Levi-Civita connection (see \cite{do1992riemannian}).\\
 
 Another consequence of the definition of connection allows to define a new kind of exponential from the Lie algebra to the Lie group that relies on the concept of geodesics. This time the tangent plane that defines the Lie algebra is considered at the point $p$ of the Lie group and $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ is a tangent vector at the point $p$: 
 \begin{align*}
@@ -182,9 +185,9 @@ Where $\mathbf{v} $ is the vector at the tangent plane defined at $p$ such that 
 \end{align*}
 has as its tangent in $p$ the vector $\mathbf{v}$.\\
 
-For further details and properties properties we refer to the literature; here we wish to provide only the intuitive idea that it is possible to move on the fiber bundle of the Lie group transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possess a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same Lie algebra structure) may not be oriented in the same way. \\
+For further details and properties we refer to the literature; here we wish to provide only the intuitive idea that it is possible to move on the fiber bundle of the Lie group transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possess a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same Lie algebra structure) may not be oriented in the same way. \\
 
-In this section we introduce the concept of parallel transport for the Lie group $\mathbb{G}$. On this definition, again borrowed from differential geometry (for introduction and general definition: \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild} and \cite{warner} for a definition of tangent vector field well suited for the parallel transport. For medical imaging applications \cite{lorenzi2011schild}, \cite{pennec2011parallel}, \cite{lorenzi2013geodesics}, \cite{lorenzi2014efficient}), relies a method for the computation of the log-composition developed in this research for the first time.
+In this section we also introduce the concept of parallel transport for the Lie group $\mathbb{G}$. On this definition, again borrowed from differential geometry (for introduction and general definition: \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild} and in particular \cite{warner} for a definition of tangent vector field well suited for the parallel transport. For medical imaging applications \cite{lorenzi2011schild}, \cite{pennec2011parallel}, \cite{lorenzi2013geodesics}, \cite{lorenzi2014efficient}), relies a method for the computation of the log-composition developed in this research for the first time.
 
 \begin{definition}
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$ and $V$ a $\mathcal{C}^{\infty}$ vector field defined over $\mathbb{G}$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, the vector $V_{p} \in T_{p}\mathbb{G}$, is \emph{parallel transported along $\gamma$} up to $T_{q}\mathbb{G}$ if $V$ satisfies
@@ -256,14 +259,8 @@ In the next properties we explore how did parallel transport and affine exponent
 	\end{enumerate}
 \end{lemma}
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=9.5cm]{figures/theorem_pict.png}
-	\caption{Pole ladder applied to parallel transport.}
-	\label{fig:theorem_pict}
-\end{figure}
 \noindent
-The following theorem is an application of the pole ladder \cite{lorenzi2011schild} for the computation of the exponential that will underpin one of the numerical methods for the computation of the log-composition.
+The following theorem is an application of the pole ladder \cite{lorenzi2011schild} for the computation of the exponential that will underpin one of the numerical methods for the computation of the log-composition. The main construction involved can be visualized in figure \ref{fig:theorem_pict}.
 \begin{theorem}\label{th:local_approximation_theorem}
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a Cartan connection $\nabla$. 
 	If, for each couple of linearly independent vectors $\mathbf{u}, \mathbf{v} \in T_{e}\mathbb{G}$, the following conditions hold:
@@ -298,10 +295,14 @@ The last statement can be rewritten as the approximation:
 \circ  \exp_{e}(\mathbf{v}) 
 \circ \exp_{e}\big(-\frac{\mathbf{u}}{2}\big)
 \end{align}
-that will turn out to be the main tool for the computation of the log-composition using parallel transport.
+that will turn out to be the main tool for the computation of the log-composition using parallel transport.\\
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=9.5cm]{figures/theorem_pict.png}
+	\caption{Pole ladder applied to parallel transport.}
+	\label{fig:theorem_pict}
+\end{figure}
 
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 When considering the equation \ref{eq:lemma_pt}, we use implicitly the formula for the change of base for affine exponential and logarithm \cite{arsigny2006bi}. It is in fact possible, using the derivative of the left-translation $L_{p}$, to bring back the $\exp$ and the $\log$ functions based at the point $p$ of the manifold to the $\exp$ and the $\log$ evaluated at the identity using the following formulas:
 \begin{align}\label{eq:DL_DR}
 \log _{p}(q)  &= DL_{p}(e) \log _{e}(q)  \\
@@ -336,14 +337,18 @@ To compute the Lie log-composition, literature provides the BCH formula (for mat
 	\mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 	+ [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align}
-It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. In practical applications it can be computed using its \emph{approximation of degree} $k$, defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. For example:
+It consists of an infinite series of Lie bracket whose asymptotic behaviour cannot be predicted only from the coefficient of each nested Lie bracket term. In practical applications it can be computed using its \emph{approximation of degree} $k$, defined as the sum of the BCH terms having no more than $k$ nested Lie bracket. This convention is also coherent with the degree of the BCH expressed as polynomial formal series of adjoint operators (see next section \ref{se:taylor_expansion}):
 \begin{align*}
 BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
 BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] \\
 BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) \\
 BCH^{3}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])- \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] 
 \end{align*}
-These numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{v}$ can be considered as a first step but are not satisfactory since they do not provide any condition to consider the error carried by each term.
+In numerical computations Lie brackets can become extremely little. This means that we may be interested, in this particular case to compute only the first of the two new addend added between the first and the second degree of the BCH formula. For these situations we define a rational degree for the truncated BCH formula:
+\begin{align*}
+BCH^{3/2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}[\mathbf{u},[\mathbf{u},\mathbf{v}]]
+\end{align*}
+These formulas can be considered as a first step toward the numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{v}$. They still have some limitations as the fact that they do not provide any information about the error carried by each term.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

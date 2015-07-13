@@ -35,12 +35,12 @@ Vladimir Arnold.
   Institut Fourier, 1966.
 
 \bibitem[Arn98]{arnold1998topological}
-Vladimir~Igorevich Arnold.
+Vladimir Arnold.
 \newblock {\em Topological methods in hydrodynamics}, volume 125.
 \newblock Springer Science \& Business Media, 1998.
 
 \bibitem[Arn06]{arnold2006ordinary}
-Vladimir~I Arnold.
+Vladimir Arnold.
 \newblock Ordinary differential equations. translated from the russian by roger
   cooke. second printing of the 1992 edition. universitext, 2006.
 
@@ -368,6 +368,11 @@ J-P Thirion.
 Alain Trouv{\'e}.
 \newblock Diffeomorphisms groups and pattern matching in image analysis.
 \newblock {\em International Journal of Computer Vision}, 28(3):213--221, 1998.
+
+\bibitem[TY05]{trouve2005metamorphoses}
+Alain Trouv{\'e} and Laurent Younes.
+\newblock Metamorphoses through lie group action.
+\newblock {\em Foundations of Computational Mathematics}, 5(2):173--198, 2005.
 
 \bibitem[Ver14]{vercauteren2014preprint}
 Tom Vercauteren.
