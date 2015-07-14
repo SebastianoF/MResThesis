@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  13 JUL 2015 15:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  14 JUL 2015 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -642,7 +642,7 @@ LaTeX Info: Redefining \nameref on input line 64.
 \openout4 = `main.out'.
 
 
-<figures/UCL-logo3.pdf, id=176, 838.75516pt x 245.29291pt>
+<figures/UCL-logo3.pdf, id=164, 838.75516pt x 245.29291pt>
 File: figures/UCL-logo3.pdf Graphic file (type pdf)
 
 <use figures/UCL-logo3.pdf>
@@ -802,7 +802,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-<figures/iterative_algorithm.png, id=369, 1279.78125pt x 803.0pt>
+<figures/iterative_algorithm.png, id=354, 1279.78125pt x 803.0pt>
 File: figures/iterative_algorithm.png Graphic file (type png)
 
 <use figures/iterative_algorithm.png>
@@ -914,7 +914,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-<figures/log_composition.png, id=496, 1094.0875pt x 763.85374pt>
+<figures/log_composition.png, id=481, 1094.0875pt x 763.85374pt>
 File: figures/log_composition.png Graphic file (type png)
 
 <use figures/log_composition.png>
@@ -945,14 +945,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
-[15] <figures/inversion_1.png, id=545, 657.45625pt x 460.72125pt>
+[15] <figures/inversion_1.png, id=530, 657.45625pt x 460.72125pt>
 File: figures/inversion_1.png Graphic file (type png)
 
 <use figures/inversion_1.png>
 Package pdftex.def Info: figures/inversion_1.png used on input line 220.
 (pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
 
-<figures/inversion_2.png, id=546, 708.6475pt x 419.5675pt>
+<figures/inversion_2.png, id=531, 708.6475pt x 419.5675pt>
 File: figures/inversion_2.png Graphic file (type png)
 
 <use figures/inversion_2.png>
@@ -963,14 +963,14 @@ Overfull \hbox (71.13188pt too wide) in paragraph at lines 227--228
  [][] 
  []
 
-<figures/sign_1.png, id=547, 1356.06625pt x 926.46124pt>
+<figures/sign_1.png, id=532, 1356.06625pt x 926.46124pt>
 File: figures/sign_1.png Graphic file (type png)
 
 <use figures/sign_1.png>
 Package pdftex.def Info: figures/sign_1.png used on input line 245.
 (pdftex.def)             Requested size: 270.30118pt x 184.66695pt.
  [16 <./figures/inversion_1.png> <./figures/inversion_2.png>] <figures/theorem_
-pict.png, id=568, 760.8425pt x 698.61pt>
+pict.png, id=553, 760.8425pt x 698.61pt>
 File: figures/theorem_pict.png Graphic file (type png)
 
 <use figures/theorem_pict.png>
@@ -1005,7 +1005,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
-[22] <figures/exp_se2.png, id=636, 1126.2075pt x 774.895pt>
+[22] <figures/exp_se2.png, id=621, 1126.2075pt x 774.895pt>
 File: figures/exp_se2.png Graphic file (type png)
 
 <use figures/exp_se2.png>
@@ -1055,147 +1055,140 @@ Overfull \hbox (25.47949pt too wide) in paragraph at lines 75--75
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 38.
+(hyperref)                removing `math shift' on input line 37.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 38.
+(hyperref)                removing `math shift' on input line 37.
 
 [33
 
 
 
-] <figures/se2_image_scale.png, id=756, 1011.78pt x 578.16pt>
+] <figures/se2_image_scale.png, id=742, 1011.78pt x 578.16pt>
 File: figures/se2_image_scale.png Graphic file (type png)
 
 <use figures/se2_image_scale.png>
-Package pdftex.def Info: figures/se2_image_scale.png used on input line 62.
-(pdftex.def)             Requested size: 586.83281pt x 335.33302pt.
+Package pdftex.def Info: figures/se2_image_scale.png used on input line 49.
+(pdftex.def)             Requested size: 546.35306pt x 312.20175pt.
 
-Overfull \hbox (117.92314pt too wide) in paragraph at lines 61--63
+Overfull \hbox (91.66977pt too wide) in paragraph at lines 48--50
 []  [] 
  []
 
-<figures/se2_boxplot.png, id=757, 867.24pt x 505.89pt>
+[34 <./figures/se2_image_scale.png>]
+<figures/se2_boxplot.png, id=752, 867.24pt x 505.89pt>
 File: figures/se2_boxplot.png Graphic file (type png)
 
 <use figures/se2_boxplot.png>
-Package pdftex.def Info: figures/se2_boxplot.png used on input line 69.
-(pdftex.def)             Requested size: 529.01564pt x 308.59244pt.
+Package pdftex.def Info: figures/se2_boxplot.png used on input line 91.
+(pdftex.def)             Requested size: 468.30264pt x 273.17651pt.
 
-Overfull \hbox (62.95142pt too wide) in paragraph at lines 68--70
+Overfull \hbox (27.84573pt too wide) in paragraph at lines 90--92
 []  [] 
  []
 
+<figures/svf_gaussian_smoothing_effects.png, id=753, 599.841pt x 375.804pt>
+File: figures/svf_gaussian_smoothing_effects.png Graphic file (type png)
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use figures/svf_gaussian_smoothing_effects.png>
+Package pdftex.def Info: figures/svf_gaussian_smoothing_effects.png used on inp
+ut line 110.
+(pdftex.def)             Requested size: 431.88518pt x 270.57867pt.
 
- [34 <./figures/se2_image_scale.png>]
-<figures/gaussian_smoothing_effect.png, id=765, 621.522pt x 400.3758pt>
-File: figures/gaussian_smoothing_effect.png Graphic file (type png)
-
-<use figures/gaussian_smoothing_effect.png>
-Package pdftex.def Info: figures/gaussian_smoothing_effect.png used on input li
-ne 99.
-(pdftex.def)             Requested size: 466.14037pt x 300.2811pt.
-
-Overfull \hbox (28.5289pt too wide) in paragraph at lines 98--100
+Overfull \hbox (11.34511pt too wide) in paragraph at lines 109--111
 []  [] 
  []
 
-<figures/SVF_four_bch.png, id=766, 867.24pt x 578.16pt>
-File: figures/SVF_four_bch.png Graphic file (type png)
-
-<use figures/SVF_four_bch.png>
-Package pdftex.def Info: figures/SVF_four_bch.png used on input line 107.
-(pdftex.def)             Requested size: 563.69934pt x 375.79955pt.
-
-Overfull \hbox (80.5633pt too wide) in paragraph at lines 106--108
-[]  [] 
- []
-
-<figures/SVF_bch_parallel_transport.png, id=767, 867.24pt x 578.16pt>
-File: figures/SVF_bch_parallel_transport.png Graphic file (type png)
-
-<use figures/SVF_bch_parallel_transport.png>
-Package pdftex.def Info: figures/SVF_bch_parallel_transport.png used on input l
-ine 114.
-(pdftex.def)             Requested size: 563.69934pt x 375.79955pt.
-
-Overfull \hbox (80.5633pt too wide) in paragraph at lines 113--115
-[]  [] 
- []
-
-<figures/SVF_boxplot.png, id=768, 722.7pt x 505.89pt>
-File: figures/SVF_boxplot.png Graphic file (type png)
-
-<use figures/SVF_boxplot.png>
-Package pdftex.def Info: figures/SVF_boxplot.png used on input line 121.
-(pdftex.def)             Requested size: 498.66353pt x 349.06447pt.
-
-Overfull \hbox (43.98024pt too wide) in paragraph at lines 120--122
-[]  [] 
- []
-
-<figures/SVF_sigma_means_comparisons.png, id=769, 867.24pt x 361.35pt>
+<figures/SVF_sigma_means_comparisons.png, id=754, 881.694pt x 375.804pt>
 File: figures/SVF_sigma_means_comparisons.png Graphic file (type png)
 
 <use figures/SVF_sigma_means_comparisons.png>
 Package pdftex.def Info: figures/SVF_sigma_means_comparisons.png used on input 
-line 128.
-(pdftex.def)             Requested size: 520.34802pt x 216.81168pt.
+line 118.
+(pdftex.def)             Requested size: 476.10767pt x 202.93114pt.
 
-Overfull \hbox (51.43835pt too wide) in paragraph at lines 127--129
+Overfull \hbox (35.65076pt too wide) in paragraph at lines 117--119
 []  [] 
  []
 
-<figures/SVF_image_scale.png, id=770, 939.51pt x 245.718pt>
+
+<figures/SVF_image_scale_bracket_versus_gaussian.png, id=755, 722.7pt x 325.215
+pt>
+File: figures/SVF_image_scale_bracket_versus_gaussian.png Graphic file (type pn
+g)
+ <use figures/SVF_image_scale_bracket_versus_gaussian.png>
+Package pdftex.def Info: figures/SVF_image_scale_bracket_versus_gaussian.png us
+ed on input line 125.
+(pdftex.def)             Requested size: 433.62334pt x 195.1305pt.
+
+Overfull \hbox (7.3928pt too wide) in paragraph at lines 124--126
+[]  [] 
+ []
+
+[35 <./figures/se2_boxplot.png>]
+<figures/SVF_bch_parallel_transport.png, id=763, 794.97pt x 361.35pt>
+File: figures/SVF_bch_parallel_transport.png Graphic file (type png)
+
+<use figures/SVF_bch_parallel_transport.png>
+Package pdftex.def Info: figures/SVF_bch_parallel_transport.png used on input l
+ine 149.
+(pdftex.def)             Requested size: 476.98569pt x 216.81168pt.
+
+Overfull \hbox (36.52878pt too wide) in paragraph at lines 148--150
+[]  [] 
+ []
+
+<figures/SVF_image_scale.png, id=764, 939.51pt x 245.718pt>
 File: figures/SVF_image_scale.png Graphic file (type png)
 
 <use figures/SVF_image_scale.png>
-Package pdftex.def Info: figures/SVF_image_scale.png used on input line 139.
+Package pdftex.def Info: figures/SVF_image_scale.png used on input line 157.
 (pdftex.def)             Requested size: 497.93793pt x 130.2299pt.
 
-Overfull \hbox (40.4092pt too wide) in paragraph at lines 138--140
+Overfull \hbox (40.4092pt too wide) in paragraph at lines 156--158
 []  [] 
  []
 
+<figures/SVF_boxplot.png, id=765, 867.24pt x 505.89pt>
+File: figures/SVF_boxplot.png Graphic file (type png)
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use figures/SVF_boxplot.png>
+Package pdftex.def Info: figures/SVF_boxplot.png used on input line 165.
+(pdftex.def)             Requested size: 520.34802pt x 303.53633pt.
 
- [35 <./figures/se2_boxplot.png>] [36 <./figures/gaussian_smoothing_effect.png>
-]) [37 <./figures/SVF_four_bch.png>] [38 <./figures/SVF_bch_parallel_transport.
-png>]
-[39 <./figures/SVF_boxplot.png>] [40 <./figures/SVF_sigma_means_comparisons.png
-> <./figures/SVF_image_scale.png>] (./main.bbl [41
+Overfull \hbox (65.66473pt too wide) in paragraph at lines 164--166
+[]  [] 
+ []
+
+[36 <./figures/svf_gaussian_smoothing_effects.png>])
+Underfull \vbox (badness 2653) has occurred while \output is active []
+
+ [37 <./figures/SVF_sigma_means_comparisons.png> <./figures/SVF_image_scale_bra
+cket_versus_gaussian.png>] [38 <./figures/SVF_bch_parallel_transport.png> <./fi
+gures/SVF_image_scale.png>] [39 <./figures/SVF_boxplot.png>] (./main.bbl [40
 
 
-] [42] [43] [44])
+] [41] [42]
+[43] [44])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 221.
  [45]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 221.
-
-(./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
-(./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
-(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
+ (./main.aux (./frontback/Preamble.aux)
+(./chapters/Ch_introduction.aux) (./chapters/Ch_tools.aux)
+(./chapters/Ch_spatial_transformations.aux) (./chapters/Ch_log_computations.aux
+) (./chapters/Ch_results.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 221.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 221.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: AADFB58E52200793EE5174B4EC9F24CF;3749
-(rerunfilecheck)             After:  3F028401F1D8B3E52FE356D2BC2E9E78;3753.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: F24067BA62697828B23302BDE3152C85;3499.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 221.
  ) 
 Here is how much of TeX's memory you used:
- 8304 strings out of 493117
- 116156 string characters out of 6135433
- 242939 words of memory out of 5000000
- 11306 multiletter control sequences out of 15000+600000
+ 8299 strings out of 493117
+ 116245 string characters out of 6135433
+ 242879 words of memory out of 5000000
+ 11303 multiletter control sequences out of 15000+600000
  18251 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,15n,43p,1043b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1221,10 +1214,10 @@ f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 14/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (51 pages, 1344509 bytes).
+Output written on main.pdf (51 pages, 3452873 bytes).
 PDF statistics:
- 963 PDF objects out of 1000 (max. 8388607)
- 848 compressed objects within 9 object streams
- 261 named destinations out of 1000 (max. 500000)
- 425 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 952 PDF objects out of 1000 (max. 8388607)
+ 837 compressed objects within 9 object streams
+ 259 named destinations out of 1000 (max. 500000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 

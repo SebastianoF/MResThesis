@@ -103,7 +103,7 @@ dR(\theta) & dt \\
 \end{array}
 \right )
 \mid
-\theta \in  [0, 2\pi), (tx, ty) \in\mathbf{R}^2
+\theta \in  [0, 2\pi), (dt^x, dt^y) \in\mathbf{R}^2
 \right \}
 \end{align*}
 and it is indicated with $\mathfrak{se}(2)^{v}$ in its restricted form.\\
@@ -200,7 +200,7 @@ At this point it is important to notice that:
 		\item[i)] Exists an integer $k$ such that $\theta_0 = \theta_1 + 2k\pi$.
 		\item[ii)] the translation $(dt^{x}_0, dt^{y}_0)$ coincides with $(dt^{x}_1, dt^{y}_1)$ up to a factor $\frac{\theta_0 \mod 2\pi}{\theta_1}$.
 	\end{enumerate}
-	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dt^{x}_0,d t_0y) = \exp(\theta_1, dt^{x}_1, dt^{y}_1)$ implies  $(\theta_0, dt^{x}_0, dt^{y}_0) = (\theta_1, dt^{x}_1, dt^{y}_1)$.
+	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dt^{x}_0,dt^{y}_0) = \exp(\theta_1, dt^{x}_1, dt^{y}_1)$ implies  $(\theta_0, dt^{x}_0, dt^{y}_0) = (\theta_1, dt^{x}_1, dt^{y}_1)$.
 	It can be easy to prove that the sought space is the quotient of $\mathfrak{se}(2)$ over the equivalence relation $\sim$, defined as 
 	\begin{align*}
 		(\theta_0, dt^{x}_0, dt^{y}_0 & ) \sim (\theta_1, dt^{x}_1, dt^{y}_1)
@@ -357,7 +357,7 @@ dR(\theta)^{-1}  \Big(\sum_{n=0}^{\infty} \frac{1}{2}dR(\theta) +  \frac{\theta 
 \Big(\frac{1}{2} I + (\frac{\theta /2}{\tan(\theta/2)} - 1)dR(\theta)^{-1}   \Big) dt^{\star}    \\
 \end{align*}
 Finally the closed form for the Taylor approximation of the log-composition is \cite{vercauteren2014preprint}:
-\begin{align}\label{eq:taylor_se2}
+\begin{align}
 dr_{0}\oplus dr_{1}
 =
 dr_{0}
@@ -392,11 +392,24 @@ where
 \end{array}
 \right )
 \end{align*}
+therefore the corresponding numerical method indicated with the function $\text{Tl}$ as
+\begin{align}\label{eq:taylor_se2}
+dr_{0}\oplus dr_{1}
+\simeq
+Tl(dr_{0}, dr_{1})
+:=
+dr_{0}
++
+\mathbf{J}(dr_{0}, dr_{1})
+dr_{1}
+\end{align}
 
 The approximation of the log-composition using parallel transport is a straightforward application of the equation \ref{eq:parallel_transport}: 
 \begin{align}\label{eq:parallel_transport_se2}
 dr_{0}\oplus dr_{1}
 &\simeq
+pt(dr_{0}, dr_{1}) 
+:=
 dr_{0}
 +
 \exp\big(\frac{dr_{0}}{2}\big)   
@@ -435,7 +448,7 @@ Thanks to the Cauchy theorem that ensures the uniqueness of the solution of the 
 and, as consequence of the definition of $\exp$ and $\log$ it follows that
 \begin{align*}
 \text{\emph{Diff}}^{1}(\Omega) &= \exp( \mathcal{V}(\Omega))\\
-\mathcal{V}(\Omega) &= \log(G)
+\mathcal{V}(\Omega) &= \log(\text{\emph{Diff}}^{1}(\Omega))
 \end{align*}
 In the LDDMM framework (see section \ref{se:intro_lddmm}) only TVVFs are considered, while after subsequent paper of \cite{arsigny2006log} the attention has been restricted to SVF for practical applications.\\
 For our purposes when talking about diffeomorphisms, we will take into account only the one embedded in the one-parameter subgroup $\text{\emph{Diff}}^{1}(\Omega)$. In other world, the image of a SVF through the $\exp$ map. 
@@ -443,7 +456,7 @@ For our purposes when talking about diffeomorphisms, we will take into account o
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
 \subsection{Computations of Log-composition for SVF}
-A closed-form for the Taylor Expansion method \ref{se:taylor_expansion} to compute the log-composition with element in $\text{\emph{Diff}}^{1}(\Omega)$ is not known. We will therefore compare the truncated BCH formula with the parallel transport method \ref{se:parallel_transport}. We will exploit the parametrization of discretized SVF using matrices to have a ground truth to compare results. Norm will be computed in the group as the $L_2$ norm of matrices that represents the SVF. \\ 
+A closed-form for the Taylor Expansion method \ref{se:taylor_expansion} to compute the log-composition with elements in $\text{\emph{Diff}}^{1}(\Omega)$ is not known. We will therefore compare the truncated BCH formula with the parallel transport method \ref{se:parallel_transport}. We will exploit the parametrization of discretized SVF using matrices to have a ground truth to compare results. Norm will be computed in the group as the $L_2$ norm of matrices that represents the SVF. \\ 
 Given $\mathbf{u}$ and $\mathbf{v}$ in $\text{\emph{Diff}}^{1}(\Omega)$, $\mathbf{w}_{\text{ground}} = \mathbf{u}\oplus \mathbf{v}$ solution of the log-composition and $\mathbf{w}_{\text{app}}$ its approximation using a numerical method, then their difference is computed in the group as:
 \begin{align*}
 \text{error} = \euclideanMetric{\exp(\mathbf{w}_{\text{ground}}) - \exp(\mathbf{w}_{\text{app}})}_{L^{2}}
