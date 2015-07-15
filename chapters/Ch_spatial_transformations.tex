@@ -5,6 +5,7 @@
 	\emph{Every working mathematician knows that if one does not control oneself (best of all by examples), then after some ten pages half of all the signs in formulae will be wrong and twos will find their way from denominators into numerators. \\ -V.I. Arnold}
 \end{flushright}
 
+\noindent
 In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, in this chapter we will see how they can be applied for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields:
 \begin{enumerate}
 	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods introduced so far, since results can be compared with a closed form.
@@ -106,7 +107,7 @@ dR(\theta) & dt \\
 \theta \in  [0, 2\pi), (dt^x, dt^y) \in\mathbf{R}^2
 \right \}
 \end{align*}
-and it is indicated with $\mathfrak{se}(2)^{v}$ in its restricted form.\\
+and it is indicated with $\mathfrak{se}(2)^{v}$ in its restricted form.
 
 Given $r$, element of $SE(2)$ with $\theta\neq 0$. Its image with the Lie group logarithm is
 \begin{align*}
@@ -182,7 +183,7 @@ L(\theta)^{-1} =
 \end{array}
 \right )
 \end{align*}
-When $\theta$ is zero, $R(\theta)$ and $dR(\theta)$ coincide with the identity, and the transformation results in a translation. For proof and further details see for example \cite{gallier2011geometric} \cite{hall2015lie}.\\
+When $\theta$ is zero, $R(\theta)$ and $dR(\theta)$ coincide with the identity, and the transformation results in a translation. For proof and further details see for example \cite{gallier2011geometric} \cite{hall2015lie}.
 
 At this point it is important to notice that: 
 \begin{enumerate}
@@ -456,20 +457,55 @@ For our purposes when talking about diffeomorphisms, we will take into account o
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
 \subsection{Computations of Log-composition for SVF}
-A closed-form for the Taylor Expansion method \ref{se:taylor_expansion} to compute the log-composition with elements in $\text{\emph{Diff}}^{1}(\Omega)$ is not known. We will therefore compare the truncated BCH formula with the parallel transport method \ref{se:parallel_transport}. We will exploit the parametrization of discretized SVF using matrices to have a ground truth to compare results. Norm will be computed in the group as the $L_2$ norm of matrices that represents the SVF. \\ 
-Given $\mathbf{u}$ and $\mathbf{v}$ in $\text{\emph{Diff}}^{1}(\Omega)$, $\mathbf{w}_{\text{ground}} = \mathbf{u}\oplus \mathbf{v}$ solution of the log-composition and $\mathbf{w}_{\text{app}}$ its approximation using a numerical method, then their difference is computed in the group as:
+A closed-form for the Taylor Expansion method \ref{se:taylor_expansion} to compute the log-composition with elements in $\text{\emph{Diff}}^{1}(\Omega)$ is not known. We will therefore compare the truncated BCH formula with the parallel transport method \ref{se:parallel_transport}. 
+The Lie bracket that appears of SVF in the truncated $BCH$ of degree $0,1,1.5$ and $2$, are computed using the Jacobian matrix $J$:
+\begin{align}
+[\mathbf{u},\mathbf{v}] :=J_{u}\mathbf{v} - J_{u}\mathbf{v}  
+\qquad
+\forall \mathbf{u},\mathbf{v} \in \mathfrak{g}
+\end{align}
+as a consequence of its definition (see \cite{lee2012introduction}).
+It has been shown that this definition is uniquely defined as action on the space of $\mathbb{C}^{\infty}$ function on the same domain and it satisfies the axioms of Lie bracket of a Lie algebra.\\
+
+Therefore the truncated approximation of the BCH formula presented in the equation \ref{eq:bch_definition} become:
 \begin{align*}
-\text{error} = \euclideanMetric{\exp(\mathbf{w}_{\text{ground}}) - \exp(\mathbf{w}_{\text{app}})}_{L^{2}}
+BCH^{0}(\mathbf{u},\mathbf{v}) &= \mathbf{u} + \mathbf{v} \\
+BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}(J_{\mathbf{u}}\mathbf{v} - J_{\mathbf{u}}\mathbf{v})\\
+BCH^{3/2}(\mathbf{u},\mathbf{v}) 
+&=  
+\mathbf{u} + \mathbf{v} + \frac{1}{2}(J_{u}\mathbf{v} - J_{u}\mathbf{v}) + 
+\frac{1}{12}\big( 
+2 J_{\mathbf{u}} J_{\mathbf{u}}\mathbf{v} +2 J_{\mathbf{u}} J_{\mathbf{v}}\mathbf{u}
+- 
+J_{(J_{\mathbf{u}}\mathbf{v} - J_{\mathbf{u}}\mathbf{v})}\mathbf{u} 
+\big) 
+\\
+BCH^{2}(\mathbf{u},\mathbf{v}) 
+&=  
+\mathbf{u} + \mathbf{v} + \frac{1}{2}(J_{u}\mathbf{v} - J_{u}\mathbf{v}) 
+\\
+&+ 
+\frac{1}{12}\big( 
+2 J_{\mathbf{u}} J_{\mathbf{u}}\mathbf{v} +2 J_{\mathbf{u}} J_{\mathbf{v}}\mathbf{u}
+- 
+J_{(J_{\mathbf{u}}\mathbf{v} - J_{\mathbf{u}}\mathbf{v})}\mathbf{u} 
++
+2 J_{\mathbf{v}} J_{\mathbf{v}}\mathbf{u} +2 J_{\mathbf{v}} J_{\mathbf{u}}\mathbf{v}
+- 
+J_{(J_{\mathbf{v}}\mathbf{u} - J_{\mathbf{v}}\mathbf{u})}\mathbf{v} 
+\big) 
 \end{align*}
-where $\exp(\mathbf{w}_{\text{ground}})$ is computed as the composition of the exponentials of $\mathbf{u}$ and $\mathbf{v}$:
+Lie brackets of SVF can become extremely small, in particular, as we will see in the last chapter, when the standard deviation of the Gaussian filter that generates the fields is small. \\
+Whether it is not known how to apply Taylor method presented in \ref{se:taylor_expansion} for the SVF, the parallel transport method for the computation of the log-composition follows directly from equation  \ref{eq:parallel_transport}:
 \begin{align*}
-\exp(\mathbf{w}_{\text{ground}}) = \exp(\mathbf{u})\circ \exp(\mathbf{v})
+\mathbf{u}_0\oplus \mathbf{u}_1
+&\simeq
+\mathbf{u}_0 
++
+\exp_{e}\big(\frac{\mathbf{u}_0}{2}\big)   
+\circ  \exp_{e}(\mathbf{u}_1) 
+\circ \exp_{e}\big(-\frac{\mathbf{u}_0}{2}\big)
+-
+e
 \end{align*}
-As previously said, the norm $L^2$ is considered improperly in a group structure. It can be done only thanks to the fact that the discrete SVF and the corresponding diffeomorphisms $\text{\emph{Diff}}^{1}(\Omega)$ are implemented with 5-dimensional matrices (see equation \ref{eq:basic_data_structure}).
-%(TODO: restate this in the limitations suggesting an alternative computation of the error as future work)\\
-
-
-
-
-
-
+Here the exponential function can be computed with several algorithms (scaling and squaring, forward Euler, composition method, Taylor expansion, see \cite{bossa2008algorithms} for a comparison of their performances). Following the original setting of the Log-euclidean metric proposed in \cite{arsigny2006log} we use the scaling and squaring, keeping in mind that this choice impact on the results.

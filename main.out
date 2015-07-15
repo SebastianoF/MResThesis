@@ -31,10 +31,11 @@
 \BOOKMARK [1][-]{section.5.1}{Log-composition for se\(2\)}{chapter.5}% 31
 \BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 32
 \BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 33
-\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF, and norm comparisons.}{section.5.2}% 34
-\BOOKMARK [2][-]{subsection.5.2.2}{Results}{section.5.2}% 35
-\BOOKMARK [1][-]{section.5.3}{Log-Algorithm for SVF}{chapter.5}% 36
-\BOOKMARK [2][-]{subsection.5.3.1}{Methods}{section.5.3}% 37
-\BOOKMARK [2][-]{subsection.5.3.2}{Results}{section.5.3}% 38
-\BOOKMARK [1][-]{section.5.4}{Empirical Evaluations of Computational Time}{chapter.5}% 39
-\BOOKMARK [1][-]{section.5.5}{Conclusions and Further Research}{chapter.5}% 40
+\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF and ground truth.}{section.5.2}% 34
+\BOOKMARK [2][-]{subsection.5.2.2}{Methods and results}{section.5.2}% 35
+\BOOKMARK [1][-]{section.5.3}{Log composition applied to SVF from real cases}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.4}{Log-Algorithm for SVF}{chapter.5}% 37
+\BOOKMARK [2][-]{subsection.5.4.1}{Methods}{section.5.4}% 38
+\BOOKMARK [2][-]{subsection.5.4.2}{Results}{section.5.4}% 39
+\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of Computational Time}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.6}{Conclusions and Further Research}{chapter.5}% 41

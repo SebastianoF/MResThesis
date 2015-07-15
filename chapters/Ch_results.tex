@@ -14,22 +14,23 @@ In {\bf chapter \ref{ch:introduction}} the concept of log-composition is introdu
 	\item Taylor expansion - \emph{equation \ref{eq:taylor}}.
 	\item Parallel transport - \emph{equation \ref{eq:parallel_transport}}.
 \end{enumerate}
-To evaluate their performance, {\bf chapter \ref{ch:spatial_transformations}} reminds two groups of transformations:
+Before evaluating their results on the SVF, some tests in the are is evaluated for two groups of transformation, {\bf chapter \ref{ch:spatial_transformations}} introduces two groups of transformations:
 \begin{enumerate}
-	\item The finite dimensional Lie group of euclidean transformation SE(2) - \emph{section \ref{se:rigid_body_transformations}}
+	\item The finite dimensional Lie group of euclidean transformation SE(2), where a closed form of the log-composition is known - \emph{section \ref{se:rigid_body_transformations}}
 	\item The infinite dimensional Lie group diffeomorphisms, set of images of SVF through the Lie exponential map - \emph{section \ref{se:svf}}
 \end{enumerate}
-For each of these specific groups it presents as well the numerical methods for the computation log-composition presented in the previous chapter for the general case.
-{\bf Chapter \ref{ch:log_algorithm}} presents an algorithm for the computation of the Lie logarithm \cite{Bossa:08}. 
-Thanks to the fact that this important piece in the jigsaw puzzle of the log-euclidean framework can be reformulated in term of the log-composition, it is possible to use numerical methods introduced:
+For each of these groups it presents as well the numerical methods for the computation log-composition shown in the previous chapter for the general case.
+{\bf Chapter \ref{ch:log_algorithm}} is about the algorithm for the computation of the Lie logarithm \cite{Bossa:08}, called here log-algorithm. 
+Thanks to the fact that this important piece in the jigsaw puzzle of the log-euclidean framework can be reformulated in term of the log-composition, it is possible to compute it using numerical methods introduced:
 \begin{enumerate}
-	\item Truncated BCH formula of degree $k=1, 1.5, 2, 3$ - \emph{equation \ref{eq:bossa_bch_strat}}.
+	\item Truncated BCH formula of degree $k=1, \frac{3}{2}, 2, 3$ - \emph{equation \ref{eq:bossa_bch_strat}}.
 	\item Parallel transport - \emph{equation \ref{eq:bossa_parallel_strategy}}.
 	\item Symmetric parallel transport - \emph{equation \ref{eq:bossa_symmetric}}.
 \end{enumerate}
 
-This last chapter presents some of the results of the numerical methods investigated.
-Computations are performed with a software written in Python (available on gitlab at ... add ref), based on numerous libraries as well as on the framework NiftyBit, implemented by Pancaj Daga.
+This last chapter is devoted to show some of the results of the numerical methods investigated.
+Computations are performed with a software written in Python (repository available on the \href{https://cmiclab.cs.ucl.ac.uk}{cmic gitlab}), based on 
+the following libraries - numpy, matplotlib, math, scipy, nibabel, timeit, random - as well as on the library NiftyBit, implemented by Pancaj Daga.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -40,25 +41,26 @@ There are several norms in the space of $3\times 3$ squared matrices that can be
 \begin{align*}
 \euclideanMetric{(\theta,dt^{x},dt^{y})}_{\text{fro}} = \sqrt{2\theta^{2} + (dt^{x})^2 + (dt^{y})^2} 
 \qquad
-(\theta,dt_{x},dt_{y}) \in \mathfrak{se}(2)
+(\theta,dt^{x},dt^{y}) \in \mathfrak{se}(2)
 \end{align*}
-Numerical test shown that for the studied cases, no qualitative differences are detected if choosing instead the $L^{2}$ norm.
+Numerical tests show that for the studied cases, no qualitative differences are detected if choosing instead the $L^{2}$ norm.
  %
  \begin{figure}[!ht]
  	\hspace{-2cm}
  	\includegraphics[scale=0.54]{figures/se2_image_scale.png}
- 	\caption{Log composition in $\mathfrak{se}(2)$. Comparisons between methods. TODO}
+ 	\caption{Comparison of the errors for each numerical method to compute the Log-composition $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Truncated BCH of degrees 0,1,2, parallel transport method and Taylor method are considered for different values of the norm of $dr_{1}$ (x-axes) and norm of $dr_{0}$ (x-axes). 
+ 	Values of each sub-square are the average error of 500 random samples in each of the 6 sub-intervals between $0.1$ and $2.0$. Errors with BCH 0 and parallel transport method are comparable, but the parallel transport method is not symmetric and has better performance when $dr_{1}$ is small. BCH 1 and Taylor are comparable as well, but the best performance in terms of approximation is the BCH 2. Values of the sub-square under the \emph{gray arrows} are shown in the boxplot \ref{fig:se2_image_scale} where variance, quartiles and outliers are visualized.
+ 	 }
  	\label{fig:se2_image_scale}
  \end{figure}
  %
- 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Methods and Results}
 
-Two sets of $3000$ transformations of elements in $\mathfrak{se}(2)$ are randomly sampled with increasing norms in the interval $[0.1, 2.0]$. This interval is divided into 6 segments delimited by $ I = \text{linspace}([0.1, 2.0], 7)$ and for each couple of subintervals $[I(n_0), I(n_0+1)]$, $[I(n_1), I(n_1+1)]$ two sets of $500$ transformations $\{ dr_{0}^{(j)}\}_{j=1}^{500}$, $\{ dr_{1}^{(j)} \}_{j=1}^{500}$ having norms belonging to the respective intervals are sampled:
+To compare the errors the computation of the log-composition for the methods presented, two sets of $3000$ transformations of elements in $\mathfrak{se}(2)$ are randomly sampled with increasing norms in the interval $[0.1, 2.0]$. This interval is divided into 6 segments delimited by $ I = \text{linspace}([0.1, 2.0], 7)$ and for each couple of subintervals $[I(n_0), I(n_0+1)]$, $[I(n_1), I(n_1+1)]$ two sets of $500$ transformations $\{ dr_{0}^{(j)}\}_{j=1}^{500}$, $\{ dr_{1}^{(j)} \}_{j=1}^{500}$ having norms belonging to the respective intervals are sampled:
 \begin{align*}
-j=1,...,500 \qquad &\qquad  n_0, n_1 = 1,,...,6 \\
+j=1,...,500 \quad &\quad  n_0, n_1 = 0,...,5 \\
 \euclideanMetric{dr_{0}^{(j)}}_{\text{fro}} &\in [I(n_0), I(n_0+1)] \\
 \euclideanMetric{dr_{1}^{(j)}}_{\text{fro}} &\in [I(n_1), I(n_1+1)]  
 \end{align*} 
@@ -78,7 +80,7 @@ f(n_0,n_1,N)
 =
  \mathbb{E}\Big(
   \{ 
-  \text{Error}(dr_{0}^{j},dr_{1}^{j},N) 
+  \text{Error}(dr_{0}^{(j)},dr_{1}^{(j)},N) 
   \}_{j=1}^{500}
   \Big)
 \end{align*}
@@ -89,13 +91,16 @@ The data indicated by the gray arrows in each plot corresponds are showed in the
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
 	\includegraphics[scale=0.54]{figures/se2_boxplot.png}
-	\caption{Log composition in $\mathfrak{se}(2)$. comparisons between all the methods. TODO}
+	\caption{Errors of the numerical methods for the computation of the Log-composition of $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Norm of $dr_{0}$ is in the interval $[0.37,1.05]$, norm of $dr_{1}$ in the interval $[0.1, 1.05]$ divided in 3 segments. Mean values of each box are shown in the first row in different colors. Shown data corresponds to a section of the image scale \ref{fig:se2_image_scale}, indicated by a gray arrow. As expected all of the error means increase with the of norm of $dr_1$, but the rate of the growth is different for each method.}
 	\label{fig:se2_boxplot}
 \end{figure}
 %
 
-From these results we can see that the second truncation error of the BCH formula provides the best result even when the norm of the both transformation are around $2.0$ (the unit of measure is the same as the measure chosen for the translation or the rotation: it can be inches, cm, pixel, ...). Except the numerical method involving the parallel transport, all of the errors are symmetric in function of the norm of the input vectors. \\
-Parallel transport method provides better results when $dr_1$ has little norm.
+From these results in $\mathfrak{se}(2)$ we can see that the second truncation error of the BCH formula provides the best result (the unit of measure is the same as the measure chosen for the translation or the rotation: it can be inches, cm, pixel, ...).
+
+Method based on the $BCH^0$, that is utilized for example in the additive demons, do not involves any Lie bracket. Its results show that the bigger is the norm of the transformation involved, the bigger is its Lie bracket and its nested Lie bracket as appears in the $BCH^1$ and $BCH^2$. Do not take into account Lie brackets means do not take into account the curvature of the space \cite{misner1973gravitation}, whose significance is given by the experimental results. Parallel transport method tries to compensate the curvature using a geometrical approach considering different tangent spaces to the manifold of the transformation than the one at the origin. As expected from the formula is not symmetric. It provides better results than the $BCH^0$, and when the norm of $dr_1$ is small, results are close to the one obtained with $BCH^1$ when norms of $dr_0$ and $dr_1$ are below $1.3$.
+
+Log-composition based on Taylor method has slightly better results than the $BCH^1$, but do not reach $BCH^2$, which provides the best results. This may be due to the fact that the Taylor belongs to $\mathcal{O}(dr_1^2)$ while the $BCH^2$ involves the Lie bracket $[dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]]$. Even if the truncated $BCH$ does not have a known asymptotic error (or big-O notation), this last observation provides that $BCH^2$ have a bigger asymptotic order of converges than $\mathcal{O}(dr_1^2)$, in $\mathfrak{se}(2)$.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -103,14 +108,41 @@ Parallel transport method provides better results when $dr_1$ has little norm.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Log-composition for SVF}
-
-
+Before getting into the results for the log-composition of SVF it is important to spend some words about how random SVF are created and how to compare the norm of the approximation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the ground truth when this is not available.
+%
 \begin{figure}[!ht]
 	\hspace{-0.8cm}
 	\includegraphics[scale=0.72]{figures/svf_gaussian_smoothing_effects.png}
 	\caption{Random generated vector field before and after the Gaussian smoother: in the first row a random generated vector field of dimension $50\times 50 \times 2$ where the value at each pixel are sampled from a random variable with normal distribution of mean $0$ and sigma $4$. The second row shows the same random vector field after a Gaussian smoothing of sigma $2$ (the code is based on the scipy library ndimage.filters.gaussian\textunderscore filter). In the last column shows the quiver of the vector field in the squared subregion of size $10\times 10$ at the point $(20,20)$. From the colorscale it is also possible to see that the values distribution of the filtered image is not anymore symmetric. }
-	\label{fig:svf_gaussian_smoothing_effects}
+	\label{fig:SVF_gaussian_smoothing_effects}
 \end{figure}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\subsection{Methods: random generated SVF and ground truth.}
+
+DRAFT:
+\begin{itemize}
+\item How to generate a random SVF - formula refer to figure \ref{fig:SVF_gaussian_smoothing_effects}
+\item Norm defined in both Lie algebra and Lie group, thanks to the fact that ... inheritance. formula
+\item How the norm changes with the space and with the filter: \ref{fig:SVF_sigma_means_comparisons}
+\item How the norm affect the Lie bracket: 
+\end{itemize}
+
+We will exploit the parametrization of discretized SVF using matrices to have a ground truth to compare results. 
+
+Norm will be computed in the group as the $L_2$ norm of matrices that represents the SVF. \\ 
+Given $\mathbf{u}$ and $\mathbf{v}$ in $\text{\emph{Diff}}^{1}(\Omega)$, $\mathbf{w}_{\text{ground}} = \mathbf{u}\oplus \mathbf{v}$ solution of the log-composition and $\mathbf{w}_{\text{app}}$ its approximation using a numerical method, then their difference is computed in the group as:
+\begin{align*}
+\text{error} = \euclideanMetric{\exp(\mathbf{w}_{\text{ground}}) - \exp(\mathbf{w}_{\text{app}})}_{L^{2}}
+\end{align*}
+where $\exp(\mathbf{w}_{\text{ground}})$ is computed as the composition of the exponentials of $\mathbf{u}$ and $\mathbf{v}$:
+\begin{align*}
+\exp(\mathbf{w}_{\text{ground}}) = \exp(\mathbf{u})\circ \exp(\mathbf{v})
+\end{align*}
+As previously said, the norm $L^2$ is considered improperly in a group structure. It can be done only thanks to the fact that the discrete SVF and the corresponding diffeomorphisms $\text{\emph{Diff}}^{1}(\Omega)$ are implemented with 5-dimensional matrices (see equation \ref{eq:basic_data_structure}).
+%(TODO: restate this in the limitations suggesting an alternative computation of the error as future work)\\
+
+
 
 
 \begin{figure}[!ht]
@@ -128,20 +160,7 @@ Parallel transport method provides better results when $dr_1$ has little norm.
 \end{figure}
 
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Methods: random generated SVF, and norm comparisons.}
-We created synthetic random matrices in $\mathfrak{se}(2)$. We considered the difference between the log composition computed with the closed form \ref{eq:log_composition_se2_closed_form}. 
-A sample of $500$ couples $(dr_0,dr_1)$ of elements in $\mathfrak{se}(2)$ are created, 
 
-norm in the lie algebra
-
-norm in the lie group
-
-
-Norm of a group. Inherited, start form the previous case!
-
-How the error is computed in the group and why
 
 
 \begin{figure}[!ht]
@@ -178,8 +197,16 @@ How the error is computed in the group and why
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Results}
+\subsection{Methods and results}
 
+
+comment figures 5.6, 5.7, 5.8.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Log composition applied to SVF from real cases}
+
+zzz see of you have time!
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 

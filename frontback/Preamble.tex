@@ -8,35 +8,34 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section*{Acknowledgments}
 %
-%There are places where the problem that must be faced do not grow on steadfast certainties and in predictable directions.
-%Places where there is no room for the construction of a solid, sleek and clean mathematical structure, aimed to help us getting closer to the solution.
-%Places, that require nevertheless simplicity with a high level of precision to achieve the desired results.\\
+%There are places where problems do not grow on steadfast certainties and in predictable directions.
+%Places where there is little room to attempt any construction of solid, sleek and clean mathematical structures, but that demand nevertheless simplicity and precision.
 %
-%In these places any language created by the harsh formalisms of mathematics does not work smoothly and we can not do any better than stealing some of their words and use them as tourists in a foreign land.\\
-%
-%It was not, and it is still not easy for me, the trail from the garden of pure mathematics to the world of practical applications. But it was crucial to have had guides, who have gone before me through the same tortuous paths and who accompanied me in this last year. The main contribution arrived from Marco Lorenzi who has helped significantly, not only to the development of this thesis, and to the solution of various doubts, but especially in having - laboriously - introduced to the craft of the biomedical research.\\
-%
-%To these pages, also contributed... To the software...  Pancaj Daga . \\
-%
-%I would like to thank as well the rowing fellow with whom I shared commitment, challenges and happiness of this first fascinating and demanding year at the GIFT-Surg Project: 
-%Francois Chadebecq, 
-%Pankaj Daga, 
-%Tom Doel, 
-%George Dwyer,
-%Michael Ebner,
-%Luis Herrera,
-%Ioannis Kourouklides,
-%Efthymios Maneas,
-%Sacha Noimark,
-%Rosalind Pratt,
-%Marcel Tella,
-%Gustavo Santos,
-%Dzhoshkun Shakir,
-%Guotai Wang and Maria A. Zuluaga.\\
-%
-%The eclectic buildings of the UCL would have been unseen for me without Tom Vercauteren, Sebastien Ourselin and Gary Zhang. Their work and their decision, in a warm day of June 2014, to offer me support - other than a desk, a laptop and a coffee machine -  at TIG, opened the greatest and important opportunities I've ever went through.\\
-%
-%In conclusion, it is well known that in every classical music concert the two most important tunes are the first one and the last one. Following the same rule I terminate here acknowledging for her love, support and patient, Carole Sudre.
+%In these places any language created by the formalisms of pure mathematics does not work smoothly and we can not do any better than borrowing some of their words and use them as tourists in a foreign land.
+
+It was not, and it is still not easy for me, the trail from the garden of pure mathematics to the world of biomedical applications. But it is crucial to have guides, who have gone before me through the same tortuous paths and who are accompanying me. The main contribution on this side arrived from Marco Lorenzi. With the commitment of a supervisor, he helped me significantly, not only in the development of this thesis, and in solving various problems and doubts, but especially in having - laboriously - introduced me to the craft of the biomedical research.
+
+I am also grateful to the rowing fellow with whom I shared commitment, challenges and happiness of this first fascinating and demanding year at the GIFT-Surg Project: 
+Francois Chadebecq, 
+Pankaj Daga, 
+Tom Doel, 
+George Dwyer,
+Michael Ebner,
+Luis Herrera,
+Ioannis Kourouklides,
+Efthymios Maneas,
+Sacha Noimark,
+Rosalind Pratt,
+Marcel Tella,
+Gustavo Santos,
+Dzhoshkun Shakir,
+Guotai Wang and Maria A. Zuluaga.
+
+The eclectic buildings of the UCL would have been unseen for me without Tom Vercauteren, Sebastien Ourselin and Gary Zhang. Their work and their decision, in a warm day of June 2014, to offer me support - other than a desk, a laptop and a coffee machine - at TIG, opened the greatest and important opportunity I've ever had.
+
+ An external, but not less important contribution came from Andrea Baglione, Filippo Ferraris, Gerardo Ballesio, Giuliano `er Nuanda' De Rossi, Silvia Porter and Raoul Resta. 
+ 
+In classic music, it is well known that in every concert the two most important tunes are the first one and the last one. Following here the same rule I terminate acknowledging for her greatest love, support and patient, Carole Sudre.
 
 % % % % % % % % % % % % % % %
 
@@ -52,15 +51,19 @@
 
 %Medical imaging employs techniques and tools belonging to several branches of mathematics and physics that, when applied to morphometric and statistical study of biological shape variability, are collected under the name of \emph{computational anatomy}. 
 \emph{Image registration} is one of the critical tool in medical imaging. It consists in the process of alignment of two or more patients' images with the aim of determining and quantifying the occurring anatomies' correspondences and differences.
-It is widely used in both academical studies and applications, and it continuously challenges researchers to enhance accuracy, improve reliability and reduce computational time.\\
+It is widely used in both academical studies and applications, and it continuously challenges researchers to enhance accuracy, improve reliability and reduce computational time.
 
 The introduction of the \emph{Lie group of diffeomorphisms} from differential geometry to image registration provides an interesting set of transformations to model the organs' deformations, and to quantify them, thanks to the \emph{log-euclidean framework} for the computation of statistics.
-This machinery enables the representation of diffeomorphisms embedded in the one-parameter subgroup as \emph{stationary velocity field} (SVF) in the Lie group's tangent space (the \emph{Lie algebra}). Despite the fact that statistics can be computed easily and consistently, one of the challenges remains the numerical computation of the map that transforms SVF in the corresponding diffeomorphisms, the Lie exponential, as well as the numerical computation of its inverse function, the Lie logarithm. \\
+This machinery enables the representation of diffeomorphisms embedded in the one-parameter subgroup as \emph{stationary velocity field} (SVF) in the Lie group's tangent space (the \emph{Lie algebra}). Despite the fact that statistics can be computed easily and consistently, one of the challenges remains the numerical computation of the map that transforms SVF in the corresponding diffeomorphisms, the Lie exponential, as well as the numerical computation of its inverse function, the Lie logarithm. 
 
 These two transformations allow in particular the computation of the composition of diffeomorphisms in the tangent space, operation called in this thesis \emph{log-composition}. 
-The necessity of finding fast numerical methods for its computation arises for example in the \emph{log-demons} and in the \emph{symmetric log-demon} registration algorithm.\\
+The necessity of finding fast numerical methods for its computation arises for example in the \emph{log-demons} and in the \emph{symmetric log-demon} registration algorithm.
 
 In this research we analyze existing numerical method for the computation of the log-composition, based on the BCH formula and we compare them with two new methods developed in this research, one based on the Taylor expansion and the other on the geometrical concept of parallel transport. 
+
+\begin{flushright}
+This document contains 15000 words. 
+\end{flushright}
 
  
 
