@@ -6,6 +6,7 @@ A level-1 auxiliary file: chapters/Ch_introduction.aux
 A level-1 auxiliary file: chapters/Ch_tools.aux
 A level-1 auxiliary file: chapters/Ch_spatial_transformations.aux
 A level-1 auxiliary file: chapters/Ch_log_computations.aux
+A level-1 auxiliary file: chapters/Ch_to_practice.tex.aux
 A level-1 auxiliary file: chapters/Ch_results.aux
 The style file: alpha.bst
 Database file #1: frontback/mres_bib.bib.bib
@@ -47,7 +48,7 @@ Warning--empty publisher in milnor1984remarks
 Warning--empty booktitle in vercauteren2014preprint
 You've used 74 entries,
             2543 wiz_defined-function locations,
-            977 strings with 17653 characters,
+            978 strings with 17684 characters,
 and the built_in function-call counts, 30793 in all, are:
 = -- 3066
 > -- 1498
