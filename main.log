@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  16 JUL 2015 14:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  18 JUL 2015 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -642,7 +642,7 @@ LaTeX Info: Redefining \nameref on input line 64.
 \openout4 = `main.out'.
 
 
-<figures/UCL-logo3.pdf, id=168, 838.75516pt x 245.29291pt>
+<figures/UCL-logo3.pdf, id=172, 838.75516pt x 245.29291pt>
 File: figures/UCL-logo3.pdf Graphic file (type pdf)
 
 <use figures/UCL-logo3.pdf>
@@ -700,61 +700,61 @@ l.26
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.48 	\item[2007-2013 $\triangleright$]
-                                        The restriction to SVF was subsequen...
-[2]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) h
-as been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.70 
-      [3]pdfTeX warning (ext4): destination with the same identifier (name{page
-.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.126 
-       [4] <figures/iterative_algorithm.png, id=360, 1279.78125pt x 803.0pt>
+l.74 \end{align}
+                 [2]
+<figures/iterative_algorithm.png, id=293, 1279.78125pt x 803.0pt>
 File: figures/iterative_algorithm.png Graphic file (type png)
 
 <use figures/iterative_algorithm.png>
-Package pdftex.def Info: figures/iterative_algorithm.png used on input line 139
-.
+Package pdftex.def Info: figures/iterative_algorithm.png used on input line 98.
+
 (pdftex.def)             Requested size: 300.74864pt x 188.70502pt.
- [5 <./figures/iterative_algorithm.png>]
-[6] [7] [8]) [9]
-\openout2 = `chapters/Ch_tools.aux'.
 
- (./chapters/Ch_tools.tex [10
-
-
-
-]
-Chapter 2.
-[11]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 22.43335pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12] <figures/log_composition.png, id=487, 1094.0875pt x 763.85374pt>
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.107 
+       [3 <./figures/iterative_algorithm.png>]pdfTeX warning (ext4): destinatio
+n with the same identifier (name{page.4}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.135 
+       [4] [5] [6] [7]) [8]
+\openout2 = `chapters/Ch_tools.aux'.
+
+ (./chapters/Ch_tools.tex
+Chapter 2.
+[9
+
+
+
+] [10] <figures/log_composition.png, id=466, 1094.0875pt x 763.85374pt>
 File: figures/log_composition.png Graphic file (type png)
 
 <use figures/log_composition.png>
 Package pdftex.def Info: figures/log_composition.png used on input line 112.
 (pdftex.def)             Requested size: 382.93636pt x 267.35281pt.
- [13] [14 <./figures/log_composition.png>]
+ [11] [12 <./figures/log_composition.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
-<figures/inversion_1.png, id=523, 657.45625pt x 460.72125pt>
+<figures/inversion_1.png, id=502, 657.45625pt x 460.72125pt>
 File: figures/inversion_1.png Graphic file (type png)
 
 <use figures/inversion_1.png>
 Package pdftex.def Info: figures/inversion_1.png used on input line 220.
 (pdftex.def)             Requested size: 184.9429pt x 129.59862pt.
 
-<figures/inversion_2.png, id=524, 708.6475pt x 419.5675pt>
+<figures/inversion_2.png, id=503, 708.6475pt x 419.5675pt>
 File: figures/inversion_2.png Graphic file (type png)
 
 <use figures/inversion_2.png>
@@ -765,31 +765,31 @@ Overfull \hbox (71.13188pt too wide) in paragraph at lines 227--228
  [][] 
  []
 
-[15] <figures/sign_1.png, id=538, 1356.06625pt x 926.46124pt>
+[13] <figures/sign_1.png, id=518, 1356.06625pt x 926.46124pt>
 File: figures/sign_1.png Graphic file (type png)
 
 <use figures/sign_1.png>
 Package pdftex.def Info: figures/sign_1.png used on input line 245.
 (pdftex.def)             Requested size: 270.30118pt x 184.66695pt.
- [16 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/sign_1.
+ [14 <./figures/inversion_1.png> <./figures/inversion_2.png> <./figures/sign_1.
 png>]
-<figures/theorem_pict.png, id=556, 760.8425pt x 698.61pt>
+<figures/theorem_pict.png, id=536, 760.8425pt x 698.61pt>
 File: figures/theorem_pict.png Graphic file (type png)
 
 <use figures/theorem_pict.png>
 Package pdftex.def Info: figures/theorem_pict.png used on input line 301.
 (pdftex.def)             Requested size: 270.30118pt x 248.19482pt.
- [17] [18 <./figures/theorem_pict.png>] [19])
-[20]
+ [15] [16 <./figures/theorem_pict.png>] [17])
+[18]
 \openout2 = `chapters/Ch_spatial_transformations.aux'.
 
  (./chapters/Ch_spatial_transformations.tex
 Chapter 3.
-[21
+[19
 
 
 
-] [22] <figures/exp_se2.png, id=626, 1126.2075pt x 774.895pt>
+] [20] <figures/exp_se2.png, id=606, 1126.2075pt x 774.895pt>
 File: figures/exp_se2.png Graphic file (type png)
 
 <use figures/exp_se2.png>
@@ -809,7 +809,7 @@ Overfull \hbox (5.97356pt too wide) in paragraph at lines 259--259
 [] 
  []
 
-[23]
+[21]
 Overfull \hbox (0.14778pt too wide) in paragraph at lines 331--333
 \OT1/cmr/m/n/10 We can split it in two part, the ro-ta-tional part $\OML/cmm/m/
 it/10 dR\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )[]$ and the trans
@@ -817,26 +817,26 @@ it/10 dR\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )[]$ and the trans
 mr/m/n/10 )[]\OML/cmm/m/it/10 dt[]$\OT1/cmr/m/n/10 .
  []
 
-[24 <./figures/exp_se2.png>] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 466--469
+[22 <./figures/exp_se2.png>] [23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 508--511
 
  []
 
-[26]) [27]
+[25]) [26]
 \openout2 = `chapters/Ch_log_computations.aux'.
 
- (./chapters/Ch_log_computations.tex [28
+ (./chapters/Ch_log_computations.tex
+Chapter 4.
+[27
 
 
 
 ]
-Chapter 4.
-[29]
 Overfull \hbox (25.47949pt too wide) in paragraph at lines 75--75
 []\OT1/cmr/bx/n/14.4 The Log-computation Al-go-rithm us-ing Log-composition 
  []
 
-[30]) [31] [32]
+[28]) [29] [30]
 \openout2 = `chapters/Ch_results.aux'.
 
  (./chapters/Ch_results.tex
@@ -849,11 +849,11 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 38.
 
-[33
+[31
 
 
 
-] <figures/se2_image_scale.png, id=755, 1011.78pt x 578.16pt>
+] <figures/se2_image_scale.png, id=738, 1011.78pt x 578.16pt>
 File: figures/se2_image_scale.png Graphic file (type png)
 
 <use figures/se2_image_scale.png>
@@ -864,8 +864,8 @@ Overfull \hbox (91.66977pt too wide) in paragraph at lines 49--53
 []  [] 
  []
 
-[34 <./figures/se2_image_scale.png>]
-<figures/se2_boxplot.png, id=767, 867.24pt x 505.89pt>
+[32 <./figures/se2_image_scale.png>]
+<figures/se2_boxplot.png, id=750, 867.24pt x 505.89pt>
 File: figures/se2_boxplot.png Graphic file (type png)
 
 <use figures/se2_boxplot.png>
@@ -876,8 +876,8 @@ Overfull \hbox (27.84573pt too wide) in paragraph at lines 92--94
 []  [] 
  []
 
-[35 <./figures/se2_boxplot.png>]
-<figures/svf_gaussian_smoothing_effects.png, id=777, 599.841pt x 375.804pt>
+[33 <./figures/se2_boxplot.png>]
+<figures/svf_gaussian_smoothing_effects.png, id=760, 599.841pt x 375.804pt>
 File: figures/svf_gaussian_smoothing_effects.png Graphic file (type png)
 
 <use figures/svf_gaussian_smoothing_effects.png>
@@ -897,7 +897,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
 
-<figures/SVF_sigma_means_comparisons.png, id=781, 881.694pt x 375.804pt>
+<figures/SVF_sigma_means_comparisons.png, id=764, 881.694pt x 375.804pt>
 File: figures/SVF_sigma_means_comparisons.png Graphic file (type png)
 
 <use figures/SVF_sigma_means_comparisons.png>
@@ -910,7 +910,7 @@ Overfull \hbox (35.65076pt too wide) in paragraph at lines 149--151
  []
 
 
-<figures/SVF_image_scale_bracket_versus_gaussian.png, id=782, 722.7pt x 325.215
+<figures/SVF_image_scale_bracket_versus_gaussian.png, id=765, 722.7pt x 325.215
 pt>
 File: figures/SVF_image_scale_bracket_versus_gaussian.png Graphic file (type pn
 g)
@@ -923,7 +923,7 @@ Overfull \hbox (7.3928pt too wide) in paragraph at lines 156--158
 []  [] 
  []
 
-<figures/SVF_bch_parallel_transport.png, id=783, 794.97pt x 361.35pt>
+<figures/SVF_bch_parallel_transport.png, id=766, 794.97pt x 361.35pt>
 File: figures/SVF_bch_parallel_transport.png Graphic file (type png)
 
 <use figures/SVF_bch_parallel_transport.png>
@@ -935,7 +935,7 @@ Overfull \hbox (36.52878pt too wide) in paragraph at lines 167--169
 []  [] 
  []
 
-<figures/SVF_image_scale.png, id=784, 939.51pt x 245.718pt>
+<figures/SVF_image_scale.png, id=767, 939.51pt x 245.718pt>
 File: figures/SVF_image_scale.png Graphic file (type png)
 
 <use figures/SVF_image_scale.png>
@@ -946,7 +946,7 @@ Overfull \hbox (40.4092pt too wide) in paragraph at lines 175--177
 []  [] 
  []
 
-<figures/SVF_boxplot.png, id=785, 867.24pt x 505.89pt>
+<figures/SVF_boxplot.png, id=768, 867.24pt x 505.89pt>
 File: figures/SVF_boxplot.png Graphic file (type png)
 
 <use figures/SVF_boxplot.png>
@@ -957,34 +957,34 @@ Overfull \hbox (65.66473pt too wide) in paragraph at lines 183--185
 []  [] 
  []
 
-[36] [37 <./figures/svf_gaussian_smoothing_effects.png>]) [38 <./figures/SVF_si
+[34] [35 <./figures/svf_gaussian_smoothing_effects.png>]) [36 <./figures/SVF_si
 gma_means_comparisons.png> <./figures/SVF_image_scale_bracket_versus_gaussian.p
-ng>] [39 <./figures/SVF_bch_parallel_transport.png> <./figures/SVF_image_scale.
-png>] [40 <./figures/SVF_boxplot.png>] (./main.bbl [41
+ng>] [37 <./figures/SVF_bch_parallel_transport.png> <./figures/SVF_image_scale.
+png>] [38 <./figures/SVF_boxplot.png>] (./main.bbl [39
 
 
-] [42] [43] [44])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
+] [40] [41] [42])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 221.
 
-[45]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
+[43]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 221.
  (./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
 (./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
 (./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 222.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 222.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 221.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 221.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D3AC83609DB73AD00D04F0DAAC59AC75;3599.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 222.
+(rerunfilecheck)             Checksum: BE8B4FEF215D7BA629FF85F5391E590F;3675.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 221.
  ) 
 Here is how much of TeX's memory you used:
- 8321 strings out of 493117
- 116630 string characters out of 6135433
- 245163 words of memory out of 5000000
- 11319 multiletter control sequences out of 15000+600000
+ 8315 strings out of 493117
+ 116521 string characters out of 6135433
+ 244972 words of memory out of 5000000
+ 11317 multiletter control sequences out of 15000+600000
  18251 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,15n,43p,1040b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,15n,43p,1053b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></
@@ -1005,12 +1005,11 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (51 pages, 3473878 bytes).
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (49 pages, 3464746 bytes).
 PDF statistics:
- 972 PDF objects out of 1000 (max. 8388607)
- 855 compressed objects within 9 object streams
- 262 named destinations out of 1000 (max. 500000)
- 409 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 951 PDF objects out of 1000 (max. 8388607)
+ 837 compressed objects within 9 object streams
+ 258 named destinations out of 1000 (max. 500000)
+ 417 words of extra memory for PDF output out of 10000 (max. 10000000)
 

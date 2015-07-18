@@ -187,9 +187,8 @@ Zhiwu Huang, Ruiping Wang, Shiguang Shan, Xianqiu Li, and Xilin Chen.
 \newblock Log-euclidean metric learning on symmetric positive definite manifold
   with application to image set classification.
 
-\bibitem[KKK08]{kirillov2008introduction}
-Alexander~A Kirillov, Aleksandr~Aleksandrovi{\v{c}} Kirillov, and
-  Aleksandr~Aleksandrovi{\v{c}} Kirillov.
+\bibitem[Kir08]{kirillov2008introduction}
+Alexander Kirillov.
 \newblock {\em An introduction to Lie groups and Lie algebras}, volume 113.
 \newblock Cambridge University Press Cambridge, 2008.
 
@@ -279,6 +278,13 @@ J.~R. McClelland, D.~J. Hawkes, T.~Schaeffter, and A.~P. King.
 \newblock Respiratory motion models: A review.
 \newblock {\em Medical Image Analysis}, 17(1):19--42, 2015/04/01.
 
+\bibitem[Mic80]{michor1980manifolds}
+P~Michor.
+\newblock Manifolds of smooth maps, ii: the lie group of diffeomorphisms of a
+  non-compact smooth manifold.
+\newblock {\em Cahiers de Topologie et G{\'e}om{\'e}trie Diff{\'e}rentielle
+  Cat{\'e}goriques}, 21(1):63--86, 1980.
+
 \bibitem[Mil82]{milnor1982infinite}
 John Milnor.
 \newblock On infinite dimensional lie groups.
@@ -354,11 +360,6 @@ Jean-Pierre Serre.
   University}.
 \newblock Springer, 2009.
 
-\bibitem[SS09]{stein2009real}
-Elias~M Stein and Rami Shakarchi.
-\newblock {\em Real analysis: measure theory, integration, and Hilbert spaces}.
-\newblock Princeton University Press, 2009.
-
 \bibitem[Sze94]{szeliski1994image}
 Richard Szeliski.
 \newblock Image mosaicing for tele-reality applications.
@@ -375,11 +376,6 @@ J-P Thirion.
 Alain Trouv{\'e}.
 \newblock Diffeomorphisms groups and pattern matching in image analysis.
 \newblock {\em International Journal of Computer Vision}, 28(3):213--221, 1998.
-
-\bibitem[TY05]{trouve2005metamorphoses}
-Alain Trouv{\'e} and Laurent Younes.
-\newblock Metamorphoses through lie group action.
-\newblock {\em Foundations of Computational Mathematics}, 5(2):173--198, 2005.
 
 \bibitem[Ver14]{vercauteren2014preprint}
 Tom Vercauteren.
@@ -409,13 +405,6 @@ Tom Vercauteren, Xavier Pennec, Aymeric Perchant, and Nicholas Ayache.
   Intervention - MICCAI 2008, 11th International Conference, New York, NY, USA,
   September 6-10, 2008, Proceedings, Part I}, volume 5241 of {\em Lecture Notes
   in Computer Science}, pages 754--761. Springer, 2008.
-
-\bibitem[VRRC12]{vialard2012diffeomorphic}
-Fran{\c{c}}ois-Xavier Vialard, Laurent Risser, Daniel Rueckert, and Colin~J
-  Cotter.
-\newblock Diffeomorphic 3d image registration via geodesic shooting using an
-  efficient adjoint calculation.
-\newblock {\em International Journal of Computer Vision}, 97(2):229--241, 2012.
 
 \bibitem[War13]{warner}
 Frank~W Warner.
