@@ -10,10 +10,10 @@
 %
 %There are places where problems do not grow on steadfast certainties and in predictable directions.
 %Places where there is little room to attempt any construction of solid, sleek and clean mathematical structures, but that demand nevertheless simplicity and precision.
-%
-%In these places any language created by the formalisms of pure mathematics does not work smoothly and we can not do any better than borrowing some of their words and use them as tourists in a foreign land.
 
-It was not, and it is still not easy for me, the trail from the garden of pure mathematics to the world of biomedical applications. But it is crucial to have guides, who have gone before me through the same tortuous paths and who are accompanying me. The main contribution on this side arrived from Marco Lorenzi. With the commitment of a supervisor, he helped me significantly, not only in the development of this thesis, and in solving various problems and doubts, but especially in having - laboriously - introduced me to the craft of the biomedical research.
+%Here the language created following the abstract, self-contained and rigorous formalisms of pure mathematics is not reliable, exactly as is not reliable the knowledge of the initial condition of any studied phenomenon. Pure math borrowing some of their words and use them as tourists in a foreign land.
+
+It was not and it is still not easy for me the trail between the study of pure mathematics to the world of medical imaging and biomedical engineering. This route would have never been possible without guides, who have gone before me through the same tortuous paths and who accompanied me in the last year. The main contribution on this side arrived from Marco Lorenzi. With the commitment of a supervisor, he helped me significantly, not only in the development of this thesis, and in solving various problems and doubts, but especially in having - laboriously - introduced me to the craft of biomedical research.
 
 I am also grateful to the rowing fellow with whom I shared commitment, challenges and happiness of this first fascinating and demanding year at the GIFT-Surg Project: 
 Francois Chadebecq, 
@@ -31,11 +31,13 @@ Gustavo Santos,
 Dzhoshkun Shakir,
 Guotai Wang and Maria A. Zuluaga.
 
-The eclectic buildings of the UCL would have been unseen for me without Tom Vercauteren, Sebastien Ourselin and Gary Zhang. Their work and their decision, in a warm day of June 2014, to offer me support - other than a desk, a laptop and a coffee machine - at TIG, opened the greatest and important opportunity I've ever had.
+For the help in the unknown land of infinite dimensional Lie algebra, I have a debt with professor Karl-H. Neeb and dott. Robert Gray.
 
- An external, but not less important contribution came from Andrea Baglione, Filippo Ferraris, Gerardo Ballesio, Giuliano `er Nuanda' De Rossi, Silvia Porter and Raoul Resta. 
+A non academic, but not less important contribution came on different sides from Andrea Baglione, Filippo Ferraris, Gerardo Ballesio, Giuliano `er Nuanda' De Rossi, Silvia Porter and Raoul Resta. 
+
+The eclectic buildings of the UCL would have been unseen for me without Tom Vercauteren, Sebastien Ourselin and Gary Zhang. Their work and their decision, in a warm day of June 2014, to offer me their support - other than a desk, a laptop and a coffee machine - opened the greatest and important opportunity I've ever had.
  
-In classic music, it is well known that in every concert the two most important tunes are the first one and the last one. Following here the same rule I terminate acknowledging for her greatest love, support and patient, Carole Sudre.
+In classic music, it is well known that in every concert the two most important tunes are the first one and the last one. Following here the same rule I terminate acknowledging for the great love, effort and patient, Carole Sudre.
 
 % % % % % % % % % % % % % % %
 
@@ -53,7 +55,7 @@ In classic music, it is well known that in every concert the two most important 
 \emph{Image registration} is one of the critical tool in medical imaging. It consists in the process of alignment of two or more patients' images with the aim of determining and quantifying the occurring anatomies' correspondences and differences.
 It is widely used in both academical studies and applications, and it continuously challenges researchers to enhance accuracy, improve reliability and reduce computational time.
 
-The introduction of the \emph{Lie group of diffeomorphisms} from differential geometry to image registration provides an interesting set of transformations to model the organs' deformations, and to quantify them, thanks to the \emph{log-Euclidean framework} for the computation of statistics.
+Among many approaches to the problem, the introduction of the \emph{Lie group of diffeomorphisms} from differential geometry provides an interesting set of deformation to model the organs' deformations, and to quantify them, thanks to the \emph{log-Euclidean framework} for the computation of their statistics.
 This machinery enables the representation of diffeomorphisms embedded in the one-parameter subgroup as \emph{stationary velocity field} (SVF) in the Lie group's tangent space (the \emph{Lie algebra}). Despite the fact that statistics can be computed easily and consistently, one of the challenges remains the numerical computation of the map that transforms SVF in the corresponding diffeomorphisms, the Lie exponential, as well as the numerical computation of its inverse function, the Lie logarithm. 
 
 These two transformations allow in particular the computation of the composition of diffeomorphisms in the tangent space, operation called in this thesis \emph{log-composition}. 

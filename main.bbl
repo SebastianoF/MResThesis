@@ -118,6 +118,13 @@ Paul Dupuis, Ulf Grenander, and Michael~I. Miller.
 \newblock Variational problems on flows of diffeomorphisms for image matching,
   1998.
 
+\bibitem[Dyn00]{dynkin1947calculation}
+EB~Dynkin.
+\newblock Calculation of the coefficients in the campbell--hausdorff formula.
+\newblock {\em Selected Papers of EB Dynkin with Commentary. Originally in
+  Institute of Mathematics Moscow State University, Acad a.n. Kormologorow,
+  submitted 1947}, 14:31, 2000.
+
 \bibitem[EM70]{ebin1970groups}
 David~G Ebin and Jerrold Marsden.
 \newblock Groups of diffeomorphisms and the motion of an incompressible fluid.
@@ -146,6 +153,10 @@ Ulf Grenander and Michael~I Miller.
 \newblock Computational anatomy: An emerging discipline.
 \newblock {\em Quarterly of applied mathematics}, 56(4):617--694, 1998.
 
+\bibitem[Gon]{gonzalezdigital}
+Rafael~C Gonzalez.
+\newblock Digital image processing using matlab.
+
 \bibitem[Gra88]{grabowski1988free}
 Janusz Grabowski.
 \newblock Free subgroups of diffeomorphism groups.
@@ -168,13 +179,6 @@ Monica Hernandez, Matias~N Bossa, and Salvador Olmos.
   diffeomorphisms parameterized with stationary vector fields.
 \newblock In {\em Computer Vision, 2007. ICCV 2007. IEEE 11th International
   Conference on}, pages 1--8. IEEE, 2007.
-
-\bibitem[HOP08]{hernandez2008comparing}
-Monica Hernandez, Salvador Olmos, and Xavier Pennec.
-\newblock Comparing algorithms for diffeomorphic registration: Stationary lddmm
-  and diffeomorphic demons.
-\newblock In {\em 2nd MICCAI workshop on mathematical foundations of
-  computational anatomy}, pages 24--35, 2008.
 
 \bibitem[HS81]{horn1981determining}
 Berthold~K Horn and Brian~G Schunck.
@@ -234,6 +238,11 @@ Marco Lorenzi, Nicholas Ayache, and Xavier Pennec.
 John Lee.
 \newblock {\em Introduction to smooth manifolds}, volume 218.
 \newblock Springer Science \& Business Media, 2012.
+
+\bibitem[Lem97]{lempert1997problem}
+L{\'a}szl{\'o} Lempert.
+\newblock The problem of complexifying a lie group.
+\newblock {\em Contemporary Mathematics}, 205:169--176, 1997.
 
 \bibitem[Les83]{leslie1983lie}
 JA~Leslie.
@@ -309,6 +318,12 @@ Carlo Mariconda and Alberto Tonolo.
 Charles~W Misner, Kip~S Thorne, and John~Archibald Wheeler.
 \newblock {\em Gravitation}.
 \newblock Macmillan, 1973.
+
+\bibitem[Nee06]{neeb2006infinite}
+KH~Neeb.
+\newblock Infinite dimensional lie groups, 2005 monastir summer school
+  lectures.
+\newblock {\em Lecture Notes January}, 2006.
 
 \bibitem[OKC92]{ovsienko1992integrals}
 V~Yu Ovsienko, BA~Khesin, and Yu~V Chekanov.
@@ -416,6 +431,11 @@ Frank~W Warner.
 Wojciech Wojty{\'n}ski.
 \newblock One-parameter subgroups and the bch formula.
 \newblock {\em Studia Mathematica}, 111(2):163--185, 1994.
+
+\bibitem[YC06]{ying2006phase}
+Lexing Ying and Emmanuel~J Cand{\`e}s.
+\newblock The phase flow method.
+\newblock {\em Journal of Computational Physics}, 220(1):184--215, 2006.
 
 \bibitem[You10]{younes2010shapes}
 Laurent Younes.
