@@ -30,7 +30,7 @@ Thanks to the fact that this important piece in the jigsaw puzzle of the log-euc
 
 This last chapter is devoted to show some of the results of the numerical methods investigated.
 Computations are performed with a software written in Python (repository available on the \href{https://cmiclab.cs.ucl.ac.uk}{cmic gitlab}), based on 
-the following libraries - numpy, matplotlib, math, scipy, nibabel, timeit, random - as well as on the library NiftyBit, implemented by Pancaj Daga.
+the following libraries - numpy, matplotlib \cite{hunter2007}, math, scipy, nibabel, timeit, random - as well as on the library NiftyBit, implemented by Pancaj Daga.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -47,7 +47,7 @@ Numerical tests show that for the studied cases, no qualitative differences are 
  %
  \begin{figure}[!ht]
  	\hspace{-2cm}
- 	\includegraphics[scale=0.54]{figures/se2_image_scale.png}
+ 	\includegraphics[scale=0.54]{figures/se2_image_scale.pdf}
  	\caption{Comparison of the errors for each numerical method to compute the Log-composition $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Truncated BCH of degrees 0,1,2, parallel transport method and Taylor method are considered for different values of the norm of $dr_{1}$ (x-axes) and norm of $dr_{0}$ (x-axes). 
  	Values of each sub-square are the average error of 500 random samples in each of the 6 sub-intervals between $0.1$ and $2.0$. Errors with BCH 0 and parallel transport method are comparable, but the parallel transport method is not symmetric and has better performance when $dr_{1}$ is small. BCH 1 and Taylor are comparable as well, but the best performance in terms of approximation is the BCH 2. Values of the sub-square under the \emph{gray arrows} are shown in the boxplot \ref{fig:se2_image_scale} where variance, quartiles and outliers are visualized.
  	 }
@@ -90,7 +90,7 @@ The data indicated by the gray arrows in each plot corresponds are showed in the
 %
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
-	\includegraphics[scale=0.54]{figures/se2_boxplot.png}
+	\includegraphics[scale=0.54]{figures/se2_boxplot.pdf}
 	\caption{Errors of the numerical methods for the computation of the Log-composition of $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Norm of $dr_{0}$ is in the interval $[0.37,1.05]$, norm of $dr_{1}$ in the interval $[0.1, 1.05]$ divided in 3 segments. Mean values of each box are shown in the first row in different colors. Shown data corresponds to a section of the image scale \ref{fig:se2_image_scale}, indicated by a gray arrow. As expected all of the error means increase with the of norm of $dr_1$, but the rate of the growth is different for each method.}
 	\label{fig:se2_boxplot}
 \end{figure}
@@ -112,7 +112,7 @@ Before getting into the results for the log-composition of SVF it is important t
 %
 \begin{figure}[!ht]
 	\hspace{-0.8cm}
-	\includegraphics[scale=0.72]{figures/svf_gaussian_smoothing_effects.png}
+	\includegraphics[scale=0.72]{figures/svf_gaussian_smoothing_effects.pdf}
 	\caption{Random generated vector field before and after the Gaussian smoother: in the first row a random generated vector field of dimension $50\times 50 \times 2$ where the value at each pixel are sampled from a random variable with normal distribution of mean $0$ and sigma $4$. The second row shows the same random vector field after a Gaussian smoothing of sigma $2$ (the code is based on the scipy library ndimage.filters.gaussian\textunderscore filter). In the last column shows the quiver of the vector field in the squared subregion of size $10\times 10$ at the point $(20,20)$. From the colorscale it is also possible to see that the values distribution of the filtered image is not anymore symmetric. }
 	\label{fig:SVF_gaussian_smoothing_effects}
 \end{figure}
@@ -147,20 +147,20 @@ As previously said, the norm $L^2$ is considered improperly in a group structure
 
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
-	\includegraphics[scale=0.54]{figures/SVF_sigma_means_comparisons.png}
-	\caption{Norm of random generated of SVF with initial standard deviation $\sigma_{\text{init}}$ (on the x-axis) and Gaussian filter with standard deviation $\sigma_{\text{gf}}$ (different colors). On the left is shown the the Frobenius norm computed on the SVF in the Lie algebra, while on the right the same norm is computed after the exponentiations. In this second case, the norm refers to the norm of the matrix data structure (DS-norm) utilized to parametrize the SVF. Each dot represents the mean of the norm of $10$ an SVF randomly generated with the parameters indicated on the axes and in the legend. We observe that the exponential bend the shape of the random SVF when the Gaussian filter is $0$ (thus we talk about an improper SVF). The decrease in the slope when $\sigma_{\text{gf}}=0$ do not appears for any other value.}
+	\includegraphics[scale=0.54]{figures/SVF_sigma_means_comparisons.pdf}
+	\caption{Relationship between the initial standard deviation, the standard deviation of the Gaussian filter and the norm. Figure (a) represents... Norm of random generated of SVF with initial standard deviation $\sigma_{\text{init}}$ (on the x-axis) and Gaussian filter with standard deviation $\sigma_{\text{gf}}$ (different colors). On the left is shown the the Frobenius norm computed on the SVF in the Lie algebra, while on the right the same norm is computed after the exponentiations. In this second case, the norm refers to the norm of the matrix data structure (DS-norm) utilized to parametrize the SVF. Each dot represents the mean of the norm of $10$ an SVF randomly generated with the parameters indicated on the axes and in the legend. We observe that the exponential bend the shape of the random SVF when the Gaussian filter is $0$ (thus we talk about an improper SVF). The decrease in the slope when $\sigma_{\text{gf}}=0$ do not appears for any other value.}
 	\label{fig:SVF_sigma_means_comparisons}
 \end{figure}
 
 \begin{figure}[!ht]
 	\hspace{-1cm}
-	\includegraphics[scale=0.6]{figures/SVF_image_scale_bracket_versus_gaussian.png}
-	\caption{Norm of the Lie bracket as direct consequence of the sigma of the Gaussian smoother of respective SVF. Here put every other data!}
+	\includegraphics[scale=0.6]{figures/SVF_image_scale_bracket_versus_gaussian.pdf}
+	\caption{Relationship between the norm of the Lie bracket and the Gaussian smoother. For the provided SVF... Here put every other data!}
 	\label{fig:SVF_image_scale_bracket_versus_gaussian}
 \end{figure}
 
 
-
+Other problems of the computation in consequence of the fact that the Jacobian is utilized in the Lie bracket from Marcos' paper. The 
 
 
 \begin{figure}[!ht]

@@ -186,6 +186,11 @@ Berthold~K Horn and Brian~G Schunck.
 \newblock In {\em 1981 Technical Symposium East}, pages 319--331. International
   Society for Optics and Photonics, 1981.
 
+\bibitem[Hun07]{hunter2007}
+J.~D. Hunter.
+\newblock Matplotlib: A 2d graphics environment.
+\newblock {\em Computing In Science \& Engineering}, 9(3):90--95, 2007.
+
 \bibitem[HWS{\etalchar{+}}]{huanglog}
 Zhiwu Huang, Ruiping Wang, Shiguang Shan, Xianqiu Li, and Xilin Chen.
 \newblock Log-euclidean metric learning on symmetric positive definite manifold
@@ -431,6 +436,14 @@ Frank~W Warner.
 Wojciech Wojty{\'n}ski.
 \newblock One-parameter subgroups and the bch formula.
 \newblock {\em Studia Mathematica}, 111(2):163--185, 1994.
+
+\bibitem[YAL{\etalchar{+}}02]{yoo2002engineering}
+Terry~S Yoo, Michael~J Ackerman, William~E Lorensen, Will Schroeder, Vikram
+  Chalana, Stephen Aylward, Dimitris Metaxas, and Ross Whitaker.
+\newblock Engineering and algorithm design for an image processing api: a
+  technical report on itk-the insight toolkit.
+\newblock {\em Studies in health technology and informatics}, pages 586--592,
+  2002.
 
 \bibitem[YC06]{ying2006phase}
 Lexing Ying and Emmanuel~J Cand{\`e}s.
