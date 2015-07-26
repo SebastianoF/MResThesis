@@ -475,7 +475,7 @@ The second way to associate a velocity vector field to $\varphi$ is with the Lie
 % difference number 2) exponential map not a local isomorphisms. - cut locus dominio stellato per le matrici. Qualcosa di diverso per i diffeomorfismi
 At this point it is important to notice that, while a deformation field of $\varphi$ can always be defined, the exponential map it is not defined for any diffeomorphism. This is the second remarkably difference between the matrix Lie group and the Lie group of diffeomorphisms that will be investigated in the next section.
 
-\subsection{Local isomorphisms for a subset of Diffeomorphisms: one parameter subgroup and stationary velocity fields}
+\subsection{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}
 
 In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group (in the same topology induced by the metric inherited by the bigger algebra), such that the exponential map is always defined and invertible.
 In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups and therefore can not be related with any element in the tangent space by an ODE (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
@@ -484,70 +484,58 @@ In the infinite dimensional case there are diffeomorphisms arbitrarily close to 
 Since for medical image registration we are interested only in the diffeomorphisms that can be parametrized by tangent vector fields, investigate this feature is not only purely a theoretical issue. As happened in the previous section, it is necessarily to have some definitions at hand before moving in this direction. 
 
 % two kinds of vector fields. TVVF SVF. A continuous way to produce diffeomorphims
+If $\varphi$ is a one-parameter subgroup on the manifold $\text{\emph{Diff}}(\Omega)$, then its derivative satisfies the stationary (or homogeneous) ordinary differential equation:
+\begin{align}\label{eq:generating_ODE_svf}
+\frac{d\varphi(t)}{dt} = V_{\varphi(t)}
+\end{align}
+Where the stationary vector field $V_{\varphi(t)}$ defined over $\Omega$ is an element of the Lie algebra of $\text{\emph{Diff}}(\Omega)$ (see for example \cite{khesin2008geometry}) called \emph{stationary velocity field} or SVF. In fact
+\begin{align*}
+\frac{d\varphi(t)}{dt} 
+= 
+\lim_{\epsilon \rightarrow 0} \frac{\varphi(t +\epsilon)}{\epsilon} 
+=
+\lim_{\epsilon \rightarrow 0} \frac{\varphi(\epsilon) \varphi(t)}{\epsilon} 
+=
+V_{\varphi(t)}
+\end{align*} 
 
+Vice versa, given an SVF, by the Cauchy theorem exists always a unique solution $\varphi$ to the ODE \ref{eq:generating_ODE_svf}, given the initial condition $\varphi(0) = 1$ that satisfies the property of one-parameter subgroup.
 
+We indicate with $\text{\emph{Diff}}^{1}(\Omega)$ the set of diffeomorphisms embedded in a one parameter subgroup, i.e. the solutions of \ref{eq:generating_ODE_svf}. We notice that $\text{\emph{Diff}}^{1}(\Omega)$ does not form a group. In fact if $\varphi$ and $\psi$ are in $\text{\emph{Diff}}^{1}(\Omega)$ and satisfy respectively $\frac{d\varphi_1(t)}{dt} = V_{\varphi_1(t)}$ and $\frac{d\varphi_2(t)}{dt} = U_{\varphi_2(t)}$, then their composition $\varphi_1\circ\varphi_2$ does not satisfy any stationary ordinary differential equation, but it satisfy a non stationary (or non homogeneous) ordinary differential equation of the form:
+\begin{align}\label{eq:generating_ODE_tvvf}
+\frac{d\psi(t)}{dt} = W_{(t, \psi(t))}
+\end{align}
+Where $W_{(t, \psi(t))}$ is a non-stationary vector field, called here time varying vector field, or TVVF. If compared with to the SVF, it does not depends only on the spatial position $\mathbf{x}$ but there is also a temporal dependency. Think for example to a satellite orbiting around the globe: it is subject to the earth's vector field in respect to which it is constant for a fixed position, and to the lunar vector field that it is not fixed but varies in respect to the time. Conventionally the temporal domain $T$ contains the origin and formally we can write:
+\begin{align*}
+W : T\times \Omega & \longrightarrow  \mathbb{R}^d \\
+t, \psi(t) &\longmapsto  W_{(t, \psi(t))}
+\end{align*}
+for $\psi$ diffeomorphism (or in the previous example, position of the satellite at time $t$) that when applied to a point of $\Omega$ is indicated with $\varphi(t,\mathbf{x})$ or $\psi^{(t)}(\mathbf{x})$.
+It is important to notice that non-autonomous ODE are particular cases of autonomous one. Writing the diffeomorphism $\psi(t)$ applied to $\mathbf{x}$ in local coordinates as 
+\begin{align*}
+\psi^{(t)}(\mathbf{x}) = (\psi_1^{(t)}(\mathbf{x}), \psi_2^{(t)}(\mathbf{x}), \dots ,\psi_d^{(t)}(\mathbf{x})) \in \mathbb{R}^{d}
+\end{align*}
+Defining a new function $\psi_0^{(t)}(\mathbf{x}) = t_0 + t$ for all $\mathbf{x} \in \Omega$, we can obtain then the new diffeomorphism $\tilde{\psi}^{(t)}$ that in local coordinates is expressed as 
+\begin{align*}
+\tilde{\psi}^{(t)}(\mathbf{x}) = (\psi_0^{(t)}(\mathbf{x}), \psi_1^{(t)}(\mathbf{x}), \psi_2^{(t)}(\mathbf{x}), \dots ,\psi_d^{(t)}(\mathbf{x})) \in T\times \mathbb{R}^{d}
+\end{align*}
+that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:generating_ODE_svf}. In the example of satellite, is like considering the temporal dimension as an additional spatial dimension of the space. The vector that influence the satellite is an SVF for every point in the space-time. 
 
+It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different one parameter subgroup. 
 
-Approaching the infinite dimensional Lie algebra of diffeomorphisms we can 
+To conclude this part, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, but it is if we restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition but the one that satisfies \ref{eq:generating_ODE_tvvf}, and therefore corresponds to TVVF does. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
+\begin{align*}
+	\text{\emph{Diff}}^{1}(\Omega) &= \exp(\text{SVF}) = \exp(\text{TVVF})
+\end{align*}
+but to a given SVF exists only one one-parameter subgroup $\varphi$ that satisfies the ODE \ref{eq:generating_ODE_svf}. The same thing does not necessarily happens for the TVVF.
 
+In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log} and in subsequent works the attention has been restricted to SVF, to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase} works only under the assumption that the transformation belongs to the same one-parameter subgroup.
 
-
-
-
-
-
-
-%
-
-% Relations between exp(SVF) exp(TVVF) e \Gamma
-
-
-
-% % Grid and discretized vector fields 
-
-
-% % Log computation - Error computation
-
-% % Error computations without any norm.
-
-
-
-
-
-particular is is always possible to find  the exponentialFor the particular case of diffeomorphisms over the compact subset $\Omega\subset\mathbb{R}^d$, indicated with $\text{\emph{Diff}}(\Omega)$, the exponential map is not a local bijection 
-
- 
-We will consider the subset of $\text{\emph{Diff}}(\Omega)$ containing only the diffeomorphisms that are in the image of the exponential function $\exp$. An introduction to this subset is presented in the next section, followed by a section on their parametrization.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-
-If we indicate the image of $exp$ as with $\text{\emph{Diff}}^{1}(\Omega)$ of the diffeomorphisms on $\Omega$, then this set represents the diffeomorphisms that belongs to the one-parameter subgroup on the manifold $\text{\emph{Diff}}(\Omega)$.\\
-Each of its element are generated by a tangent vector field in $\mathcal{C}^{\infty}(\Omega)$ through an ordinary differential equation (see for example \cite{arnold2006ordinary}). These generating tangent vector field can be divided into two classes, as well as the related ODE:
-\begin{enumerate}
-	\item Stationary  - or homogeneous
-	\begin{align*}
-	\frac{d\varphi(t)}{dt} = V_{\varphi(t)}
-	\end{align*}
-	\item Non-stationary - or non-homogeneous
-	\begin{align*}
-	\frac{d\varphi(t)}{dt} = V_{(t, \varphi(t))}
-	\end{align*}
-\end{enumerate}
-For a fixed $t$ both the stationary vector field (or SVF) $V_{\varphi(t)}$ and the time varying vector field (or TVVF) $V_{(t, \varphi(t))}$ have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$. When varying $t$, the TVVFs behave as continuous paths over the tangent vector field, corresponding to the one-parameter subgroup $\text{\emph{Diff}}^{1}(\Omega)$ through the map $\exp$.\\
-Thanks to the Cauchy theorem that ensures the uniqueness of the solution of the ODE under the initial condition $\varphi(0) = e$, the local bijection between $\text{\emph{Diff}}^{1}(\Omega)$ and the Lie algebra of the tangent vector fields over $\Omega$ is ensured (see \cite{milnor1982infinite}, \cite{khesin2008geometry}):
-\begin{align*}
-\mathcal{V}(\Omega) \simeq  \text{\emph{Diff}}^{1}(\Omega) \subset \text{Diff}(\Omega)
-\end{align*}
-and, as consequence of the definition of $\exp$ and $\log$ it follows that
-\begin{align*}
-\text{\emph{Diff}}^{1}(\Omega) &= \exp( \mathcal{V}(\Omega))\\
-\mathcal{V}(\Omega) &= \log(\text{\emph{Diff}}^{1}(\Omega))
-\end{align*}
-In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) only TVVFs are considered, while after subsequent paper of \cite{arsigny2006log} the attention has been restricted to SVF for practical applications.\\
-For our purposes when talking about diffeomorphisms, we will take into account only the one embedded in the one-parameter subgroup $\text{\emph{Diff}}^{1}(\Omega)$ - the image of a SVF through the $\exp$ map - with a particular parametrization, presented in the next section. 
 
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
@@ -561,6 +549,8 @@ For our purposes when talking about diffeomorphisms, we will take into account o
 Even if images are discrete elements, the underpinning model of the transformations is based on the continuous. There are several motivations that led to this choice: as underlined by \cite{szeliski1994image}, the most important is that images are discrete measurement of the continuous property of an object. Therefore it is reasonable have a model as close as possible to the continuous object rather than to a set of discrete measurements. 
 Certainly it is important to keep in mind the fact that the continuous approximation is obtained - in a non unique way - from the discretized image with an interpolation scheme. This imply that, for example if the distance between two separate objects is less than the size of a voxel, in continuous approximation based on the discretized image the two object will be not anymore separated.
 
+
+
 % discretization 
 ggetti e misure con cui si ha a che fare quando si parla di SVF discretizzati. Esempi con immagini. 
 
@@ -572,12 +562,6 @@ where $(x_i,y_j,z_k)$ are discrete position of a lattice $L$ in the domain of th
 \begin{align*}
 \mathbf{v}_{t}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
 \end{align*}
-% update 
-At the $k$-th step, the algorithm provides the 5-dim matrix $\mathbf{v}_{k}$ that is the approximation of the discretized time varying velocity fields $V_{(t,\phi_{t} (\mathbf{x}))}$. The update at each step is computed as
-\begin{align*}
-\mathbf{v}_{k+1} = \mathbf{v}_{k} - \epsilon \vec{\nabla} (\Delta\mathcal{E})
-\end{align*}
-where $\Delta\mathcal{E}$ is the discretized version of the energy function and $\epsilon$ is the gradient descent step size.
 
 
 
