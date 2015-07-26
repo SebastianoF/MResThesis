@@ -35,7 +35,7 @@ The \emph{Lie exponential} is defined as
 \exp :  \mathfrak{g} & \longrightarrow  \mathbb{G}  \\
 \mathbf{v} &\longmapsto  \exp(\mathbf{v} ) = \gamma(1) %\quad \dot{\gamma}(t) = V_{\gamma(t)}, \gamma(0) = e
 \end{align*}
-where $\gamma: [0,1]\rightarrow \mathbb{G} $ is the unique one-parameter subgroup of $\mathbb{G}$ having $\mathbf{v}$ as its tangent vector at the identity (\cite{do1992riemannian}, \cite{ebin2006singularities}, \cite{Arsigny:MRM:06}).
+where $\gamma: [0,1]\rightarrow \mathbb{G} $ is the unique one-parameter subgroup of $\mathbb{G}$ having $\mathbf{v}$ as its tangent vector at the identity, indicated for the general case with $e$ \cite{do1992riemannian}, \cite{ebin2006singularities}, \cite{Arsigny:MRM:06}.
 It satisfies the following properties:
 \begin{enumerate}
 	\item $\exp(t\mathbf{v}) =\gamma(t) $.
@@ -91,15 +91,15 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 	\begin{align}\label{eq:log_as_inf_sum}
 	\log(\mathbf{v}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k}
 	\end{align}
-	where $I$ is the identity matrix.
+	Having indicated the identity matrix with $I$.
 	\item For any norm, and for any $n\times n$ matrix $\mathbf{c}$, exists an $\alpha$ such that 
-	\begin{align*}
+	\begin{align}\label{eq:prop_matrix_diff_log}
 	\euclideanMetric{ \log(I + \mathbf{c}) - \mathbf{c} }  \leq \alpha \euclideanMetric{ \mathbf{c}}^{2}
-	\end{align*}
+	\end{align}
 	\item For any $n\times n$ matrix $\mathbf{c}$ and for any sequence of matrix $\{\mathbf{d}_{j}\}$ such that  $\euclideanMetric{ \mathbf{d}_{j}} \leq \alpha/j^2$ it follows:
-	\begin{align*}
+	\begin{align}\label{eq:prop_matrix_lim}
 	\lim_{k\rightarrow \infty} \big( I + \frac{\mathbf{c}}{k} + \mathbf{d}_{k} \big)^{k} = \exp{(\mathbf{c})}
-	\end{align*}
+	\end{align}
 \end{enumerate} 
 
 The Lie log-composition (because based on the Lie logarithm and Lie exponential maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
@@ -152,7 +152,7 @@ For our purposes, this expansion provides the most immediate way to obtain a num
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Affine Exponential Affine Logarithm and Parallel Transport: Definitions and Properties}
 
-Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$ \cite{do1992riemannian}, the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the derivative of $U$ in the direction of $V$. 
+Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$, the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the derivative of $U$ in the direction of $V$. 
 
 One of the considerable consequences of the definition of the connection is the possibility of defining \emph{geodesics} and curvature on the manifold without relying on any Riemannian metric. If a Riemannian metric is also defined on the manifold $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular case of Levi-Civita connection (see \cite{do1992riemannian}). A curve $\gamma:[0,1]\rightarrow \mathbb{G}$ such that $\gamma(0)=p$ and $\gamma(1) = q$ is a \emph{geodesic} defined by the connection $\nabla$ if 
 \begin{align}\label{def:geodesics_eq}
@@ -260,14 +260,14 @@ In the next properties we explore how did parallel transport and affine exponent
 	\begin{minipage}[b]{3cm}
 		\hspace{-4cm}
 		\centering
-		\includegraphics[width=6.5cm]{figures/inversion_1.pdf}
+		\includegraphics[width=6cm]{figures/inversion_1.pdf}
 		\caption{First inversion property.}
 		\label{fig:inversion_propr1}
 	\end{minipage}
 	\ \hspace{9mm} \
 	\begin{minipage}[b]{4cm}
 		\centering
-		\includegraphics[width=6.5cm]{figures/inversion_2.pdf}
+		\includegraphics[width=6cm]{figures/inversion_2.pdf}
 		\caption{Second inversion property.}
 		\label{fig:inversion_propr2}
 	\end{minipage}
@@ -371,7 +371,7 @@ The following theorem is an application of the pole ladder \cite{lorenzi2011schi
 The statement of this fairly intricate theorem involves a construction that can be visualized in figure \ref{fig:theorem_pict}.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=9.5cm]{figures/theorem_pict.pdf}
+	\includegraphics[width=8.5cm]{figures/theorem_pict.pdf}
 	\caption{Pole ladder applied to parallel transport.}
 	\label{fig:theorem_pict}
 \end{figure}
@@ -395,8 +395,8 @@ The statement of this fairly intricate theorem involves a construction that can 
 	And by construction, we can move from the identity $e$ to $m$ directly walking the geodesic $\alpha$ or passing through $q$. It follows that
 	\begin{align*}
 		\exp_{q}(\mathbf{w}) &= \exp_{e}(\frac{\mathbf{u}}{2})\\
-		q\circ \exp_{e}(DL_{q^{-1}}(e)(\mathbf{w})) = \exp_{e}(\frac{\mathbf{u}}{2})\\
-		\exp_{e}(DL_{q^{-1}}(e)(\mathbf{w})) = \exp_{e}(-\mathbf{v})\circ\exp_{e}(\frac{\mathbf{u}}{2})
+		q\circ \exp_{e}(DL_{q^{-1}}(e)(\mathbf{w})) &= \exp_{e}(\frac{\mathbf{u}}{2})\\
+		\exp_{e}(DL_{q^{-1}}(e)(\mathbf{w})) &= \exp_{e}(-\mathbf{v})\circ\exp_{e}(\frac{\mathbf{u}}{2})
 	\end{align*}
 	Let $\eta$ be the integral curve of the tangent vector $-\mathbf{v}_{p}^{\parallel}$ at $p$. We define two new points, $r := \eta(1)$ and $\tilde{r} :=\gamma(2)$ where $\gamma$ is the integral curve of $2\mathbf{w}$.\\
 	On one side we have:
@@ -484,7 +484,7 @@ BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf
 BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) \\
 BCH^{3}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])- \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] 
 \end{align*}
-In numerical computations nested Lie brackets can raise several issue, in particular when $\mathbf{u}$ and $\mathbf{v}$ are not close to the origin. Assuming that, as often happens for practical applications in imaging registration $\mathbf{v}$ is smaller than $\mathbf{v}$, we define a intermediate degree for the truncated BCH formula, between $1$ and $2$:
+In numerical computations nested Lie brackets can raise several issue, in particular when $\mathbf{u}$ and $\mathbf{v}$ are not close to the origin. Assuming that, as often happens for practical applications in imaging registration $\mathbf{v}$ is smaller than $\mathbf{u}$, we define a intermediate degree for the truncated BCH formula, between $1$ and $2$:
 \begin{align*}
 BCH^{3/2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}[\mathbf{u},[\mathbf{u},\mathbf{v}]]
 \end{align*}
@@ -575,7 +575,11 @@ To obtain a numerical computation for the log-composition using parallel transpo
 		(
 		\mathbf{u} + \mathbf{v}_{e}^{\parallel} 
 		)
-	} \leq [\mathbf{u}, \mathbf{v}]
+	} 
+	\leq 
+	\euclideanMetric{
+		[\mathbf{u}, \mathbf{v}]
+		}
 	\end{align*}
 	\item If the vector $\mathbf{u}\in\mathfrak{g}$ is small enough, then:
 		\begin{align*}
@@ -587,7 +591,7 @@ The first assumption is a consequence of geometrical intuition. On a flat space,
 % u_plus_v_parallel_transported
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=7.5cm]{figures/u_plus_v_parallel_transported.pdf}
+	\includegraphics[width=6.5cm]{figures/u_plus_v_parallel_transported.pdf}
 	\caption{Representation of the intuitive idea of the computation of the log-composition using parallel transport.}
 	\label{fig:u_plus_v_parallel_transported}
 \end{figure}
@@ -623,7 +627,7 @@ When working in the infinite dimensional case, the approximation \ref{eq:paralle
 \end{enumerate}
 An eventual confirmation is at the moment not known to the author. We assume it is true in coherence with what has been said in the introduction, section \ref{se:diffe_util_and_liab} about a naive approach to the infinite dimensional Lie Group theory.
 
-With the truncated BCH and the Taylor expansion, equation \ref{eq:parallel_transport} is the third numerical method for the computation of the log-composition explored in this thesis. The next chapter is devote to introduce the two group of transformation that will be considered in this research and to the applications of the numerical methods developed so far.
+With the truncated BCH and the Taylor expansion, equation \ref{eq:parallel_transport} is the third numerical method for the computation of the log-composition explored in this thesis. The next chapter is devote to introduce two group of transformation - the rigid body transformation and the diffeomorphisms - and to apply the numerical methods presented in this chapter to these cases.
 
 
 

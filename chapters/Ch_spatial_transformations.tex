@@ -1,4 +1,4 @@
-\chapter{Spatial Transformations for the Computations of the Log-composition: SE(2) and SVF}\label{ch:spatial_transformations}
+\chapter{Spatial Transformations for the Computations of the Log-composition: SE(2) and Diff}\label{ch:spatial_transformations}
 
 
 \begin{flushright}
@@ -6,11 +6,11 @@
 \end{flushright}
 
 \noindent
-In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, in this chapter we will see how they can be applied for the cases of SE(2) and the Lie group of diffeomorphisms parametrized with stationary velocity fields:
+In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, and in this chapter we will see how they can be applied for the cases of $SE(2)$ and the for the Lie group of diffeomorphisms parametrized with stationary velocity fields:
 \begin{enumerate}
 	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods introduced so far, since results can be compared with a closed form.
 	A representation of this Lie group as a subgroup of the general linear group $GL(2)$, with corresponding Lie algebra will be provided, with closed form for the log-computation.
-	\item[SVF -] The subgroup of the set of diffeomorphisms parametrized by SVF, is the second group utilized to test the numerical methods here presented for the computation of the log-composition. In this case we do not know any closed form, but if we consider an \lq\lq improper norm\rq\rq~ in the space of transformation we still have a method to compare SVF and assess the quality of the results.
+	\item[$\text{Diff}(\Omega)$ -] The group of diffeomorphisms over $\Omega$, indcated with $\text{Diff}(\Omega)$ is defined over the wide set of all of the differentiable and invertible functions. For our applications we will restrict the set to the diffeomorphisms that can be parametrized by stationary velocity fields or SVF. This set, indicated with $\Gamma$ has remarkable property thanks to the one-parameter subgroup, and its elements are in correspondence with SVF that belongs to the Lie algebra of $\text{Diff}(\Omega)$. The infinite dimensional vector space of stationary velocity field, is the second group utilized to test the numerical methods here presented for the computation of the log-composition. In this case we do not know any closed form, but considering an \lq\lq improper norm\rq\rq~ in the space of deformations it is possible to compare SVF and assess the quality of the results.
 \end{enumerate}
 
 
@@ -188,13 +188,13 @@ When $\theta$ is zero, $R(\theta)$ and $dR(\theta)$ coincide with the identity, 
 At this point it is important to notice that: 
 \begin{enumerate}
 	%infinite series 
-	\item The infinite series of matrices  do not raises any theoretical issues, since the sum is defined in the group as subset of a bigger algebra that contains both the Lie group and the Lie algebra. It appears to be the natural way to move back and forth from the group to the algebra. A second door to passing from one structure to the other, when the rotation $\theta$ is little is provided by the following approximations:
-	\begin{align*}
+	\item The infinite series of matrices  do not raises any theoretical issues, since the sum is defined in the group as subset of a bigger algebra that contains both the Lie group and the Lie algebra. It appears to be the natural way to move back and forth from the group to the algebra. A second door to passing from one structure to the other, when the rotation $\theta$ is small is provided by the following approximations:
+	\begin{align}\label{eq:small_rotation_matrices_approx}
 	\exp(r) \simeq I + r
 	\qquad 
 	\log(dr) \simeq dr - I
-	\end{align*}
-	In fact for little $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta) \simeq I$.
+	\end{align}
+	In fact for small $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta) \simeq I$.
 	% restriction of the domain.
 	\item The map $\exp$ is not well defined over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dt^{x}_0, dt^{y}_0)$ and $(\theta_1, dt^{x}_1, dt^{y}_1)$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
 	\begin{enumerate}
@@ -229,10 +229,9 @@ At this point it is important to notice that:
 	% vertical
 	\mor{SE}{se}{$\log$} 
 	
-	
 	\enddc
 	\]
-	
+
 	and with the schematic figure \ref{fig:exp_se2}.
 	
 	\begin{figure}[!ht]
@@ -429,27 +428,76 @@ where the composition in the Lie group coincides with the product of matrix in t
 \section{The Lie group of Diffeomorphisms}\label{se:svf}
 
 
-As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions.
-% difference number 1) bigger algebra. From here introduce the structure.
+As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections in particular the following facts that happen for matrices:
+\begin{enumerate}
+	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
+	\item Lie logarithm and Lie exponential are local isomorphisms.
+\end{enumerate}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{A bigger algebra for the group of Diffeomorphisms}
+As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of the matrices with real entries $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible with the product and with the composition.
+
+The importance of the existence of a bigger is not only a theoretical problem: the power series expansions of the exponential and the logarithm \ref{eq:log_as_inf_sum} \ref{eq:exp_as_inf_sum} as well as expressions as \ref{eq:prop_matrix_diff_log} and \ref{eq:prop_matrix_lim} would me meaningless without the possibility of expressing the sum of two elements of a multiplicative group. In addition if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and used to compare elements in both of the subspaces.
+
+In the case of diffeomorphism of $\Omega\subset \mathbb{R}^d$, we can identify a bigger vector space that contains both Lie group and Lie algebra, but it is less straightforward than in the case of matrices, and for this aim it is necessarily to have some definition at hand.
 
 % deformation, homeomorphisms, diffeomorphisms. map V and displacements. Structures. Figure
+We define the set of \emph{deformations}, the set of continuous functions from $\Omega$ to $\Omega$ (a strategy to avoid issues on the boundary of $\Omega$ is to consider the deformations over the whole $\mathbb{R}^d$ that are the identity outside $\Omega$; for our purposes we will consider these definitions equivalent). If a deformation is invertible with continuous inverse then it is called \emph{homeomorphism}; the set of homeomorphisms forms a group with the operation of function composition , indicated with $\text{Hom}(\Omega)$. If an homeomorphism is differentiable and has differentiable inverse then it is called \emph{diffeomorphism}. Again the set of diffeomorphisms forms a group, indicated with $\text{Diff}(\Omega)$.
 
+A \emph{velocity vector field} over $\Omega$ is a function that at each point of $\Omega$, associates a vector of $\mathbb{R}^d$; the set of velocity vector fields, indicated with $\mathcal{V}(\Omega)$ forms a vector space, and considering the multiplication with the Jacobian matrix at each point, it forms a non-commutative group:  
+\begin{align*}
+\mathbf{u}\cdot \mathbf{v} := J_{\mathbf{u}}\mathbf{v}
+\qquad
+\forall\mathbf{u},\mathbf{v}\in \mathcal{V}(\Omega)
+\end{align*}
+And thanks to the linearity of the Jacobian, $\mathcal{V}(\Omega)$ forms an algebra.
 
-% Taylor expansion series. refer to the two doors!
+% here the two doors
+There are two ways to associate a velocity vector field to a diffeomorphisms $\varphi$. The first one is subtracting the identity function $1$. If $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the associated velocity vector field, called here \emph{deformation field of} $\varphi$, is the function that at the point $\mathbf{x}$ associate the vector defined as the difference $\varphi(\mathbf{x}) - \mathbf{x}$. To recover the deformation from a velocity field $\mathbf{u}$ is enough to add the identity; in this case we have the \emph{deformation of} $\mathbf{u}$. We indicate this operation of adding and subtracting the identity with the function $\mathcal{V}$:
+\begin{align*}
+\mathcal{V}(\varphi) = \varphi - 1 
+\qquad \qquad
+\mathcal{V}^{-1}(\mathbf{u}) = \mathbf{u} + 1 
+\end{align*}
+We can see that deformation fields of diffeomorphisms are elements of $\mathcal{V}(\Omega)$, that is the analogous of the bigger algebra that contains Lie group and Lie algebra in the case of matrices.
+The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is little then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations \ref{eq:small_rotation_matrices_approx}.
 
-
-% lack of bigger algebra for diffeomorphisms
-
-
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.25]{figures/exp_versus_v.pdf}
+	\caption{for little deformations, the deformation field $\log(\varphi)$ and the tangent field $\mathcal{V}(\varphi)$ are close to each others.}
+	\label{fig:exp_versus_v}
+\end{figure}
 
 % difference number 2) exponential map not a local isomorphisms. - cut locus dominio stellato per le matrici. Qualcosa di diverso per i diffeomorfismi
-In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of the $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group, in the same metric inherited by the bigger algebra, such that the exponential map is 
+At this point it is important to notice that, while a deformation field of $\varphi$ can always be defined, the exponential map it is not defined for any diffeomorphism. This is the second remarkably difference between the matrix Lie group and the Lie group of diffeomorphisms that will be investigated in the next section.
 
-% diffeomorphisms arbitrairly closed to the neutral elements Milnor counterexample
+\subsection{Local isomorphisms for a subset of Diffeomorphisms: one parameter subgroup and stationary velocity fields}
+
+In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group (in the same topology induced by the metric inherited by the bigger algebra), such that the exponential map is always defined and invertible.
+In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups and therefore can not be related with any element in the tangent space by an ODE (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
 
 % subset of diff in which we are interested: the one that can be parmetrized by tangent vector fields
+Since for medical image registration we are interested only in the diffeomorphisms that can be parametrized by tangent vector fields, investigate this feature is not only purely a theoretical issue. As happened in the previous section, it is necessarily to have some definitions at hand before moving in this direction. 
 
 % two kinds of vector fields. TVVF SVF. A continuous way to produce diffeomorphims
+
+
+
+
+Approaching the infinite dimensional Lie algebra of diffeomorphisms we can 
+
+
+
+
+
+
+
+
+%
 
 % Relations between exp(SVF) exp(TVVF) e \Gamma
 
@@ -466,13 +514,15 @@ In the case of matrices, the exponential map is a local isomorphisms: it is alwa
 
 
 
-particular is is always possible to find  the exponentialFor the particular case of diffeomorphisms over the compact subset $\Omega\subset\mathbb{R}^d$, indicated with $\text{\emph{Diff}}(\Omega)$, the exponential map is not a local bijection (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115). 
+particular is is always possible to find  the exponentialFor the particular case of diffeomorphisms over the compact subset $\Omega\subset\mathbb{R}^d$, indicated with $\text{\emph{Diff}}(\Omega)$, the exponential map is not a local bijection 
+
+ 
 We will consider the subset of $\text{\emph{Diff}}(\Omega)$ containing only the diffeomorphisms that are in the image of the exponential function $\exp$. An introduction to this subset is presented in the next section, followed by a section on their parametrization.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{One-parameter Subgroup Generated by Stationary Velocity Fields}
+
 
 If we indicate the image of $exp$ as with $\text{\emph{Diff}}^{1}(\Omega)$ of the diffeomorphisms on $\Omega$, then this set represents the diffeomorphisms that belongs to the one-parameter subgroup on the manifold $\text{\emph{Diff}}(\Omega)$.\\
 Each of its element are generated by a tangent vector field in $\mathcal{C}^{\infty}(\Omega)$ through an ordinary differential equation (see for example \cite{arnold2006ordinary}). These generating tangent vector field can be divided into two classes, as well as the related ODE:
@@ -498,6 +548,11 @@ and, as consequence of the definition of $\exp$ and $\log$ it follows that
 \end{align*}
 In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) only TVVFs are considered, while after subsequent paper of \cite{arsigny2006log} the attention has been restricted to SVF for practical applications.\\
 For our purposes when talking about diffeomorphisms, we will take into account only the one embedded in the one-parameter subgroup $\text{\emph{Diff}}^{1}(\Omega)$ - the image of a SVF through the $\exp$ map - with a particular parametrization, presented in the next section. 
+
+% % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % %
+\subsection{Norm for stationary velocity fields}
+
 
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
