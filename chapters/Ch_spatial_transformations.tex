@@ -158,7 +158,7 @@ On the way back, the exponential of $dr \in \mathfrak{se}(2)$ is given by:
 =
 \left (
 \begin{array} {c c }
-R(\theta) & L(\theta)^{-1}t \\
+R(\theta) & L(\theta)^{-1}dt \\
 0 & 1 
 \end{array}
 \right )
@@ -254,6 +254,7 @@ The approximations of the log-composition using truncated BCH formulas are strai
 \begin{align*}
 dr_0 \oplus dr_1 &\simeq  BCH^{0}(dr_0,dr_1 ) = dr_0 + dr_1  \\
 dr_0 \oplus dr_1 &\simeq BCH^{1}(dr_0,dr_1 ) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] \\
+dr_0 \oplus dr_1 &\simeq BCH^{3/2}(dr_{0}, dr_{1}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}[dr_0,[dr_0, dr_1]] \\
 dr_0 \oplus dr_1 &\simeq BCH^{2}(dr_{0}, dr_{1}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}([dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]] )
 \end{align*}
 
@@ -433,14 +434,14 @@ As previously said in section \ref{se:diffe_util_and_liab}, the passage from the
 	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
 	\item Lie logarithm and Lie exponential are local isomorphisms.
 \end{enumerate}
-
+And do not happen in general for diffeomorphisms.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{A bigger algebra for the group of Diffeomorphisms}
-As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of the matrices with real entries $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible with the product and with the composition.
+\subsection{A bigger algebra for the group of Diffeomorphisms}\label{subse:bigger_algebra}
+As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of matrices in the general linear group $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible both with the product and the composition.
 
-The importance of the existence of a bigger is not only a theoretical problem: the power series expansions of the exponential and the logarithm \ref{eq:log_as_inf_sum} \ref{eq:exp_as_inf_sum} as well as expressions as \ref{eq:prop_matrix_diff_log} and \ref{eq:prop_matrix_lim} would me meaningless without the possibility of expressing the sum of two elements of a multiplicative group. In addition if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and used to compare elements in both of the subspaces.
+The importance of the existence of a bigger algebra is not only a theoretical problem: the power series expansions of the exponential and the logarithm \ref{eq:log_as_inf_sum} \ref{eq:exp_as_inf_sum} as well as expressions as \ref{eq:prop_matrix_diff_log} and \ref{eq:prop_matrix_lim} would me meaningless without the possibility of expressing the sum of two elements of a multiplicative group. In addition if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and used to compare elements in both of the subspaces.
 
 In the case of diffeomorphism of $\Omega\subset \mathbb{R}^d$, we can identify a bigger vector space that contains both Lie group and Lie algebra, but it is less straightforward than in the case of matrices, and for this aim it is necessarily to have some definition at hand.
 
@@ -463,19 +464,19 @@ There are two ways to associate a velocity vector field to a diffeomorphisms $\v
 \mathcal{V}^{-1}(\mathbf{u}) = \mathbf{u} + 1 
 \end{align*}
 We can see that deformation fields of diffeomorphisms are elements of $\mathcal{V}(\Omega)$, that is the analogous of the bigger algebra that contains Lie group and Lie algebra in the case of matrices.
-The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is little then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations \ref{eq:small_rotation_matrices_approx}.
+The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is small then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations \ref{eq:small_rotation_matrices_approx}.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.25]{figures/exp_versus_v.pdf}
-	\caption{for little deformations, the deformation field $\log(\varphi)$ and the tangent field $\mathcal{V}(\varphi)$ are close to each others.}
+	\caption{for small deformations, the deformation field $\log(\varphi)$ and the tangent field $\mathcal{V}(\varphi)$ are close to each others.}
 	\label{fig:exp_versus_v}
 \end{figure}
 
 % difference number 2) exponential map not a local isomorphisms. - cut locus dominio stellato per le matrici. Qualcosa di diverso per i diffeomorfismi
 At this point it is important to notice that, while a deformation field of $\varphi$ can always be defined, the exponential map it is not defined for any diffeomorphism. This is the second remarkably difference between the matrix Lie group and the Lie group of diffeomorphisms that will be investigated in the next section.
 
-\subsection{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}
+\subsection{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}\label{subse:local_isomorphisms}
 
 In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group (in the same topology induced by the metric inherited by the bigger algebra), such that the exponential map is always defined and invertible.
 In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups and therefore can not be related with any element in the tangent space by an ODE (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
@@ -523,7 +524,7 @@ that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:
 
 It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different one parameter subgroup. 
 
-To conclude this part, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, but it is if we restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition but the one that satisfies \ref{eq:generating_ODE_tvvf}, and therefore corresponds to TVVF does. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
+To conclude this part, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we do not restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition but the one that satisfies \ref{eq:generating_ODE_tvvf}, and therefore corresponds to TVVF does. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
 \begin{align*}
 	\text{\emph{Diff}}^{1}(\Omega) &= \exp(\text{SVF}) = \exp(\text{TVVF})
 \end{align*}
@@ -532,29 +533,39 @@ but to a given SVF exists only one one-parameter subgroup $\varphi$ that satisfi
 In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log} and in subsequent works the attention has been restricted to SVF, to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase} works only under the assumption that the transformation belongs to the same one-parameter subgroup.
 
 
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
-\subsection{Norm for stationary velocity fields}
-
+\subsection{Norm for elements in the one-parameter subgroup}\label{subse:norm}
+A metric between tangent vector fields of $\Omega$ can be defined as 
+\begin{align*}
+d(\mathbf{u}, \mathbf{v}) = \int_{\Omega} \euclideanMetric{\mathbf{u} - \mathbf{v}}_{L^2}^{2} d\mathbf{x} 
+\end{align*} 
+and induces a metric to compute the distance between stationary velocity fields.
+In the Lie group $\text{\emph{Diff}}^{1}(\Omega)$ do not possess any norm, but the corresponding deformation fields defined by $\mathcal{V}$, as tangent vector fields does. Given two diffeomorphisms $\varphi_0,\varphi_1$ we have
+\begin{align*}
+d^{1}(\varphi_0,\varphi_1) 
+= 
+\int_{\Omega} \euclideanMetric{\mathcal{V}(\varphi_0) - \mathcal{V}(\varphi_1)}_{L^2}^{2} d\mathbf{x} 
+\end{align*} 
+Despite the limitation that Lie algebra and Lie group of diffeomorphisms are not subset of the same bigger algebra, we can nevertheless consider a function that measure the best approximation of metric we can have for $\text{\emph{Diff}}^{1}(\Omega)$ and SVF:
+\begin{align*}
+m(\mathbf{u},\varphi) 
+= 
+\int_{\Omega} \euclideanMetric{\mathbf{u} - \mathcal{V}(\varphi)}_{L^2}^{2} d\mathbf{x} 
+\end{align*} 
+The next 
 
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
 \subsection{Parametrization of SVF: Grids and Discretized Vector Fields}\label{se:parametrization_SVF}
 
 Even if images are discrete elements, the underpinning model of the transformations is based on the continuous. There are several motivations that led to this choice: as underlined by \cite{szeliski1994image}, the most important is that images are discrete measurement of the continuous property of an object. Therefore it is reasonable have a model as close as possible to the continuous object rather than to a set of discrete measurements. 
-Certainly it is important to keep in mind the fact that the continuous approximation is obtained - in a non unique way - from the discretized image with an interpolation scheme. This imply that, for example if the distance between two separate objects is less than the size of a voxel, in continuous approximation based on the discretized image the two object will be not anymore separated.
+Certainly it is important to keep in mind the fact that the continuous approximation is obtained - in a non unique way - from the discretized image with an interpolation scheme. This imply that, for example if the distance between two separate objects is less than the size of a voxel, in continuous approximation based on the discretized image the two object will be not anymore separated. 
 
+Also transformations between images are discretized vector fields, where each vector is applied to an element of a grid. These transformations can only be considered as a model of the group of diffeomorphisms (a model of a model, in image registration!) and reflects only partially the continuous property of the original transformation.
+On the other side the possibility of working with discretized elements means working with something that can be managed by computers.
 
-
-% discretization 
-ggetti e misure con cui si ha a che fare quando si parla di SVF discretizzati. Esempi con immagini. 
-
-As in many other implementation, the data structure utilized to store deformation fields are 5-dimensional matrices
+As in many implementation, the data structure utilized to store images, as well as deformation fields are 5-dimensional matrices
 \begin{align}\label{eq:basic_data_structure}
 M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in L , ~~ t \in T  ~~ d = 1,2,3
 \end{align}
@@ -562,25 +573,6 @@ where $(x_i,y_j,z_k)$ are discrete position of a lattice $L$ in the domain of th
 \begin{align*}
 \mathbf{v}_{t}(x_i,y_j,z_k) = (M(x_i,y_j,z_k,t ,1), M(x_i,y_j,z_k,t,2), M(x_i,y_j,z_k,t ,3))
 \end{align*}
-
-
-
-
-%Here it may be possible to see the beginning of the problem we have to deal with for the rest of the research, each time passing from the finite dimensional case to the infinite dimensional case.\\
-%The domain of the logarithm is the matrix Lie group $\mathbb{G}$ in which only the composition (the matrix product) is defined. Nevertheless it is possible to compute $I + \mathbf{c}$, and this still make sense, and satisfy remarkable properties, when applied to the $\log$. In addition the domain of the exponential is the matrix Lie algebra $\mathfrak{g}$, but the exponential can be nevertheless applied to any matrix, and still be defined.\\
-%\emph{This can be done thanks to the fact that for matrices, $\mathfrak{g}$ and $\mathbb{G}$ are subset of a bigger algebra, the algebra of invertible matrices $GL(n)$ \cite{kirillov2008introduction}}. In this structure the operation of sum is still defined over the group that in the general case admits only compositions, and the infinite series \ref{eq:exp_as_inf_sum}, \ref{eq:log_as_inf_sum} are doors to pass from the structure of group to the algebra and vice versa. When presenting the rigid body transformation in chapter \ref{ch:spatial_transformations} we will may open another couple of access doors based on numerical approximations.
-%
-%When dealing with diffeomorphism in practical applications we have to deal with a theoretical as well as with a practical issue.
-%On one side the
-%the operations in Lie algebra are not compatible with the composition in the Lie group: expression as $e + \mathbf{v}$ contains a sum that is undefined (and therefore meaningless) in the Lie group structure.
-%On the other side 
-%the - extremely - continuous nature of diffeomorphisms is not compatible with the - extremely - discrete nature of computers. It is not possible to implement something that maintains any of the property of diffeomorphism in a computer. The only options we have for practical implementations are the vector fields discretized on a $d$ dimensional grid. In the paper of Arsigny \cite{arsigny2006log}, \emph{scaling and squaring} and \emph{inverse scaling and squaring} are proposed for the computation of exponential and logarithm respectively; these algorithms transform a discretized vector field in another discretized vector field, while theoretical domain and codomain of these transformations are radically different. In addition, as shown in \cite{hernandez2008comparing} for some parameters of Stationary LDDMM and the diffeomorphic Demons the diffeomorphisms involved do not preserve the signs of the Jacobian determinant, and therefore are not diffeomorphisms anymore. 
-%
-%The passage from finite dimensional case of matrices to infinite dimensional case of diffeomorphisms requires a way to represent diffeomorphisms having only discrete vector fields to deal with, where operations within Lie algebra and Lie group are not anymore compatible. The strategy here proposed is to define an operation in the Lie algebra $\mathfrak{g} = \mathcal{V}(\Omega)$ that reflects the properties of the composition in the corresponding Lie group structure $\mathbb{G} = \text{Diff}(\Omega)$.
-
-
-
-
 
 
 % % % % % % % % % % % % % % % % % %

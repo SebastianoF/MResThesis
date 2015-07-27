@@ -24,9 +24,9 @@
 \contentsline {section}{\numberline {3.2}The Lie group of Diffeomorphisms}{26}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}A bigger algebra for the group of Diffeomorphisms}{26}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{27}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Norm for stationary velocity fields}{29}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}Norm for elements in the one-parameter subgroup}{29}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Parametrization of SVF: Grids and Discretized Vector Fields}{29}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Computations of Log-composition for SVF}{29}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.5}Computations of Log-composition for SVF}{30}{subsection.3.2.5}
 \contentsline {chapter}{\numberline {4}Log-Algorithm using Log-composition}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}Spaces of Approximations}{31}{section.4.1}
 \contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{32}{section.4.2}
