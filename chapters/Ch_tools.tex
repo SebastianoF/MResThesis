@@ -22,7 +22,8 @@ We will focus our attention to transformations defined by matrices or diffeomorp
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
 
-Differential geometry is, generally speaking, a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations gives us new handles to hold and manipulate them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure.
+Differential geometry is, generally speaking, a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations provides new handles to hold and manipulate them: in particular provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure.
+
 Due to space limitations we will refer to \cite{do1976differential} and \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -35,8 +36,8 @@ The \emph{Lie exponential} is defined as
 \exp :  \mathfrak{g} & \longrightarrow  \mathbb{G}  \\
 \mathbf{v} &\longmapsto  \exp(\mathbf{v} ) = \gamma(1) %\quad \dot{\gamma}(t) = V_{\gamma(t)}, \gamma(0) = e
 \end{align*}
-where $\gamma: [0,1]\rightarrow \mathbb{G} $ is the unique one-parameter subgroup of $\mathbb{G}$ having $\mathbf{v}$ as its tangent vector at the identity, indicated for the general case with $e$ (for matrices will be indicated with $I$, for diffeomorphisms with $1$).
-It satisfies the following properties:
+where $\gamma: [0,1]\rightarrow \mathbb{G} $ is the unique one-parameter subgroup of $\mathbb{G}$ having $\mathbf{v}$ as its tangent vector at the identity. The identity is indicated with $e$ for the general case; for matrices will be indicated with $I$, for diffeomorphisms with $1$.
+The exponential map satisfies the following properties:
 \begin{enumerate}
 	\item $\exp(t\mathbf{v}) =\gamma(t) $.
 	\item $\exp(\mathbf{v}) = e$ if $\mathbf{v} = \mathbf{0}$.
@@ -54,7 +55,7 @@ It satisfies the following properties:
 	\end{align}
 \end{enumerate}
 \begin{proof}
-	We will present only the last statement leaving the others to the literature. The hypothesis $\exp(\mathbf{w}) = \exp(\mathbf{v}) \circ \exp(\mathbf{u})$ follows the subsequent chain of algebraic implications (each passage involves obviously a geometrical construction not showed for brevity):
+	We will present only the last statement leaving the others to the literature. The hypothesis $\exp(\mathbf{w}) = \exp(\mathbf{v}) \circ \exp(\mathbf{u})$ follows the subsequent chain of implications (each algebraic passage involves a geometrical construction, not showed here for brevity):
 	\begin{align*}
 		\exp(\mathbf{w}) &= \exp(\mathbf{v}) \circ \exp(\mathbf{u}) \\
 		\exp(-\mathbf{w}) \circ \exp(\mathbf{w}) &= \exp(-\mathbf{w}) \circ\exp(\mathbf{v}) \circ \exp(\mathbf{u}) \\
@@ -77,19 +78,19 @@ When we deal with a matrix Lie group of dimension $n$, the composition in the Li
 	\item For any norm, $\euclideanMetric{\exp(\mathbf{v})} \leq \exp(\euclideanMetric{\mathbf{v}})$.
 \end{enumerate}
 
-The idea of defining an inverse of the Lie exponential leads to the idea of the Lie logarithm, defined
+The idea of defining an inverse of the Lie exponential leads to the idea of the Lie logarithm, defined as
 \begin{align*}
 \log : \mathbb{G} & \longrightarrow \mathfrak{g} \\
-p &\longmapsto \log (p)  =  \mathbf{v}   
+\varphi &\longmapsto \log (\varphi)  =  \mathbf{v}   
 \end{align*}
-where $\mathbf{v}  $ is the tangent vector having $p$ as it $\exp$.
+where $\mathbf{v}$ is the tangent vector having $\varphi$ as it $\exp$.
 
 \noindent
 If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties hold:
 \begin{enumerate}
-	\item for all $\mathbf{v}$ in the matrix Lie algebra $\mathfrak{g}$:
+	\item for all $\varphi$ in the matrix Lie group $\mathbb{G}$:
 	\begin{align}\label{eq:log_as_inf_sum}
-	\log(\mathbf{v}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\mathbf{v}-I)^{k} }{k}
+	\log(\mathbf{\varphi}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\varphi-I)^{k} }{k}
 	\end{align}
 	Having indicated the identity matrix with $I$.
 	\item For any norm, and for any $n\times n$ matrix $\mathbf{c}$, exists an $\alpha$ such that 
@@ -102,7 +103,7 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 	\end{align}
 \end{enumerate} 
 
-The Lie log-composition (because based on the Lie logarithm and Lie exponential maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
+The \emph{Lie log-composition} (because based on the Lie logarithm and Lie exponential maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
 \begin{align}\label{eq:main_def_log_composition}
 \oplus : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
 (\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
@@ -111,7 +112,7 @@ The Lie log-composition (because based on the Lie logarithm and Lie exponential 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.35]{figures/log_composition.pdf}
-	\caption{graphical visualization of the Lie log-composition.}
+	\caption{graphical visualization of the Lie log-composition $\mathbf{v}_{1}\oplus \mathbf{v}_{2}$. The gray surface represents a Lie group and its tangent plane represents its Lie algebra. }
 	\label{fig:composition}
 \end{figure}
 
@@ -135,9 +136,8 @@ The following properties holds for the Lie log-composition:
 \noindent
 The algebraic structure $(\mathfrak{g} , \oplus)$ is called Lie log-group. Additional observations on this algebraic structure in the particular case of diffeomorphisms, are proposed in the next chapter.
 
-To compute the log-composition there is the Backer-Campbell-Hausdorff formula, or BCH for short
+To compute the log-composition there is the Backer-Campbell-Hausdorff formula, or BCH,
 that provides the exact solution to the Log-composition: 
-
 \begin{align*}
 BCH(\mathbf{u},\mathbf{v}) 
 = 
@@ -145,7 +145,7 @@ BCH(\mathbf{u},\mathbf{v})
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
 Ironically, the name of the formula does not refer to Dynkin, who originally developed the proof of the equality in 1947 \cite{dynkin1947calculation}. A nice introduction for the particular case of matrices can be found in \cite{hall2015lie}; for the general case \cite{klarsfeld1989baker}, \cite{serre2009lie}, and for application to medical imaging \cite{vercauteren08}.
-For our purposes, this expansion provides the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$, by truncating its terms. This approximation is problematic in the finite dimensional case because it is not possible to find out an error bound.
+For our purposes, this expansion provides the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$, by truncating its terms. This approximation is problematic because it does not provides any error bound.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SECTION
@@ -165,7 +165,7 @@ This definition allows a new kind of exponential from the Lie algebra to the Lie
 (p,\mathbf{v}) &\longmapsto \exp_{p}(\mathbf{v})  = \gamma(1; p,\mathbf{v})
 \end{align*}
 such that the curve $\gamma(t;p,\mathbf{v}) = \gamma(t)$ on $\mathbb{G}$ is the unique geodesic that satisfies $\gamma(0) = p$ and $\dot{\gamma}(0) =  \mathbf{v} $.
-This second kind of exponential, that differs from the exponential map previously introduced by the fact that the tangent space that defines the Lie algebra is considered at the generic point $p$ of the Lie group, is called here \emph{affine exponential}.
+This second kind of exponential differs from the exponential map previously introduced by the fact that the tangent space that defines the Lie algebra is considered at the generic point $p$ of the Lie group and it is called \emph{affine exponential}.
 
 \noindent
 The inverse of the affine exponential, the \emph{affine logarithm} is defined as:
@@ -183,7 +183,7 @@ For further details and properties we refer to the literature; in this introduct
 \subsection{An introduction to Parallel Transport: Surfing on the Tangent Bundle}\label{se:parallel_transport}
 
 In this section we introduce the concept of parallel transport for the Lie group $\mathbb{G}$. 
-For an wider introduction of parallel transport in the general case we refer to \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild}; for medical imaging applications \cite{lorenzi2011schild}, \cite{pennec2011parallel}, \cite{lorenzi2013geodesics} and \cite{lorenzi2014efficient}.
+For an introduction to parallel transport in the general case we refer to \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild}; for medical imaging applications \cite{lorenzi2011schild}, \cite{pennec2011parallel}, \cite{lorenzi2013geodesics} and \cite{lorenzi2014efficient}.
 On this definition, again borrowed from differential geometry, relies a method for the computation of the log-composition developed in this research for the first time.
 \begin{definition}
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a connection $\nabla$ and $V$ a $\mathcal{C}^{\infty}$ vector field defined over $\mathbb{G}$. Given $p,q \in \mathbb{G}$ and $\gamma : [0,1] \rightarrow \mathbb{G}$ such that $\gamma(0) = p$ and $\gamma(1) = q$, the vector $V_{p} \in T_{p}\mathbb{G}$, is \emph{parallel transported along $\gamma$} up to $T_{q}\mathbb{G}$ if $V$ satisfies
@@ -199,7 +199,7 @@ On this definition, again borrowed from differential geometry, relies a method f
 	\end{align*}
 \end{definition}
 
-From this definition it follows that a vector belonging to the tangent space at the identity can be transported on a different tangent space of the manifold, maintaining its direction from the old to the new coordinate reference respect to a chosen curve. Each element of the \emph{fiber bundle} (disjoint union of all of the tangent space), that can be reached by a curve from the origin, become reachable also by tangent vectors at the identity.
+Consequence of this definition is that a vector belonging to the tangent space at the identity can be transported on a different tangent space of the manifold, maintaining its direction from the old to the new coordinate reference respect to a chosen curve. Each element of the \emph{fiber bundle} (disjoint union of all of the tangent space), that can be reached by a curve from the origin, become reachable also by any tangent vector at the identity.
 
 Another way of moving vectors between an arbitrary tangent spaces and the tangent space at the identity is expressed in the \emph{change of base formulas} for affine exponential and logarithm \cite{arsigny2006bi}:
 \begin{align}\label{eq:DL_DR}
@@ -213,10 +213,29 @@ In the next properties we explore how did parallel transport and affine exponent
 \begin{prop}[Inversion]
 	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= p$, $\gamma(1)=q$ and $\mathbf{u}\in T_{p}\mathbb{G}$, we have:
 	\begin{enumerate}
-	\item $\Pi(\gamma)_{p}^{q}(-\mathbf{u}) = -\Pi(\gamma)_{p}^{q}(\mathbf{u}) )$
+	\item $\Pi(\gamma)_{p}^{q}(-\mathbf{u}) = -\Pi(\gamma)_{p}^{q}(\mathbf{u})$
 	\item $q = \exp_{p}(\mathbf{u}) \phantom{z} \Longleftrightarrow \phantom{z} p = \exp_{q}(-\Pi(\gamma)_{p}^{q}(\mathbf{u}))$
 	\end{enumerate}
 \end{prop}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}[b]{3cm}
+		\hspace{-4cm}
+		\centering
+		\includegraphics[width=6cm]{figures/inversion_1.pdf}
+		\caption{First inversion property.}
+		\label{fig:inversion_propr1}
+	\end{minipage}
+	\ \hspace{9mm} \
+	\begin{minipage}[b]{4cm}
+		\centering
+		\includegraphics[width=6cm]{figures/inversion_2.pdf}
+		\caption{Second inversion property.}
+		\label{fig:inversion_propr2}
+	\end{minipage}
+\end{figure}
+
 \begin{proof}
 	The first statement is a consequence of the fact that parallel transport is reversible, conserve the parallelism and it is invariant respect to norm: 
 	\begin{enumerate}
@@ -255,23 +274,6 @@ In the next properties we explore how did parallel transport and affine exponent
 	which implies $q = \exp_{p}(\mathbf{u})$.
 \end{proof}
 
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}[b]{3cm}
-		\hspace{-4cm}
-		\centering
-		\includegraphics[width=6cm]{figures/inversion_1.pdf}
-		\caption{First inversion property.}
-		\label{fig:inversion_propr1}
-	\end{minipage}
-	\ \hspace{9mm} \
-	\begin{minipage}[b]{4cm}
-		\centering
-		\includegraphics[width=6cm]{figures/inversion_2.pdf}
-		\caption{Second inversion property.}
-		\label{fig:inversion_propr2}
-	\end{minipage}
-\end{figure}
 
 % THIS PROPERTY DOES NOT WORK!!
 %\begin{prop}[change of signs of the composition for affine exponentials]
@@ -309,19 +311,19 @@ In the next properties we explore how did parallel transport and affine exponent
 \begin{proof}
 	The first statement belongs to the general theory and it is not proved here: geodesics are left-invariant for a Cartan connection (see \cite{do1992riemannian}). To prove the second statement we consider the properties of $\beta$ that directly follows from the definition:
 	\begin{align*}
-		\beta(0) &= p\circ e\\
+		\beta(0) &= p\circ e = p \\
 		\dot{\beta}(0) &= DL_{p}(e)\mathbf{u}\in T_{p}\mathbb{G}
 	\end{align*}
-	For simplicity $\dot{\beta}(0) $ was indicated with $\mathbf{u}_{p}$. Considering $\dot{\beta}(1)$ we have: 
+	For simplicity $\dot{\beta}(0) $ was indicated with $\mathbf{u}_{p}$. Considering $\beta(1)$ we have: 
 	\begin{align*}
-	\dot{\beta}(1) = p\circ \gamma(1) 
+		   \beta(1) = p\circ \gamma(1) 
 						= p\circ \exp_{e}(\mathbf{u}) 
 						= \exp_{p}( DL_p(e) \mathbf{u} ) 
 						= \exp_{p}( \mathbf{u}_{p} ) 
 	\end{align*}
 	where the third equality comes from the change of base formulas for affine exponential \ref{eq:DL_DR}. Following the same deduction and from the linearity of the differential, we have, for any $t\in [ 0,1 ]$:
 	\begin{align*}
-	\dot{\beta}(t) = p\circ \gamma(t) 
+	\beta(t) = p\circ \gamma(t) 
 	= p\circ \exp_{e}(t\mathbf{u}) 
 	= \exp_{p}( tDL_p(e) \mathbf{u} ) 
 	= \exp_{p}( t\mathbf{u}_{p} ) 

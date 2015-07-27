@@ -7,7 +7,7 @@
 \BOOKMARK [2][-]{subsection.1.2.1}{Utility and Liability of Diffeomorphisms}{section.1.2}% 7
 \BOOKMARK [2][-]{subsection.1.2.2}{State of the Art}{section.1.2}% 8
 \BOOKMARK [1][-]{section.1.3}{Demons Algorithms: From Classic to Diffeomorphic}{chapter.1}% 9
-\BOOKMARK [2][-]{subsection.1.3.1}{Possible application of the Log-composition}{section.1.3}% 10
+\BOOKMARK [2][-]{subsection.1.3.1}{Possible applications of the Log-composition}{section.1.3}% 10
 \BOOKMARK [0][-]{chapter.2}{Tools from Differential Geometry}{}% 11
 \BOOKMARK [1][-]{section.2.1}{A Lie Group Structure for the Set of Transformations}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.2}{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula}{chapter.2}% 13
@@ -36,11 +36,12 @@
 \BOOKMARK [1][-]{section.5.1}{Log-composition for se\(2\)}{chapter.5}% 36
 \BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 37
 \BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 38
-\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF and ground truth.}{section.5.2}% 39
-\BOOKMARK [2][-]{subsection.5.2.2}{Methods and results}{section.5.2}% 40
-\BOOKMARK [1][-]{section.5.3}{Log composition applied to SVF from real cases}{chapter.5}% 41
-\BOOKMARK [1][-]{section.5.4}{Log-Algorithm for SVF}{chapter.5}% 42
-\BOOKMARK [2][-]{subsection.5.4.1}{Methods}{section.5.4}% 43
-\BOOKMARK [2][-]{subsection.5.4.2}{Results}{section.5.4}% 44
-\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of Computational Time}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.6}{Conclusions and Further Research}{chapter.5}% 46
+\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF.}{section.5.2}% 39
+\BOOKMARK [2][-]{subsection.5.2.2}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.2.3}{Log-composition for SVF: errors}{section.5.2}% 41
+\BOOKMARK [1][-]{section.5.3}{Log-composition of real cases SVF}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.4}{Log-Algorithm for SVF}{chapter.5}% 43
+\BOOKMARK [2][-]{subsection.5.4.1}{Methods}{section.5.4}% 44
+\BOOKMARK [2][-]{subsection.5.4.2}{Results}{section.5.4}% 45
+\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of Computational Time}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.6}{Conclusions and Further Research}{chapter.5}% 47
