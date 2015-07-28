@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  27 JUL 2015 16:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  28 JUL 2015 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,14 +756,14 @@ Overfull \hbox (37.74194pt too wide) in paragraph at lines 114--115
  []
 
 [11] [12 <./figures/log_composition.pdf>] [13]
-<figures/inversion_1.pdf, id=566, 1074.0125pt x 673.51625pt>
+<figures/inversion_1.pdf, id=564, 1074.0125pt x 673.51625pt>
 File: figures/inversion_1.pdf Graphic file (type pdf)
 
 <use figures/inversion_1.pdf>
 Package pdftex.def Info: figures/inversion_1.pdf used on input line 226.
 (pdftex.def)             Requested size: 170.71652pt x 107.05568pt.
 
-<figures/inversion_2.pdf, id=567, 1074.0125pt x 682.55pt>
+<figures/inversion_2.pdf, id=565, 1074.0125pt x 682.55pt>
 File: figures/inversion_2.pdf Graphic file (type pdf)
 
 <use figures/inversion_2.pdf>
@@ -775,14 +775,14 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 233--234
  []
 
 [14 <./figures/inversion_1.pdf> <./figures/inversion_2.pdf>] [15]
-<figures/theorem_pict.pdf, id=615, 906.38625pt x 825.0825pt>
+<figures/theorem_pict.pdf, id=612, 720.6925pt x 657.45625pt>
 File: figures/theorem_pict.pdf Graphic file (type pdf)
 
 <use figures/theorem_pict.pdf>
 Package pdftex.def Info: figures/theorem_pict.pdf used on input line 376.
-(pdftex.def)             Requested size: 241.84842pt x 220.144pt.
+(pdftex.def)             Requested size: 241.84842pt x 220.6229pt.
  [16 <./figures/theorem_pict.pdf>] [17] [18]
-<figures/u_plus_v_parallel_transported.pdf, id=653, 765.86125pt x 578.16pt>
+<figures/u_plus_v_parallel_transported.pdf, id=651, 765.86125pt x 578.16pt>
 File: figures/u_plus_v_parallel_transported.pdf Graphic file (type pdf)
 
 <use figures/u_plus_v_parallel_transported.pdf>
@@ -794,50 +794,71 @@ t line 596.
 
  (./chapters/Ch_spatial_transformations.tex
 Chapter 3.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Omega' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
 [21
 
 
 
-] [22] <figures/exp_se2.pdf, id=703, 1247.66125pt x 799.98875pt>
+] <figures/exp_se2.pdf, id=693, 1247.66125pt x 799.98875pt>
 File: figures/exp_se2.pdf Graphic file (type pdf)
 
 <use figures/exp_se2.pdf>
-Package pdftex.def Info: figures/exp_se2.pdf used on input line 239.
+Package pdftex.def Info: figures/exp_se2.pdf used on input line 200.
 (pdftex.def)             Requested size: 436.68797pt x 280.00026pt.
 
-Overfull \hbox (36.68797pt too wide) in paragraph at lines 239--240
+Overfull \hbox (36.68797pt too wide) in paragraph at lines 200--201
  [][] 
  []
 
+[22] [23 <./figures/exp_se2.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 248.
+(hyperref)                removing `math shift' on input line 247.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 248.
+(hyperref)                removing `math shift' on input line 247.
 
 
-Overfull \hbox (5.97356pt too wide) in paragraph at lines 259--259
+Overfull \hbox (8.75134pt too wide) in paragraph at lines 258--258
 [] 
  []
 
-[23] [24 <./figures/exp_se2.pdf>]
-Overfull \hbox (0.14778pt too wide) in paragraph at lines 331--333
+[24]
+Overfull \hbox (0.14778pt too wide) in paragraph at lines 330--332
 \OT1/cmr/m/n/10 We can split it in two part, the ro-ta-tional part $\OML/cmm/m/
 it/10 dR\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )[]$ and the trans
 -la-tional part $\OML/cmm/m/it/10 dR\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/c
 mr/m/n/10 )[]\OML/cmm/m/it/10 dt[]$\OT1/cmr/m/n/10 .
  []
 
-[25] [26] <figures/exp_versus_v.pdf, id=758, 762.85pt x 577.15625pt>
+[25] [26] <figures/exp_versus_v.pdf, id=755, 762.85pt x 577.15625pt>
 File: figures/exp_versus_v.pdf Graphic file (type pdf)
 
 <use figures/exp_versus_v.pdf>
-Package pdftex.def Info: figures/exp_versus_v.pdf used on input line 472.
+Package pdftex.def Info: figures/exp_versus_v.pdf used on input line 471.
 (pdftex.def)             Requested size: 190.71204pt x 144.2887pt.
  [27 <./figures/exp_versus_v.pdf>] [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 588--591
+Underfull \hbox (badness 10000) in paragraph at lines 592--595
 
  []
 
@@ -872,7 +893,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 
-] <figures/se2_image_scale.pdf, id=887, 1011.78pt x 578.16pt>
+] <figures/se2_image_scale.pdf, id=884, 1011.78pt x 578.16pt>
 File: figures/se2_image_scale.pdf Graphic file (type pdf)
 
 <use figures/se2_image_scale.pdf>
@@ -884,7 +905,7 @@ Overfull \hbox (71.12231pt too wide) in paragraph at lines 49--53
  []
 
 [36 <./figures/se2_image_scale.pdf>]
-<figures/se2_boxplot.pdf, id=984, 867.24pt x 505.89pt>
+<figures/se2_boxplot.pdf, id=981, 867.24pt x 505.89pt>
 File: figures/se2_boxplot.pdf Graphic file (type pdf)
 
 <use figures/se2_boxplot.pdf>
@@ -896,7 +917,7 @@ Overfull \hbox (16.05603pt too wide) in paragraph at lines 92--94
  []
 
 [37 <./figures/se2_boxplot.pdf>]
-<figures/svf_gaussian_smoothing_effects.pdf, id=1082, 599.84097pt x 375.804pt>
+<figures/svf_gaussian_smoothing_effects.pdf, id=1079, 599.84097pt x 375.804pt>
 File: figures/svf_gaussian_smoothing_effects.pdf Graphic file (type pdf)
 
 <use figures/svf_gaussian_smoothing_effects.pdf>
@@ -921,7 +942,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 127.
 
-<figures/SVF_sigma_means_comparisons.pdf, id=1137, 881.69403pt x 375.804pt>
+<figures/SVF_sigma_means_comparisons.pdf, id=1134, 881.69403pt x 375.804pt>
 File: figures/SVF_sigma_means_comparisons.pdf Graphic file (type pdf)
 
 <use figures/SVF_sigma_means_comparisons.pdf>
@@ -934,7 +955,7 @@ Overfull \hbox (23.42747pt too wide) in paragraph at lines 151--153
  []
 
 
-<figures/SVF_image_scale_bracket_versus_gaussian.pdf, id=1138, 722.7pt x 325.21
+<figures/SVF_image_scale_bracket_versus_gaussian.pdf, id=1135, 722.7pt x 325.21
 5pt>
 File: figures/SVF_image_scale_bracket_versus_gaussian.pdf Graphic file (type pd
 f)
@@ -943,7 +964,7 @@ Package pdftex.def Info: figures/SVF_image_scale_bracket_versus_gaussian.pdf us
 ed on input line 166.
 (pdftex.def)             Requested size: 361.3491pt x 162.6071pt.
 
-<figures/SVF_boxplot_comparisons_BCH.pdf, id=1139, 867.24pt x 505.89pt>
+<figures/SVF_boxplot_comparisons_BCH.pdf, id=1136, 867.24pt x 505.89pt>
 File: figures/SVF_boxplot_comparisons_BCH.pdf Graphic file (type pdf)
 
 <use figures/SVF_boxplot_comparisons_BCH.pdf>
@@ -955,7 +976,7 @@ Overfull \hbox (21.61479pt too wide) in paragraph at lines 173--175
 []  [] 
  []
 
-<figures/SVF_scatter_plot.pdf, id=1140, 794.97pt x 361.35pt>
+<figures/SVF_scatter_plot.pdf, id=1137, 794.97pt x 361.35pt>
 File: figures/SVF_scatter_plot.pdf Graphic file (type pdf)
 
 <use figures/SVF_scatter_plot.pdf>
@@ -966,7 +987,7 @@ Overfull \hbox (36.52878pt too wide) in paragraph at lines 193--195
 []  [] 
  []
 
-<figures/SVF_image_scale.pdf, id=1141, 939.51pt x 245.718pt>
+<figures/SVF_image_scale.pdf, id=1138, 939.51pt x 245.718pt>
 File: figures/SVF_image_scale.pdf Graphic file (type pdf)
 
 <use figures/SVF_image_scale.pdf>
@@ -977,12 +998,12 @@ Overfull \hbox (59.20337pt too wide) in paragraph at lines 201--203
 []  [] 
  []
 
-<figures/SVF_boxplot.pdf, id=1142, 867.24pt x 505.89pt>
+<figures/SVF_boxplot.pdf, id=1139, 578.16pt x 397.485pt>
 File: figures/SVF_boxplot.pdf Graphic file (type pdf)
 
 <use figures/SVF_boxplot.pdf>
 Package pdftex.def Info: figures/SVF_boxplot.pdf used on input line 210.
-(pdftex.def)             Requested size: 433.61894pt x 252.94437pt.
+(pdftex.def)             Requested size: 289.07928pt x 198.742pt.
  [39] [40 <./figures/SVF_sigma_means_comparisons.pdf> <./figures/SVF_image_scal
 e_bracket_versus_gaussian.pdf
 
@@ -997,11 +1018,7 @@ f
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./figures/SVF_scatter_plot.pdf): PDF
  inclusion: multiple pdfs with page group included in a single page
->]
-Overfull \vbox (21.50069pt too high) has occurred while \output is active []
-
-
-[42 <./figures/SVF_image_scale.pdf> <./figures/SVF_boxplot.pdf
+>] [42 <./figures/SVF_image_scale.pdf> <./figures/SVF_boxplot.pdf
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./figures/SVF_boxplot.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
@@ -1019,42 +1036,43 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 219.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 22D5D07519C0487EDC2C484024FF06D9;4233.
+(rerunfilecheck)             Checksum: D8942101676A4BD9E294DB9F9E61C92C;4237.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 219.
  ) 
 Here is how much of TeX's memory you used:
- 8378 strings out of 493117
- 117848 string characters out of 6135433
- 246996 words of memory out of 5000000
- 11352 multiletter control sequences out of 15000+600000
- 18251 words of font info for 69 fonts, out of 8000000 for 9000
+ 8397 strings out of 493117
+ 118128 string characters out of 6135433
+ 247902 words of memory out of 5000000
+ 11372 multiletter control sequences out of 15000+600000
+ 23711 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,15n,43p,1132b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,15n,43p,1132b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
 /local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/te
-xmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (56 pages, 2588646 bytes).
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2014
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf
+-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (56 pages, 2637521 bytes).
 PDF statistics:
- 1733 PDF objects out of 2073 (max. 8388607)
- 1160 compressed objects within 12 object streams
- 285 named destinations out of 1000 (max. 500000)
+ 1713 PDF objects out of 1728 (max. 8388607)
+ 1151 compressed objects within 12 object streams
+ 283 named destinations out of 1000 (max. 500000)
  467 words of extra memory for PDF output out of 10000 (max. 10000000)
 

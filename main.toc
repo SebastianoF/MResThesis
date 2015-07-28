@@ -18,9 +18,9 @@
 \contentsline {subsection}{\numberline {2.4.1}Truncated BCH formula for the Log-composition}{18}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Taylor Expansion Method for the Log-composition}{18}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Parallel Transport Method for the Log-composition}{19}{subsection.2.4.3}
-\contentsline {chapter}{\numberline {3}Spatial Transformations for the Computations of the Log-composition: SE(2) and Diff}{21}{chapter.3}
+\contentsline {chapter}{\numberline {3}Spatial Transformations for the Computations of the Log-composition: $SE(2)$ and $\text {Diff}(\Omega )$}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Lie Group of Rigid Body Transformations}{21}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Computations of Log-composition in $\mathfrak {se}(2)$}{23}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}Computations of Log-composition in $\mathfrak {se}(2)$}{24}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}The Lie group of Diffeomorphisms}{26}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}A bigger algebra for the group of Diffeomorphisms}{26}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{27}{subsection.3.2.2}

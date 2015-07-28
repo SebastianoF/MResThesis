@@ -104,10 +104,10 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 \end{enumerate} 
 
 The \emph{Lie log-composition} (because based on the Lie logarithm and Lie exponential maps) is defined here as the inner binary operation on the Lie algebra that reflects the composition on the lie group:
-\begin{align}\label{eq:main_def_log_composition}
+\begin{align*}
 \oplus : \mathfrak{g} \times \mathfrak{g} & \longrightarrow \mathfrak{g}    \\
 (\mathbf{v}_{1}, \mathbf{v}_{2}) &\longmapsto \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
-\end{align}
+\end{align*}
 
 \begin{figure}[!ht]
 	\centering
@@ -340,7 +340,7 @@ In the next properties we explore how did parallel transport and affine exponent
 	\euclideanMetric{\log{(p)}  - \log{(q^{-1} \circ r)}}< \epsilon
 	\end{align*}
 \end{lemma}
-Intuitively, the lemma states that if $p\circ q \simeq r $ then $p \simeq q^{-1} \circ r $. 
+Intuitively, the lemma states that if $p\circ q \simeq r $ then $p \simeq q^{-1} \circ r $.
 
 The following theorem is an application of the pole ladder \cite{lorenzi2011schild} for the computation of the exponential that will underpin one of the numerical methods for the computation of the log-composition.
 \begin{theorem}\label{th:local_approximation_theorem}
@@ -357,7 +357,7 @@ The following theorem is an application of the pole ladder \cite{lorenzi2011schi
 	\end{align*}
 	and $\mathbf{v}_{e}^{\parallel}$ pull-back of the left translation of  the previous vector
 	\begin{align*}
-	 \mathbf{v}_{e}^{\parallel} := D(L_{p^{-1}})_{e}( -\Pi(\alpha)_{p}^{e}(\mathbf{v}_{p}^{\parallel}))
+	 \mathbf{v}_{e}^{\parallel} := D(L_{p^{-1}})_{e}( \mathbf{v}_{p}^{\parallel})
 	\end{align*}
 	it follows that:
 	\begin{align*}
@@ -462,7 +462,7 @@ In the next section we present the numerical methods for the computation of the 
 \section{Numerical Computations of the Log-composition}
 
 In this section we provide explicit formulas for the computation of the log composition:
-\begin{align}\label{eq:general_numerical_log_composition}
+\begin{align}\label{eq:main_def_log_composition}
 \mathbf{v}_{1}\oplus \mathbf{v}_{2} =  \log(\exp(\mathbf{v}_1)\circ \exp(\mathbf{v}_2))
 \end{align}
 using the tools introduced in the previous sections.

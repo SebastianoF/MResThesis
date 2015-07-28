@@ -1,4 +1,4 @@
-\chapter{Spatial Transformations for the Computations of the Log-composition: SE(2) and Diff}\label{ch:spatial_transformations}
+\chapter{Spatial Transformations for the Computations of the Log-composition: $SE(2)$ and $\text{Diff}(\Omega)$}\label{ch:spatial_transformations}
 
 
 \begin{flushright}
@@ -6,11 +6,10 @@
 \end{flushright}
 
 \noindent
-In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, and in this chapter we will see how they can be applied for the cases of $SE(2)$ and the for the Lie group of diffeomorphisms parametrized with stationary velocity fields:
+In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, and in this chapter we will see how they can be applied for the transformations belonging to $SE(2)$ and $\text{Diff}(\Omega)$:.
 \begin{enumerate}
-	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods introduced so far, since results can be compared with a closed form.
-	A representation of this Lie group as a subgroup of the general linear group $GL(2)$, with corresponding Lie algebra will be provided, with closed form for the log-computation.
-	\item[$\text{Diff}(\Omega)$ -] The group of diffeomorphisms over $\Omega$, indcated with $\text{Diff}(\Omega)$ is defined over the wide set of all of the differentiable and invertible functions. For our applications we will restrict the set to the diffeomorphisms that can be parametrized by stationary velocity fields or SVF. This set, indicated with $\Gamma$ has remarkable property thanks to the one-parameter subgroup, and its elements are in correspondence with SVF that belongs to the Lie algebra of $\text{Diff}(\Omega)$. The infinite dimensional vector space of stationary velocity field, is the second group utilized to test the numerical methods here presented for the computation of the log-composition. In this case we do not know any closed form, but considering an \lq\lq improper norm\rq\rq~ in the space of deformations it is possible to compare SVF and assess the quality of the results.
+	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods for the computation of the log-composition introduced so far, since results can be compared with a ground truth.
+	\item[$\text{Diff}(\Omega)$ -] The group of diffeomorphisms over $\Omega$, indcated with $\text{Diff}(\Omega)$ is defined over the wide set of all of the differentiable and invertible functions. For our applications we will restrict the set to the diffeomorphisms that can be parametrized by stationary velocity fields or SVF. This infinite dimensional vector space is the second algebra utilized to test the numerical methods for the computation of the log-composition. In this case we do not know any closed form, but considering an \lq\lq improper norm\rq\rq~ in the space of deformations it is possible to compare SVF and assess the quality of the results.
 \end{enumerate}
 
 
@@ -55,7 +54,7 @@ t^y
 \end{array}
 \right ) 
 \end{align*}
-where the rotation matrix defined by $\theta$ belongs to the special orthogonal group $SO(2)$.\\
+where the rotation matrix indicated with $R(\theta)$ belongs to the special orthogonal group $SO(2)$ and the translation $t$ is a vector of the plane.\\
 We can represent the elements of $SE(2)$ in two different form: as ternary vector (restricted form) 
 \begin{align*}
 SE(2)^{v} 
@@ -85,7 +84,7 @@ R(\theta) & t \\
 \theta \in  [0, 2\pi), (t^x, t^y) \in\mathbf{R}^2
 \right \}
 \end{align*}
-The group $SE(2)$ it is a manifold with a differentiable structure compatible with the operation of composition, whose Lie algebra is given in matrix form by (see \cite{hall2015lie, gallier2011geometric} for an introduction).
+The group $SE(2)$ it is a manifold with a differentiable structure compatible with the operation of composition, whose Lie algebra is given in matrix form by
 \begin{align*}
 \mathfrak{se}(2) := 
 \left \{
@@ -109,7 +108,7 @@ dR(\theta) & dt \\
 \end{align*}
 and it is indicated with $\mathfrak{se}(2)^{v}$ in its restricted form.
 
-Given $r$, element of $SE(2)$ with $\theta\neq 0$. Its image with the Lie group logarithm is
+Given $r$, element of $SE(2)$ with $\theta\neq 0$, its image with the Lie group logarithm is
 \begin{align*}
 \log(r)
 &=
@@ -131,7 +130,7 @@ dR(\theta) & L(\theta)t \\
 \end{array}
 \right )
 \end{align*}
-where therefore 
+where 
 \begin{align*}
 dR(\theta) = 
 \left (
@@ -195,24 +194,31 @@ At this point it is important to notice that:
 	\log(dr) \simeq dr - I
 	\end{align}
 	In fact for small $\theta$, $\sin(\theta) \simeq \theta$, $\cos(\theta) \simeq 0 $ and $ L(\theta) \simeq I$.
+   %
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[scale=0.35]{figures/exp_se2.pdf}
+		\caption{The Lie algebra $\mathfrak{se}(2)/\sim$ defined as the quotient of the Lie algebra $\mathfrak{se}(2)$ over the equivalence relation $\sim$ is in bijective correspondence with $SE(2)$.}
+		\label{fig:exp_se2}
+	\end{figure}
 	% restriction of the domain.
-	\item The map $\exp$ is not well defined over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dt^{x}_0, dt^{y}_0)$ and $(\theta_1, dt^{x}_1, dt^{y}_1)$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
+	\item The map $\exp$ is not well defined as bijection over its whole domain $\mathfrak{se}(2)$. Given two elements $(\theta_0, dt^{x}_0, dt^{y}_0)$ and $(\theta_1, dt^{x}_1, dt^{y}_1)$, they have the same image with $\exp$ function if the two following conditions are both satisfied:
 	\begin{enumerate}
 		\item[i)] Exists an integer $k$ such that $\theta_0 = \theta_1 + 2k\pi$.
-		\item[ii)] the translation $(dt^{x}_0, dt^{y}_0)$ coincides with $(dt^{x}_1, dt^{y}_1)$ up to a factor $\frac{\theta_0 \mod 2\pi}{\theta_1}$.
+		\item[ii)] the translation $(dt^{x}_0, dt^{y}_0)$ coincides with $(dt^{x}_1, dt^{y}_1)$ up to a factor $\frac{\theta_0}{\theta_1}$, where the angles are considered modulo $2\pi$.
 	\end{enumerate}
-	To have a bijective correspondence we have to restrict the domain of $\exp$ to a space where if $\exp(\theta_0, dt^{x}_0,dt^{y}_0) = \exp(\theta_1, dt^{x}_1, dt^{y}_1)$ implies  $(\theta_0, dt^{x}_0, dt^{y}_0) = (\theta_1, dt^{x}_1, dt^{y}_1)$.
+	To have a bijective correspondence the domain of $\exp$ has to be restricted to a space where if $\exp(\theta_0, dt^{x}_0,dt^{y}_0) = \exp(\theta_1, dt^{x}_1, dt^{y}_1)$ implies  $(\theta_0, dt^{x}_0, dt^{y}_0) = (\theta_1, dt^{x}_1, dt^{y}_1)$.
 	It can be easy to prove that the sought space is the quotient of $\mathfrak{se}(2)$ over the equivalence relation $\sim$, defined as 
 	\begin{align*}
 		(\theta_0, dt^{x}_0, dt^{y}_0 & ) \sim (\theta_1, dt^{x}_1, dt^{y}_1)
 		\\
-		~^{\text{def}}&\iff
+		&\iff_{\text{(by definition)}}
 		\\
 		\exists k\in\mathbb{Z} \mid \theta_0 = \theta_1 + 2k\pi 
 		&~\text{ and }~
-		(dt^{x}_0, dt^{y}_0) = \frac{\theta_0 \mod 2\pi}{\theta_1}(dt^{x}_1, dt^{y}_1)
+		(dt^{x}_0, dt^{y}_0) = \frac{\theta_0}{\theta_1}(dt^{x}_1, dt^{y}_1)
 	\end{align*}
-	The new algebra defined by the set of equivalence classes of this relation is indicated - with the standard convention, see \cite{artin2011algebra} - with $\mathfrak{se}(2)/\sim$. With this restriction of the domain$\exp$ is a bijection having $\log$ as its inverse.
+	The new algebra defined by the set of equivalence classes of this relation is indicated - with the standard convention, see \cite{artin2011algebra} - with $\mathfrak{se}(2)/\sim$. With this restriction of the domain, the function $\exp$ is a bijection having $\log$ as its inverse.
 	What said so far can be summarize in the following commutative diagram:
 	
 	\[
@@ -234,13 +240,6 @@ At this point it is important to notice that:
 
 	and with the schematic figure \ref{fig:exp_se2}.
 	
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[scale=0.35]{figures/exp_se2.pdf}
-		\caption{The Lie algebra $\mathfrak{se}(2)/\sim$ defined as the quotient of the Lie algebra $\mathfrak{se}(2)$ over the equivalence relation $\sim$ is in bijective correspondence with $SE(2)$.}
-		\label{fig:exp_se2}
-	\end{figure}
-	
 \end{enumerate}
 
 % % % % % % % % % % % % % % % % % %
@@ -252,13 +251,13 @@ The log-composition of two elements $dr_0 = (\theta_0, dt^{x}_0, dt^{y}_0)$ ans 
 \end{align}
 The approximations of the log-composition using truncated BCH formulas are straightforward:
 \begin{align*}
-dr_0 \oplus dr_1 &\simeq  BCH^{0}(dr_0,dr_1 ) = dr_0 + dr_1  \\
-dr_0 \oplus dr_1 &\simeq BCH^{1}(dr_0,dr_1 ) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] \\
-dr_0 \oplus dr_1 &\simeq BCH^{3/2}(dr_{0}, dr_{1}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}[dr_0,[dr_0, dr_1]] \\
-dr_0 \oplus dr_1 &\simeq BCH^{2}(dr_{0}, dr_{1}) =  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}([dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]] )
+dr_0 \oplus dr_1 &\simeq  BCH^{0}(dr_0,dr_1 ) := dr_0 + dr_1  \\
+dr_0 \oplus dr_1 &\simeq BCH^{1}(dr_0,dr_1 ) :=  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] \\
+dr_0 \oplus dr_1 &\simeq BCH^{3/2}(dr_{0}, dr_{1}) :=  dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}[dr_0,[dr_0, dr_1]] \\
+dr_0 \oplus dr_1 &\simeq BCH^{2}(dr_{0}, dr_{1}) := dr_0 + dr_1 + \frac{1}{2}[dr_0, dr_1] + \frac{1}{12}([dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]] )
 \end{align*}
 
-To compute the approximation with the Taylor method, and so to compute the equation \ref{eq:taylor}, we observe that the restricted form of the Lie bracket is given by
+To compute the approximation with the Taylor method, and so to compute the equation \ref{eq:taylor} for elements in  $ \mathfrak{se}(2)/\sim$, we observe that the restricted form of the Lie bracket is given by
 \begin{align*}
 [dr_0, dr_1] &= (0, dR(\theta_0)dt_1 - dR(\theta_1)dt_0)^T \\
 & = (0, -\theta_0 dt^{y}_1 + \theta_1 dt^{y}_0 ,  \theta_0 dt^{x}_1 - \theta_1 dt^{x}_0)^T
@@ -329,7 +328,7 @@ dR(\theta)^{n-1}dt^{\star}      &  dR(\theta)^{n}
 \end{array}
 \right ) 
 \end{align*}
-We can split it in two part, the rotational part $dR(\theta)^{n}$ and the translational part $dR(\theta)^{n-1}dt^{\star}$. The rotational part, using the nature of Bernoulli numbers and its generative equation, when $\theta \neq 0$ become
+We can split it in two part, the rotational part $dR(\theta)^{n}$ and the translational part $dR(\theta)^{n-1}dt^{\star}$. The rotational part, exploiting the nature of Bernoulli numbers and its generative equation, when $\theta \neq 0$ become
 \begin{align*}
 \sum_{n=0}^{\infty} \frac{B_{n}}{n!} dR(\theta)^{n}  
 &=
@@ -429,41 +428,41 @@ where the composition in the Lie group coincides with the product of matrix in t
 \section{The Lie group of Diffeomorphisms}\label{se:svf}
 
 
-As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections in particular the following facts that happen for matrices:
+As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections in particular the following facts that, has seen in the previous section, happen for matrices:
 \begin{enumerate}
 	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
 	\item Lie logarithm and Lie exponential are local isomorphisms.
 \end{enumerate}
-And do not happen in general for diffeomorphisms.
+...but these facts are not true for diffeomorphisms!
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{A bigger algebra for the group of Diffeomorphisms}\label{subse:bigger_algebra}
 As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of matrices in the general linear group $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible both with the product and the composition.
 
-The importance of the existence of a bigger algebra is not only a theoretical problem: the power series expansions of the exponential and the logarithm \ref{eq:log_as_inf_sum} \ref{eq:exp_as_inf_sum} as well as expressions as \ref{eq:prop_matrix_diff_log} and \ref{eq:prop_matrix_lim} would me meaningless without the possibility of expressing the sum of two elements of a multiplicative group. In addition if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and used to compare elements in both of the subspaces.
+The existence of a bigger algebra is not important only in the research of an elegant structure: the power series expansions of the exponential and the logarithm \ref{eq:log_as_inf_sum} \ref{eq:exp_as_inf_sum} as well as expressions as \ref{eq:prop_matrix_diff_log} and \ref{eq:prop_matrix_lim} would be meaningless without the possibility of expressing the sum of two elements of a multiplicative group. Moreover, if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and utilized to compare elements in the both subspaces.
 
-In the case of diffeomorphism of $\Omega\subset \mathbb{R}^d$, we can identify a bigger vector space that contains both Lie group and Lie algebra, but it is less straightforward than in the case of matrices, and for this aim it is necessarily to have some definition at hand.
+In the case of diffeomorphism of $\Omega\subset \mathbb{R}^d$, we can identify a bigger vector space that contains both Lie group and Lie algebra, but it is less straightforward than in the case of matrices, and for this aim it is necessarily to have some definitions at hand.
 
 % deformation, homeomorphisms, diffeomorphisms. map V and displacements. Structures. Figure
-We define the set of \emph{deformations}, the set of continuous functions from $\Omega$ to $\Omega$ (a strategy to avoid issues on the boundary of $\Omega$ is to consider the deformations over the whole $\mathbb{R}^d$ that are the identity outside $\Omega$; for our purposes we will consider these definitions equivalent). If a deformation is invertible with continuous inverse then it is called \emph{homeomorphism}; the set of homeomorphisms forms a group with the operation of function composition , indicated with $\text{Hom}(\Omega)$. If an homeomorphism is differentiable and has differentiable inverse then it is called \emph{diffeomorphism}. Again the set of diffeomorphisms forms a group, indicated with $\text{Diff}(\Omega)$.
+We define the set of \emph{deformations}, the set of continuous functions from $\Omega$ to $\Omega$ (a strategy to avoid issues on the boundary of $\Omega$ is to consider the deformations over the whole $\mathbb{R}^d$ that are the identity outside $\Omega$; for our purposes we will consider these two definitions equivalent). If a deformation is invertible with continuous inverse then it is called \emph{homeomorphism}; the set of homeomorphisms forms a group with the operation of function composition indicated with $\text{Hom}(\Omega)$. If an homeomorphism is differentiable and has differentiable inverse then it is called \emph{diffeomorphism}. Again the set of diffeomorphisms forms a group, indicated with $\text{Diff}(\Omega)$.
 
-A \emph{velocity vector field} over $\Omega$ is a function that at each point of $\Omega$, associates a vector of $\mathbb{R}^d$; the set of velocity vector fields, indicated with $\mathcal{V}(\Omega)$ forms a vector space, and considering the multiplication with the Jacobian matrix at each point, it forms a non-commutative group:  
+A \emph{velocity vector field} over $\Omega$ is a differentiable function that at each point of $\Omega$, associates a vector of $\mathbb{R}^d$; the set of velocity vector fields, indicated with $\mathcal{V}(\Omega)$ forms a vector space, and considering the multiplication with the Jacobian matrix at each point, it forms a non-commutative group:  
 \begin{align*}
 \mathbf{u}\cdot \mathbf{v} := J_{\mathbf{u}}\mathbf{v}
 \qquad
 \forall\mathbf{u},\mathbf{v}\in \mathcal{V}(\Omega)
 \end{align*}
-And thanks to the linearity of the Jacobian, $\mathcal{V}(\Omega)$ forms an algebra.
+Thanks to the linearity of the Jacobian, the scalar product and the multiplication of the group are compatible: $\mathcal{V}(\Omega)$ forms an algebra.
 
 % here the two doors
-There are two ways to associate a velocity vector field to a diffeomorphisms $\varphi$. The first one is subtracting the identity function $1$. If $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the associated velocity vector field, called here \emph{deformation field of} $\varphi$, is the function that at the point $\mathbf{x}$ associate the vector defined as the difference $\varphi(\mathbf{x}) - \mathbf{x}$. To recover the deformation from a velocity field $\mathbf{u}$ is enough to add the identity; in this case we have the \emph{deformation of} $\mathbf{u}$. We indicate this operation of adding and subtracting the identity with the function $\mathcal{V}$:
+There are two ways to associate a diffeomorphisms $\varphi$ to a velocity vector field. The first one is subtracting to $\varphi$ the identity function $1$. If $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the associated velocity vector field, called here \emph{deformation field of} $\varphi$, is the function that at the point $\mathbf{x}$ associate the vector defined as the difference $\varphi(\mathbf{x}) - \mathbf{x}$. To recover the deformation from a velocity field $\mathbf{u}$ is enough to add the identity; in this case we have the \emph{deformation of} $\mathbf{u}$. We indicate this operation of adding and subtracting the identity with the function $\mathcal{V}$:
 \begin{align*}
 \mathcal{V}(\varphi) = \varphi - 1 
 \qquad \qquad
 \mathcal{V}^{-1}(\mathbf{u}) = \mathbf{u} + 1 
 \end{align*}
-We can see that deformation fields of diffeomorphisms are elements of $\mathcal{V}(\Omega)$, that is the analogous of the bigger algebra that contains Lie group and Lie algebra in the case of matrices. This operation of subtracting the identity to the deformation has already been used implicitly in the power series expansion of the Lie logarithm for matrices, see equation \ref{eq:log_as_inf_sum}.
+We can see that deformation fields of diffeomorphisms are elements of $\mathcal{V}(\Omega)$, that is the analogous of the bigger algebra that contains Lie group and Lie algebra in the case of matrices. We can observe that this operation of subtracting the identity to the deformation has already been used implicitly in the power series expansion of the Lie logarithm for matrices, see equation \ref{eq:log_as_inf_sum}.
 
 The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is small then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations \ref{eq:small_rotation_matrices_approx}.
 
@@ -479,11 +478,12 @@ At this point it is important to notice that, while a deformation field of $\var
 
 \subsection{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}\label{subse:local_isomorphisms}
 
-In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group (in the same topology induced by the metric inherited by the bigger algebra), such that the exponential map is always defined and invertible.
-In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups and therefore can not be related with any element in the tangent space by an ODE (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
+In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group (in the same topology induced by the metric inherited by the bigger algebra), such that the exponential map is defined and invertible.
+
+In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups, therefore the exponential map is not a local isomorphism (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
 
 % subset of diff in which we are interested: the one that can be parmetrized by tangent vector fields
-Since for medical image registration we are interested only in the diffeomorphisms that can be parametrized by tangent vector fields, investigate this feature is not only purely a theoretical issue. As happened in the previous section, it is necessarily to have some definitions at hand before moving in this direction. 
+Since for medical image registration we are interested only in the diffeomorphisms that can be parametrized by tangent vector fields, this feature is worthed to be investigated. As happened in the previous section, is required to have some definitions at hand before moving on in this investigation. 
 
 % two kinds of vector fields. TVVF SVF. A continuous way to produce diffeomorphims
 If $\varphi$ is a one-parameter subgroup on the manifold $\text{\emph{Diff}}(\Omega)$, then its derivative satisfies the stationary (or homogeneous) ordinary differential equation:
@@ -507,13 +507,16 @@ We indicate with $\text{\emph{Diff}}^{1}(\Omega)$ the set of diffeomorphisms emb
 \begin{align}\label{eq:generating_ODE_tvvf}
 \frac{d\psi(t)}{dt} = W_{(t, \psi(t))}
 \end{align}
-Where $W_{(t, \psi(t))}$ is a non-stationary vector field, called here time varying vector field, or TVVF. If compared with to the SVF, it does not depends only on the spatial position $\mathbf{x}$ but there is also a temporal dependency. Think for example to a satellite orbiting around the globe: it is subject to the earth's vector field in respect to which it is constant for a fixed position, and to the lunar vector field that it is not fixed but varies in respect to the time. Conventionally the temporal domain $T$ contains the origin and formally we can write:
+Where $W_{(t, \psi(t))}$ is a non-stationary vector field, called here time varying vector field, or TVVF. If compared with to the SVF, it does not depends only on the spatial position $\mathbf{x}$ but there is also a temporal dependency. 
+
+Think for example to a satellite orbiting around the globe: it is subject to the earth's vector field in respect to which it is constant for a fixed position, and to the lunar vector field that it is not fixed but varies in respect to the time. Conventionally the temporal domain $T$ contains the origin and formally we can write:
 \begin{align*}
 W : T\times \Omega & \longrightarrow  \mathbb{R}^d \\
 t, \psi(t) &\longmapsto  W_{(t, \psi(t))}
 \end{align*}
 for $\psi$ diffeomorphism (or in the previous example, position of the satellite at time $t$) that when applied to a point of $\Omega$ is indicated with $\varphi(t,\mathbf{x})$ or $\psi^{(t)}(\mathbf{x})$.
-It is important to notice that non-autonomous ODE are particular cases of autonomous one. Writing the diffeomorphism $\psi(t)$ applied to $\mathbf{x}$ in local coordinates as 
+
+A crucial observation for our purpose is that non-autonomous ODE are particular cases of autonomous one. Writing the diffeomorphism $\psi(t)$ applied to $\mathbf{x}$ in local coordinates as 
 \begin{align*}
 \psi^{(t)}(\mathbf{x}) = (\psi_1^{(t)}(\mathbf{x}), \psi_2^{(t)}(\mathbf{x}), \dots ,\psi_d^{(t)}(\mathbf{x})) \in \mathbb{R}^{d}
 \end{align*}
@@ -521,17 +524,17 @@ Defining a new function $\psi_0^{(t)}(\mathbf{x}) = t_0 + t$ for all $\mathbf{x}
 \begin{align*}
 \tilde{\psi}^{(t)}(\mathbf{x}) = (\psi_0^{(t)}(\mathbf{x}), \psi_1^{(t)}(\mathbf{x}), \psi_2^{(t)}(\mathbf{x}), \dots ,\psi_d^{(t)}(\mathbf{x})) \in T\times \mathbb{R}^{d}
 \end{align*}
-that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:generating_ODE_svf}. In the example of satellite, is like considering the temporal dimension as an additional spatial dimension of the space. The vector that influence the satellite is an SVF for every point in the space-time. 
+that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:generating_ODE_svf}. In the example of satellite, is like considering the temporal dimension as an additional dimension of the space. The vector that influence the satellite is an SVF for every point in the domain of space-time. 
 
-It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different one parameter subgroup. 
+It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different one parameter subgroups. 
 
-To conclude this part, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we do not restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition but the one that satisfies \ref{eq:generating_ODE_tvvf}, and therefore corresponds to TVVF does. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
+In conclusion, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we do not restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition but the one that satisfies \ref{eq:generating_ODE_tvvf}, and therefore corresponds to TVVF does. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
 \begin{align*}
 	\text{\emph{Diff}}^{1}(\Omega) &= \exp(\text{SVF}) = \exp(\text{TVVF})
 \end{align*}
 but to a given SVF exists only one one-parameter subgroup $\varphi$ that satisfies the ODE \ref{eq:generating_ODE_svf}. The same thing does not necessarily happens for the TVVF.
 
-In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log} and in subsequent works the attention has been restricted to SVF, to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase} works only under the assumption that the transformation belongs to the same one-parameter subgroup.
+In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log} and in subsequent works the attention has been restricted to SVF, in order to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase} works only under the assumption that the transformation belongs to the same one-parameter subgroup.
 
 
 % % % % % % % % % % % % % % % % % %
@@ -542,7 +545,8 @@ A metric between tangent vector fields of $\Omega$ can be defined as
 d(\mathbf{u}, \mathbf{v}) = \int_{\Omega} \euclideanMetric{\mathbf{u} - \mathbf{v}}_{L^2}^{2} d\mathbf{x} 
 \end{align*} 
 and induces a metric to compute the distance between stationary velocity fields.
-In the Lie group $\text{\emph{Diff}}^{1}(\Omega)$ do not possess any norm, but the corresponding deformation fields defined by $\mathcal{V}$, as tangent vector fields does. Given two diffeomorphisms $\varphi_0,\varphi_1$ we have
+
+The Lie group $\text{\emph{Diff}}^{1}(\Omega)$ do not possess any norm, but the corresponding deformation fields defined by $\mathcal{V}$, as tangent vector fields does. Given two diffeomorphisms $\varphi_0,\varphi_1$ we have
 \begin{align*}
 d^{1}(\varphi_0,\varphi_1) 
 = 
@@ -554,7 +558,7 @@ m(\mathbf{u},\varphi)
 = 
 \int_{\Omega} \euclideanMetric{\mathbf{u} - \mathcal{V}(\varphi)}_{L^2}^{2} d\mathbf{x} 
 \end{align*} 
-The next 
+The next section is about the parametrization of SVF in the applications, and it is followed by the one that presents the numerical methods for the log-composition when applied to SVF.
 
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
