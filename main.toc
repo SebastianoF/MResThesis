@@ -25,24 +25,24 @@
 \contentsline {subsection}{\numberline {3.2.1}A bigger algebra for the group of Diffeomorphisms}{26}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{27}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Norm for elements in the one-parameter subgroup}{29}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Parametrization of SVF: Grids and Discretized Vector Fields}{29}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.4}Parametrization of SVF: Grids and Discretized Vector Fields}{30}{subsection.3.2.4}
 \contentsline {subsection}{\numberline {3.2.5}Computations of Log-composition for SVF}{30}{subsection.3.2.5}
-\contentsline {chapter}{\numberline {4}Log-Algorithm using Log-composition}{31}{chapter.4}
-\contentsline {section}{\numberline {4.1}Spaces of Approximations}{31}{section.4.1}
-\contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{32}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Truncated BCH Strategy}{33}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Parallel Transport Strategy}{33}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Symmetrization Strategy}{33}{subsection.4.2.3}
-\contentsline {chapter}{\numberline {5}Experimental Results}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Log-composition for $\mathfrak {se}(2)$}{36}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Methods and Results}{36}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Log-composition for SVF}{39}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Methods: random generated SVF.}{39}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Truncated BCH formula: The problem of the Jacobian matrix.}{39}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Log-composition for SVF: errors}{39}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Log-composition of real cases SVF}{40}{section.5.3}
-\contentsline {section}{\numberline {5.4}Log-Algorithm for SVF}{42}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Methods}{42}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Results}{42}{subsection.5.4.2}
-\contentsline {section}{\numberline {5.5}Empirical Evaluations of Computational Time}{42}{section.5.5}
-\contentsline {section}{\numberline {5.6}Conclusions and Further Research}{43}{section.5.6}
+\contentsline {chapter}{\numberline {4}Log-Algorithm using Log-composition}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Spaces of Approximations}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{34}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Truncated BCH Strategy}{35}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Parallel Transport Strategy}{36}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Symmetrization Strategy}{36}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {5}Experimental Results}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Log-composition for $\mathfrak {se}(2)$}{38}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Methods and Results}{38}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Log-composition for SVF}{41}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Methods: random generated SVF.}{41}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Truncated BCH formula: The problem of the Jacobian matrix.}{41}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Log-composition for SVF: errors}{41}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Log-composition of real cases SVF}{42}{section.5.3}
+\contentsline {section}{\numberline {5.4}Log-Algorithm for SVF}{44}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Methods}{44}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Results}{44}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Empirical Evaluations of Computational Time}{44}{section.5.5}
+\contentsline {section}{\numberline {5.6}Conclusions and Further Research}{45}{section.5.6}
