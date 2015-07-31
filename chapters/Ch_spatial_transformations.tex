@@ -369,14 +369,14 @@ dr_{1}
 =
 dr_{0}
 +
-\mathbf{J}(dr_{0}, dr_{1})
+\mathbf{J}(dr_{0})
 dr_{1}
 +
 \mathcal{O}(dr_{1}^2)
 \end{align}
 where 
 \begin{align*}
-\mathbf{J}(dr_{0}, dr_{1})
+\mathbf{J}(dr_{0})
 =
 \left (
 \begin{array} {c c c}
@@ -400,7 +400,7 @@ Tl(dr_{0}, dr_{1})
 :=
 dr_{0}
 +
-\mathbf{J}(dr_{0}, dr_{1})
+\mathbf{J}(dr_{0})
 dr_{1}
 \end{align}
 
@@ -428,76 +428,68 @@ where the composition in the Lie group coincides with the product of matrix in t
 \section{The Lie group of Diffeomorphisms}\label{se:svf}
 
 
-As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections in particular the following facts that, has seen in the previous section, happen for matrices:
+As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections \ref{subse:local_isomorphisms} and \ref{subse:bigger_algebra} the following facts that, as seen in the previous section, happen for matrices but not for diffeomorphisms:
 \begin{enumerate}
-	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
 	\item Lie logarithm and Lie exponential are local isomorphisms.
+	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
 \end{enumerate}
-...but these facts are not true for diffeomorphisms!
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{A bigger algebra for the group of Diffeomorphisms}\label{subse:bigger_algebra}
-As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of matrices in the general linear group $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible both with the product and the composition.
-
-The existence of a bigger algebra is not important only in the research of an elegant structure: the power series expansions of the exponential and the logarithm \ref{eq:log_as_inf_sum} \ref{eq:exp_as_inf_sum} as well as expressions as \ref{eq:prop_matrix_diff_log} and \ref{eq:prop_matrix_lim} would be meaningless without the possibility of expressing the sum of two elements of a multiplicative group. Moreover, if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and utilized to compare elements in the both subspaces.
-
-In the case of diffeomorphism of $\Omega\subset \mathbb{R}^d$, we can identify a bigger vector space that contains both Lie group and Lie algebra, but it is less straightforward than in the case of matrices, and for this aim it is necessarily to have some definitions at hand.
+Before getting there, we need to clarify some definitions and notations.
 
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
 	\includegraphics[scale=0.6]{figures/se2_circular_vector_field.pdf}
-	\caption{the deformation field and the tangent vector field for the transformation $\varphi$ defined as a rotation of $\pi / 6$ around the origin. When $\varphi$ is subtracted by the identity function, become an element of the algebra of the velocity vector fields.}
+	\caption{the displacement field and the tangent vector field for the transformation $\varphi$ defined as a rotation of $\pi / 6$ around the origin. When $\varphi$ is subtracted by the identity function, become an element of the algebra of the velocity vector fields $\text{Vect}(\Omega)$.}
 	\label{fig:se2_circular_vector_field}
 \end{figure}
 
-% deformation, homeomorphisms, diffeomorphisms. map V and displacements. Structures. Figure
-We define the set of \emph{deformations}, the set of continuous functions from $\Omega$ to $\Omega$ (a strategy to avoid issues on the boundary of $\Omega$ is to consider the deformations over the whole $\mathbb{R}^d$ that are the identity outside $\Omega$; for our purposes we will consider these two definitions equivalent). If a deformation is invertible with continuous inverse then it is called \emph{homeomorphism}; the set of homeomorphisms forms a group with the operation of function composition indicated with $\text{Hom}(\Omega)$. If an homeomorphism is differentiable and has differentiable inverse then it is called \emph{diffeomorphism}. Again the set of diffeomorphisms forms a group, indicated with $\text{Diff}(\Omega)$.
+We define the set of \emph{deformations}, the set of continuous functions from $\Omega$ to $\Omega$, compact subset of $\mathbb{R}^d$. If a deformation is invertible with continuous inverse, then it is called \emph{homeomorphism}; the set of homeomorphisms forms a group, indicated with $\text{Hom}(\Omega)$, with the operation of function composition. If an homeomorphism is differentiable and has differentiable inverse then it is called \emph{diffeomorphism}. Again the set of diffeomorphisms forms a group, indicated with $\text{Diff}(\Omega)$.
 
-A \emph{velocity vector field} over $\Omega$ is a differentiable function that at each point of $\Omega$, associates a vector of $\mathbb{R}^d$; the set of velocity vector fields, indicated with $\mathcal{V}(\Omega)$ forms a vector space, and considering the multiplication with the Jacobian matrix at each point, it forms a non-commutative group:  
+A \emph{velocity vector field} over $\Omega$ is a differentiable function that at each point of $\Omega$, associates a vector of $\mathbb{R}^d$; the set of velocity vector fields, indicated with $\text{Vect}(\Omega)$ forms a vector space, and considering the Lie bracket defined by the directional derivative
+we obtain that $\text{Vect}(\Omega)$ forms a Lie algebra\footnote{
+	Some books invert the signs of the operation (see the Kirillow's remarks \cite{kirillov2008introduction} pag. 27); this choice do not have any impact in the study of the algebraic structure, but it does have an impact on the numerical results when the Lie brackets are implemented for numerical computations. At the moment the sign that defines the Lie bracket is chosen on the base of the results.
+}.
+If $\{\frac{\partial}{\partial x_{i}}\}_{i=1}^{d}$ is a local coordinates system over $\Omega$, $\mathbf{u}=a^{i} \frac{\partial}{\partial x_{i}}$ and $\mathbf{v}=b^{i} \frac{\partial}{\partial x_{i}}$ are two elements of  $\text{Vect}(\Omega)$ written using the Einstein summation convention, the Lie bracket can be expressed using the Jacobian:
 \begin{align*}
-\mathbf{u}\cdot \mathbf{v} := J_{\mathbf{u}}\mathbf{v}
-\qquad
-\forall\mathbf{u},\mathbf{v}\in \mathcal{V}(\Omega)
+[\mathbf{u}, \mathbf{v}] &= 
+a^{i} \frac{\partial}{\partial x_{i}}\big( b^{j} \frac{\partial}{\partial x_{j}} \big)
+-
+b^{i} \frac{\partial}{\partial x_{i}}\big( a^{j} \frac{\partial}{\partial x_{j}} \big) \\
+&=
+a^{i} \frac{\partial b_{j}}{\partial x_{i}}\frac{\partial}{\partial x_{j}}  
++ 
+a^{i}b^{j}\frac{\partial^{2}}{\partial x_{i}x_{j}}
+- 
+b^{j} \frac{\partial a^{i}}{\partial x^{j}}\frac{\partial}{\partial x_{i}} 
+-
+b^{j}a^{i}\frac{\partial^{2}}{\partial x_{j}x_{i}} \\
+&=
+a^{i} \frac{\partial b_{j}}{\partial x_{i}}\frac{\partial}{\partial x_{j}}
+-
+b^{j} \frac{\partial a^{i}}{\partial x^{j}}\frac{\partial}{\partial x_{i}} 
+= J_{\mathbf{v}}\mathbf{u} - J_{\mathbf{u}}\mathbf{v}
 \end{align*}
-Thanks to the linearity of the Jacobian, the scalar product and the multiplication of the group are compatible: $\mathcal{V}(\Omega)$ forms an algebra.
-
 % here the two doors
-There are two ways to associate a diffeomorphisms $\varphi$ to a velocity vector field. The first one is subtracting to $\varphi$ the identity function $1$. If $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the associated velocity vector field, called here \emph{deformation field of} $\varphi$, is the function that at the point $\mathbf{x}$ associate the vector defined as the difference $\varphi(\mathbf{x}) - \mathbf{x}$. To recover the deformation from a velocity field $\mathbf{u}$ is enough to add the identity; in this case we have the \emph{deformation of} $\mathbf{u}$. We indicate this operation of adding and subtracting the identity with the function $\mathcal{V}$:
-\begin{align*}
-\mathcal{V}(\varphi) = \varphi - 1 
-\qquad \qquad
-\mathcal{V}^{-1}(\mathbf{u}) = \mathbf{u} + 1 
-\end{align*}
-We can see that deformation fields of diffeomorphisms are elements of $\mathcal{V}(\Omega)$, that is the analogous of the bigger algebra that contains Lie group and Lie algebra in the case of matrices. We can observe that this operation of subtracting the identity to the deformation has already been used implicitly in the power series expansion of the Lie logarithm for matrices, see equation \ref{eq:log_as_inf_sum}.
+It was proved that the Lie algebra of vector fields have, as its Lie group, the group of diffeomorphisms (\cite{milnor1982infinite}, \cite{ovsienko1992integrals}). 
 
-The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is small then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations \ref{eq:small_rotation_matrices_approx}.
+A single vector in the Lie algebra $\mathcal{V}(\Omega)$ (represented by one red arrow in figure \ref{fig:composition}) is a vector field defined over $\Omega$ (represented by the set of red arrows in figure \ref{fig:se2_circular_vector_field}). We would expect that, vice versa, to a single diffeomorphism in the Lie group corresponds a single vector of the Lie algebra. This is not the case, since Lie logarithm and Lie exponential are not local isomorphisms on the whole domain.
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.25]{figures/exp_versus_v.pdf}
-	\caption{for small deformations, the deformation field $\log(\varphi)$ and the tangent field $\mathcal{V}(\varphi)$ are close to each others.}
-	\label{fig:exp_versus_v}
-\end{figure}
-
-% difference number 2) exponential map not a local isomorphisms. - cut locus dominio stellato per le matrici. Qualcosa di diverso per i diffeomorfismi
-At this point it is important to notice that, while a deformation field of $\varphi$ can always be defined, the exponential map it is not defined for any diffeomorphism. This is the second remarkably difference between the matrix Lie group and the Lie group of diffeomorphisms that will be investigated in the next section.
-
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}\label{subse:local_isomorphisms}
 
 In the case of matrices, the exponential map is a local isomorphisms: it is always possible to find an open neighbor of $\mathbf{0}$ in the Lie algebra and an open neighbor of the identity element in the Lie group (in the same topology induced by the metric inherited by the bigger algebra), such that the exponential map is defined and invertible.
 
-In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups, therefore the exponential map is not a local isomorphism (see the counterexample in \cite{lorenzi2013geodesics}, pag. 6 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
+In the infinite dimensional case there are diffeomorphisms arbitrarily close to the identity that are not embedded to any one-parameter subgroups, therefore the exponential map is not a local isomorphism (see the counterexample in \cite{milnor1984remarks}, pag. 1017 or the definition of Koppel-diffeomorphisms \cite{grabowski1988free} pag. 115).
 
 % subset of diff in which we are interested: the one that can be parmetrized by tangent vector fields
-Since for medical image registration we are interested only in the diffeomorphisms that can be parametrized by tangent vector fields, this feature is worthed to be investigated. As happened in the previous section, is required to have some definitions at hand before moving on in this investigation. 
+Since for medical image registration we are interested only in the diffeomorphisms that can be parametrized by tangent vector fields, this feature is worthed to be investigated, but it requires some definitions.
 
 % two kinds of vector fields. TVVF SVF. A continuous way to produce diffeomorphims
-If $\varphi$ is a one-parameter subgroup on the manifold $\text{\emph{Diff}}(\Omega)$, then its derivative satisfies the stationary (or homogeneous) ordinary differential equation:
+If $\varphi$ is a one-parameter subgroup on the manifold $\text{\emph{Diff}}(\Omega)$, then its derivative satisfies the \emph{stationary} (or homogeneous) ordinary differential equation:
 \begin{align}\label{eq:generating_ODE_svf}
 \frac{d\varphi(t)}{dt} = V_{\varphi(t)}
 \end{align}
-Where the stationary vector field $V_{\varphi(t)}$ defined over $\Omega$ is an element of the Lie algebra of $\text{\emph{Diff}}(\Omega)$ (see for example \cite{khesin2008geometry}) called \emph{stationary velocity field} or SVF. In fact
+Where the stationary vector field $V_{\varphi(t)}$ defined over $\Omega$ is an element of the Lie algebra of $\mathcal{V}(\Omega)$ called \emph{stationary velocity field} or SVF. In fact
 \begin{align*}
 \frac{d\varphi(t)}{dt} 
 = 
@@ -508,9 +500,10 @@ Where the stationary vector field $V_{\varphi(t)}$ defined over $\Omega$ is an e
 V_{\varphi(t)}
 \end{align*} 
 
-Vice versa, given an SVF, by the Cauchy theorem exists always a unique solution $\varphi$ to the ODE \ref{eq:generating_ODE_svf}, given the initial condition $\varphi(0) = 1$ that satisfies the property of one-parameter subgroup.
+Vice versa, given an SVF, thanks to Cauchy theorem exists always a unique solution $\varphi$ to the ODE \ref{eq:generating_ODE_svf}, given the initial condition $\varphi(0) = 1$, that satisfies the property of one-parameter subgroup.
 
-We indicate with $\text{\emph{Diff}}^{1}(\Omega)$ the set of diffeomorphisms embedded in a one parameter subgroup, i.e. the solutions of \ref{eq:generating_ODE_svf}. We notice that $\text{\emph{Diff}}^{1}(\Omega)$ does not form a group. In fact if $\varphi$ and $\psi$ are in $\text{\emph{Diff}}^{1}(\Omega)$ and satisfy respectively $\frac{d\varphi_1(t)}{dt} = V_{\varphi_1(t)}$ and $\frac{d\varphi_2(t)}{dt} = U_{\varphi_2(t)}$, then their composition $\varphi_1\circ\varphi_2$ does not satisfy any stationary ordinary differential equation, but it satisfy a non stationary (or non homogeneous) ordinary differential equation of the form:
+We indicate with $\text{\emph{Diff}}^{1}(\Omega)$ the \emph{set of diffeomorphisms embedded in a one parameter subgroup}, i.e. the solutions of \ref{eq:generating_ODE_svf}. We notice that $\text{\emph{Diff}}^{1}(\Omega)$ does not form a group. In fact if $\varphi$ and $\psi$ are in $\text{\emph{Diff}}^{1}(\Omega)$ and satisfy respectively $\frac{d\varphi_1(t)}{dt} = U_{\varphi_1(t)}$ and $\frac{d\varphi_2(t)}{dt} = V_{\varphi_2(t)}$, then their composition $\varphi_1\circ\varphi_2$ does not satisfy any stationary ordinary differential equation. 
+To have closure for the composition of one parameter subgroup, we have to extend our attention to non stationary (or non homogeneous) ordinary differential equation of the form:
 \begin{align}\label{eq:generating_ODE_tvvf}
 \frac{d\psi(t)}{dt} = W_{(t, \psi(t))}
 \end{align}
@@ -535,36 +528,70 @@ that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:
 
 It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different one parameter subgroups. 
 
-In conclusion, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we do not restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition but the one that satisfies \ref{eq:generating_ODE_tvvf}, and therefore corresponds to TVVF does. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
+In conclusion, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we do not restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition. This happen only if we extend to the solution of the non stationary ODE \ref{eq:generating_ODE_tvvf}, and therefore to TVVF. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
 \begin{align*}
-	\text{\emph{Diff}}^{1}(\Omega) &= \exp(\text{SVF}) = \exp(\text{TVVF})
+\text{\emph{Diff}}^{1}(\Omega) &= \exp(\text{SVF}) = \exp(\text{TVVF})
 \end{align*}
 but to a given SVF exists only one one-parameter subgroup $\varphi$ that satisfies the ODE \ref{eq:generating_ODE_svf}. The same thing does not necessarily happens for the TVVF.
 
-In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log} and in subsequent works the attention has been restricted to SVF, in order to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase} works only under the assumption that the transformation belongs to the same one-parameter subgroup.
+In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log}, and in subsequent works, the attention has been restricted to SVF, in order to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase}, works only under the assumption that the transformation belongs to the same one-parameter subgroup.
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{A bigger algebra for the group of Diffeomorphisms}\label{subse:bigger_algebra}
+As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of matrices in the general linear group $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible both with the product and the composition.
+
+The existence of a bigger algebra is not important only in the research of an elegant structure: the power series expansions of the exponential (\ref{eq:exp_as_inf_sum}) and the logarithm (\ref{eq:log_as_inf_sum}) as well as expressions like (\ref{eq:prop_matrix_diff_log}) and (\ref{eq:prop_matrix_lim}) would be meaningless without the possibility of expressing the sum of two elements of a multiplicative group. Moreover, if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and utilized to compare elements in the both subspaces.
+
+In the case of diffeomorphism of the compact subset $\Omega$ of $\mathbb{R}^d$, we can identify a bigger vector space that contains both Lie group and Lie algebra, but it is less straightforward than in the case of matrices, and for this aim it is necessarily to have some definitions at hand.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.25]{figures/exp_versus_v.pdf}
+	\caption{for small deformations, the displacement field $\log(\varphi)$ and the tangent field $\mathcal{V}(\varphi)$, computed at the point $\mathbf{x}$ of $\Omega$, are close to each others.}
+	\label{fig:exp_versus_v}
+\end{figure}
+
+There are two ways to associate a diffeomorphisms $\varphi$ to a velocity vector field. The first one is elementary but fundamental in this context: it consists in subtracting to $\varphi$ the identity function $1$. If $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the associated velocity vector field, called here \emph{displacement field of} $\varphi$, is the function that at the point $\mathbf{x}$ associate the vector defined as the difference $\varphi(\mathbf{x}) - \mathbf{x}$. To recover the deformation from a velocity field $\mathbf{u}$ is enough to add the identity; in this case we have the \emph{deformation of} $\mathbf{u}$. We indicate this operation of adding and subtracting the identity with the function $\mathcal{V}$:
+\begin{align*}
+\mathcal{V}(\varphi) = \varphi - 1 
+\qquad \qquad
+\mathcal{V}^{-1}(\mathbf{u}) = \mathbf{u} + 1 
+\end{align*}
+We can see that displacement fields of diffeomorphisms are elements of $\mathcal{V}(\Omega)$, that is the analogous of the bigger algebra that contains Lie group and Lie algebra in the case of matrices. We can observe that this operation of subtracting the identity to the deformation has already been used implicitly in the power series expansion of the Lie logarithm for matrices, see equation \ref{eq:log_as_inf_sum}.
+
+The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is small then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations (\ref{eq:small_rotation_matrices_approx}).
+
+% difference number 2) exponential map not a local isomorphisms. - cut locus dominio stellato per le matrici. Qualcosa di diverso per i diffeomorfismi
+At this point it is important to notice that, while a displacement field of $\varphi$ can always be defined, the exponential map it is not defined for any diffeomorphism. This is the second remarkably difference between the matrix Lie group and the Lie group of diffeomorphisms that will be investigated in the next section.
+
+
 
 
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
 \subsection{Norm for elements in the one-parameter subgroup}\label{subse:norm}
 A metric between tangent vector fields of $\Omega$ can be defined as 
-\begin{align*}
-d(\mathbf{u}, \mathbf{v}) = \int_{\Omega} \euclideanMetric{\mathbf{u} - \mathbf{v}}_{L^2}^{2} d\mathbf{x} 
-\end{align*} 
+\begin{align}\label{def:metric_two_svf}
+d(\mathbf{u}, \mathbf{v}) 
+= 
+\Big( \int_{\Omega} \euclideanMetric{\mathbf{u} - \mathbf{v}}_{L^2}^{2} d\mathbf{x} \Big)^{1/2}
+\end{align} 
 and induces a metric to compute the distance between stationary velocity fields.
 
-The Lie group $\text{\emph{Diff}}^{1}(\Omega)$ do not possess any norm, but the corresponding deformation fields defined by $\mathcal{V}$, as tangent vector fields does. Given two diffeomorphisms $\varphi_0,\varphi_1$ we have
-\begin{align*}
+The Lie group $\text{\emph{Diff}}^{1}(\Omega)$ do not possess any norm, but the corresponding displacement fields defined by $\mathcal{V}$, as tangent vector fields does. Given two diffeomorphisms $\varphi_0,\varphi_1$ we have
+\begin{align}\label{def:metric_two_displacement_field}
 d^{1}(\varphi_0,\varphi_1) 
 = 
-\int_{\Omega} \euclideanMetric{\mathcal{V}(\varphi_0) - \mathcal{V}(\varphi_1)}_{L^2}^{2} d\mathbf{x} 
-\end{align*} 
+\Big( \int_{\Omega} \euclideanMetric{\mathcal{V}(\varphi_0) - \mathcal{V}(\varphi_1)}_{L^2}^{2} d\mathbf{x} \Big)^{1/2}
+\end{align} 
 Despite the limitation that Lie algebra and Lie group of diffeomorphisms are not subset of the same bigger algebra, we can nevertheless consider a function that measure the best approximation of metric we can have for $\text{\emph{Diff}}^{1}(\Omega)$ and SVF:
-\begin{align*}
-m(\mathbf{u},\varphi) 
+\begin{align}\label{def:metric_one_svf_one_displacement_field}
+d^{m}(\mathbf{u},\varphi) 
 = 
-\int_{\Omega} \euclideanMetric{\mathbf{u} - \mathcal{V}(\varphi)}_{L^2}^{2} d\mathbf{x} 
-\end{align*} 
+\Big(\int_{\Omega} \euclideanMetric{\mathbf{u} - \mathcal{V}(\varphi)}_{L^2}^{2} d\mathbf{x} \Big)^{1/2}
+\end{align} 
 The next section is about the parametrization of SVF in the applications, and it is followed by the one that presents the numerical methods for the log-composition when applied to SVF.
 
 % % % % % % % % % % % % % % % % % %
@@ -577,7 +604,7 @@ Certainly it is important to keep in mind the fact that the continuous approxima
 Also transformations between images are discretized vector fields, where each vector is applied to an element of a grid. These transformations can only be considered as a model of the group of diffeomorphisms (a model of a model, in image registration!) and reflects only partially the continuous property of the original transformation.
 On the other side the possibility of working with discretized elements means working with something that can be managed by computers.
 
-As in many implementation, the data structure utilized to store images, as well as deformation fields are 5-dimensional matrices
+As in many implementation, the data structure utilized to store images, as well as displacement fields are 5-dimensional matrices
 \begin{align}\label{eq:basic_data_structure}
 M = M(x_i,y_j,z_k,t,d) \qquad (i,j,k)\in L , ~~ t \in T  ~~ d = 1,2,3
 \end{align}

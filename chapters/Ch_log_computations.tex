@@ -25,24 +25,24 @@ The first step toward this direction is to introduce the space of the approximat
 \section{Spaces of Approximations}\label{se:space_of_approximation}
 
 \noindent
-As seen in section \ref{se:rigid_body_transformations} and \ref{se:svf}, if the element $\mathbf{u}$ of $\mathfrak{se}(2)$ or SVF is small enough we can approximate $\exp(\mathbf{u})$ with $1 + \mathbf{u}$. Aim of this section is to investigate these approximations aimed to compute the logarithm.  \\
+As seen in section \ref{se:rigid_body_transformations} and \ref{se:svf}, if the element $\mathbf{u}$ of $\mathfrak{se}(2)$ or SVF is small enough we can approximate $\exp(\mathbf{u})$ with $e + \mathbf{u}$. Aim of this section is to investigate these approximations aimed to compute the logarithm.  \\
 Let $C_\mathfrak{g}$ and $C_\mathbb{G}$ the internal cut locus of a Lie algebra and a Lie group $\mathfrak{g}$ and $\mathbb{G}$ (the subset where the exponential map is well defined).
 We define two approximating functions:
 \begin{align*}
 \text{app} : C_\mathfrak{g} & \longrightarrow  C_\mathfrak{g}^{\sim}    \\
-\mathbf{u} &\longmapsto \exp(\mathbf{u}) - 1
+\mathbf{u} &\longmapsto \exp(\mathbf{u}) - e
 \end{align*}
 \begin{align*}
 \text{App} : C_\mathbb{G} & \longrightarrow  C_\mathbb{G}^{\sim}   \\
-\exp(\mathbf{u}) &\longmapsto 1 + \mathbf{u}
+\exp(\mathbf{u}) &\longmapsto e + \mathbf{u}
 \end{align*}
 Where $C_\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $C_\mathfrak{g} $, and $C_\mathbb{G}^{\sim} $ is the space of approximations of elements in $C_\mathbb{G}$, defined as
 \begin{align*}
-C_\mathfrak{g} ^{\sim} & := \{ \exp(\mathbf{u}) - 1 \mid \mathbf{u}\in C_\mathfrak{g}\} \cup C_\mathfrak{g} \\
-C_\mathbb{G}^{\sim}  & := \{ 1 + \mathbf{u} \mid \mathbf{u}\in C_\mathbb{G}\} \cup C_\mathbb{G} \\
+C_\mathfrak{g} ^{\sim} & := \{ \exp(\mathbf{u}) - e \mid \mathbf{u}\in C_\mathfrak{g}\} \cup C_\mathfrak{g} \\
+C_\mathbb{G}^{\sim}  & := \{ e + \mathbf{u} \mid \mathbf{u}\in C_\mathbb{G}\} \cup C_\mathbb{G} \\
 \end{align*}
 In general $C_\mathfrak{g}^{\sim} \neq C_\mathfrak{g}$ and $C_\mathbb{G}^{\sim} \neq C_\mathbb{G}$, but in the considered cases of $\mathfrak{se}(2)$ and SVF, when $\mathbf{u}$ is \emph{small enough}
-it follows that $\exp(\mathbf{u}) - 1 \in C_\mathfrak{g} $ and $1 + \mathbf{u}\in C_\mathbb{G}$. Therefore the elements of $C_\mathfrak{g}^{\sim} $ are compatible with all of the operations of the internal cut locus of the Lie algebra $C_\mathfrak{g}$ and the elements of $C_\mathbb{G}^{\sim}$ are compatible with all of the operations of Lie group $\mathbb{G}$.\\
+it follows that $\exp(\mathbf{u}) - e \in C_\mathfrak{g} $ and $e + \mathbf{u}\in C_\mathbb{G}$. Therefore the elements of $C_\mathfrak{g}^{\sim} $ are compatible with all of the operations of the internal cut locus of the Lie algebra $C_\mathfrak{g}$ and the elements of $C_\mathbb{G}^{\sim}$ are compatible with all of the operations of Lie group $\mathbb{G}$.\\
 Lets examine what does \emph{small enough} means in these two cases:
 \begin{enumerate}
 	\item[$\mathfrak{se}(2)$ -] Since $\mathfrak{se}(2)$ and $SE(2)$ are subset of the bigger algebra $SE(2)$ then exp and log can be defined as infinite series. From 
@@ -53,7 +53,7 @@ Lets examine what does \emph{small enough} means in these two cases:
 	\begin{align*}
 	\euclideanMetric{\text{app}(\mathbf{u}) - \mathbf{u} } < M(\delta) \euclideanMetric{\mathbf{u}^2}
 	\end{align*}
-	\item[SVF -] In case of SVF we do not have any Taylor series and big-O notation available but, according to the proposition 8.6 at page 163 of \cite{younes2010shapes}, if $\mathbf{u}$ is, for any norm, smaller than $\epsilon<1/C$, where $C$ is the Lipschitz constant in the same norm, then $e + \mathbf{u}$ is a diffeomorphism. With this condition holds that
+	\item[SVF -] In case of SVF we do not have any Taylor series and big-O notation available but, according to the proposition 8.6 at page 163 of \cite{younes2010shapes}, if $\mathbf{u}$ is, for any norm, smaller than $\epsilon<1/C$, where $C$ is the Lipschitz constant in the same norm, then $1 + \mathbf{u}$ is a diffeomorphism. With this condition holds that
 	$C_\text{SVF}^{\sim} = C_\text{SVF}$. 
 \end{enumerate}
 
@@ -198,7 +198,7 @@ That is computed as:
 \end{align*}
 
 We notice that mixing the operation of composition, sum and scalar product makes sense when the involved vectors are \emph{small enough}, as stated in \ref{se:space_of_approximation}. 
-Analytical computation of an upper bound error is not straightforward in this case. See section \ref{ch:conclusions} for further details and other possible researches.
+Analytical computation of an upper bound error is not straightforward in this case. See section \ref{se:conclusions} for further details and other possible researches.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
@@ -239,20 +239,7 @@ Writing directly the approximations and using the BCH approximation of degree $1
 \big)
 \end{cases}
 \end{equation}
-Experimental results of the methods presented in this section are presented in the next chapter. %\ref{ch:results}. %We conclude this one, noticing that any time the Lie algebra $\mathfrak{g}$ and the Lie group $\mathbb{G}$ are subset of a bigger algebra (and therefore the operation of composition is compatible with the sum and with the scalar product), then approximations $\text{app}(\mathbf{u}  \oplus  -\mathbf{v} )$ and $\text{app}(-\mathbf{v}  \oplus  \mathbf{u} )$ are related by the equation
-%\begin{align*}
-%\text{app}(\mathbf{u}  \oplus  -\mathbf{v} )\exp(\mathbf{v})
-%\end{align*}
-
-
-
-
-
-
-
-
-
-
+Experimental results of the methods presented in this section are presented in the next chapter.
 
 %
 %The algorithm for the computation of the group logarithm can be improved considering a symmetric version of the underpinning strategy. In this version we use the first order approximation of the BCH formula (see equation (\ref{eq:first_order_approx}) in the following proof), compensating with the fact that the symmetrization should decrease the error involved.
@@ -338,10 +325,3 @@ Experimental results of the methods presented in this section are presented in t
 %\end{proof}
 %
 %
-
-
-
-
-
-
-

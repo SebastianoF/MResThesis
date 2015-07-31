@@ -21,8 +21,8 @@
 \BOOKMARK [1][-]{section.3.1}{The Lie Group of Rigid Body Transformations}{chapter.3}% 21
 \BOOKMARK [2][-]{subsection.3.1.1}{Computations of Log-composition in se\(2\)}{section.3.1}% 22
 \BOOKMARK [1][-]{section.3.2}{The Lie group of Diffeomorphisms}{chapter.3}% 23
-\BOOKMARK [2][-]{subsection.3.2.1}{A bigger algebra for the group of Diffeomorphisms}{section.3.2}% 24
-\BOOKMARK [2][-]{subsection.3.2.2}{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{section.3.2}% 25
+\BOOKMARK [2][-]{subsection.3.2.1}{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{section.3.2}% 24
+\BOOKMARK [2][-]{subsection.3.2.2}{A bigger algebra for the group of Diffeomorphisms}{section.3.2}% 25
 \BOOKMARK [2][-]{subsection.3.2.3}{Norm for elements in the one-parameter subgroup}{section.3.2}% 26
 \BOOKMARK [2][-]{subsection.3.2.4}{Parametrization of SVF: Grids and Discretized Vector Fields}{section.3.2}% 27
 \BOOKMARK [2][-]{subsection.3.2.5}{Computations of Log-composition for SVF}{section.3.2}% 28
@@ -37,11 +37,11 @@
 \BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 37
 \BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 38
 \BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF.}{section.5.2}% 39
-\BOOKMARK [2][-]{subsection.5.2.2}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 40
-\BOOKMARK [2][-]{subsection.5.2.3}{Log-composition for SVF: errors}{section.5.2}% 41
-\BOOKMARK [1][-]{section.5.3}{Log-composition of real cases SVF}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.4}{Log-Algorithm for SVF}{chapter.5}% 43
-\BOOKMARK [2][-]{subsection.5.4.1}{Methods}{section.5.4}% 44
-\BOOKMARK [2][-]{subsection.5.4.2}{Results}{section.5.4}% 45
-\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of Computational Time}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.6}{Conclusions and Further Research}{chapter.5}% 47
+\BOOKMARK [2][-]{subsection.5.2.2}{Log-composition for synthetic SVF}{section.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.2.3}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 41
+\BOOKMARK [1][-]{section.5.3}{Log-Algorithm for SVF}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.3.1}{Methods}{section.5.3}% 43
+\BOOKMARK [2][-]{subsection.5.3.2}{Results}{section.5.3}% 44
+\BOOKMARK [1][-]{section.5.4}{Empirical Evaluations of the Computational Time}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.6}{Further Researches}{chapter.5}% 47
