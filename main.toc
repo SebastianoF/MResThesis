@@ -27,22 +27,21 @@
 \contentsline {subsection}{\numberline {3.2.3}Norm for elements in the one-parameter subgroup}{30}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Parametrization of SVF: Grids and Discretized Vector Fields}{30}{subsection.3.2.4}
 \contentsline {subsection}{\numberline {3.2.5}Computations of Log-composition for SVF}{31}{subsection.3.2.5}
-\contentsline {chapter}{\numberline {4}Log-Algorithm using Log-composition}{33}{chapter.4}
+\contentsline {chapter}{\numberline {4}Log-composition to Compute the Lie Logarithm}{33}{chapter.4}
 \contentsline {section}{\numberline {4.1}Spaces of Approximations}{33}{section.4.1}
-\contentsline {section}{\numberline {4.2}The Log-computation Algorithm using Log-composition}{34}{section.4.2}
+\contentsline {section}{\numberline {4.2}The Logarithm Computation Algorithm using Log-composition}{34}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Truncated BCH Strategy}{35}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Parallel Transport Strategy}{36}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Symmetrization Strategy}{36}{subsection.4.2.3}
 \contentsline {chapter}{\numberline {5}Experimental Results}{37}{chapter.5}
-\contentsline {section}{\numberline {5.1}Log-composition for $\mathfrak {se}(2)$}{38}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Methods and Results}{38}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Log-composition for SVF}{41}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Methods: random generated SVF.}{41}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.1}Log-composition for $\mathfrak {se}(2)$}{37}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Methods and Results}{37}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Log-composition for SVF}{39}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Methods: random generated SVF.}{39}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Log-composition for synthetic SVF}{43}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Truncated BCH formula: The problem of the Jacobian matrix.}{43}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Log-Algorithm for SVF}{45}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Methods}{45}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Results}{45}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Empirical Evaluations of the Computational Time}{45}{section.5.4}
-\contentsline {section}{\numberline {5.5}Conclusions}{46}{section.5.5}
-\contentsline {section}{\numberline {5.6}Further Researches}{46}{section.5.6}
+\contentsline {section}{\numberline {5.3}A Problem for Three Brains}{45}{section.5.3}
+\contentsline {section}{\numberline {5.4}Log-Algorithm for SVF}{45}{section.5.4}
+\contentsline {section}{\numberline {5.5}Empirical Evaluations of the Computational Time}{46}{section.5.5}
+\contentsline {section}{\numberline {5.6}Conclusions}{47}{section.5.6}
+\contentsline {section}{\numberline {5.7}Further Researches}{47}{section.5.7}

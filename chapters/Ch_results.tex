@@ -6,31 +6,31 @@
 \end{flushright}
 
 \vspace{0.6cm}
+%
+%In {\bf chapter \ref{ch:introduction}} the concept of log-composition is introduced, emphasizing its implications in medical imaging as a tool utilized in diffeomorphic registration and in the computation of the logarithm in the log-Euclidean framework. 
+%{\bf Chapter \ref{ch:tools}} is devoted to the introduction of the underpinning mathematical theory: it defines formally the log-composition and presents three numerical methods for its computation:
+%\begin{enumerate}
+%	\item Truncated BCH formula of degree $k=1, \frac{3}{2}, 2, 3$ - \emph{equation \ref{eq:bch_definition}}.
+%	\item Taylor expansion - \emph{equation \ref{eq:taylor}}.
+%	\item Parallel transport - \emph{equation \ref{eq:parallel_transport}}.
+%\end{enumerate}
+%Before evaluating their results on the SVF, some tests in the are is evaluated for two groups of transformation, {\bf chapter \ref{ch:spatial_transformations}} introduces two groups of transformations:
+%\begin{enumerate}
+%	\item The finite dimensional Lie group of euclidean transformation SE(2), where a closed form of the log-composition is known - \emph{section \ref{se:rigid_body_transformations}}
+%	\item The infinite dimensional Lie group diffeomorphisms, set of images of SVF through the Lie exponential map - \emph{section \ref{se:svf}}
+%\end{enumerate}
+%For each of these groups it presents as well the numerical methods for the computation log-composition shown in the previous chapter for the general case.
+%{\bf Chapter \ref{ch:log_algorithm}} is about the algorithm for the computation of the Lie logarithm \cite{Bossa:08}, called here logarithm computation algorithm. 
+%Thanks to the fact that this important piece in the jigsaw puzzle of the log-euclidean framework can be reformulated in term of the log-composition, it is possible to compute it using numerical methods introduced:
+%\begin{enumerate}
+%	\item Truncated BCH formula of degree $k=1, \frac{3}{2}, 2, 3$ - \emph{equation \ref{eq:bossa_bch_strat}}.
+%	\item Parallel transport - \emph{equation \ref{eq:bossa_parallel_strategy}}.
+%	\item Symmetric parallel transport - \emph{equation \ref{eq:bossa_symmetric}}.
+%\end{enumerate}
 
-In {\bf chapter \ref{ch:introduction}} the concept of log-composition is introduced, emphasizing its implications in medical imaging as a tool utilized in diffeomorphic registration and in the computation of the logarithm in the log-Euclidean framework. 
-{\bf Chapter \ref{ch:tools}} is devoted to the introduction of the underpinning mathematical theory: it defines formally the log-composition and presents three numerical methods for its computation:
-\begin{enumerate}
-	\item Truncated BCH formula of degree $k=1, \frac{3}{2}, 2, 3$ - \emph{equation \ref{eq:bch_definition}}.
-	\item Taylor expansion - \emph{equation \ref{eq:taylor}}.
-	\item Parallel transport - \emph{equation \ref{eq:parallel_transport}}.
-\end{enumerate}
-Before evaluating their results on the SVF, some tests in the are is evaluated for two groups of transformation, {\bf chapter \ref{ch:spatial_transformations}} introduces two groups of transformations:
-\begin{enumerate}
-	\item The finite dimensional Lie group of euclidean transformation SE(2), where a closed form of the log-composition is known - \emph{section \ref{se:rigid_body_transformations}}
-	\item The infinite dimensional Lie group diffeomorphisms, set of images of SVF through the Lie exponential map - \emph{section \ref{se:svf}}
-\end{enumerate}
-For each of these groups it presents as well the numerical methods for the computation log-composition shown in the previous chapter for the general case.
-{\bf Chapter \ref{ch:log_algorithm}} is about the algorithm for the computation of the Lie logarithm \cite{Bossa:08}, called here log-algorithm. 
-Thanks to the fact that this important piece in the jigsaw puzzle of the log-euclidean framework can be reformulated in term of the log-composition, it is possible to compute it using numerical methods introduced:
-\begin{enumerate}
-	\item Truncated BCH formula of degree $k=1, \frac{3}{2}, 2, 3$ - \emph{equation \ref{eq:bossa_bch_strat}}.
-	\item Parallel transport - \emph{equation \ref{eq:bossa_parallel_strategy}}.
-	\item Symmetric parallel transport - \emph{equation \ref{eq:bossa_symmetric}}.
-\end{enumerate}
-
-This last chapter is devoted to show some of the results of the numerical methods investigated.
+This last chapter is devoted to show most relevant results of the numerical methods investigated.
 Computations are performed with a software written in Python (repository available on the \href{https://cmiclab.cs.ucl.ac.uk}{cmic gitlab}), based on 
-the following libraries - numpy, matplotlib \cite{hunter2007}, math, scipy, nibabel, timeit, random - as well as on the library NiftyBit, implemented by Pancaj Daga.
+the following libraries - numpy, matplotlib \cite{hunter2007}, math, scipy, nibabel, timeit, random - as well as on the library NiftyBit, implemented by Pancaj Daga. Real data manipulations are performed with NiftyReg.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -157,7 +157,7 @@ Except for the extreme case in which $\sigma_{\text{gf}} = 0$, that does not rep
 
 % Slopes formulae
 The linear regression of the model for each $\sigma_{\text{gf}}$ are given, in Cartesian coordinate by:
-\begin{align}
+\begin{align}\label{eq:angular_coefficients_for_the_gf}
 y = m_{\text{alg}}( \sigma_{\text{gf}} )x \qquad  \sigma_{\text{gf}} \geq 0
 \qquad
 \qquad
@@ -192,11 +192,24 @@ These values will be useful when we will need to compute $\sigma_{\text{init}}$ 
 % Conclusion for the presentation of the random SVF
 After showing how a random SVF is generated by the parameters $\sigma_{\text{init}}$ and $\sigma_{\text{gf}}$, and what is the relationship between the parameters and the resulting norm in both Lie algebra and Lie group, we can move toward the results of the numerical method for the log-composition obtained with these objects.
 
+\begin{figure}[!ht]
+	\hspace{-1.5cm}
+	\includegraphics[scale=0.6]{figures/SVF_scatter_plot.pdf}
+	\caption{Comparisons of the errors of numerical computation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the method of truncated BCH of degree 0,1 and parallel transport. Parameters' values of the random generated SVF are schematically represented in figure (a). A first set of $100$ SVF, that appears as first element in the log-composition, are generated with fixed parameters $\sigma_{\text{gf}}^{0} = 2.0$ and $\sigma_{\text{init}}^{0} = 1.0$; a second set of $100$ SVF, that appears as second element in the log-composition, are generated with the parameters $\sigma_{\text{gf}}^{1} = 2.0$ and $\sigma_{\text{init}}^{1}$ uniformly scattered in the the interval $(0.0, 2.0)$. On the x-axis fo figure (b) is shown the value of the resulting norm of $\mathbf{u}_1$ for the chosen parameters. On the y-axes the errors for the numerical computation of the Log-composition  }
+	\label{fig:SVF_scatter_plot}
+\end{figure}
+%\begin{figure}[!ht]
+%	\hspace{-1.5cm}
+%	\includegraphics[scale=0.5]{figures/SVF_boxplot.pdf}
+%	\caption{Log-composition for SVF computed using numerical methods of truncated BCH of degree 0,1 and parallel transport, represented in a boxplot.}
+%	\label{fig:SVF_boxplot}
+%\end{figure}
+
 % % % % % % % % % % %% % % % % % % % % % %
 % % % % % % % % % % %% % % % % % % % % % % % % % % % % % % % %
 \subsection{Log-composition for synthetic SVF}
 % which norm?
-In figure \ref{fig:SVF_image_scale} we presents the results of the numerical computation of the log-composition $\mathbf{u}_0\oplus\mathbf{u}_1 = \log(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1))$ evaluated in the Lie group. Despite the lack of a ground truth for the SVF, given $\mathbf{u}_0$ and  $\mathbf{u}_1$ we can compare the numerical approximation of $\mathbf{u}_0\oplus\mathbf{u}_1$ after exponentiating, with $\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)$. The norm utilized is the one proposed in the equation \ref{def:metric_one_svf_one_displacement_field}:
+In figure \ref{fig:SVF_image_scale} we present the results of the numerical computation of the log-composition $\mathbf{u}_0\oplus\mathbf{u}_1 = \log(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1))$. Despite the lack of a ground truth for the SVF, given $\mathbf{u}_0$ and $\mathbf{u}_1$ in the Lie algebra we can compare the numerical approximation of $\mathbf{u}_0\oplus\mathbf{u}_1$ after exponentiating, with $\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)$. The norm utilized is the one proposed in the equation \ref{def:metric_one_svf_one_displacement_field}:
 \begin{align}
 \text{Error}_{\oplus}(\mathbf{u}_0, \mathbf{u}_1)
 = 
@@ -212,23 +225,10 @@ that, when discretized become
 \big(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)\big)(\mathbf{x}) 
 	  }_{l^2}^{2}  \Big)^{1/2}
 \end{align} 
-For the unknown analytical value of $\mathbf{u}_0\oplus\mathbf{u}_1$ the error of the above equation is $0$. When we use one of the introduced numerical method we obtain the results presented in figure \ref{fig:SVF_image_scale} and \ref{fig:SVF_scatter_plot}. Certainly this strategy for computing the error is based on the numerical algorithm utilized for the computation of the Lie exponential, the scaling and squaring proposed in \cite{arsigny2006log} in this case. It is also true that the same algorithm is utilized it the both sides of the difference in the computation of the error, therefore we expect that this numerical approximation do not biasing the results unbalancing one side over the other.
-
-\begin{figure}[!ht]
-	\hspace{-1.5cm}
-	\includegraphics[scale=0.6]{figures/SVF_scatter_plot.pdf}
-	\caption{Comparisons of the errors of numerical computation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the method of truncated BCH of degree 0,1 and parallel transport. Parameters' values of the random generated SVF are schematically represented in figure (a). A first set of $100$ SVF, that appears as first element in the log-composition, are generated with fixed parameters $\sigma_{\text{gf}}^{0} = 2.0$ and $\sigma_{\text{init}}^{0} = 1.0$; a second set of $100$ SVF, that appears as second element in the log-composition, are generated with the parameters $\sigma_{\text{gf}}^{1} = 2.0$ and $\sigma_{\text{init}}^{1}$ uniformly scattered in the the interval $(0.0, 2.0)$. On the x-axis fo figure (b) is shown the value of the resulting norm of $\mathbf{u}_1$ for the chosen parameters. On the y-axes the errors for the numerical computation of the Log-composition  }
-	\label{fig:SVF_scatter_plot}
-\end{figure}
-%\begin{figure}[!ht]
-%	\hspace{-1.5cm}
-%	\includegraphics[scale=0.5]{figures/SVF_boxplot.pdf}
-%	\caption{Log-composition for SVF computed using numerical methods of truncated BCH of degree 0,1 and parallel transport, represented in a boxplot.}
-%	\label{fig:SVF_boxplot}
-%\end{figure}
+For the unknown analytical value of $\mathbf{u}_0\oplus\mathbf{u}_1$ the error of the above equation is $0$. When we use one of the introduced numerical method we obtain the results presented in figure \ref{fig:SVF_image_scale} and \ref{fig:SVF_scatter_plot}. The limitation of this strategy to compute the error of the numerical method without a ground truth is that it is based on the numerical algorithm utilized for the computation of the Lie exponential. In this case we utilized the scaling and squaring proposed in \cite{arsigny2006log}. This limitation may eventually not bias the results, since the scaling and squaring is utilized it the both sides of the difference in the computation of the error, therefore we expect that this numerical approximation do not biasing the results unbalancing one side over the other.
 
 % figures presentation and comment to general results.
-In \ref{fig:SVF_image_scale}, we can see the difference between the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$ and parallel transport. To each square correspond the mean of $15$ log-compositions between the SVF $\mathbf{u}_0$ and $\mathbf{u}_1$ randomly generated with $\sigma_{\text{init}}^{0}$ and $\sigma_{\text{init}}^{1}$ equals to one of the value in the array $(0.33, 0.67, 1, 1.33, 1.37, 2.0)$. The standard deviation of the Gaussian filter $\sigma_{\text{gf}}^{0}$ and $\sigma_{\text{gf}}^{1}$ are constant and equal to $2.0$. As previously noticed for matrices, the method based on the truncated  BCH are symmetric while the same does not happen for the parallel transport. 
+In figure \ref{fig:SVF_image_scale}, we can see the difference between the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$ and parallel transport. To each square correspond the mean of $15$ log-compositions between the SVF $\mathbf{u}_0$ and $\mathbf{u}_1$ randomly generated with $\sigma_{\text{init}}^{0}$ and $\sigma_{\text{init}}^{1}$ equals to one of the value in the array $(0.33, 0.67, 1, 1.33, 1.37, 2.0)$. The standard deviation of the Gaussian filter $\sigma_{\text{gf}}^{0}$ and $\sigma_{\text{gf}}^{1}$ are constant and equal to $2.0$. As previously noticed for matrices, the method based on the truncated  BCH are symmetric while the same does not happen for the parallel transport. 
 
 A more detailed analysis on the subinterval indicated by the gray arrow on the figure \ref{fig:SVF_image_scale}, is shown in \ref{fig:SVF_scatter_plot}.
 Here we can see that for SVF the numerical method based on parallel transport is never better than  truncated BCH of order $1$ (green x) and provides worst results than the simple sum in the truncated BCH of order $0$ (red circle) when the norm is greater than $0.35$ (with a much higher computational cost). It is also true that for small value the performance of the parallel transport method is below the line draw by the red circles and it is tangential to the green one.
@@ -243,41 +243,27 @@ In the results previously showed we can notice some notable absents: non of the 
 
 % why we will take into account only the BCH 0 and the BCH 1 methods.
 % Theoretical problems: that the Jacobian is utilized in the Lie bracket from Marcos' paper
-In the previous section we did not take into account truncated BCH formula of order greater than 1. Why?
-
-
-% comment the figure
-
-
-% Numerical errors
-
-
-
-
-
+The use of the truncated BCH for the numerical approximation fo the log-composition is problematic for SVF. As shown in figure \ref{fig:se2_image_scale}, i the finite dimensional case the truncated BCH of degree $2$ provides the best results over the Taylor method and the parallel transport method. In the infinite dimensional case the truncated BCH involves the Jacobian matrix, that is problematic by a numerical point ov view.
 
 \begin{figure}[!ht]
 	\hspace{0cm}
 	\includegraphics[scale=0.5]{figures/SVF_image_scale_bracket_versus_gaussian.pdf}
-	\caption{Relationship between the norm of the Lie bracket and the Gaussian smoother. For the provided SVF... Here put every other data!}
+	\caption{Relationship between the standard deviation of the Gaussian smoother that generates the SVF and the norm of the Lie bracket. Each square contains the means of $10$ Lie bracket (left) or nested Lie bracket (right) generated with initial standard deviation equals to $2$ and standard deviation of the gaussian smoother $\sigma_{\text{gf}}$ indicated on the axes.}
 	\label{fig:SVF_image_scale_bracket_versus_gaussian}
 \end{figure}
 
+% 2 limitation of the JACOBIAN. Image scale figure
+On one side every time the differentiation of a vector is required (usually computed with finite difference method -reference-), the results is unstable and sensitive to noise. On the other side, in figure \ref{fig:SVF_image_scale_bracket_versus_gaussian} we can see that the smoother are the SVFs involved in the log composition, the smaller is the norm of the resulting Lie brackets. Therefore, for a couple of very smooth stationary velocity field, the higher term of the BCH carry little or not information.
+
+% Boxplot comment, why it behave in this way
+For both of these reasons it follows that an increase in the degree of the truncated BCH does not necessarily implies a better approximation or an increase in the robustness of the method. Looking at the boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} we can see why in the previous section we did not compare the truncated BCH of order higher than 1 with the parallel transport method. The truncated BCH of higher degrees does not have better results than the degree 1. It is also interesting to notice that in some cases the truncated BCH formula of degree 2 provides worst results than the truncated BCH formula of degree 1, in particular when the involved SVF have been generated with a small Gaussian smoother.
 
 \begin{figure}[!ht]
 	\hspace{-0.5cm}
 	\includegraphics[scale=0.5]{figures/SVF_boxplot_comparisons_BCH.pdf}
-	\caption{Boxplot to compare the error between various truncated BCH methods for SVF}
+	\caption{Boxplot to compare the error between truncated BCH methods of degree $0$, $1$, $1.5$ and $2$. The size of each box is $100$ and the approximation of $\mathbf{u}_{0}\oplus \mathbf{u}_1$ is performed with $\euclideanMetric{\mathbf{u}_{0}} = 1.0$ and $\euclideanMetric{\mathbf{u}_{0}} = 0.1$. The standard deviation of the Gaussian filter $\sigma_{\text{gf}}$ belongs to the set $(1.0, 2.0, 3.0, 4.0)$ and the initial standard deviation is computed such that $\sigma_{\text{init}} = \euclideanMetric{\mathbf{u}}/m_{\text{alg}}(\sigma_{\text{gf}})$ according to the formula \ref{eq:angular_coefficients_for_the_gf}. With this strategy we have been able to compare vector of constant norm generated with increasing values for $\sigma_{\text{gf}}$. The numbers written in blue above each box represents the mean value of the errors. For small $\sigma_{\text{gf}}$, an increase in the order of the approximation does not always corresponds to a decrease in the error, and in general there no great improvements can be registered when the degree is greater than 1. }
 	\label{fig:SVF_boxplot_comparisons_BCH}
 \end{figure}
-
-\begin{itemize}
-	\item Other problems of the computation in consequence of the fact that the Jacobian is utilized in the Lie bracket from Marcos' paper. ...
-	\item Table with errors!
-	\item why we will take into account only the BCH 0 and the BCH 1 methods.
-\end{itemize}
-
-
 
 
 \newpage
@@ -286,43 +272,61 @@ In the previous section we did not take into account truncated BCH formula of or
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-%\section{Log-composition of real cases SVF}
-%
-%\subsection{A three-brain problem}
-%
-%
-%comment figures 5.6, 5.7, 5.8.
-%
-%
-%
-%zzz see of you have time!
+\section{A Problem for Three Brains} % {A three-brain problem}
+The experiments performed on synthetic data provides important informations to validate and compare the methods, but gives little or no information of what may happen in the real cases. 
 
+To obtain a validation for the real cases, the most natural way would be embed the method in a diffeomorphic demon registration algorithm and compare its results with the different versions of the log-composition implemented for the computation of the update.
 
-\newpage
+But, since the log-composition is only a small piece of the registration algorithm, it may be difficult to understand to what extent the change of the numerical method for the log-composition would impact the results and what is due to other part that play a more important role (as the optimization strategy) in the registration algorithm.
+
+For our purposes we design an experiment that involves three brains... 
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Log-Algorithm for SVF}
 
+To compare the different numerical methods for the the logarithm computation algorithm we remain where a ground truth is available, i.e. in the finite dimensional case. We consider a data set of $200$ random matrices in the Lie group $SE(2)$ with their respective logarithm in $\mathfrak{se}(2)$ computed using the closed form presented in chapter \ref{ch:spatial_transformations}. For each of the method considered and for each of the random matrix we have convergence up to a precision of $10^{-12}$ before the $50^{\text{th}}$ iteration.
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Methods}
+In figure \ref{fig:log_computation_boxplot} we can see the average number of iterations required to reach the solution with a precision of $10^{-4}$ for each of the numerical method considered. Each box represents $200$ random matrices in $SE(2)$ with Frobenius norm uniformly selected between $1$ and $3$.
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Results}
+As obtained in the log-composition the results obtained with parallel transport is comparable with the one obtained with the truncated BCH of degree $1$. Remarkably, in this case, an increase in the degree of the truncated BCH does not ensure a faster convergence and the Taylor method, provides the slower algorithm. The reason for these facts are not clear are the moment and are worthed to be investigated in a future work.
+
+\begin{figure}[!ht]
+	\hspace{-0.5cm}
+	\includegraphics[scale=0.5]{figures/log_computation_boxplot.pdf}
+	\caption{Number of steps required to obtain convergence in for different methods utilized in the logarithm computation algorithm. The data set contains $200$ random matrices in the Lie group $SE(2)$, with Frobenius norm between $1$ and $3$. On the top it is possible to visualize the mean number of step to reach the convergence for each method.}
+	\label{fig:log_computation_boxplot}
+\end{figure}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Empirical Evaluations of the Computational Time}
 
+For the finite dimensional case, a dataset of $36000$ random generated matrix with norm between $0.0$ and $2.0$ has been utilized to measure the computational time of each of the numerical method for the computation of the log-composition here presented. Sum of the computational time for the whole data set is give in seconds, in the following table:\\
 
+\hspace{-1cm}
+\begin{tabular}{ c | c | c | c | c | c | c }
+Ground & $\text{BCH}^0$ & $\text{BCH}^1$ & $\text{BCH}^{1.5}$ & $\text{BCH}^2$ & Taylor & p.t. \\
+\hline
+1.07402015 & 0.18845153 & 0.57751322 & 1.24413943 & 1.78752184 & 0.77354765 &
+2.26586294 
+\end{tabular}
+\vspace{0.5cm}
 
+The first column provides the computation of the ground truth, i.e. the closed for the computation of $dr_0 \oplus dr_{1}$. We can see that the computation of the $\text{BCH}^0$ is the fastest, since it consists only in a sum, while the computation of the parallel transport is four time slower than the $\text{BCH}^1$.
 
-\newpage
+When dealing with SVF, the computational time strongly depends on the size of the vector field involved. In figure \ref{fig:svf_computational_time} we can see the relation between the size of the vector field and the increase in the computational time for a data set of $20$ random generated SVF.
+
+\begin{figure}[!ht]
+	%\hspace{-0.5cm}
+	\includegraphics[scale=0.7]{figures/svf_computational_time.pdf}
+	\caption{Relationship between the size of the figure (x-axes) and the computational time for a data set of $20$ random generated SVF. The yellow line labeled with ground represents the time of the computation of $\exp{\mathbf{u}_0}\circ \exp{\mathbf{u}_1}$, while the other represents the exponentiation of the numerical method for the computation of the log-composition.}
+	\label{fig:svf_computational_time}
+\end{figure}
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 

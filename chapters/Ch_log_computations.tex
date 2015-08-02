@@ -1,4 +1,4 @@
-\chapter{Log-Algorithm using Log-composition}\label{ch:log_algorithm}
+\chapter{Log-composition to Compute the Lie Logarithm}\label{ch:log_algorithm}
 
 \begin{flushright}
 	I think you might do something better with the time \\ than wasting it in asking riddles that have no answers. \\ -\emph{Alice in Wonderland.}
@@ -15,7 +15,7 @@ The \emph{logarithm computation problem} can be stated as follows:
 	such that $\exp(\mathbf{u}) = p$ ?  
 }
 \end{center}
-There are several numerical methods to compute the approximation of the problem's solution. Arsigny, who first pointed the applications of the Lie logarithm in medical image registration in \cite{Arsigny:MRM:06} and \cite{arsigny2006bi}, proposed the Inverse scaling and squaring (see also \cite{ying2006phase}). In this chapter we investigate other numerical iterative algorithms for the computation of the Lie logarithm, called here \emph{log-algorithm}; they modifications of the algorithm presented in \cite{Bossa:08} that is based on the BCH formula, and so on the log-composition. Each of the numerical method to compute the log-composition become naturally a numerical method for the computation of the log-algorithm.\\
+There are several numerical methods to compute the approximation of the problem's solution. Arsigny, who first pointed the applications of the Lie logarithm in medical image registration in \cite{Arsigny:MRM:06} and \cite{arsigny2006bi}, proposed the Inverse scaling and squaring (see also \cite{ying2006phase}). In this chapter we investigate other numerical iterative algorithms for the computation of the Lie logarithm, called here \emph{logarithm computation algorithm}; they modifications of the algorithm presented in \cite{Bossa:08} that is based on the BCH formula, and so on the log-composition. Each of the numerical method to compute the log-composition become naturally a numerical method for the computation of the logarithm computation algorithm.\\
 The first step toward this direction is to introduce the space of the approximations of a Lie algebra and a the Lie group.
 
 
@@ -73,7 +73,7 @@ With this machinery, we can finally reformulate the algorithm presented in \cite
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % SUBSECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{The Log-computation Algorithm using Log-composition}
+\section{The Logarithm Computation Algorithm using Log-composition}
 
 If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximate $\mathbf{u}$ as consequence of
 \begin{align*}
@@ -173,7 +173,7 @@ We observe that this upper limit can be computed only when a closed-form for the
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Parallel Transport Strategy}
 
-If we apply the parallel transport method for the computation of the log-composition, we obtain another version of the log-algorithm:
+If we apply the parallel transport method for the computation of the log-composition, we obtain another version of the logarithm computation algorithm:
 \begin{equation}\label{eq:bossa_parallel_strategy}
 \begin{cases}
 \mathbf{u}_0 = \mathbf{0} \\

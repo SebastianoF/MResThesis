@@ -26,9 +26,9 @@
 \BOOKMARK [2][-]{subsection.3.2.3}{Norm for elements in the one-parameter subgroup}{section.3.2}% 26
 \BOOKMARK [2][-]{subsection.3.2.4}{Parametrization of SVF: Grids and Discretized Vector Fields}{section.3.2}% 27
 \BOOKMARK [2][-]{subsection.3.2.5}{Computations of Log-composition for SVF}{section.3.2}% 28
-\BOOKMARK [0][-]{chapter.4}{Log-Algorithm using Log-composition}{}% 29
+\BOOKMARK [0][-]{chapter.4}{Log-composition to Compute the Lie Logarithm}{}% 29
 \BOOKMARK [1][-]{section.4.1}{Spaces of Approximations}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.2}{The Log-computation Algorithm using Log-composition}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.2}{The Logarithm Computation Algorithm using Log-composition}{chapter.4}% 31
 \BOOKMARK [2][-]{subsection.4.2.1}{Truncated BCH Strategy}{section.4.2}% 32
 \BOOKMARK [2][-]{subsection.4.2.2}{Parallel Transport Strategy}{section.4.2}% 33
 \BOOKMARK [2][-]{subsection.4.2.3}{Symmetrization Strategy}{section.4.2}% 34
@@ -39,9 +39,8 @@
 \BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF.}{section.5.2}% 39
 \BOOKMARK [2][-]{subsection.5.2.2}{Log-composition for synthetic SVF}{section.5.2}% 40
 \BOOKMARK [2][-]{subsection.5.2.3}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 41
-\BOOKMARK [1][-]{section.5.3}{Log-Algorithm for SVF}{chapter.5}% 42
-\BOOKMARK [2][-]{subsection.5.3.1}{Methods}{section.5.3}% 43
-\BOOKMARK [2][-]{subsection.5.3.2}{Results}{section.5.3}% 44
-\BOOKMARK [1][-]{section.5.4}{Empirical Evaluations of the Computational Time}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.6}{Further Researches}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.3}{A Problem for Three Brains}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.4}{Log-Algorithm for SVF}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of the Computational Time}{chapter.5}% 44
+\BOOKMARK [1][-]{section.5.6}{Conclusions}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.7}{Further Researches}{chapter.5}% 46
