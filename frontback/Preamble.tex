@@ -52,17 +52,18 @@ In classical music, it is well known that in every concert the two most importan
 \section*{Abstract}
 
 %Medical imaging employs techniques and tools belonging to several branches of mathematics and physics that, when applied to morphometric and statistical study of biological shape variability, are collected under the name of \emph{computational anatomy}. 
-Image registration is one of the critical tools in medical imaging. It consists in the process of aligning two or more patient images with the aim of determining and quantifying the occurring anatomical correspondences and differences.
-It is widely used in both academic studies and applications, and it continuously challenges researchers to enhance accuracy, improve reliability and reduce computational time.
+Image registration is one of the critical tools in medical imaging. It consists in the process of aligning two or more patient images with the aim of determining and quantifying the occurring anatomical correspondences and differences. 
 
-Among many approaches to the problem, the introduction of the \emph{Lie group of diffeomorphisms} from differential geometry provides an interesting set of geometrical transformations to model the organs' deformations. Comparing two diffeomorphisms, as well as obtaining any meaningful statistics for these elements, is not a straightforward task due to the lack of a norm or a metric.
-The \emph{log-Euclidean framework} introduced in $2006$, proposes to map the diffeomorphisms in the tangent vector space at the identity, to have a local representation of a diffeomorphism in a vector space where norms can be defined.
-The maps from the Lie group of diffeomorphisms to its tangent space is known in Lie group theory as \emph{Lie exponential} and its inverse is the \emph{Lie logarithm}.
+To model the anatomical variability from one image to the other the set of diffeomorphisms (bijective differentiable maps with differentiable inverse) appears to be an interesting option.
 
-These two transformations allow the computation of the composition of diffeomorphisms in the tangent space, operation called in this thesis \emph{log-composition}. 
-The necessity of finding fast numerical methods for its computation arises for example in the \emph{log-demons} and in the \emph{symmetric log-demon} registration algorithm.
+Comparing two diffeomorphisms, as well as obtaining any meaningful statistics for these elements, is not a straightforward task.
+Approaching this problem, the \emph{log-Euclidean framework}, proposed to consider the set of diffeomorphisms with a Lie group structure, having a Lie algebra defined as the tangent space at the origin where to compute statistics.
 
-In this research we analyze existing numerical methods for the computation of the log-composition, based on the BCH formula and we compare them with two new methods developed in this research, one based on the Taylor expansion and the other on the geometrical concept of parallel transport. 
+In this local representation the operation of composition of diffeomorphisms is not anymore available. An operation in the tangent space that reflects the composition in the Lie group is therefore required.
+
+Aim of this thesis is to find and compare numerical computations of this operation, called here \emph{log-composition}. 
+A fast numerical methods for its computation would improve the computation of \emph{log-demons} registration algorithm.
+
 
 \begin{flushright}
 This document contains 15xxx words. 

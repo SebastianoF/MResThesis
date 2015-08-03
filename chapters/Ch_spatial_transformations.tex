@@ -6,11 +6,11 @@
 \end{flushright}
 
 \noindent
-In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, and in this chapter we will see how they can be applied for the transformations belonging to $SE(2)$ and $\text{Diff}(\Omega)$:.
-\begin{enumerate}
-	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods for the computation of the log-composition introduced so far, since results can be compared with a ground truth.
-	\item[$\text{Diff}(\Omega)$ -] The group of diffeomorphisms over $\Omega$, indcated with $\text{Diff}(\Omega)$ is defined over the wide set of all of the differentiable and invertible functions. For our applications we will restrict the set to the diffeomorphisms that can be parametrized by stationary velocity fields or SVF. This infinite dimensional vector space is the second algebra utilized to test the numerical methods for the computation of the log-composition. In this case we do not know any closed form, but considering an \lq\lq improper norm\rq\rq~ in the space of deformations it is possible to compare SVF and assess the quality of the results.
-\end{enumerate}
+In the previous chapter we have introduced some essential mathematical tools for the numerical computation of the log-composition. Each of the theoretical elements depends strongly on the transformations considered, and in this chapter we will see how they can be applied for the transformations belonging to $SE(2)$ and $\text{Diff}(\Omega)$.
+%\begin{enumerate}
+%	\item[$SE(2)$ -] The group of rigid body transformation of the plane (any combination of bi-dimensional rotations and translations) is a good playground to test the numerical methods for the computation of the log-composition introduced so far, since results can be compared with a ground truth.
+%	\item[$\text{Diff}(\Omega)$ -] The group of diffeomorphisms over $\Omega$, indcated with $\text{Diff}(\Omega)$ is defined over the wide set of all of the differentiable and invertible functions. For our applications we will restrict the set to the diffeomorphisms that can be parametrized by stationary velocity fields or SVF. This infinite dimensional vector space is the second algebra utilized to test the numerical methods for the computation of the log-composition. In this case we do not know any closed form, but considering an \lq\lq improper norm\rq\rq~ in the space of deformations it is possible to compare SVF and assess the quality of the results.
+%\end{enumerate}
 
 
 \section{The Lie Group of Rigid Body Transformations}\label{se:rigid_body_transformations}
@@ -428,12 +428,12 @@ where the composition in the Lie group coincides with the product of matrix in t
 \section{The Lie group of Diffeomorphisms}\label{se:svf}
 
 
-As previously said in section \ref{se:diffe_util_and_liab}, the passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections \ref{subse:local_isomorphisms} and \ref{subse:bigger_algebra} the following facts that, as seen in the previous section, happen for matrices but not for diffeomorphisms:
+The passage from the finite to the infinite dimensional case is not free of deceptions. We will investigate in the next two subsections, \ref{subse:local_isomorphisms} and \ref{subse:bigger_algebra} ,the following facts that are true matrices but not for diffeomorphisms:
 \begin{enumerate}
 	\item Lie logarithm and Lie exponential are local isomorphisms.
 	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
 \end{enumerate}
-Before getting there, we need to clarify some definitions and notations.
+Before moving toward these concepts, we need to clarify some definitions and notations.
 
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
@@ -563,7 +563,6 @@ We can see that displacement fields of diffeomorphisms are elements of $\mathcal
 
 The second way to associate a velocity vector field to $\varphi$ is with the Lie logarithm defined in the chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is small then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as noticed in equations (\ref{eq:small_rotation_matrices_approx}).
 
-% difference number 2) exponential map not a local isomorphisms. - cut locus dominio stellato per le matrici. Qualcosa di diverso per i diffeomorfismi
 At this point it is important to notice that, while a displacement field of $\varphi$ can always be defined, the exponential map it is not defined for any diffeomorphism. This is the second remarkably difference between the matrix Lie group and the Lie group of diffeomorphisms that will be investigated in the next section.
 
 

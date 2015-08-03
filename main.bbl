@@ -1,18 +1,11 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{GWRNJ12}
 
-\bibitem[ACPA06a]{arsigny2006log}
+\bibitem[ACPA06]{arsigny2006log}
 Vincent Arsigny, Olivier Commowick, Xavier Pennec, and Nicholas Ayache.
 \newblock A log-euclidean framework for statistics on diffeomorphisms.
 \newblock In {\em Medical Image Computing and Computer-Assisted
   Intervention--MICCAI 2006}, pages 924--931. Springer, 2006.
-
-\bibitem[ACPA06b]{arsigny2006statistics}
-Vincent Arsigny, Olivier Commowick, Xavier Pennec, and Nicholas Ayache.
-\newblock Statistics on diffeomorphisms in a log-euclidean framework.
-\newblock In {\em 1st MICCAI Workshop on Mathematical Foundations of
-  Computational Anatomy: Geometrical, Statistical and Registration Methods for
-  Modeling Biological Shape Variability}, pages 14--15, 2006.
 
 \bibitem[AFPA06]{Arsigny:MRM:06}
 Vincent Arsigny, Pierre Fillard, Xavier Pennec, and Nicholas Ayache.
@@ -48,11 +41,6 @@ Vladimir Arnold.
 Michael Artin.
 \newblock Algebra. 2nd, 2011.
 
-\bibitem[Ash07]{Ashburner:07}
-J.~Ashburner.
-\newblock A fast diffeomorphic image registration algorithm.
-\newblock {\em {N}euro{I}mage}, 38(1):95--113, 2007.
-
 \bibitem[BBHM11]{bauer2011geodesic}
 MARTIN BAUER, MARTINS BRUVERIS, PHILIPP HARMS, and PETER~W MICHOR.
 \newblock Geodesic distance for right invariant sobolev metrics of fractional
@@ -64,12 +52,6 @@ Martin Bauer, Philipp Harms, and Peter~W Michor.
 \newblock Sobolev metrics on shape space of surfaces in n-space.
 \newblock {\em Arxiv preprint arXiv:1009.3616}, 2010.
 
-\bibitem[BMTY05]{beg2005computing}
-M~Faisal Beg, Michael~I Miller, Alain Trouv{\'e}, and Laurent Younes.
-\newblock Computing large deformation metric mappings via geodesic flows of
-  diffeomorphisms.
-\newblock {\em International journal of computer vision}, 61(2):139--157, 2005.
-
 \bibitem[BO08]{Bossa:08}
 Matias Bossa and Salvador Olmos.
 \newblock {A New Algorithm for the Computation of the Group Logarithm of
@@ -79,29 +61,12 @@ Matias Bossa and Salvador Olmos.
   and Statistical Methods for Modelling Biological Shape Variability}, New
   York, USA, 2008.
 
-\bibitem[Bro81]{Broit:1981}
-Chaim Broit.
-\newblock {\em Optimal Registration of Deformed Images}.
-\newblock PhD thesis, Philadelphia, PA, USA, 1981.
-\newblock AAI8207933.
-
 \bibitem[BZO08]{bossa2008algorithms}
 Matias Bossa, Ernesto Zacur, and Salvador Olmos.
 \newblock Algorithms for computing the group exponential of diffeomorphisms:
   Performance evaluation.
 \newblock In {\em Computer Vision and Pattern Recognition Workshops, 2008.
   CVPRW'08. IEEE Computer Society Conference on}, pages 1--8. IEEE, 2008.
-
-\bibitem[CBD{\etalchar{+}}03]{cachier2003iconic}
-Pascal Cachier, Eric Bardinet, Didier Dormont, Xavier Pennec, and Nicholas
-  Ayache.
-\newblock Iconic feature based nonrigid registration: the pasha algorithm.
-\newblock {\em Computer vision and image understanding}, 89(2):272--298, 2003.
-
-\bibitem[CRM96]{christensen1996deformable}
-Gary~E Christensen, Richard~D Rabbitt, and Michael~I Miller.
-\newblock Deformable templates using large deformation kinematics.
-\newblock {\em Image Processing, IEEE Transactions on}, 5(10):1435--1447, 1996.
 
 \bibitem[DCDC76]{do1976differential}
 Manfredo~Perdigao Do~Carmo and Manfredo~Perdigao Do~Carmo.
@@ -112,11 +77,6 @@ Manfredo~Perdigao Do~Carmo and Manfredo~Perdigao Do~Carmo.
 Manfredo~Perdigao do~Carmo~Valero.
 \newblock {\em Riemannian geometry}.
 \newblock 1992.
-
-\bibitem[DGM98]{Dupuis:98:variationalproblems}
-Paul Dupuis, Ulf Grenander, and Michael~I. Miller.
-\newblock Variational problems on flows of diffeomorphisms for image matching,
-  1998.
 
 \bibitem[Dyn00]{dynkin1947calculation}
 EB~Dynkin.
@@ -130,12 +90,6 @@ David~G Ebin and Jerrold Marsden.
 \newblock Groups of diffeomorphisms and the motion of an incompressible fluid.
 \newblock {\em Annals of Mathematics}, pages 102--163, 1970.
 
-\bibitem[EMP06]{ebin2006singularities}
-DAVID~G Ebin, GERARD Misio{\l}ek, and STEPHEN~C Preston.
-\newblock Singularities of the exponential map on the volume-preserving
-  diffeomorphism group.
-\newblock {\em Geometric and Functional Analysis}, 16(4):850--868, 2006.
-
 \bibitem[FF97]{fox1997brain}
 Nick~C Fox and Peter~A Freeborough.
 \newblock Brain atrophy progression measured from registered serial mri:
@@ -147,15 +101,6 @@ Jean Gallier.
 \newblock {\em Geometric methods and applications: for computer science and
   engineering}, volume~38.
 \newblock Springer Science \& Business Media, 2011.
-
-\bibitem[GM98]{grenander1998computational}
-Ulf Grenander and Michael~I Miller.
-\newblock Computational anatomy: An emerging discipline.
-\newblock {\em Quarterly of applied mathematics}, 56(4):617--694, 1998.
-
-\bibitem[Gon]{gonzalezdigital}
-Rafael~C Gonzalez.
-\newblock Digital image processing using matlab.
 
 \bibitem[Gra88]{grabowski1988free}
 Janusz Grabowski.
@@ -173,19 +118,6 @@ Brian Hall.
   introduction}, volume 222.
 \newblock Springer, 2015.
 
-\bibitem[HBO07]{hernandez2007registration}
-Monica Hernandez, Matias~N Bossa, and Salvador Olmos.
-\newblock Registration of anatomical images using geodesic paths of
-  diffeomorphisms parameterized with stationary vector fields.
-\newblock In {\em Computer Vision, 2007. ICCV 2007. IEEE 11th International
-  Conference on}, pages 1--8. IEEE, 2007.
-
-\bibitem[HS81]{horn1981determining}
-Berthold~K Horn and Brian~G Schunck.
-\newblock Determining optical flow.
-\newblock In {\em 1981 Technical Symposium East}, pages 319--331. International
-  Society for Optics and Photonics, 1981.
-
 \bibitem[Hun07]{hunter2007}
 J.~D. Hunter.
 \newblock Matplotlib: A 2d graphics environment.
@@ -195,6 +127,23 @@ J.~D. Hunter.
 Zhiwu Huang, Ruiping Wang, Shiguang Shan, Xianqiu Li, and Xilin Chen.
 \newblock Log-euclidean metric learning on symmetric positive definite manifold
   with application to image set classification.
+
+\bibitem[ISNC03]{ibanez2003itk}
+Luis Ibanez, William Schroeder, Lydia Ng, and Josh Cates.
+\newblock The itk software guide.
+\newblock 2003.
+
+\bibitem[JBF{\etalchar{+}}08]{jack2008alzheimer}
+Clifford~R Jack, Matt~A Bernstein, Nick~C Fox, Paul Thompson, Gene Alexander,
+  Danielle Harvey, Bret Borowski, Paula~J Britson, Jennifer L~Whitwell,
+  Chadwick Ward, et~al.
+\newblock The alzheimer's disease neuroimaging initiative (adni): Mri methods.
+\newblock {\em Journal of Magnetic Resonance Imaging}, 27(4):685--691, 2008.
+
+\bibitem[JOP{\etalchar{+}}  ]{scipy}
+Eric Jones, Travis Oliphant, Pearu Peterson, et~al.
+\newblock {SciPy}: Open source scientific tools for {Python}, 2001--.
+\newblock [Online; accessed 2015-08-03].
 
 \bibitem[Kir08]{kirillov2008introduction}
 Alexander Kirillov.
@@ -225,13 +174,6 @@ Boris Khesin and Robert Wendt.
 \newblock {\em The geometry of infinite-dimensional groups}, volume~51.
 \newblock Springer Science \& Business Media, 2008.
 
-\bibitem[LAF{\etalchar{+}}13]{lorenzi2013lcc}
-Marco Lorenzi, Nicholas Ayache, Giovanni~B Frisoni, Xavier Pennec, and
-  Alzheimer's Disease~Neuroimaging Initiative.
-\newblock {LCC-Demons: a robust and accurate symmetric diffeomorphic
-  registration algorithm}.
-\newblock {\em NeuroImage}, 81:470--483, 2013.
-
 \bibitem[LAP11]{lorenzi2011schild}
 Marco Lorenzi, Nicholas Ayache, and Xavier Pennec.
 \newblock Schild’s ladder for the parallel transport of deformations in time
@@ -243,11 +185,6 @@ Marco Lorenzi, Nicholas Ayache, and Xavier Pennec.
 John Lee.
 \newblock {\em Introduction to smooth manifolds}, volume 218.
 \newblock Springer Science \& Business Media, 2012.
-
-\bibitem[Lem97]{lempert1997problem}
-L{\'a}szl{\'o} Lempert.
-\newblock The problem of complexifying a lie group.
-\newblock {\em Contemporary Mathematics}, 205:169--176, 1997.
 
 \bibitem[Les83]{leslie1983lie}
 JA~Leslie.
@@ -314,6 +251,13 @@ John Milnor.
 \newblock Remarks on infinite-dimensional lie groups.
 \newblock In {\em Relativity, groups and topology. 2}. 1984.
 
+\bibitem[MRT{\etalchar{+}}10]{modat2010fast}
+Marc Modat, Gerard~R Ridgway, Zeike~A Taylor, Manja Lehmann, Josephine Barnes,
+  David~J Hawkes, Nick~C Fox, and S{\'e}bastien Ourselin.
+\newblock Fast free-form deformation using graphics processing units.
+\newblock {\em Computer methods and programs in biomedicine}, 98(3):278--284,
+  2010.
+
 \bibitem[MT13]{mariconda2013calcolo}
 Carlo Mariconda and Alberto Tonolo.
 \newblock {\em Calcolo discreto: Metodi per contare}.
@@ -341,13 +285,6 @@ Hideki Omori.
 \newblock On the group of diffeomorphisms on a compact manifold.
 \newblock In {\em Proc. Symp. Pure Appl. Math., XV, Amer. Math. Soc}, pages
   167--183, 1970.
-
-\bibitem[PCA99]{pennec1999understanding}
-Xavier Pennec, Pascal Cachier, and Nicholas Ayache.
-\newblock Understanding the “demon’s algorithm”: 3d non-rigid
-  registration by gradient descent.
-\newblock In {\em Medical Image Computing and Computer-Assisted
-  Intervention--MICCAI’99}, pages 597--605. Springer, 1999.
 
 \bibitem[PCL{\etalchar{+}}15]{prados2015measuring}
 Ferran Prados, Manuel~Jorge Cardoso, Kelvin~K Leung, David~M Cash, Marc Modat,
@@ -386,17 +323,6 @@ Richard Szeliski.
 \newblock In {\em Applications of Computer Vision, 1994., Proceedings of the
   Second IEEE Workshop on}, pages 44--53. IEEE, 1994.
 
-\bibitem[Thi98]{thirion1998image}
-J-P Thirion.
-\newblock Image matching as a diffusion process: an analogy with maxwell's
-  demons.
-\newblock {\em Medical image analysis}, 2(3):243--260, 1998.
-
-\bibitem[Tro98]{trouve1998diffeomorphisms}
-Alain Trouv{\'e}.
-\newblock Diffeomorphisms groups and pattern matching in image analysis.
-\newblock {\em International Journal of Computer Vision}, 28(3):213--221, 1998.
-
 \bibitem[Ver14]{vercauteren2014preprint}
 Tom Vercauteren.
 \newblock Technical memo.
@@ -432,18 +358,18 @@ Frank~W Warner.
   volume~94.
 \newblock Springer Science \& Business Media, 2013.
 
+\bibitem[Wig60]{wigner1960unreasonable}
+Eugene~P Wigner.
+\newblock The unreasonable effectiveness of mathematics in the natural
+  sciences. richard courant lecture in mathematical sciences delivered at new
+  york university, may 11, 1959.
+\newblock {\em Communications on pure and applied mathematics}, 13(1):1--14,
+  1960.
+
 \bibitem[Woj94]{wojtynski1994one}
 Wojciech Wojty{\'n}ski.
 \newblock One-parameter subgroups and the bch formula.
 \newblock {\em Studia Mathematica}, 111(2):163--185, 1994.
-
-\bibitem[YAL{\etalchar{+}}02]{yoo2002engineering}
-Terry~S Yoo, Michael~J Ackerman, William~E Lorensen, Will Schroeder, Vikram
-  Chalana, Stephen Aylward, Dimitris Metaxas, and Ross Whitaker.
-\newblock Engineering and algorithm design for an image processing api: a
-  technical report on itk-the insight toolkit.
-\newblock {\em Studies in health technology and informatics}, pages 586--592,
-  2002.
 
 \bibitem[YC06]{ying2006phase}
 Lexing Ying and Emmanuel~J Cand{\`e}s.
@@ -454,10 +380,5 @@ Lexing Ying and Emmanuel~J Cand{\`e}s.
 Laurent Younes.
 \newblock Shapes and diffeomorphisms, volume 171 of applied mathematical
   sciences, 2010.
-
-\bibitem[ZF03]{zitova2003image}
-Barbara Zitova and Jan Flusser.
-\newblock Image registration methods: a survey.
-\newblock {\em Image and vision computing}, 21(11):977--1000, 2003.
 
 \end{thebibliography}

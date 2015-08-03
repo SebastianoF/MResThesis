@@ -20,7 +20,7 @@ The first step toward this direction is to introduce the space of the approximat
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Spaces of Approximations}\label{se:space_of_approximation}
 
@@ -71,7 +71,7 @@ the following properties holds:
 With this machinery, we can finally reformulate the algorithm presented in \cite{Bossa:08} for the numerical computation of the Lie logarithm map using the log-composition.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{The Logarithm Computation Algorithm using Log-composition}
 
@@ -107,7 +107,7 @@ Making explicit the log-computaiton and the approximation, follows:
 \end{align}
 where $\exp(\mathbf{u}) = \varphi$ is given by the problem, and $\mathbf{u}_{j}$ by the previous step. The BCH provides the exact solution of the second member, while strategy that we have examined to compute the log-composition, become a numerical method for the computation of the logarithm.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Truncated BCH Strategy}
 At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th truncation of the BCH formula. The compact form of the algorithm is given by:
@@ -169,7 +169,7 @@ When considering $k = \infty$ and so, the theoretical BCH formula, the following
 We observe that this upper limit can be computed only when a closed-form for the log-composition is available, as for example $\mathfrak{se}(2)$.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Parallel Transport Strategy}
 
@@ -201,7 +201,7 @@ We notice that mixing the operation of composition, sum and scalar product makes
 Analytical computation of an upper bound error is not straightforward in this case. See section \ref{se:conclusions} for further details and other possible researches.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % SUBSECTION
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Symmetrization Strategy}
 The algorithm \ref{eq:bossa_reformulated} could have been reformulated alternatively as $\mathbf{u}_{j+1} =    \text{app}(\mathbf{u} \oplus  - \mathbf{u}_{j}  ) \oplus \mathbf{u}_{j}$. The log-composition is not symmetric therefore the two version in some cases may not return the same value. In an attempt to move toward the solution of this issue we consider
@@ -222,13 +222,6 @@ Writing directly the approximations and using the BCH approximation of degree $1
 \begin{cases}
 \mathbf{u}_0 = 0 \\
 \mathbf{u}_{j+1} 
-%= \mathbf{u}_{j} +  
-%\frac{1}{2}
-%\big(  
-%\text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
-%+
-%\text{app}(\mathbf{u} \oplus  - \mathbf{u}_{j}  )
-%\big)
 =
 \mathbf{u}_{j} +  
 \frac{1}{2}
@@ -240,88 +233,3 @@ Writing directly the approximations and using the BCH approximation of degree $1
 \end{cases}
 \end{equation}
 Experimental results of the methods presented in this section are presented in the next chapter.
-
-%
-%The algorithm for the computation of the group logarithm can be improved considering a symmetric version of the underpinning strategy. In this version we use the first order approximation of the BCH formula (see equation (\ref{eq:first_order_approx}) in the following proof), compensating with the fact that the symmetrization should decrease the error involved.
-%It gives birth to the following algorithm:
-%\begin{equation}\label{eq:sym_strategy}
-%\begin{cases}
-%\mathbf{v}_0 = \mathbf{0} \\
-%\mathbf{v}_{t+1} = \mathbf{v}_{t} + \frac{1}{2}(\tilde{\delta} \mathbf{v}^{L}_{t} +\tilde{\delta} \mathbf{v}^{R}_{t})
-%\end{cases}
-%\end{equation}
-%Where $\tilde{\delta} \mathbf{v}^{R}_{t} = \exp(\mathbf{v})\circ \exp(- \mathbf{v}_{t}) - e$ and $\tilde{\delta} \mathbf{v}^{L}_{t} = \exp(-\mathbf{v}_{t})\circ \exp(\mathbf{v}) - e$.\\
-%\begin{proof}
-%	To show why it works we remind that the starting point was
-%	\begin{align*}
-%	p= \exp(\mathbf{v}) &=  \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}_{0})
-%	\end{align*}
-%	where $\exp(\delta \mathbf{v}_{0}) = \exp(-\mathbf{v}_{0})\circ p$.\\
-%	An equivalent starting point would have been $\exp(\mathbf{v}) = \exp(\delta \mathbf{v})\circ \exp(\mathbf{v}_{0})$ for $\exp(\delta \mathbf{v}) = p\circ \exp(-\mathbf{v}_{0})$. \\
-%	This idea leads to the definition of
-%	\begin{align*}
-%	\exp(\delta \mathbf{v}^{R}_{t}) &:= p\circ \exp(- \mathbf{v}_{t}) = \exp(\mathbf{v})\circ \exp(- \mathbf{v}_{t})\\
-%	\exp(\delta \mathbf{v}^{L}_{t}) &:=  \exp(- \mathbf{v}_{t}) \circ p = \exp(- \mathbf{v}_{t}) \circ \exp(\mathbf{v}) 
-%	\end{align*}
-%	It follows that 
-%	\begin{align*}
-%	\exp(\mathbf{v}) &= \exp(\mathbf{v}_{0})\circ \exp(\delta \mathbf{v}^{R}_{0})\\
-%	\exp(\mathbf{v}) &=  \exp(\delta \mathbf{v}^{L}_{0}) \circ \exp(\mathbf{v}_{0})
-%	\end{align*}
-%	Using $\exp(\delta \mathbf{v}^{R}_{t}) \approx e + \delta \mathbf{v}^{R}_{t}$ and $\exp(\delta \mathbf{v}^{L}_{t}) \approx e + \delta \mathbf{v}^{L}_{t}$ we can use the following approximation to define the symmetric algorithm:
-%	\begin{align*}
-%	\exp(\delta \mathbf{v}^{R}_{t}) &= \exp(\mathbf{v})\circ \exp(-\mathbf{v}_{t})\\
-%	e + \tilde{\delta} \mathbf{v}^{R}_{t} &= \exp(\mathbf{v})\circ \exp(- \mathbf{v}_{t})\\
-%	\tilde{\delta} \mathbf{v}^{R}_{t} &= \exp(\mathbf{v})\circ \exp(- \mathbf{v}_{t}) - e
-%	\end{align*}
-%	\begin{align*}
-%	\exp(\delta \mathbf{v}^{L}_{t}) &= \exp(- \mathbf{v}_{t}) \circ \exp(\mathbf{v})\\
-%	e + \tilde{\delta} \mathbf{v}^{L}_{t} &= \exp(-\mathbf{v}_{t})\circ \exp( \mathbf{v})\\
-%	\tilde{\delta} \mathbf{v}^{L}_{t} &= \exp(-\mathbf{v}_{t})\circ \exp(\mathbf{v}) - e
-%	\end{align*}
-%	Which gives birth to iterative algorithm, for a given initial value $V_0$:  
-%	\begin{equation}
-%	\begin{cases}
-%	\mathbf{v}_0  \\
-%	\mathbf{v}_{t+1} =\text{BCH}(\mathbf{v}_{t},\tilde{\delta} \mathbf{v}^{R}_{t})
-%	\end{cases}
-%	\begin{cases}
-%	\mathbf{v}_0  \\
-%	\mathbf{v}_{t+1} = \text{BCH}(\tilde{\delta} \mathbf{v}^{L}_{t}, \mathbf{v}_{t})
-%	\end{cases}
-%	\end{equation}
-%	If follows that
-%	\begin{align*}
-%	\mathbf{v}_{t+1} = \frac{1}{2}(\text{BCH}(\tilde{\delta} \mathbf{v}^{L}_{t}, \mathbf{v}_{t}) + \text{BCH}(\mathbf{v}_{t},\tilde{\delta} \mathbf{v}^{R}_{t}))
-%	\end{align*}
-%	Taking the first order approximation of the BCH formula:
-%	\begin{align}\label{eq:first_order_approx}
-%	BCH(\tilde{\delta} \mathbf{v}^{L}_{t}, \mathbf{v}_{t}) &\approx \tilde{\delta} \mathbf{v}^{L}_{t} + \mathbf{v}_{t}\\
-%	BCH(\mathbf{v}_{t},\tilde{\delta} \mathbf{v}^{R}_{t}) &\approx \mathbf{v}_{t} + \tilde{\delta} \mathbf{v}^{R}_{t}
-%	\end{align}
-%	we get
-%	\begin{align*}
-%	\mathbf{v}_{t+1} = \mathbf{v}_{t} + \frac{1}{2}(\tilde{\delta} \mathbf{v}^{L}_{t} + \tilde{\delta} \mathbf{v}^{R}_{t})
-%	\end{align*}
-%\end{proof}
-%We observe that the symmetric approach do not requires to use the BCH formula at each passage, having considered the approximation at the first order of the BCH.\\
-%We conclude with a formula that relates $\tilde{\delta} \mathbf{v}^{L}_{t}$ with $\tilde{\delta} \mathbf{v}^{R}_{t}$:
-%\begin{theorem}
-%	Be $\tilde{\delta} \mathbf{v}^{R}_{t} = \exp(\mathbf{v})\circ \exp(- \mathbf{v}_{t}) - e$ and $\tilde{\delta} \mathbf{v}^{L}_{t} = \exp(-\mathbf{v}_{t})\circ \exp(\mathbf{v}) - e$ as before, then
-%	\begin{align*}
-%	\delta \mathbf{v}^{L}_{t} \approx \exp(-\mathbf{v}_{t}) \circ \delta \mathbf{v}^{R}_{t} \circ \exp(\mathbf{v}_{t})
-%	\end{align*}
-%\end{theorem}
-%\begin{proof}
-%	Since $\exp(\mathbf{v}_{t})\circ \exp(\delta \mathbf{v}^{R}_{t}) \approx exp(\delta \mathbf{v}^{L}_{t}) \circ \exp(\mathbf{v}_{t})$ it follows
-%	\begin{align*}
-%	\exp(\delta \mathbf{v}^{R}_{t}) = \exp(-\mathbf{v}_{t})\circ \delta \mathbf{v}^{L}_{t} \circ \exp(\mathbf{v}_{t})
-%	\end{align*}
-%	Using $\exp(\delta \mathbf{v}^{R}_{t}) = e + \delta \mathbf{v}^{R}_{t}$ and $\exp(\delta \mathbf{v}^{L}_{t}) = e + \delta \mathbf{v}^{L}_{t}$ we get
-%	\begin{align*}
-%	e + \delta \mathbf{v}^{R}_{t} &= \exp(-\mathbf{v}_{t})\circ (e + \delta \mathbf{v}^{L}_{t}) \circ \exp(\mathbf{v}_{t})\\
-%	\delta \mathbf{v}^{R}_{t} &= \exp(-\mathbf{v}_{t})\circ \delta \mathbf{v}^{L}_{t} \circ \exp(\mathbf{v}_{t})
-%	\end{align*}
-%\end{proof}
-%
-%

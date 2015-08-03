@@ -9,24 +9,20 @@ A level-1 auxiliary file: chapters/Ch_log_computations.aux
 A level-1 auxiliary file: chapters/Ch_results.aux
 The style file: alpha.bst
 Database file #1: frontback/mres_bib.bib.bib
-I was expecting a `,' or a `}'---line 151 of file frontback/mres_bib.bib.bib
+I was expecting a `,' or a `}'---line 163 of file frontback/mres_bib.bib.bib
  :   
  :   year={2015},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 541 of file frontback/mres_bib.bib.bib
- : @inproceedings{hernandez2007registration
- :                                         ,
-I'm skipping whatever remains of this entry
-You're missing a field part---line 744 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 762 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-You're missing a field part---line 837 of file frontback/mres_bib.bib.bib
+You're missing a field part---line 855 of file frontback/mres_bib.bib.bib
  :  number  = 
  :            ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1057 of file frontback/mres_bib.bib.bib
+I was expecting a `,' or a `}'---line 1075 of file frontback/mres_bib.bib.bib
  :  
  :  keywords={biomedical MRI;image registration;image resolution;medical image processing;Cartesian diffusion tensors;diffusion profile image registration;multi-resolution framework;nonlinear registration;piece-wise local affine registration;signal analysis;Algorithm design and analysis;Anisotropic magnetoresistance;Data analysis;Image registration;Large-scale systems;Magnetic resonance imaging;Processor scheduling;Robustness;Signal analysis;Tensile stress},
 (Error may have been on previous line)
@@ -34,54 +30,52 @@ I'm skipping whatever remains of this entry
 Warning--empty journal in arsigny2006bi
 Warning--can't use both volume and number fields in arnold1966geometrie
 Warning--empty journal in bauer2011geodesic
-Warning--empty school in Broit:1981
 Warning--empty publisher in do1992riemannian
-Warning--empty journal in gonzalezdigital
-Warning--empty year in gonzalezdigital
 Warning--empty journal in huanglog
 Warning--empty year in huanglog
+Warning--empty journal in ibanez2003itk
 Warning--there's a month but no year in mcclelland
 Warning--empty publisher in milnor1984remarks
 Warning--empty booktitle in vercauteren2014preprint
-You've used 78 entries,
+You've used 64 entries,
             2543 wiz_defined-function locations,
-            1005 strings with 18218 characters,
-and the built_in function-call counts, 31880 in all, are:
-= -- 3180
-> -- 1504
-< -- 59
-+ -- 521
-- -- 510
-* -- 2283
-:= -- 5191
-add.period$ -- 241
-call.type$ -- 78
-change.case$ -- 484
-chr.to.int$ -- 75
-cite$ -- 90
-duplicate$ -- 1295
-empty$ -- 2323
-format.name$ -- 612
-if$ -- 6528
-int.to.chr$ -- 4
+            924 strings with 15771 characters,
+and the built_in function-call counts, 25833 in all, are:
+= -- 2533
+> -- 1277
+< -- 49
++ -- 447
+- -- 436
+* -- 1850
+:= -- 4255
+add.period$ -- 197
+call.type$ -- 64
+change.case$ -- 402
+chr.to.int$ -- 62
+cite$ -- 74
+duplicate$ -- 1045
+empty$ -- 1861
+format.name$ -- 519
+if$ -- 5257
+int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 84
-newline$ -- 388
-num.names$ -- 240
-pop$ -- 519
+missing$ -- 71
+newline$ -- 319
+num.names$ -- 198
+pop$ -- 447
 preamble$ -- 1
-purify$ -- 575
+purify$ -- 478
 quote$ -- 0
-skip$ -- 1060
+skip$ -- 850
 stack$ -- 0
-substring$ -- 1739
-swap$ -- 228
-text.length$ -- 59
-text.prefix$ -- 32
+substring$ -- 1291
+swap$ -- 171
+text.length$ -- 49
+text.prefix$ -- 27
 top$ -- 0
-type$ -- 576
-warning$ -- 12
-while$ -- 309
-width$ -- 84
-write$ -- 996
-(There were 5 error messages)
+type$ -- 464
+warning$ -- 10
+while$ -- 241
+width$ -- 72
+write$ -- 813
+(There were 4 error messages)
