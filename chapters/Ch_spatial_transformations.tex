@@ -446,7 +446,7 @@ We define the set of \emph{deformations}, the set of continuous functions from $
 
 A \emph{velocity vector field} over $\Omega$ is a differentiable function that at each point of $\Omega$, associates a vector of $\mathbb{R}^d$; the set of velocity vector fields, indicated with $\text{Vect}(\Omega)$ forms a vector space, and considering the Lie bracket defined by the directional derivative
 we obtain that $\text{Vect}(\Omega)$ forms a Lie algebra\footnote{
-	Some books invert the signs of the operation (see the Kirillow's remarks \cite{kirillov2008introduction} pag. 27); this choice do not have any impact in the study of the algebraic structure, but it does have an impact on the numerical results when the Lie brackets are implemented for numerical computations. At the moment the sign that defines the Lie bracket is chosen on the base of the results.
+	Some books invert the signs of the operation (see the Kirillow's remarks \cite{kirillov2008introduction} pag. 27); this choice do not have any impact in the study of the algebraic structure, but it does have an impact on the numerical results when the Lie brackets are implemented for numerical computations. At the moment the sign that defines the Lie bracket is chosen on the base of the obtained results.
 }.
 If $\{\frac{\partial}{\partial x_{i}}\}_{i=1}^{d}$ is a local coordinates system over $\Omega$, $\mathbf{u}=a^{i} \frac{\partial}{\partial x_{i}}$ and $\mathbf{v}=b^{i} \frac{\partial}{\partial x_{i}}$ are two elements of  $\text{Vect}(\Omega)$ written using the Einstein summation convention, the Lie bracket can be expressed using the Jacobian:
 \begin{align*}
@@ -471,7 +471,7 @@ b^{j} \frac{\partial a^{i}}{\partial x^{j}}\frac{\partial}{\partial x_{i}}
 % here the two doors
 It was proved that the Lie algebra of vector fields have, as its Lie group, the group of diffeomorphisms (\cite{milnor1982infinite}, \cite{ovsienko1992integrals}). 
 
-A single vector in the Lie algebra $\mathcal{V}(\Omega)$ (represented by one red arrow in figure \ref{fig:composition}) is a vector field defined over $\Omega$ (represented by the set of red arrows in figure \ref{fig:se2_circular_vector_field}). We would expect that, vice versa, to a single diffeomorphism in the Lie group corresponds a single vector of the Lie algebra. This is not the case, since Lie logarithm and Lie exponential are not local isomorphisms on the whole domain.
+A single vector in the Lie algebra $\text{Vect}(\Omega)$ (represented by one red arrow in figure \ref{fig:composition}) is a vector field defined over $\Omega$ (represented by the set of red arrows in figure \ref{fig:se2_circular_vector_field}). We would expect that, vice versa, to a single diffeomorphism in the Lie group corresponds a single vector of the Lie algebra. This is not the case, since Lie logarithm and Lie exponential are not local isomorphisms on the whole domain.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

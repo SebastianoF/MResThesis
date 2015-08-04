@@ -254,14 +254,67 @@ For both of these reasons it follows that an increase in the degree of the trunc
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{A Problem for Three Brains} % {A three-brain problem}
-The experiments performed on synthetic data provides important informations to validate and compare the methods, but gives little or no information of what may happen in the real cases. 
+\section{A Problem for Three Brains}\label{se:three_brains} % {A three-brain problem}
+The experiments performed on synthetic data provides important informations to validate and compare the methods, but gives little or not information at all about what may happen in the real cases. 
 
-To obtain a validation for the real cases, the most natural way would be embed the method in a diffeomorphic demon registration algorithm and compare its results with the different versions of the log-composition implemented for the computation of the update.
+To obtain a validation for the real cases, one of the possibility would be to embed the method in a diffeomorphic demon registration algorithm and compare its results with the different versions of the log-composition implemented for the computation of the update.
 
-But, since the log-composition is only a small piece of the registration algorithm, it may be difficult to understand to what extent the change of the numerical method for the log-composition would impact the results and what is due to other part that play a more important role (as the optimization strategy) in the registration algorithm.
+But, since the log-composition is only a small component of the registration algorithm, it may be difficult to understand to what extent the change of the numerical method for the log-composition would impact the results and what is due to other components of the software that play a more important role (as the optimization strategy) in the registration algorithm.
 
-For our purposes we design an experiment that involves three brains... 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.30]{figures/three_brains_problem.pdf}
+	\caption{design of the experiment with SVF obtained with real data. The... }
+	\label{fig:three_brains_problem}
+\end{figure}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Design of Experiment}
+For our purposes we design a simple experiment that involves three T1 MRI longitudinal scans of the same patient in three points in time $A$, $B$ and $C$. $A$ is the baseline, $B$ is the first follow-up after $7$ months and $C$ is the third follow-up, after $12$ months. Dataset has been collected from ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer}.
+
+Using NiftyReg is it possible to obtain the SVF of the transformations obtained by the non-rigid registration algorithm based on cubic B-spline. If $\varphi_{A}^{B}$ is the transformation from $A$ to $B$ that aligns the image $B$ with $A$, and $\mathbf{u}_{A}^{B}$ the corresponding SVF, then for an ideal registration algorithm (that fully satisfies the transitivity property) we have
+\begin{align}\label{eq:transitivity_of_the_registration}
+\varphi_{B}^{C} \circ \varphi_{A}^{B} = \varphi_{A}^{C}  
+\end{align}
+From this assumption, it follows:
+\begin{align*}
+\log(\varphi_{B}^{C} \circ \varphi_{A}^{B}) &= \log(\varphi_{A}^{C}  ) \\
+\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B})) &= \log(\exp(\mathbf{u}_{A}^{C}  ) ) \\
+\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B})) &= \mathbf{u}_{A}^{C}  
+\end{align*}
+The exact solution of the log-composition would provide then:
+\begin{align*}
+\int_{\Omega} \euclideanMetric{
+	\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B}
+	-
+	\mathbf{u}_{A}^{C}
+}_{L^2}^{2} d\mathbf{x} 
+ =
+ 0
+\end{align*} 
+While, when $\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B}$ is approximated with some numerical method $M$, the previous integral provides its error.
+\begin{align}\label{eq:error_real_data_formula} 
+\int_{\Omega} \euclideanMetric{
+	M(\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B})
+	-
+	\mathbf{u}_{A}^{C}
+}_{L^2}^{2} d\mathbf{x} 
+=
+\text{Error}_{\oplus}
+\end{align} 
+
+Certainly, the equation \ref{eq:transitivity_of_the_registration} is correct only for the ideal registration algorithms, and the distance between the two members, computed using for example the metric $d^{1}$ defined in equation \ref{def:metric_two_displacement_field} can be utilized to validate the registration algorithm:
+\begin{align*}
+d^{1}(\varphi_{B}^{C} \circ \varphi_{A}^{B} ,\varphi_{A}^{B}) ) 
+= 
+\text{Error}_{\text{reg}}
+\end{align*} 
+The error $\text{Error}_{\text{reg}}$ is embedded in the the computations of the equation \ref{eq:error_real_data_formula}, but it has the same effect for all of the numerical approximations of the log-composition. Therefore, even if the equation \ref{eq:error_real_data_formula} does not measures exclusively the numerical error of the log-composition, they are consistent.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{Results}
+In figure ... mean error boxplot and divided by patient graph!
+
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
