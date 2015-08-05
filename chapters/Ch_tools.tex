@@ -16,13 +16,13 @@
 
 %%introductory definition
 We consider every group $\mathbb{G}$ as a group of transformations acting on $\mathbb{R}^{d}$, having in mind the particular case $d=2,3$ for 2-dimensional or 3-dimensional images.
-We will focus our attention to transformations defined by matrices or diffeomorphism. Other than group they also have the structure of Lie group: they are considered with a maximal atlas that makes them differentiable manifold, in which the composition of two transformations and the inverse of each transformation are well defined differentiable maps:
+We will focus our attention to transformations defined by matrices or diffeomorphism. Not only do they have the structure of a group, but they have as well the structure of a Lie group. They posses maximal atlas that makes them differentiable manifold, in which the composition of two transformations and the inversion of each transformation are well defined differentiable maps
 \begin{align*}
 \mathbb{G} \times \mathbb{G} & \longrightarrow  \mathbb{G}    \\
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
 
-Differential geometry is, generally speaking, a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations provides new handles to hold and manipulate them; in particular it provides the opportunity to define a tangent space to each point of the group (and so a fiber bundle), a space of vector fields, a set of flows and one parameter subgroup as well as other features that enrich this structure.
+Generally speaking, differential geometry is a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations provides new handles to hold and manipulate it; in particular it provides the opportunity to define a tangent space to each point of the group and consequently a fiber bundle, a space of vector fields, a set of flows and one parameter subgroup.
 
 Due to space limitations we will refer to \cite{do1976differential} and \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.
 
@@ -30,7 +30,7 @@ Due to space limitations we will refer to \cite{do1976differential} and \cite{le
 % % SECTION
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula}\label{se:lie_exp_log_comp_bch}
-Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ of the Lie group $\mathbb{G}$.
+Let $\mathbf{v}$ be an element in the tangent space $\mathfrak{g}$ of the (compact) Lie group $\mathbb{G}$.
 The \emph{Lie exponential} is defined as 
 \begin{align*}
 \exp :  \mathfrak{g} & \longrightarrow  \mathbb{G}  \\
@@ -48,7 +48,7 @@ The exponential map satisfies the following properties:
 	\end{align*}
 	This in particular is one of the reasons that justifies the name exponential for a maps between structures in differential geometry.
 	\item $\exp(\mathbf{v})$ is invertible and $(\exp(\mathbf{v}))^{-1} = \exp(-\mathbf{v})$.
-		\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{v}}{m}) \circ\exp(\frac{\mathbf{v}}{m}))^{m}$
+		\item  $\exp(\mathbf{u} + \mathbf{v}) =\lim_{m\rightarrow \infty} (\exp(\frac{\mathbf{u}}{m}) \circ\exp(\frac{\mathbf{v}}{m}))^{m}$
 	\item $\exp$ is a local isomorphism: it is an isomorphisms between a neighborhood of $\mathbf{0}$ in $\mathfrak{g}$ to a neighborhood of $e$ in $\mathbb{G}$.
 	\item If $\exp(\mathbf{w}) = \exp(\mathbf{u})  \exp(\mathbf{v})$ then 
 	\begin{align}\label{prop:lie_inversion_property}
@@ -56,7 +56,7 @@ The exponential map satisfies the following properties:
 	\end{align}
 \end{enumerate}
 \begin{proof}
-	We will present only the last statement leaving the others to the literature. The hypothesis $\exp(\mathbf{w}) = \exp(\mathbf{v}) \circ \exp(\mathbf{u})$ follows the subsequent chain of implications (each algebraic passage involves a geometrical construction, not shown here for brevity):
+	We will prove only the last statement leaving the others to the literature. The hypothesis $\exp(\mathbf{w}) = \exp(\mathbf{v}) \circ \exp(\mathbf{u})$ follows the subsequent chain of implications (each algebraic passage involves a geometrical construction, not shown here for brevity):
 	\begin{align*}
 		\exp(\mathbf{w}) &= \exp(\mathbf{v}) \circ \exp(\mathbf{u}) \\
 		\exp(-\mathbf{w}) \circ \exp(\mathbf{w}) &= \exp(-\mathbf{w}) \circ\exp(\mathbf{v}) \circ \exp(\mathbf{u}) \\
@@ -65,7 +65,8 @@ The exponential map satisfies the following properties:
 		\exp(-\mathbf{u}) \circ\exp(-\mathbf{v})  &= \exp(-\mathbf{w})  
 	\end{align*}
 \end{proof}
-The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus.
+%The neighborhoods of $\mathbb{G}$ and of $\mathfrak{g}$ such that the last property holds, are called \emph{internal cut locus} of $\mathbb{G}$ and $\mathfrak{g}$ respectively. The \emph{cut locus} is the boundary of the internal cut locus.
+% SUI COMPATTI IL CUT LOCUS E' L'insisme vuoto!!
 
 When we deal with a matrix Lie group of dimension $n$, the composition in the Lie group consists in the matrix product and we have the following remarkable properties \cite{hall2015lie}, \cite{kirillov2008introduction}:
 \begin{enumerate}
@@ -93,7 +94,6 @@ If $\mathbb{G}$ is a matrix Lie group of dimension $n$, the following properties
 	\begin{align}\label{eq:log_as_inf_sum}
 	\log(\mathbf{\varphi}) = \sum_{k=1}^{\infty}(-1)^{k+1} \frac{(\varphi-I)^{k} }{k}
 	\end{align}
-	Having indicated the identity matrix with $I$.
 	\item For any norm, and for any $n\times n$ matrix $\mathbf{c}$, exists an $\alpha$ such that 
 	\begin{align}\label{eq:prop_matrix_diff_log}
 	\euclideanMetric{ \log(I + \mathbf{c}) - \mathbf{c} }  \leq \alpha \euclideanMetric{ \mathbf{c}}^{2}
@@ -113,14 +113,14 @@ The \emph{Lie log-composition} (because based on the Lie logarithm and Lie expon
 \noindent
 The following properties holds for the Lie log-composition:
 \begin{enumerate}
-	\item $\mathfrak{g} $ with the Lie log-composition $\oplus$ is a local topological non-commutative group (local group for short): if $C_{\mathfrak{g}}$ is the internal cut locus of $\mathfrak{g}$ then:
+	\item $\mathfrak{g} $ with the Lie log-composition $\oplus$ is a local topological non-commutative group (local group for short):
 	\begin{enumerate}
 		\item $(\mathbf{u}_{1}\oplus\mathbf{u}_{2}) \oplus \mathbf{u}_{3}
-		= \mathbf{u}_{1}\oplus(\mathbf{u}_{2} \oplus \mathbf{u}_{3})$ for all $\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$ in $C_{\mathfrak{g}}$.
-		\item $\mathbf{u}\oplus\mathbf{0}  = \mathbf{0}\oplus\mathbf{u} = \mathbf{u}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
-		\item $\mathbf{u}\oplus(-\mathbf{u} ) = \mathbf{0}$ for all $\mathbf{u}$ in $C_{\mathfrak{g}}$.
+		= \mathbf{u}_{1}\oplus(\mathbf{u}_{2} \oplus \mathbf{u}_{3})$ for all $\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$ in $\mathfrak{g}$.
+		\item $\mathbf{u}\oplus\mathbf{0}  = \mathbf{0}\oplus\mathbf{u} = \mathbf{u}$ for all $\mathbf{u}$ in $\mathfrak{g}$.
+		\item $\mathbf{u}\oplus(-\mathbf{u} ) = \mathbf{0}$ for all $\mathbf{u}$ in $\mathfrak{g}$.
 	\end{enumerate}
-	\item For all $t,s$ real, such that $(t+s)\mathbf{u}$ is in $C_{\mathfrak{g}}$,
+	\item For all $t,s$ real, such that $(t+s)\mathbf{u}$ is in $\mathfrak{g}$,
 	\begin{align*}
 	(t\mathbf{u})\oplus (s\mathbf{u}) = (t+s)\mathbf{u}
 	\end{align*}
@@ -138,8 +138,8 @@ BCH(\mathbf{u},\mathbf{v})
 \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
-Ironically, the name of the formula does not refer to Dynkin, who originally developed the proof of the equality in 1947 \cite{dynkin1947calculation}. An nice introduction to the particular case of matrices can be found in \cite{hall2015lie}; while the general case is presented in \cite{klarsfeld1989baker}, \cite{serre2009lie}, and for application to medical imaging \cite{lorenzi2014efficient}, \cite{vercauteren08}.
-This expansion provides the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$, by truncating its terms, but as stated in the introduction, chapter \ref{ch:introduction} this approximation can be problematic.
+Ironically, the name of the formula does not refer to Dynkin, who originally developed the proof of the equality in 1947 \cite{dynkin1947calculation}. An introduction to the particular case of matrices can be found in \cite{hall2015lie}; while the general case is presented in \cite{klarsfeld1989baker}, \cite{serre2009lie}, and for application to medical imaging we refer to \cite{lorenzi2014efficient}, \cite{vercauteren08}.
+This expansion provides the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$, by truncating its terms, but, as stated in chapter \ref{ch:introduction}, this approximation can be problematic.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % 
@@ -152,7 +152,7 @@ One of the considerable consequences of the definition of the connection is the 
 \begin{align}\label{def:geodesics_eq}
 \nabla_{\dot{\gamma}}\dot{\gamma} = 0 %\qquad \qquad \forall t\in [0,1] 
 \end{align}
-This definition allows a new kind of exponential from the Lie algebra to the Lie group. Given the point $p$ and the tangent vector at this point $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ we define: 
+A new kind of exponential from the Lie algebra to the Lie group arises from this definition. Given the point $p$ and the tangent vector at this point $\mathbf{v} \in T_{p}\mathbb{G}\simeq \mathfrak{g}$ we define: 
 \begin{align*}
 \exp :  \mathbb{G}  \times \mathfrak{g}     &\longrightarrow \mathbb{G}  
 \\ 
@@ -168,7 +168,7 @@ The inverse of the affine exponential, the \emph{affine logarithm} is defined as
 \\ 
 (p,q) \longmapsto \log_{p}(q)  = \mathbf{v} 
 \end{align*}
-Where $\mathbf{v} $ is the tangent vector in $p$ at the geodesic $\gamma$ on $\mathbb{G} $ that satisfies $\gamma(0) = p$ and $\gamma(1) = q$. Interestingly the Lie exponential and the Lie logarithm coincide with the affine exponential and the affine logarithm at the identity, if $\nabla$ is a Cartan connection.
+where $\mathbf{v} $ is the tangent vector at the point $p$ of the geodesic $\gamma$ on $\mathbb{G} $ that satisfies $\gamma(0) = p$ and $\gamma(1) = q$. Interestingly the Lie exponential and the Lie logarithm coincide with the affine exponential and the affine logarithm at the identity, if $\nabla$ is a Cartan connection.
 
 For further details and properties we refer to the literature; in this introduction we wish to provide only the intuitive idea that it is possible to move on the fiber bundle of the Lie group, transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possesses a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same isomorphic Lie algebra structure) may not have the basis vectors oriented in the same direction. 
 
@@ -193,17 +193,16 @@ On this definition, again borrowed from differential geometry, relies a method f
 	\end{align*}
 \end{definition}
 
-Consequence of this definition is that a vector belonging to the tangent space at the identity can be transported on a different tangent space of the manifold, maintaining its direction from the old to the new coordinate reference respect to a chosen curve. Each element of the \emph{fiber bundle} (disjoint union of all of the tangent space), that can be reached by a curve from the origin, become reachable also by any tangent vector at the identity.
+Consequence of this definition is that a vector belonging to the tangent space at the identity can be transported on a different tangent space of the manifold, maintaining its direction from the old to the new coordinate reference respect to a chosen curve. Each element of the \emph{fiber bundle}, that can be reached by a curve from the origin, becomes reachable also by any tangent vector at the identity.
 
-Another way of moving vectors between an arbitrary tangent spaces and the tangent space at the identity is expressed in the \emph{change of base formulas} for affine exponential and logarithm \cite{arsigny2006bi}:
+Another way of moving vectors between an arbitrary tangent space and the tangent space at the identity is expressed in the \emph{change of base formulas} for affine exponential and logarithm \cite{arsigny2006bi}:
 \begin{align}\label{eq:DL_DR}
 \log _{p}(q)  &= DL_{p}(e) \log _{e}(q)  \\
 \exp _{p}(\mathbf{u})  &= p\circ \exp_{e} (DL_{p^{-1}}(e) \mathbf{u})
 \end{align}
 The left-translation $L_{p}$ provides a canonical curves for transporting vectors, expressed as the integral curve of the tangent vector field on the manifold of transformations defined by the push forward of $L_{p}$, indicated here with $DL_{p}$:
 
-Further theoretical developments are beyond the aim of this research, but the reader can refer to the bibliography.
-In the next properties we explore how did parallel transport and affine exponential behave when expressed as a composition and when there is a change of signs.
+We will now explore how the parallel transport and the affine exponential behave when expressed as a composition and when there is a change of signs.
 \begin{prop}[Inversion]
 	$\mathbb{G}$ Lie group, $\nabla$ connection, $p,q\in\mathbb{G}$. Given $\gamma$ such that $\gamma(0)= p$, $\gamma(1)=q$ and $\mathbf{u}\in T_{p}\mathbb{G}$, we have:
 	\begin{enumerate}
@@ -251,7 +250,7 @@ In the next properties we explore how did parallel transport and affine exponent
 	\begin{align*}
 		\exp_{q}(-\Pi(\gamma)_{p}^{q}(\mathbf{u}))= \beta(1;-\Pi(\gamma)_{p}^{q}(\mathbf{u}), q) 
 		\qquad 
-		\nabla_{\dot{\gamma}}\dot{\beta}=0
+		\nabla_{\dot{\beta}}\dot{\beta}=0
 		\qquad
 		\beta(0) = q
 		\qquad
@@ -272,9 +271,9 @@ In the next properties we explore how did parallel transport and affine exponent
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a Cartan connection $\nabla$ and $\mathbf{u}$ tangent vector in $ T_{e}\mathbb{G}$. Let $\gamma$ be a geodesic defined on $\mathbb{G}$ such that $\gamma(0) = e$, $\dot{\gamma}(0) =\mathbf{u}$ and $p = \gamma(1)$, point in the Lie group. Let $\beta$ be the curve over $\mathbb{G}$ defined as $\beta(t) = p\circ \gamma(t)$, then the two following conditions hold:
 	\begin{enumerate}
 		\item If $\nabla$ is a Cartan connection then $\beta$ is a geodesic.
-		\item For $\mathbf{u}_{p} := D(L_{p})_{e}(\mathbf{u}) \in T_{p}\mathbb{G}$, push forward of the left-translation:
+		\item For $\mathbf{u}_{p} := DL_{p}(e)(\mathbf{u}) \in T_{p}\mathbb{G}$, push forward of the left-translation:
 		\begin{align}\label{eq:lemma_pt}
-		\exp_{p}(t\mathbf{u}_{p}) = p\circ \exp_{e}( t D(L_{p^{-1}})_{p}(\mathbf{u}_{p}) ) 
+		\exp_{p}(t\mathbf{u}_{p}) = p\circ \exp_{e}( t DL_{p^{-1}}(p)(\mathbf{u}_{p}) ) 
 		= p\circ \exp_{e}(t\mathbf{u})
 		\end{align}
 	\end{enumerate}
@@ -302,7 +301,7 @@ In the next properties we explore how did parallel transport and affine exponent
 \end{proof}
 
 \begin{lemma}
-	Let $\mathbb{G}$ be a finite dimensional connected Lie group, $p,q,r$ points of $\mathbb{G}$ belonging to the cut locus. If exists an $\epsilon$ such that 
+	Let $\mathbb{G}$ be a finite dimensional connected Lie group, and $p,q,r$ three of its elements. If exists an $\epsilon$ such that 
 	\begin{align*}
 		\euclideanMetric{\log{(p\circ q)}  - \log{(r)}}< \epsilon
 	\end{align*}
@@ -316,7 +315,7 @@ Intuitively, the lemma states that if $p\circ q \simeq r $ then $p \simeq q^{-1}
 The following theorem is an application of the pole ladder \cite{lorenzi2011schild} for the computation of the exponential that will underpin one of the numerical methods for the computation of the log-composition.
 \begin{theorem}\label{th:local_approximation_theorem}
 	Let $\mathbb{G}$ be a finite dimensional connected Lie group defined with a Cartan connection $\nabla$. 
-	Given two vectors $\mathbf{u}, \mathbf{v}$ in the internal cut locus of $\mathfrak{g}$, such that 
+	Given two vectors $\mathbf{u}, \mathbf{v}$ in $\mathfrak{g}$, such that 
 	$p = \exp_{e}(\mathbf{u}) $ and	$q = \exp_{e}(\mathbf{v})$, with $\alpha$ integral curve of $\mathbf{u}$,
 	\begin{align*}
 	\alpha : [0,1] \rightarrow \mathbb{G} \quad \alpha(0) = e  \quad \alpha(1) = p \quad
@@ -401,7 +400,7 @@ The statement of this fairly intricate theorem involves a construction that can 
 	\begin{align*}
 		\euclideanMetric{r-\tilde{r}} \leq \euclideanMetric{[\mathbf{u},\mathbf{v}]}
 	\end{align*}
-	As a consequence of the previous lemma and observing that if $p$ and $q$ are in the cut locus, than also $r$ and $\tilde{r}$ are in the cut locus, we have finally reach the thesis:
+	As a consequence of the previous lemma we have finally reached the thesis:
 	\begin{align*}
 		\euclideanMetric{
 			\log_{e}(\exp_{e}(\mathbf{v}_{e}^{\parallel} ))

@@ -8,30 +8,33 @@
 \vspace{0.6cm}
 
 
-This chapter is devoted to show most relevant results of the numerical methods investigated for the computation of the log-composition.
-\newline
+Aim of this chapter is to show most relevant results of the numerical methods investigated for the computation of the log-composition $\mathbf{u}_0\oplus\mathbf{u}_1 = \log(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1))$.
+
+We utilized both synthetic data, produced with randomization, and real data, collected from the ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer}.
 Computations are performed with a software written in Python 
 (repository available on the UCL CMIC gitlab \href{https://cmiclab.cs.ucl.ac.uk}{https://cmiclab.cs.ucl.ac.uk}), based on 
-the following libraries - numpy, matplotlib \cite{hunter2007}, math, scipy \cite{scipy}, nibabel, timeit, random - as well as on the library NiftyBit, implemented by Pancaj Daga. Real data manipulation has been performed with NiftyReg \cite{modat2010fast} and the dataset are part of the ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer}.
+the following libraries: numpy, matplotlib \cite{hunter2007}, math, scipy \cite{scipy}, nibabel, timeit, random, as well as on the library NiftyBit, implemented by Pancaj Daga. In addition the software NiftyReg \cite{modat2010fast} has been used for obtaining SVF from patients scans. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Log-composition for $\mathfrak{se}(2)$}
 
-There are several norms in the space of $3\times 3$ squared matrices that can be inherited by the group $SE(2)$ and the Lie algebra $\mathfrak{se}(2)$ when represented by matrices. For our tests we considered the tangent space $\mathfrak{se}(2)$ with the inherited Frobenius norm:
+There are several norms in the space of $3\times 3$ squared matrices that can be used to measure computations results in $\mathfrak{se}(2)$. For our tests we chose the Frobenius norm:
 \begin{align*}
 \euclideanMetric{(\theta,dt^{x},dt^{y})}_{\text{fro}} = \sqrt{2\theta^{2} + (dt^{x})^2 + (dt^{y})^2} 
 \qquad
 (\theta,dt^{x},dt^{y}) \in \mathfrak{se}(2)
 \end{align*}
-Numerical tests show that for the studied cases, no qualitative differences are detected if choosing instead the $L^{2}$ norm.
+Numerical measurement have shown that for the studied cases, no qualitative differences are detected if $L^{2}$ norm is chosen instead.
  %
  \begin{figure}[!ht]
  	\hspace{-1.3cm}
  	\includegraphics[scale=0.50]{figures/se2_image_scale.pdf}
  	\caption{Comparison of the errors for each numerical method to compute the Log-composition $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Truncated BCH of degrees 0,1,2, parallel transport method and Taylor method are considered for different values of the norm of $dr_{1}$ (x-axes) and norm of $dr_{0}$ (y-axes). 
- 	The value of each square corresponds to the average error of 500 random samples in each of the 6 sub-intervals between $0.1$ and $2.0$. Errors with BCH 0 and parallel transport method are comparable, but the parallel transport method is not symmetric and has better performance when $dr_{1}$ is small. BCH 1 and Taylor are comparable as well and they are both symmetric, but the best performance in terms of approximation is the BCH 2. Values of the sub-square under the \emph{gray arrows} are shown in the boxplot \ref{fig:se2_image_scale} where variance, quartiles and outliers are visualized.
+ 	The value of each square corresponds to the average error of 500 random samples in each of the 6 sub-intervals between $0.1$ and $2.0$. 
+ 	As expected errors increases with the norm for all of the methods.
+ 	Errors with BCH 0 and parallel transport method are comparable, but the parallel transport method is not symmetric and has better performance when $dr_{1}$ is small. BCH 1 and Taylor are comparable as well, and they are both symmetric, but the best performance is provided by the BCH 2. Details of the value under the \emph{gray arrows} are shown in the box-plot \ref{fig:se2_image_scale} where means, variance, range, quartiles and outliers are visualized.
  	 }
  	\label{fig:se2_image_scale}
  \end{figure}
@@ -40,54 +43,54 @@ Numerical tests show that for the studied cases, no qualitative differences are 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Methods and Results}
 
-To compare the errors the computation of the log-composition for the methods here presented, two sets of $3000$ transformations of elements in $\mathfrak{se}(2)$ are randomly sampled with increasing norms in the interval $[0.1, 2.0]$. This interval is divided into 6 segments delimited by $ I = \text{linspace}([0.1, 2.0], 7)$ and for each couple of subintervals $[I(n_0), I(n_0+1)]$, $[I(n_1), I(n_1+1)]$ two sets of $500$ transformations $\{ dr_{0}^{(j)}\}_{j=1}^{500}$, $\{ dr_{1}^{(j)} \}_{j=1}^{500}$ having norms belonging to the respective intervals are sampled:
+To compare the errors of the computation of the log-composition for the methods here presented, two sets of $3000$ transformations of elements in $\mathfrak{se}(2)$ are randomly sampled with increasing norms in the interval $[0.1, 2.0]$. Since the precision of the results is affected by the norm of the involved SVF, this interval is divided into 6 segments delimited by $I = [0.1, 0.42, 0.73, 1.05, 1.73, 1.68 ]$; choosing a couple of subintervals $[I(n_0), I(n_0+1)]$, $[I(n_1), I(n_1+1)]$, we sampled two sets of $500$ transformations $\{ dr_{0}^{(j)}\}_{j=1}^{500}$, $\{ dr_{1}^{(j)} \}_{j=1}^{500}$ having norms belonging to the selected intervals:
 \begin{align*}
 j=1,...,500 \quad &\quad  n_0, n_1 = 0,...,5 \\
 \euclideanMetric{dr_{0}^{(j)}}_{\text{fro}} &\in [I(n_0), I(n_0+1)] \\
 \euclideanMetric{dr_{1}^{(j)}}_{\text{fro}} &\in [I(n_1), I(n_1+1)]  
 \end{align*} 
-If $N$ is one of the numerical methods presented in section \ref{se:rigid_body_transformations} for the computation of the log-composition - $\text{BCH}^{0}, \text{BCH}^{1}, \text{BCH}^{2}, \text{Tl}, \text{pt}$ - 
+If $M$ is one of the numerical methods presented in section \ref{se:rigid_body_transformations} for the computation of the log-composition - $\text{BCH}^{0}, \text{BCH}^{1}, \text{BCH}^{2}, \text{Tl}, \text{pt}$ - 
 then the error between the ground truth and the approximation provided by one of these numerical methods is given by
 \begin{align*}
-\text{Error}(dr_{0},dr_{1},N) 
+\text{Error}(dr_{0},dr_{1},M) 
 := 
-\euclideanMetric{dr_{0}^{(j_0)} \oplus dr_{1}^{(j_1)} 
+\euclideanMetric{dr_{0} \oplus dr_{1}
 - 
-N(dr_{0}, dr_{1}) }_{\text{fro}} 
+M(dr_{0}, dr_{1}) }_{\text{fro}} 
 \end{align*}
 
 In figure \ref{fig:se2_image_scale}, each of the figure corresponds to a different method and each of the grade scale is the value computed with the function:
 \begin{align*}
-f(n_0,n_1,N) 
+f(n_0,n_1,M) 
 =
  \mathbb{E}\Big(
   \{ 
-  \text{Error}(dr_{0}^{(j)},dr_{1}^{(j)},N) 
+  \text{Error}(dr_{0}^{(j)},dr_{1}^{(j)}, M) 
   \}_{j=1}^{500}
   \Big)
 \end{align*}
-Where the norm of $dr_{0}^{(j)}$ belongs to the interval $[I(n_0), I(n_0+1)]$ and the norm of 
+where the norm of $dr_{0}^{(j)}$ belongs to the interval $[I(n_0), I(n_0+1)]$ and the norm of 
 $dr_{1}^{(j)}$ belongs to $[I(n_1), I(n_1+1)]$, and where $\mathbb{E}$ is the mean value.\\
-The data indicated by the gray arrows in each plot corresponds are showed in the box-plot \ref{fig:se2_boxplot}
+The details for a chosen interval, indicated by the gray arrows in each plot, can be visualized in the box-plot \ref{fig:se2_boxplot}
 %
 \begin{figure}[!ht]
 	\hspace{-1cm}
 	\includegraphics[scale=0.51]{figures/se2_boxplot.pdf}
-	\caption{Errors of the numerical methods for the computation of the Log-composition of $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Norm of $dr_{0}$ is in the interval $[0.37,1.05]$, norm of $dr_{1}$ in the interval $[0.1, 1.05]$ divided in 3 segments. Mean values of each box are shown in the first row in different colors. Shown data corresponds to a section of the image scale \ref{fig:se2_image_scale}, indicated by a gray arrow. As expected all of the error means increase with the of norm of $dr_1$, but the rate of the growth is different for each method.}
+	\caption{Errors of the numerical methods for the computation of the Log-composition of $dr_{0} \oplus dr_{1}$ in $\mathfrak{se}(2)$. Norm of $dr_{0}$ is in the interval $[0.37,1.05]$, norm of $dr_{1}$ in the interval $[0.1, 1.05]$ divided in 3 segments. Mean values of each box are shown in the first row in different colors. Shown data corresponds to a section of the image scale \ref{fig:se2_image_scale}, indicated by a gray arrow. As expected all of the error means increase with the of norm of $dr_1$, but the rate of growth is different for each method.}
 	\label{fig:se2_boxplot}
 \end{figure}
 %
 
-From these results in $\mathfrak{se}(2)$ we can see that the second truncation error of the BCH formula provides the best result (the unit of measure is the same as the measure chosen for the translation or the rotation: it can be inches, cm, pixel, ...).
+From these results we can see that the second truncation error of the BCH formula provides the best result.
 
-Method based on the $BCH^0$, that is utilized for example in the additive demons, do not involves any Lie bracket. Its results show that the bigger is the norm of the transformation involved, the bigger is its Lie bracket and its nested Lie bracket as appears in the $BCH^1$ and $BCH^2$. Do not take into account Lie brackets means do not take into account the curvature of the space \cite{misner1973gravitation}, whose significance is given by the experimental results. Parallel transport method tries to compensate the curvature using a geometrical approach considering different tangent spaces to the manifold of the transformation than the one at the origin. As expected from the formula is not symmetric. It provides better results than the $BCH^0$, and when the norm of $dr_1$ is small, results are close to the one obtained with $BCH^1$ when norms of $dr_0$ and $dr_1$ are below $1.3$.
+The method based on the $BCH^0$ provides the worst results. It does not involves any Lie bracket and so it does not take into account the geometrical curvature of the Lie group. Parallel transport method tries to compensate the curvature using a geometrical approach considering different tangent spaces to the manifold of the transformation than the one at the origin. As expected from the formula, and as it can be seen clearly in the image scale, is not a symmetric method. It provides better results than the $BCH^0$; for small norm of $dr_1$, results are close to the one obtained with $BCH^1$ when norms of $dr_0$ and $dr_1$ are below $1.3$.
 
-Log-composition based on Taylor method has slightly better results than the $BCH^1$, but do not reach $BCH^2$, which provides the best results. This may be due to the fact that the Taylor belongs to $\mathcal{O}(dr_1^2)$ while the $BCH^2$ involves the Lie bracket $[dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]]$. Even if the truncated $BCH$ does not have a known asymptotic error (or big-O notation), this last observation provides that $BCH^2$ have a bigger asymptotic order of converges than $\mathcal{O}(dr_1^2)$, in $\mathfrak{se}(2)$.
+Log-composition based on Taylor method has slightly better results than the $BCH^1$, but do not reach $BCH^2$, which provides the best results. This may be due to the fact that the Taylor belongs to $\mathcal{O}(dr_1^2)$ while the $BCH^2$ involves the Lie bracket $[dr_0,[dr_0, dr_1]] + [dr_1,[dr_1, dr_0]]$. Even if the truncated $BCH$ does not have a known asymptotic error (or big-O notation), we can see experimentally that $BCH^2$ have a bigger asymptotic order of converges than $\mathcal{O}(dr_1^2)$, in $\mathfrak{se}(2)$.
 %
 \begin{figure}[!ht]
 	%\hspace{0cm}
 	\includegraphics[scale=0.70]{figures/svf_gaussian_smoothing_effects.pdf}
-	\caption{Random generated vector field before and after the Gaussian smoother: in the first row a random generated vector field of dimension $50\times 50 \times 2$ where the value at each pixel are sampled from a random variable with normal distribution of mean $0$ and sigma $4$. The second row shows the same random vector field after a Gaussian smoothing of sigma $2$ (the code is based on the scipy library ndimage.filters.gaussian\textunderscore filter). In the last column shows the quiver of the vector field in the squared subregion of size $10\times 10$ at the point $(20,20)$. From the colorscale it is also possible to see that the values distribution of the filtered image is not anymore symmetric. }
+	\caption{Random generated vector field before and after the Gaussian smoother: in the first row a random generated vector field of dimension $50\times 50 \times 2$ where the vector values at each pixel are sampled from a random variable with normal distribution of mean $0$ and sigma $4$. The second row shows the same random vector field after a Gaussian smoothing of sigma $2$ (the code is based on the scipy library ndimage.filters.gaussian\textunderscore filter). Yhe last column shows the quiver of the vector field in the squared subregion of size $10\times 10$ at the point $(20,20)$. From the colorscale it is also possible to see that the values distribution of the filtered image have lost its symmetry. }
 	\label{fig:SVF_gaussian_smoothing_effects}
 \end{figure}
 
@@ -96,14 +99,16 @@ Log-composition based on Taylor method has slightly better results than the $BCH
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Log-composition for SVF}
-Before getting into the results for the log-composition of SVF it is important to spend some words about how random SVF are created and how to compare the norm of the approximation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the ground truth when this is not available.
+Before getting into the results for the log-composition of SVF it is important to spend some words about how random SVF are created and, in particular, how to compare the norm of the approximation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the ground truth when this is not available.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{Methods: random generated SVF.}
+\subsection{Methods: random generated SVF}
 % How to generate a random SVF
-A random generated SVF is a $5$-dimensional matrix with the structure presented in the equation \ref{eq:basic_data_structure}. 
-The values of the dimensions are fixed while the values of the vectors are built in two phases. First of all, the value for each axis are randomly sampled from a normal distribution of mean zero and standard deviation $\sigma_{\text{init}}$. To introduce a correlation among each value, a Gaussian filter with standard deviation $\sigma_{\text{gf}}$ is then applied to regularize the values. In figure \ref{fig:SVF_gaussian_smoothing_effects} it is possible to see the effects of the two phases on a $50\times 50$ image.
+A random generated SVF is a $5$-dimensional matrix with the structure presented in the formula \ref{eq:basic_data_structure}. 
+After the value of the dimensions and the size of the grid are chosen, the vectors at each point of the grid are generated in two phases. 
+In the first one, the value for each axis are randomly sampled from a normal distribution of mean zero and standard deviation $\sigma_{\text{init}}$. 
+In the second phase vectors are smoothed with a Gaussian filter with standard deviation $\sigma_{\text{gf}}$. In figure \ref{fig:SVF_gaussian_smoothing_effects} it is possible to see the effects of the two phases on a bi-dimensional $50\times 50$ image.
 
 \begin{figure}[!ht]
 	\hspace{-1cm}
@@ -115,14 +120,14 @@ The values of the dimensions are fixed while the values of the vectors are built
 \end{figure}
 
 % Norm defined in both Lie algebra and Lie group
-The norm of a discretized SVF $\mathbf{u}$ is the one associated to the metric \ref{def:metric_two_svf} in the discretized case: $l^2$ instead of $L^2$ and on $\Delta\Omega$ discretization of the domain:
+After discretization, the norm of an SVF can be computed from the discretized version of the metric presented in equation \ref{def:metric_two_svf}. The norm $l^2$ is considered instead of $L^2$ and $\Delta\Omega$, discretization of the domain, substitute $\Omega$:
 \begin{align*}
 \euclideanMetric{\mathbf{u}}  
 = 
 \Big( \sum_{\mathbf{x} \in \Delta\Omega} \euclideanMetric{\mathbf{u}(\mathbf{x}) }_{l^2}^{2}  \Big)^{1/2}
 \end{align*} 
-and it coincides with the Frobenius Norm of the $5$-dimensional matrices $\mathbf{u}$.
-When the SVF $\mathbf{u}$ is exponentiated in the Lie algebra $\exp(\mathbf{u}) = \varphi$, we have to rely on the fact that $\varphi - 1$ is a vector field whose norm can be computed with the discretization of \ref{def:metric_two_displacement_field}:
+It coincides with the Frobenius Norm of the $5$-dimensional matrices $\mathbf{u}$.
+When an SVF $\mathbf{u}$ is exponentiated in the Lie algebra, $\exp(\mathbf{u}) = \varphi$, we can rely on the fact that $\varphi - 1$ is a vector field whose norm can be computed with the discretization of the metric presented in the equation \ref{def:metric_two_displacement_field}:
 \begin{align*}
 \euclideanMetric{\varphi}  
 = 
@@ -130,12 +135,11 @@ When the SVF $\mathbf{u}$ is exponentiated in the Lie algebra $\exp(\mathbf{u}) 
 =
 \Big( \sum_{\mathbf{x} \in \Delta\Omega} \euclideanMetric{\varphi(\mathbf{x}) - \mathbf{x} }_{l^2}^{2}  \Big)^{1/2}
 \end{align*} 
-Where $\Delta\Omega$ is the discretized domain according to a grid.\\
-To distinguish from the previous one, we called it DS-norm (displacement norm); as before, it coincides with the Frobenius norm of the $5$-dimensional matrices $\varphi - I$.
+To distinguish the norm of the SVF from the norm of the vector field associated to its exponential, we call the latter DS-norm (displacement norm); as before, it coincides with the Frobenius norm of the $5$-dimensional matrices $\varphi - I$.
 
 % Norm influenced by sigmas
-Figure \ref{fig:SVF_sigma_means_comparisons} shows how the initial standard deviations $\sigma_{\text{init}}$ that defines the SVF are related with their norm before and after the exponentiation for $5$ different choices of the value of the standard deviation of the Gaussian filter $\sigma_{\text{gf}}$.
-Except for the extreme case in which $\sigma_{\text{gf}} = 0$, that does not represent any SVF, we can see that an element in the Lie algebra $\mathbf{u}$ has a bigger norm of the correspondent in the Lie group. Moreover in both algebraic structure the norm shows a linear increasing trend of the norm with the increase of $\sigma_{\text{init}}$. An increase in $\sigma_{\text{gf}} $ implies a decrease in the slope of the trend. Also in this case the slope decreases regularly with an exponential model. 
+We can see how these two norms are related in figure \ref{fig:SVF_sigma_means_comparisons}. The initial standard deviations $\sigma_{\text{init}}$ that defines the SVF are related with their norm before and after the exponentiation for $5$ different choices of the value of the standard deviation of the Gaussian filter $\sigma_{\text{gf}}$.
+For the extreme case in which $\sigma_{\text{gf}} = 0$, where the SVF is not properly defined, the the norm after the exponentiation does not maintain linearity, but in all the other cases an element in the Lie algebra $\mathbf{u}$ increases the norm after the exponentiation. Moreover, for a fixed $\sigma_{\text{gf}} $ in both algebraic structures the norms shows a linear trend with the increase of $\sigma_{\text{init}}$. An increase in $\sigma_{\text{gf}} $ implies a decrease in the slope of the linear model.
 
 % Slopes formulae
 The linear regression of the model for each $\sigma_{\text{gf}}$ are given, in Cartesian coordinate by:
@@ -145,7 +149,7 @@ y = m_{\text{alg}}( \sigma_{\text{gf}} )x \qquad  \sigma_{\text{gf}} \geq 0
 \qquad
 y = m_{\text{grp}}( \sigma_{\text{alg}} )x \qquad  \sigma_{\text{alg}} \ge 0
 \end{align}
-Where we indicated with $m_{\text{alg}}$ and $m_{\text{grp}}$ angular coefficients for the results obtained in the Lie group and in the Lie algebra respectively. They follow an exponential model, given by
+Where we indicated with $m_{\text{alg}}$ and $m_{\text{grp}}$ angular coefficients for the results obtained in the Lie group and in the Lie algebra respectively (figure \ref{fig:SVF_sigma_means_comparisons} (b) and (c)). They follow an exponential model, given by
 \begin{align}
 m_{\text{alg}}( \sigma_{\text{gf}} )
 =
@@ -155,14 +159,15 @@ m_{\text{grp}}( \sigma_{\text{gf}} )
 =
 \alpha_1 e^{-\beta_1 \sigma_{\text{gf}}} + \gamma_1
 \end{align}
-Where the parameters $\alpha_i, \beta_i, \gamma_i$ for $i=1,2$ can be computed numerically using an exponential regression algorithm.
+Where the parameters $\alpha_i, \beta_i, \gamma_i$ for $i=1,2$ can be computed numerically using an exponential regression algorithm:
 \begin{center}
 	\begin{tabular}{ c  c c c c c}
 	$\alpha_0$ & $\beta_0$ & $\gamma_0$ & $\alpha_1$ & $ \beta_1$ & $\gamma_1$ \\
 	0.91422836 &  1.48548466 &  0.08393943 &  0.67302265 &  0.82680977 &  0.07765811
 	\end{tabular}
 \end{center}
-These values will be useful when we will need to compute $\sigma_{\text{init}}$ for a given $\sigma_{\text{gf}}$, when expecting a certain value of the norm of the SVF.
+
+These values are useful when we, given two values among $\sigma_{\text{init}}$, $\sigma_{\text{gf}}$ and the norm of an SVF, we want to compute the third one.
 
 \begin{figure}[!ht]
 	\hspace{-2.1cm}
@@ -177,7 +182,7 @@ After showing how a random SVF is generated by the parameters $\sigma_{\text{ini
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
 	\includegraphics[scale=0.6]{figures/SVF_scatter_plot.pdf}
-	\caption{Comparisons of the errors of numerical computation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the method of truncated BCH of degree 0,1 and parallel transport. Parameters' values of the random generated SVF are schematically represented in figure (a). A first set of $100$ SVF, that appears as first element in the log-composition, are generated with fixed parameters $\sigma_{\text{gf}}^{0} = 2.0$ and $\sigma_{\text{init}}^{0} = 1.0$; a second set of $100$ SVF, that appears as second element in the log-composition, are generated with the parameters $\sigma_{\text{gf}}^{1} = 2.0$ and $\sigma_{\text{init}}^{1}$ uniformly scattered in the the interval $(0.0, 2.0)$. On the x-axis fo figure (b) is shown the value of the resulting norm of $\mathbf{u}_1$ for the chosen parameters. On the y-axes the errors for the numerical computation of the Log-composition  }
+	\caption{Comparisons of the errors of numerical computation of $\mathbf{u}_0\oplus \mathbf{u}_1$ with the method of truncated BCH of degree 0,1 and parallel transport. Parameters' values of the random generated SVF are schematically represented in figure (a). A first set of $100$ SVF, that appears as first element in the log-composition, are generated with fixed parameters $\sigma_{\text{gf}}^{0} = 2.0$ and $\sigma_{\text{init}}^{0} = 1.0$; a second set of $100$ SVF, that appears as second element in the log-composition, are generated with the parameters $\sigma_{\text{gf}}^{1} = 2.0$ and $\sigma_{\text{init}}^{1}$ uniformly scattered in the the interval $(0.0, 2.0)$. On the x-axis fo figure (b) is shown the value of the resulting norm of $\mathbf{u}_1$ for the chosen parameters. On the y-axes the errors for the numerical computation of the Log-composition...  }
 	\label{fig:SVF_scatter_plot}
 \end{figure}
 %\begin{figure}[!ht]
@@ -191,13 +196,13 @@ After showing how a random SVF is generated by the parameters $\sigma_{\text{ini
 % % % % % % % % % % %% % % % % % % % % % % % % % % % % % % % %
 \subsection{Log-composition for synthetic SVF}
 % which norm?
-In figure \ref{fig:SVF_image_scale} we present the results of the numerical computation of the log-composition $\mathbf{u}_0\oplus\mathbf{u}_1 = \log(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1))$. Despite the lack of a ground truth for the SVF, given $\mathbf{u}_0$ and $\mathbf{u}_1$ in the Lie algebra we can compare the numerical approximation of $\mathbf{u}_0\oplus\mathbf{u}_1$ after exponentiating, with $\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)$. The norm utilized is the one proposed in the equation \ref{def:metric_one_svf_one_displacement_field}:
+This section shows the results of the numerical computation of the log-composition $\mathbf{u}_0\oplus\mathbf{u}_1 = \log(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1))$. Despite the lack of a ground truth for the SVF, given $\mathbf{u}_0$ and $\mathbf{u}_1$ in the Lie algebra it is still reasonable to compare the numerical approximation of the exponential of $\mathbf{u}_0\oplus\mathbf{u}_1$ with $\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)$. The norm utilized is the one proposed in the equation \ref{def:metric_one_svf_one_displacement_field}:
 \begin{align}
 \text{Error}_{\oplus}(\mathbf{u}_0, \mathbf{u}_1)
 = 
 \Big(\int_{\Omega} \euclideanMetric{\mathcal{V}(\exp(\mathbf{u}_0\oplus\mathbf{u}_1)) - \mathcal{V}(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1))}_{L^2}^{2} d\mathbf{x} \Big)^{1/2}
 \end{align} 
-that, when discretized become
+that, when discretized becomes
 \begin{align}\label{eq:error_svf_sythetic_data}
 \text{Error}_{\oplus}(\mathbf{u}_0, \mathbf{u}_1) 
 = 
@@ -207,7 +212,9 @@ that, when discretized become
 \big(\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)\big)(\mathbf{x}) 
 	  }_{l^2}^{2}  \Big)^{1/2}
 \end{align} 
-For the unknown analytical value of $\mathbf{u}_0\oplus\mathbf{u}_1$ the error of the above equation is $0$. When we use one of the introduced numerical method we obtain the results presented in figure \ref{fig:SVF_image_scale} and \ref{fig:SVF_scatter_plot}. The limitation of this strategy to compute the error of the numerical method without a ground truth is that it is based on the numerical algorithm utilized for the computation of the Lie exponential. In this case we utilized the scaling and squaring proposed in \cite{arsigny2006log}. This limitation may eventually not bias the results, since the scaling and squaring is utilized it the both sides of the difference in the computation of the error, therefore we expect that this numerical approximation do not biasing the results unbalancing one side over the other.
+For the unknown analytical value of $\mathbf{u}_0\oplus\mathbf{u}_1$ the error of the above equation is $0$. When we use one of the introduced numerical method we obtain the results presented in figure \ref{fig:SVF_image_scale} and \ref{fig:SVF_scatter_plot}. 
+
+The limitation of this strategy to compute the error of the numerical method without a ground truth is that it is based on the numerical algorithm utilized for the computation of the Lie exponential. In this experiment we have used the scaling and squaring proposed in \cite{arsigny2006log}. This limitation does not bias the results, since scaling and squaring is utilized it the both sides of the difference in the computation of the error. We expect therefore  that this numerical approximation does not unbalance the error of $\exp(\mathbf{u}_0\oplus\mathbf{u}_1)$ above or below $\exp(\mathbf{u}_0)\circ \exp(\mathbf{u}_1)$.
 
 % figures presentation and comment to general results.
 In figure \ref{fig:SVF_image_scale}, we can see the difference between the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$ and parallel transport. To each square correspond the mean of $15$ log-compositions between the SVF $\mathbf{u}_0$ and $\mathbf{u}_1$ randomly generated with $\sigma_{\text{init}}^{0}$ and $\sigma_{\text{init}}^{1}$ equals to one of the value in the array $(0.33, 0.67, 1, 1.33, 1.37, 2.0)$. The standard deviation of the Gaussian filter $\sigma_{\text{gf}}^{0}$ and $\sigma_{\text{gf}}^{1}$ are constant and equal to $2.0$. As previously noticed for matrices, the method based on the truncated  BCH are symmetric while the same does not happen for the parallel transport. 
@@ -216,7 +223,7 @@ A more detailed analysis on the subinterval indicated by the gray arrow on the f
 Here we can see that for SVF the numerical method based on parallel transport is never better than  truncated BCH of order $1$ (green x) and provides worst results than the simple sum in the truncated BCH of order $0$ (red circle) when the norm is greater than $0.35$ (with a much higher computational cost). It is also true that for small value the performance of the parallel transport method is below the line draw by the red circles and it is tangential to the green one.
 
 % introduction of the next section
-In the results previously showed we can notice some notable absents: non of the method for the numerical computation of the log-composition based on truncated BCH of order greater than $1$ has been proposed. The reason of this is explained in the next section.
+We can notice some notable absents in the results shown in this section: the numerical computation of the log-composition based on truncated BCH of order greater than $1$. The next section explains the reason for this.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -225,7 +232,8 @@ In the results previously showed we can notice some notable absents: non of the 
 
 % why we will take into account only the BCH 0 and the BCH 1 methods.
 % Theoretical problems: that the Jacobian is utilized in the Lie bracket from Marcos' paper
-The use of the truncated BCH for the numerical approximation fo the log-composition is problematic for SVF. As shown in figure \ref{fig:se2_image_scale}, i the finite dimensional case the truncated BCH of degree $2$ provides the best results over the Taylor method and the parallel transport method. In the infinite dimensional case the truncated BCH involves the Jacobian matrix, that is problematic by a numerical point ov view.
+As shown in figure \ref{fig:se2_image_scale}, the finite dimensional case the truncated BCH of degree $2$ provides the best results over the Taylor method and the parallel transport method.
+In the infinite dimensional Lie algebra of SVF the use of the truncated BCH of order greater than $1$ is problematic, mostly because products of Jacobian matrices are involved.
 
 \begin{figure}[!ht]
 	\hspace{0cm}
@@ -235,10 +243,10 @@ The use of the truncated BCH for the numerical approximation fo the log-composit
 \end{figure}
 
 % 2 limitation of the JACOBIAN. Image scale figure
-On one side every time the differentiation of a vector is required (usually computed with finite difference method -reference-), the results is unstable and sensitive to noise. On the other side, in figure \ref{fig:SVF_image_scale_bracket_versus_gaussian} we can see that the smoother are the SVFs involved in the log composition, the smaller is the norm of the resulting Lie brackets. Therefore, for a couple of very smooth stationary velocity field, the higher term of the BCH carry little or not information.
+On one side every time the differentiation of a vector is required, the results is unstable and sensitive to noise. On the other side, in figure \ref{fig:SVF_image_scale_bracket_versus_gaussian} we can see that the smoother are the SVF the smaller is the norm of resulting Lie brackets. In consequence of this, for a couple of very smooth stationary velocity field, the higher term of the BCH carry little or no information.
 
 % Boxplot comment, why it behave in this way
-For both of these reasons it follows that an increase in the degree of the truncated BCH does not necessarily implies a better approximation or an increase in the robustness of the method. Looking at the boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} we can see why in the previous section we did not compare the truncated BCH of order higher than 1 with the parallel transport method. The truncated BCH of higher degrees does not have better results than the degree 1. It is also interesting to notice that in some cases the truncated BCH formula of degree 2 provides worst results than the truncated BCH formula of degree 1, in particular when the involved SVF have been generated with a small Gaussian smoother.
+It follows that an increase in the degree of the truncated BCH does not necessarily implies a better approximation or an increase in the robustness of the method. Looking at the boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} we can see why in the previous section the truncated BCH of order higher than 1 does not appear: they simply does not have better results than the degree 1. It is also interesting to notice that in some cases the truncated BCH formula of degree 2 provides worst results than the truncated BCH formula of degree 1, in particular when the involved SVF have been generated with a small Gaussian smoother.
 
 \begin{figure}[!ht]
 	\hspace{-0.5cm}
@@ -263,7 +271,7 @@ But, since the log-composition is only a small component of the registration alg
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.30]{figures/three_brains_problem.pdf}
+	\includegraphics[scale=0.25]{figures/three_brains_problem.pdf}
 	\caption{design of the experiment with SVF obtained with real data. The... }
 	\label{fig:three_brains_problem}
 \end{figure}
@@ -285,17 +293,17 @@ From this assumption, it follows:
 The exact solution of the log-composition would provide then:
 \begin{align*}
 \int_{\Omega} \euclideanMetric{
-	\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B}
+	\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}
 	-
 	\mathbf{u}_{A}^{C}
 }_{L^2}^{2} d\mathbf{x} 
  =
  0
 \end{align*} 
-While, when $\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B}$ is approximated with some numerical method $M$, the previous integral provides its error.
+While, when $\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}$ is approximated with some numerical method $M$, the previous integral provides its error.
 \begin{align}\label{eq:error_real_data_formula} 
 \int_{\Omega} \euclideanMetric{
-	M(\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B})
+	M\big(\exp(\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B}) \big)
 	-
 	\mathbf{u}_{A}^{C}
 }_{L^2}^{2} d\mathbf{x} 
@@ -305,15 +313,15 @@ While, when $\mathbf{u}_{B}^{C}) \oplus \exp(\mathbf{u}_{A}^{B}$ is approximated
 
 Certainly, the equation \ref{eq:transitivity_of_the_registration} is correct only for the ideal registration algorithms, and the distance between the two members, computed using for example the metric $d^{1}$ defined in equation \ref{def:metric_two_displacement_field} can be utilized to validate the registration algorithm:
 \begin{align*}
-d^{1}(\varphi_{B}^{C} \circ \varphi_{A}^{B} ,\varphi_{A}^{B}) ) 
+d^{1}(\varphi_{B}^{C} \circ \varphi_{A}^{B} ,\varphi_{A}^{B}) 
 = 
 \text{Error}_{\text{reg}}
 \end{align*} 
-The error $\text{Error}_{\text{reg}}$ is embedded in the the computations of the equation \ref{eq:error_real_data_formula}, but it has the same effect for all of the numerical approximations of the log-composition. Therefore, even if the equation \ref{eq:error_real_data_formula} does not measures exclusively the numerical error of the log-composition, they are consistent.
+The error $\text{Error}_{\text{reg}}$ is embedded in the the computations of the equation \ref{eq:error_real_data_formula}, but it has the same effect for all of the numerical method that approximate the log-composition. Therefore, even if the equation \ref{eq:error_real_data_formula} does not measures exclusively the numerical error of the log-composition, its result is consistent for different numerical methods.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Results}
-In figure ... mean error boxplot and divided by patient graph!
+In figure ... mean error boxplot and divided by patients graph!
 
 
 

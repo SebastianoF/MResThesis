@@ -52,7 +52,15 @@ Martin Bauer, Philipp Harms, and Peter~W Michor.
 \newblock Sobolev metrics on shape space of surfaces in n-space.
 \newblock {\em Arxiv preprint arXiv:1009.3616}, 2010.
 
-\bibitem[BO08]{Bossa:08}
+\bibitem[BHO07]{Bossa2007}
+Matias Bossa, Monica Hernandez, and Salvador Olmos.
+\newblock {Contributions to 3D diffeomorphic atlas estimation: application to
+  brain images.}
+\newblock {\em Medical image computing and computer-assisted intervention :
+  MICCAI ... International Conference on Medical Image Computing and
+  Computer-Assisted Intervention}, 10:667--674, 2007.
+
+\bibitem[BO08a]{Bossa:08}
 Matias Bossa and Salvador Olmos.
 \newblock {A New Algorithm for the Computation of the Group Logarithm of
   Diffeomorphisms}.
@@ -60,6 +68,13 @@ Matias Bossa and Salvador Olmos.
   Workshop on Mathematical Foundations of Computational Anatomy - Geometrical
   and Statistical Methods for Modelling Biological Shape Variability}, New
   York, USA, 2008.
+
+\bibitem[BO08b]{bossa2008new}
+Matias Bossa and Salvador Olmos.
+\newblock A new algorithm for the computation of the group logarithm of
+  diffeomorphisms.
+\newblock In {\em 2nd MICCAI Workshop on Mathematical Foundations of
+  Computational Anatomy}, 2008.
 
 \bibitem[BZO08]{bossa2008algorithms}
 Matias Bossa, Ernesto Zacur, and Salvador Olmos.
@@ -117,6 +132,12 @@ Brian Hall.
 \newblock {\em Lie groups, Lie algebras, and representations: an elementary
   introduction}, volume 222.
 \newblock Springer, 2015.
+
+\bibitem[HSSE09]{holm2009geometric}
+Darryl~D Holm, Tanya Schmah, Cristina Stoica, and David~CP Ellis.
+\newblock {\em Geometric mechanics and symmetry: from finite to infinite
+  dimensions}.
+\newblock Oxford University Press London, 2009.
 
 \bibitem[Hun07]{hunter2007}
 J.~D. Hunter.

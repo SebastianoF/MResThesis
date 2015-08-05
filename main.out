@@ -2,7 +2,7 @@
 \BOOKMARK [1][-]{section.1.1}{Choosing the Deformations: Diffeomorphisms}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Introducing the Log-composition and the BCH formula}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{Feasible Applications of the Log-composition in Medical Imaging}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{A Short Remark about the Lie Group of Diffeomorphisms}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Thesis' Outline}{chapter.1}% 5
 \BOOKMARK [0][-]{chapter.2}{Tools from Differential Geometry}{}% 6
 \BOOKMARK [1][-]{section.2.1}{A Lie Group Structure for the Set of Transformations}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula}{chapter.2}% 8
@@ -18,7 +18,7 @@
 \BOOKMARK [1][-]{section.3.2}{The Lie group of Diffeomorphisms}{chapter.3}% 18
 \BOOKMARK [2][-]{subsection.3.2.1}{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{section.3.2}% 19
 \BOOKMARK [2][-]{subsection.3.2.2}{A bigger algebra for the group of Diffeomorphisms}{section.3.2}% 20
-\BOOKMARK [2][-]{subsection.3.2.3}{Norm for elements in the one-parameter subgroup}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.3}{A Norm for the Elements in the one-parameter subgroup}{section.3.2}% 21
 \BOOKMARK [2][-]{subsection.3.2.4}{Parametrization of SVF: Grids and Discretized Vector Fields}{section.3.2}% 22
 \BOOKMARK [2][-]{subsection.3.2.5}{Computations of Log-composition for SVF}{section.3.2}% 23
 \BOOKMARK [0][-]{chapter.4}{Log-composition to Compute the Lie Logarithm}{}% 24
@@ -31,7 +31,7 @@
 \BOOKMARK [1][-]{section.5.1}{Log-composition for se\(2\)}{chapter.5}% 31
 \BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 32
 \BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 33
-\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF.}{section.5.2}% 34
+\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF}{section.5.2}% 34
 \BOOKMARK [2][-]{subsection.5.2.2}{Log-composition for synthetic SVF}{section.5.2}% 35
 \BOOKMARK [2][-]{subsection.5.2.3}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 36
 \BOOKMARK [1][-]{section.5.3}{A Problem for Three Brains}{chapter.5}% 37
