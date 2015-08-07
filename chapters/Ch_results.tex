@@ -247,7 +247,7 @@ We would expect something similar for SVF, but in this case the use of the trunc
 On one side, every time the differentiation of a vector is required, the results is unstable and sensitive to noise, because of the numerical approximation. On the other side, in figure \ref{fig:SVF_image_scale_bracket_versus_gaussian} we can see that the smoother are the SVF the smaller is the norm of resulting Lie brackets. In consequence of these reasons, for a couple of \lq\lq very smooth\rq\rq~ stationary velocity field, the higher term of the BCH carry small information extremely sensitive to noise.
 
 % Boxplot comment, why it behave in this way
-It follows that an increase in the degree of the truncated BCH does not necessarily implies a better approximation or an increase in the robustness of the method. 
+It follows that an increase in the degree of the truncated BCH does not necessarily imply a better approximation or an increase in the robustness of the method. 
 
 The boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} shows why in the previous section the truncated BCH of order higher than 1 does not appear: they simply does not have better results than the degree 1. It is also interesting to notice that in some cases the truncated BCH formula of degree 2 provides worst results than the truncated BCH formula of degree 1, in particular when the involved SVF have been generated with a small Gaussian smoother.
 
@@ -277,15 +277,15 @@ We chose instead to validate the numerical methods for the log-composition using
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.25]{figures/three_brains_problem.pdf}
-	\caption{design of the experiment with SVF obtained with real data. The... }
+	\caption{design of the experiment with SVF obtained with real data. Three figures represents three  longitudinal scans of the same patient at time $A$, $B$ and $C$. The vector $\mathbf{u}_{A}^{B}$ is the SVF that corresponds to the non-rigid transformation from $A$ to $B$ that aligns the image $B$ with $A$. Equivalently $\mathbf{u}_{B}^{C}$ is the SVF from $B$ to $C$, and $\mathbf{u}_{A}^{C}$ from $A$ to $C$. For the ideal registration algorithm we have that $\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B}))$ $=$ $\mathbf{u}_{A}^{C} $; when the first member is compute with a numerical method the difference with the second member members provides a measure of the error in the numerical method for the log-composition. When the registration is not ideal, the equation \ref{eq:error_real_data_formula} (where M is the chosen numerical method) still provides still a consistent measure of the error of the different numerical methods for the computation of the the log composition. }
 	\label{fig:three_brains_problem}
 \end{figure}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Design of Experiment}
-For our purposes we design a simple experiment that involves three T1 MRI longitudinal scans of the same patient in three points in time $A$, $B$ and $C$. $A$ is the baseline, $B$ is the first follow-up after $7$ months and $C$ is the third follow-up, after $12$ months. Dataset has been collected from ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer}.
+For our purposes we design a simple experiment that involves three T1 MRI longitudinal scans of the same subject in three points in time $A$, $B$ and $C$. $A$ is the baseline, $B$ is the first follow-up, months and $C$ is the second follow-up.
 
-Using NiftyReg is it possible to obtain the SVF of the transformations obtained by the non-rigid registration algorithm based on cubic B-spline. If $\varphi_{A}^{B}$ is the transformation from $A$ to $B$ that aligns the image $B$ with $A$, and $\mathbf{u}_{A}^{B}$ the corresponding SVF, then for an ideal registration algorithm (that fully satisfies the transitivity property) we have
+If $\varphi_{A}^{B}$ is the non-rigid transformation from $A$ to $B$ that aligns the image $B$ with $A$, and $\mathbf{u}_{A}^{B}$ the corresponding SVF, then for an ideal registration algorithm (that fully satisfies the transitivity property) we have
 \begin{align}\label{eq:transitivity_of_the_registration}
 \varphi_{B}^{C} \circ \varphi_{A}^{B} = \varphi_{A}^{C}  
 \end{align}
@@ -326,27 +326,34 @@ The error $\text{Error}_{\text{reg}}$ is embedded in the the computations of the
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Results}
-In figure ... mean error boxplot and divided by patients graph!
+
+The dataset has been collected from ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer} and consists of $3$ longitudinal scans of $16$ control subjects (CTL).
+The baseline $A$ at time $0$ is followed by a first follow-up $B$, after three months, and a second follow up $C$, after $6$ months.
 
 \begin{figure}[!ht]
 	\hspace{-1.0cm}
-	\includegraphics[scale=0.5]{figures/svf_log_composition_boxplot_real_data.pdf}
-	\caption{design of the experiment with SVF obtained with real data. The... }
-	\label{fig:svf_log_composition_boxplot_real_data}
+	\includegraphics[scale=0.5]{figures/svf_log_composition_boxplot_real_data_CTL.pdf}
+	\caption{Log-composition for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is shown in figure \ref{fig:three_brains_problem}, and the error of the log-composition is computed with the formula \ref{eq:error_real_data_formula}, where $\mathbf{u}_{A}^{B}$ is the SVF that corresponds to the non-rigid transformation from $A$ to $B$; $M\big(\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B} \big)$ is the numerical computation of the log composition $\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}$ with the method $M$, chosen among $\text{BCH}^0$, $\text{BCH}^1$, $\text{BCH}^{1.5}$, $\text{BCH}^2$ and parallel transport (P.T.).}
+	\label{fig:svf_log_composition_boxplot_real_data_CTL}
 \end{figure}
+
+NiftyReg provided the SVF of the transformations obtained by the non-rigid registration algorithm based on cubic B-spline. 
+
+Figure \ref{fig:svf_log_composition_boxplot_real_data_CTL} shows the results of the equations \ref{eq:error_real_data_formula} where $M$ is one of the numerical method based on $\text{BCH}^0$, $\text{BCH}^1$, $\text{BCH}^{1.5}$, $\text{BCH}^2$ and parallel transport (P.T.). Results are consistent with the one obtained for synthetic data. The error obtained with the Parallel transport method is between $\text{BCH}^0$ and $\text{BCH}^1$, while an increase in the degree of the truncated BCH does no imply on the average a better approximation of the log-composition. For real applications is not recommendable to utilize $\text{BCH}^k$ for $k\geq 2$. The best method si the $\text{BCH}^1$ that involves one nested Lie bracket, while the parallel transport is the first choice when it is preferable to avoid the computation of the Lie bracket (and the consequent computation of the Jacobian matrices.). 
 
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Log-Algorithm for SVF}
+\section{Lie Logarithm computation for $SE(2)$}
 
-To compare the different numerical methods for the the logarithm computation algorithm we remain where a ground truth is available, i.e. in the finite dimensional case. We consider a data set of $200$ random matrices in the Lie group $SE(2)$ with their respective logarithm in $\mathfrak{se}(2)$ computed using the closed form presented in chapter \ref{ch:spatial_transformations}. For each of the method considered and for each of the random matrix we have convergence up to a precision of $10^{-12}$ before the $50^{\text{th}}$ iteration.
+Here we present the results of the numerical methods presented in chapter \ref{ch:log_algorithm}. Different numerical methods for the computation of the Lie logarithm are compared when a ground truth is available, i.e. in the finite dimensional case. We consider a data set of $200$ random matrices in the Lie group $SE(2)$ with their respective logarithm in $\mathfrak{se}(2)$ computed using the closed form presented in chapter \ref{ch:spatial_transformations}. 
 
-In figure \ref{fig:log_computation_boxplot} we can see the average number of iterations required to reach the solution with a precision of $10^{-4}$ for each of the numerical method considered. Each box represents $200$ random matrices in $SE(2)$ with Frobenius norm uniformly selected between $1$ and $3$.
+Results are all positive. For each of the method considered and for each of the random matrix we have convergence up to a precision of $10^{-12}$ before the $30^{\text{th}}$ iteration.
+In particular, in figure \ref{fig:log_computation_boxplot} we can see the average number of iterations required to reach the solution with a precision of $10^{-4}$ for each of the numerical method considered. Each box represents $200$ random matrices in $SE(2)$ with Frobenius norm uniformly selected between $1$ and $3$.
 
-As obtained in the log-composition the results obtained with parallel transport is comparable with the one obtained with the truncated BCH of degree $1$. Remarkably, in this case, an increase in the degree of the truncated BCH does not ensure a faster convergence and the Taylor method, provides the slower algorithm. The reason for these facts are not clear are the moment and are worthed to be investigated in a future work.
+As obtained for the numerical computations of the log-composition, results obtained with parallel transport are comparable with the results obtained with the truncated BCH of degree $1$. Also in this case, an increase in the degree of the truncated BCH does not ensure a faster convergence and the remarkably the Taylor method provides the slowest algorithm. The reason for these facts are not clear are the moment and are worthed to be investigated in a future work.
 
 \begin{figure}[!ht]
 	\hspace{-0.5cm}
@@ -360,7 +367,8 @@ As obtained in the log-composition the results obtained with parallel transport 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Empirical Evaluations of the Computational Time}
 
-For the finite dimensional case, a dataset of $36000$ random generated matrix with norm between $0.0$ and $2.0$ has been utilized to measure the computational time of each of the numerical method for the computation of the log-composition here presented. Sum of the computational time for the whole data set is give in seconds, in the following table:\\
+Last part of the results is an empirical evaluation of the computational time. 
+For the finite dimensional case, a dataset of $36000$ random generated matrix with norm between $0.0$ and $2.0$ has been utilized to measure the empirical computational time of each of the numerical method for the computation of the log-composition here presented. Computations are performed with a Mac book pro 2014, 16Gb Ram. Sum of the computational time for the whole data set is give in seconds:\\
 
 \hspace{-1cm}
 \begin{tabular}{ c | c | c | c | c | c | c }
@@ -371,7 +379,7 @@ Ground & $\text{BCH}^0$ & $\text{BCH}^1$ & $\text{BCH}^{1.5}$ & $\text{BCH}^2$ &
 \end{tabular}
 \vspace{0.5cm}
 
-The first column provides the computation of the ground truth, i.e. the closed for the computation of $dr_0 \oplus dr_{1}$. We can see that the computation of the $\text{BCH}^0$ is the fastest, since it consists only in a sum, while the computation of the parallel transport is four time slower than the $\text{BCH}^1$.
+The first column provides the computational time of the ground truth, i.e. the time to compute the closed form for the computation of $dr_0 \oplus dr_{1}$ (two times the Lie exponential, one resampling and one Lie logarithm). As expected the time to compute the $\text{BCH}^0$ for a dataset of size $36000$, is the lowest since it consists simply in a sum, while the computation of the parallel transport is four time slower than the $\text{BCH}^1$, since it involves three times the computation of the Lie exponential and two times the resampling.
 
 When dealing with SVF, the computational time strongly depends on the size of the vector field involved. In figure \ref{fig:svf_computational_time} we can see the relation between the size of the vector field and the increase in the computational time for a data set of $20$ random generated SVF.
 
@@ -387,43 +395,47 @@ When dealing with SVF, the computational time strongly depends on the size of th
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Conclusions}\label{se:conclusions}
 
-In this research is formally defined the mathematical concept of log-composition and are presented the limitations of the numerical method obtained with truncations of the  BCH formula. Two methods not based on the BCH formula (BCH-free methods) are formally introduced, with the proofs of their 
-These methods are compared with the truncated BCH both for transformation in the Lie algebra of rigid body transformations and for stationary velocity fields.
+In this research we formally defined the mathematical concept of log-composition and presented the limitations of the numerical methods for its computation obtained with truncations of the BCH formula. These limitations started the research for BCH-free numerical methods. 
+One of these, based on the geometrical concept of parallel transport is presented here for the first time.
 
+This method is compared with the truncated BCH, both for transformation in the Lie algebra of rigid body transformations (where also a BCH-free numerical method based on the Taylor expansion is available) and for stationary velocity fields (SVF).
 
-% Framework that justifies the use of the frobenius provided improperly a norm for the the SVF.
+The possible applications of efficient numerical method for the computation of the log-composition in medical imaging are listed in section \ref{se:applications_log_com_in_med}. One of these, the computation of the Lie logarithm based on the algorithm presented in \cite{bossa2008new}, is investigated in chapter \ref{ch:log_algorithm}.
 
-% discuraging the use of the truncated BCH for SVF
-A seen from results not 
-
-
-% Parallel transport method as possible valid alternative for the computation of the log-composition
-Considering only the results, this one-year research can be considered much ado about nothing, but...\\
-Computational time...!
+Results show that the log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and get close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining comparable results. This is still not a fully satisfactory result and it requires further researches.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Limitations}\label{se:limtations}
+\subsection{Further Researches}\label{se:further_research}
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{Further Researches}\label{se:further_research}
+Since this research has both practical and theoretical aspects, future researches may eventually affect both sides.
+
+\subsubsection{Numerical Computations} 
+
+We are sure that not all of the possibilities provided by the application of the concept of parallel transport for the computation of the log-composition have been exploited. The formula \ref{eq:parallel_transport}, presented at the end of chapter \ref{ch:tools}, can still be improved, reducing the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential.\\
+
+Another BCH-free formula, not based on the parallel transport, could be obtained extending the Taylor expansion proposed for $SE(2)$ in section \ref{se:rigid_body_transformations} to SVF.
+
+A third one, on which  preliminary tests showed promising results, is obtained using the accelerating convergence series \cite{cohen2000convergence} on the series expansion of the Lie exponential and the Lie logarithm. 
+
+For the numerical computation of the Lie exponential and the Lie logarithm we always used the scaling and squaring and the inverse scaling and squaring, as originally proposed by Arsigny in $2006$ \cite{arsigny2006log}. There are other options available that could improve the computational time of the log-composition, based for example on the Euler method, the midpoint method, the modified Euler method and Runge-Kutta of order $4$. Investigations in this direction are currently in progess.
+
+
+\subsubsection{Theoretical Formula}
+
+On the theoretical side, our naive approach to infinite dimensional Lie group, provided some results, but there are many dark corners. The most relevant is a consequence of the fact that the Dynkin proof of the BCH formula is based on the expansion in power series of the Lie logarithm and Lie exponential. These expansions, unless using the function $\mathcal{V}$ proposed in section \ref{subse:bigger_algebra} are not well defined, and have never been proved for the Lie algebra of diffeomorphisms.
+
+Numerical results here presented shows to some extent a converging behaviour of the BCH - as much as the numerical computation of the Jacobian matrix with finite difference allows.
+Other numerical tests, not presented in this research, on which we are currently working, are showing that for SVF, and using the funciton $\mathcal{V}$ expansion in power series of the Lie exponential converges. This would support the fact that the Dynkin proof holds for SVF. As previously said, this is a dark corner that we are try to exploring as much as our limited abilities and possibility allow.
 
 
 
 
-The BCH is proved only when the exp and log can be expressed in power series, so when the Lie group and the Lie algebra involved belongs to the same bigger group. This is not the case of the infinite dimensional Lie group of diffeomorphisms,
 
+%% theoretical side in general
+%Starting from the definition of Lie log-group of diffeomorpshisms $(\mathfrak{g} , \oplus)$, to have an algebraic definition of this approximation, we can consider its quotient over the ideal generated by $(\text{ad}_{\mathbf{u}}^{m}, \text{ad}_{\mathbf{u}}^{n})$, which provides the group $(\quotient{\mathfrak{g}}{(\text{ad}_{\mathbf{u}}^{m}, \text{ad}_{\mathbf{u}}^{n})}, \oplus)$. Further investigations in this direction is not prosecuted.
 
-% More tests on real data are necessarily
-
-% More tests on diffeomorphic demon framework where parallel transport could fit sometimes better than the sum, and could avoid the use of the jacobian matrices.
-
-% theoretical side in general
-Starting from the definition of Lie log-group of diffeomorpshisms $(\mathfrak{g} , \oplus)$, to have an algebraic definition of this approximation, we can consider its quotient over the ideal generated by $(\text{ad}_{\mathbf{u}}^{m}, \text{ad}_{\mathbf{u}}^{n})$, which provides the group $(\quotient{\mathfrak{g}}{(\text{ad}_{\mathbf{u}}^{m}, \text{ad}_{\mathbf{u}}^{n})}, \oplus)$. Further investigations in this direction is not prosecuted.
-
-% theoretical side for an improvement on the parallel transport: it has been shown that expoiting the fiber bundle on the Lie group works, for both matrices and SVF. But based on may assumptions. Investigating better the situation may lead to an improved formula for the computation of the log-composition.
 
 
 

@@ -433,7 +433,7 @@ The passage from the finite to the infinite dimensional case is not free of dece
 	\item Lie logarithm and Lie exponential are local isomorphisms.
 	\item $SE(2)$ and $\mathfrak{se}(2)$ are subset of a bigger algebra, where all of the operations are compatible.
 \end{enumerate}
-Before moving toward these concepts, we need to clarify some definitions and notations.
+These will be analyzed in the next two sections, but to avoid ambiguities, we first need to write down some definitions and facts.
 
 \begin{figure}[!ht]
 	\hspace{-1.5cm}
@@ -468,10 +468,10 @@ a^{i} \frac{\partial b_{j}}{\partial x_{i}}\frac{\partial}{\partial x_{j}}
 b^{j} \frac{\partial a^{i}}{\partial x^{j}}\frac{\partial}{\partial x_{i}} 
 = J_{\mathbf{v}}\mathbf{u} - J_{\mathbf{u}}\mathbf{v}
 \end{align*}
-% here the two doors
-It was proved that the Lie algebra of vector fields have, as its Lie group, the group of diffeomorphisms (\cite{milnor1982infinite}, \cite{ovsienko1992integrals}). 
 
-A single vector in the Lie algebra $\text{Vect}(\Omega)$ (represented by one red arrow in figure \ref{fig:composition}) is a vector field defined over $\Omega$ (represented by the set of red arrows in figure \ref{fig:se2_circular_vector_field}). We would expect that, vice versa, to a single diffeomorphism in the Lie group corresponds a single vector of the Lie algebra. This is not the case, since Lie logarithm and Lie exponential are not local isomorphisms on the whole domain.
+% here the two doors
+It was proved that the Lie algebra of the Lie group of diffeomorphisms $\text{Diff}(\Omega)$ is $\text{Vect}(\Omega)$ (\cite{milnor1982infinite}, \cite{ovsienko1992integrals}). 
+Therefore a single vector in the Lie algebra $\text{Vect}(\Omega)$ (represented by one red arrow in figure \ref{fig:composition}) is a vector field defined over $\Omega$ (represented by the set of red arrows in figure \ref{fig:se2_circular_vector_field}). We would expect that, vice versa, to a single diffeomorphism in the Lie group corresponds a single vector of the Lie algebra. This is not the case, since Lie logarithm and Lie exponential are not local isomorphisms on the whole domain.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -526,7 +526,7 @@ Defining a new function $\psi_0^{(t)}(\mathbf{x}) = t_0 + t$ for all $\mathbf{x}
 \end{align*}
 that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:generating_ODE_svf}. In the example of satellite, is like considering the temporal dimension as an additional dimension of the space. The vector that influence the satellite is an SVF for every point in the domain of space-time. 
 
-It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different one parameter subgroups. 
+It follows that tationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solution of non-stationary ODE, are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solution can belongs to two different elements in the one parameter subgroups. 
 
 In conclusion, we have that there in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we do not restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. In addition the set of diffeomoerphisms restricted to the one that solves the equation \ref{eq:generating_ODE_svf} does not form any group with the composition. This happen only if we extend to the solution of the non stationary ODE \ref{eq:generating_ODE_tvvf}, and therefore to TVVF. In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
 \begin{align*}
@@ -534,7 +534,7 @@ In conclusion, we have that there in the case of diffeomorphisms $\exp$ is not a
 \end{align*}
 but to a given SVF exists only one one-parameter subgroup $\varphi$ that satisfies the ODE \ref{eq:generating_ODE_svf}. The same thing does not necessarily happens for the TVVF.
 
-In the LDDMM framework (briefly mentioned in section \ref{se:state_of_the_art}) TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log}, and in subsequent works, the attention has been restricted to SVF, in order to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase}, works only under the assumption that the transformation belongs to the same one-parameter subgroup.
+In the LDDMM framework \cite{beg2005computing} TVVFs are initially considered, while with the paper of Arsigny \cite{arsigny2006log}, and in subsequent works, the attention has been restricted to SVF, in order to be able to use the scaling and squaring and the inverse scaling and squaring algorithms for the numerical computation of the Lie exponential and the Lie logarithm. In fact the scaling and squaring method, as every numerical method based on the phase flow \cite{ying2006phase}, works only under the assumption that the transformation belongs to the same one-parameter subgroup.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

@@ -52,13 +52,11 @@ Martin Bauer, Philipp Harms, and Peter~W Michor.
 \newblock Sobolev metrics on shape space of surfaces in n-space.
 \newblock {\em Arxiv preprint arXiv:1009.3616}, 2010.
 
-\bibitem[BHO07]{Bossa2007}
-Matias Bossa, Monica Hernandez, and Salvador Olmos.
-\newblock {Contributions to 3D diffeomorphic atlas estimation: application to
-  brain images.}
-\newblock {\em Medical image computing and computer-assisted intervention :
-  MICCAI ... International Conference on Medical Image Computing and
-  Computer-Assisted Intervention}, 10:667--674, 2007.
+\bibitem[BMTY05]{beg2005computing}
+M~Faisal Beg, Michael~I Miller, Alain Trouv{\'e}, and Laurent Younes.
+\newblock Computing large deformation metric mappings via geodesic flows of
+  diffeomorphisms.
+\newblock {\em International journal of computer vision}, 61(2):139--157, 2005.
 
 \bibitem[BO08a]{Bossa:08}
 Matias Bossa and Salvador Olmos.
@@ -82,6 +80,11 @@ Matias Bossa, Ernesto Zacur, and Salvador Olmos.
   Performance evaluation.
 \newblock In {\em Computer Vision and Pattern Recognition Workshops, 2008.
   CVPRW'08. IEEE Computer Society Conference on}, pages 1--8. IEEE, 2008.
+
+\bibitem[CVZ00]{cohen2000convergence}
+Henri Cohen, Fernando~Rodriguez Villegas, and Don Zagier.
+\newblock Convergence acceleration of alternating series.
+\newblock {\em Experimental mathematics}, 9(1):3--12, 2000.
 
 \bibitem[DCDC76]{do1976differential}
 Manfredo~Perdigao Do~Carmo and Manfredo~Perdigao Do~Carmo.
