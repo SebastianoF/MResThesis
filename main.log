@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  7 AUG 2015 11:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.26)  9 AUG 2015 18:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,7 +576,8 @@ Package hyperref Warning: Unexpected value for option `hidelinks'
 
 (./main.aux (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
 (./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
-(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
+(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux)
+(./chapters/Ch_conclusion.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
@@ -642,7 +643,7 @@ LaTeX Info: Redefining \nameref on input line 64.
 \openout4 = `main.out'.
 
 
-<figures/UCL-logo3.pdf, id=176, 838.75516pt x 245.29291pt>
+<figures/UCL-logo3.pdf, id=184, 838.75516pt x 245.29291pt>
 File: figures/UCL-logo3.pdf Graphic file (type pdf)
 
 <use figures/UCL-logo3.pdf>
@@ -696,36 +697,36 @@ l.27
       [1
 
 
-] <figures/log_composition.pdf, id=308, 1250.6725pt x 800.9925pt>
+] <figures/log_composition.pdf, id=317, 1250.6725pt x 800.9925pt>
 File: figures/log_composition.pdf Graphic file (type pdf)
 
 <use figures/log_composition.pdf>
-Package pdftex.def Info: figures/log_composition.pdf used on input line 58.
-(pdftex.def)             Requested size: 312.66736pt x 200.24763pt.
+Package pdftex.def Info: figures/log_composition.pdf used on input line 56.
+(pdftex.def)             Requested size: 437.74194pt x 280.35156pt.
+
+Overfull \hbox (37.74194pt too wide) in paragraph at lines 56--57
+ [][] 
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.77 T
-      here are many issues, both theoretical and practical that prevent from...
-[2]
-Overfull \hbox (5.85289pt too wide) in paragraph at lines 92--92
+l.77 
+      [2]
+Overfull \hbox (5.85289pt too wide) in paragraph at lines 90--90
 []\OT1/cmr/bx/n/14.4 Feasible Ap-pli-ca-tions of the Log-composition in Med-
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4429) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.95 
+l.93 
       [3 <./figures/log_composition.pdf>]
-
-LaTeX Warning: Reference `ch:log_computations' on page 4 undefined on input lin
-e 120.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 22.43335pt.
@@ -736,7 +737,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.133 
+l.131 
        [4]) [5]
 \openout2 = `chapters/Ch_tools.aux'.
 
@@ -750,14 +751,14 @@ Chapter 2.
 Underfull \vbox (badness 8019) has occurred while \output is active []
 
  [7]
-[8] [9] [10] <figures/inversion_1.pdf, id=495, 1074.0125pt x 673.51625pt>
+[8] [9] [10] <figures/inversion_1.pdf, id=502, 1074.0125pt x 673.51625pt>
 File: figures/inversion_1.pdf Graphic file (type pdf)
 
 <use figures/inversion_1.pdf>
 Package pdftex.def Info: figures/inversion_1.pdf used on input line 219.
 (pdftex.def)             Requested size: 170.71652pt x 107.05568pt.
 
-<figures/inversion_2.pdf, id=496, 1074.0125pt x 682.55pt>
+<figures/inversion_2.pdf, id=503, 1074.0125pt x 682.55pt>
 File: figures/inversion_2.pdf Graphic file (type pdf)
 
 <use figures/inversion_2.pdf>
@@ -769,7 +770,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 226--227
  []
 
 [11] [12 <./figures/inversion_1.pdf> <./figures/inversion_2.pdf>]
-<figures/theorem_pict.pdf, id=549, 720.6925pt x 657.45625pt>
+<figures/theorem_pict.pdf, id=556, 720.6925pt x 657.45625pt>
 File: figures/theorem_pict.pdf Graphic file (type pdf)
 
 <use figures/theorem_pict.pdf>
@@ -777,17 +778,17 @@ Package pdftex.def Info: figures/theorem_pict.pdf used on input line 346.
 (pdftex.def)             Requested size: 241.84842pt x 220.6229pt.
  [13] [14 <./figures/theorem_pict.pdf>] [15]
 [16]
-<figures/u_plus_v_parallel_transported.pdf, id=596, 765.86125pt x 578.16pt>
+<figures/u_plus_v_parallel_transported.pdf, id=605, 765.86125pt x 578.16pt>
 File: figures/u_plus_v_parallel_transported.pdf Graphic file (type pdf)
 
 <use figures/u_plus_v_parallel_transported.pdf>
 Package pdftex.def Info: figures/u_plus_v_parallel_transported.pdf used on inpu
-t line 566.
+t line 569.
 (pdftex.def)             Requested size: 184.9429pt x 139.60814pt.
 
 
 LaTeX Warning: Reference `se:diffe_util_and_liab' on page 17 undefined on input
- line 600.
+ line 601.
 
 ) [17 <./figures/u_plus_v_parallel_transported.pdf>]
 \openout2 = `chapters/Ch_spatial_transformations.aux'.
@@ -819,7 +820,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
-[19] <figures/exp_se2.pdf, id=635, 1247.66125pt x 799.98875pt>
+[19] <figures/exp_se2.pdf, id=641, 1247.66125pt x 799.98875pt>
 File: figures/exp_se2.pdf Graphic file (type pdf)
 
 <use figures/exp_se2.pdf>
@@ -853,7 +854,7 @@ mr/m/n/10 )[]\OML/cmm/m/it/10 dt[]$\OT1/cmr/m/n/10 .
  []
 
 [22] [23]
-<figures/se2_circular_vector_field.pdf, id=680, 780.51598pt x 346.89601pt>
+<figures/se2_circular_vector_field.pdf, id=686, 780.51598pt x 346.89601pt>
 File: figures/se2_circular_vector_field.pdf Graphic file (type pdf)
 
 <use figures/se2_circular_vector_field.pdf>
@@ -866,7 +867,7 @@ Overfull \hbox (27.8563pt too wide) in paragraph at lines 439--441
  []
 
 [24 <./figures/se2_circular_vector_field.pdf>] [25] [26]
-<figures/exp_versus_v.pdf, id=775, 762.85pt x 577.15625pt>
+<figures/exp_versus_v.pdf, id=783, 762.85pt x 577.15625pt>
 File: figures/exp_versus_v.pdf Graphic file (type pdf)
 
 <use figures/exp_versus_v.pdf>
@@ -902,7 +903,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 21.
 
-<figures/se2_image_scale.pdf, id=873, 1011.78pt x 578.16pt>
+<figures/se2_image_scale.pdf, id=881, 1011.78pt x 578.16pt>
 File: figures/se2_image_scale.pdf Graphic file (type pdf)
 
 <use figures/se2_image_scale.pdf>
@@ -917,7 +918,7 @@ Overfull \hbox (71.12231pt too wide) in paragraph at lines 32--38
 
 
 
-] <figures/se2_boxplot.pdf, id=887, 867.24pt x 505.89pt>
+] <figures/se2_boxplot.pdf, id=895, 867.24pt x 505.89pt>
 File: figures/se2_boxplot.pdf Graphic file (type pdf)
 
 <use figures/se2_boxplot.pdf>
@@ -929,7 +930,7 @@ Overfull \hbox (16.05603pt too wide) in paragraph at lines 77--79
  []
 
 [36 <./figures/se2_image_scale.pdf>]
-<figures/svf_gaussian_smoothing_effects.pdf, id=982, 599.84097pt x 375.804pt>
+<figures/svf_gaussian_smoothing_effects.pdf, id=990, 599.84097pt x 375.804pt>
 File: figures/svf_gaussian_smoothing_effects.pdf Graphic file (type pdf)
 
 <use figures/svf_gaussian_smoothing_effects.pdf>
@@ -945,7 +946,7 @@ Overfull \hbox (19.8858pt too wide) in paragraph at lines 92--93
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37 <./figures/se2_boxplot.pdf>]
-<figures/SVF_sigma_means_comparisons.pdf, id=1077, 881.69403pt x 375.804pt>
+<figures/SVF_sigma_means_comparisons.pdf, id=1085, 881.69403pt x 375.804pt>
 File: figures/SVF_sigma_means_comparisons.pdf Graphic file (type pdf)
 
 <use figures/SVF_sigma_means_comparisons.pdf>
@@ -961,7 +962,7 @@ Overfull \hbox (23.42747pt too wide) in paragraph at lines 114--118
 Underfull \vbox (badness 3826) has occurred while \output is active []
 
  [38 <./figures/svf_gaussian_smoothing_effects.pdf>] [39 <./figures/SVF_sigma_m
-eans_comparisons.pdf>] <figures/SVF_image_scale.pdf, id=1204, 939.51pt x 245.71
+eans_comparisons.pdf>] <figures/SVF_image_scale.pdf, id=1212, 939.51pt x 245.71
 8pt>
 File: figures/SVF_image_scale.pdf Graphic file (type pdf)
 
@@ -973,7 +974,7 @@ Overfull \hbox (59.20337pt too wide) in paragraph at lines 177--179
 []  [] 
  []
 
-<figures/SVF_scatter_plot.pdf, id=1211, 794.97pt x 361.35pt>
+<figures/SVF_scatter_plot.pdf, id=1219, 794.97pt x 361.35pt>
 File: figures/SVF_scatter_plot.pdf Graphic file (type pdf)
 
 <use figures/SVF_scatter_plot.pdf>
@@ -985,7 +986,7 @@ Overfull \hbox (36.52878pt too wide) in paragraph at lines 184--186
  []
 
 [40 <./figures/SVF_image_scale.pdf>]
-<figures/SVF_image_scale_bracket_versus_gaussian.pdf, id=1299, 722.7pt x 325.21
+<figures/SVF_image_scale_bracket_versus_gaussian.pdf, id=1307, 722.7pt x 325.21
 5pt>
 File: figures/SVF_image_scale_bracket_versus_gaussian.pdf Graphic file (type pd
 f)
@@ -994,7 +995,7 @@ Package pdftex.def Info: figures/SVF_image_scale_bracket_versus_gaussian.pdf us
 ed on input line 241.
 (pdftex.def)             Requested size: 361.3491pt x 162.6071pt.
  [41 <./figures/SVF_scatter_plot.pdf>]
-<figures/SVF_boxplot_comparisons_BCH.pdf, id=1352, 867.24pt x 505.89pt>
+<figures/SVF_boxplot_comparisons_BCH.pdf, id=1361, 867.24pt x 505.89pt>
 File: figures/SVF_boxplot_comparisons_BCH.pdf Graphic file (type pdf)
 
 <use figures/SVF_boxplot_comparisons_BCH.pdf>
@@ -1007,7 +1008,7 @@ Overfull \hbox (21.61479pt too wide) in paragraph at lines 255--257
  []
 
 [42 <./figures/SVF_image_scale_bracket_versus_gaussian.pdf>]
-<figures/three_brains_problem.pdf, id=1431, 1202.4925pt x 720.6925pt>
+<figures/three_brains_problem.pdf, id=1439, 1202.4925pt x 720.6925pt>
 File: figures/three_brains_problem.pdf Graphic file (type pdf)
 
 <use figures/three_brains_problem.pdf>
@@ -1016,7 +1017,7 @@ Package pdftex.def Info: figures/three_brains_problem.pdf used on input line 27
 (pdftex.def)             Requested size: 300.62239pt x 180.17268pt.
  [43 <./figures/SVF_boxplot_comparisons_BCH.pdf>] [44 <./figures/three_brains_p
 roblem.pdf>]
-<figures/svf_log_composition_boxplot_real_data_CTL.pdf, id=1536, 867.24pt x 505
+<figures/svf_log_composition_boxplot_real_data_CTL.pdf, id=1544, 867.24pt x 505
 .89pt>
 File: figures/svf_log_composition_boxplot_real_data_CTL.pdf Graphic file (type 
 pdf)
@@ -1038,7 +1039,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 349.
 
 [45 <./figures/svf_log_composition_boxplot_real_data_CTL.pdf>]
-<figures/log_computation_boxplot.pdf, id=1613, 867.24pt x 505.89pt>
+<figures/log_computation_boxplot.pdf, id=1621, 867.24pt x 505.89pt>
 File: figures/log_computation_boxplot.pdf Graphic file (type pdf)
 
 <use figures/log_computation_boxplot.pdf>
@@ -1060,7 +1061,7 @@ Overfull \hbox (7.21494pt too wide) in paragraph at lines 373--381
 []  []
  []
 
-<figures/svf_computational_time.pdf, id=1688, 578.16pt x 397.485pt>
+<figures/svf_computational_time.pdf, id=1696, 578.16pt x 397.485pt>
 File: figures/svf_computational_time.pdf Graphic file (type pdf)
 
 <use figures/svf_computational_time.pdf>
@@ -1072,37 +1073,54 @@ Overfull \hbox (4.70924pt too wide) in paragraph at lines 388--389
 [][] 
  []
 
-[47 <./figures/svf_computational_time.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+) [47 <./figures/svf_computational_time.pdf>]
+\openout2 = `chapters/Ch_conclusion.aux'.
+
+ (./chapters/Ch_conclusion.tex
+[48
+
+
+
+]
+Chapter 6.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-) [48] (./main.bbl [49
+[49]) [50] (./main.bbl [51
 
 
-] [50] [51] [52])
+] [52] [53] [54])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 220.
- [53]
+ [55]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 220.
  (./main.aux
 (./frontback/Preamble.aux) (./chapters/Ch_introduction.aux)
 (./chapters/Ch_tools.aux) (./chapters/Ch_spatial_transformations.aux)
-(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux))
+(./chapters/Ch_log_computations.aux) (./chapters/Ch_results.aux)
+(./chapters/Ch_conclusion.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 220.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 220.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DBF2E3965ACDAA14AE29CA19FCFD6371;3875.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 8A7CE08048C59E5524C2C5DF3EB9838C;4008
+(rerunfilecheck)             After:  0F7C8BCC4AB27BD7C88A7FB39446EBBF;4009.
 
 LaTeX Warning: There were undefined references.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 220.
  ) 
 Here is how much of TeX's memory you used:
- 8393 strings out of 493117
- 118456 string characters out of 6135433
- 245613 words of memory out of 5000000
- 11369 multiletter control sequences out of 15000+600000
+ 8404 strings out of 493117
+ 118704 string characters out of 6135433
+ 246130 words of memory out of 5000000
+ 11372 multiletter control sequences out of 15000+600000
  23711 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,15n,43p,1432b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1131,10 +1149,10 @@ fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2014/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (59 pages, 3062054 bytes).
+Output written on main.pdf (61 pages, 3060308 bytes).
 PDF statistics:
- 1938 PDF objects out of 2073 (max. 8388607)
- 1237 compressed objects within 13 object streams
- 282 named destinations out of 1000 (max. 500000)
- 450 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1954 PDF objects out of 2073 (max. 8388607)
+ 1251 compressed objects within 13 object streams
+ 283 named destinations out of 1000 (max. 500000)
+ 466 words of extra memory for PDF output out of 10000 (max. 10000000)
 

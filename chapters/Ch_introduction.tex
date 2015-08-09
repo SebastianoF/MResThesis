@@ -25,9 +25,7 @@ If the algorithm is meant to model transformations that only preserves topology,
 
 Both rigid and diffeomorphic transformations belong to a \emph{group structure} (see \cite{artin2011algebra} for the abstract definition of group). In a group, only the operation of composition is available, and for mathematical reasons it is not possible to define any norm or meaningful mean of its elements. 
 
-One of the possible strategy to solve this problem is to consider the group with a structure of differentiable manifold compatible with the operation of composition - a \emph{Lie group} - and to consider the linear approximation of its element in the tangent space - its \emph{Lie algebra}; in this vector space it possible to define a norm and therefore to compute statistics.\footnote{
-	This Matster Thesis is based on the mathematical concepts just introduced, the interested reader can refer to the wide literature, starting for example from \cite{lee2012introduction, arnold2006ordinary, warner, do1976differential, misner1973gravitation, holm2009geometric}.
-	}
+One of the possible strategy to solve this problem is to consider the group with a structure of differentiable manifold compatible with the operation of composition - a \emph{Lie group} - and to consider the linear approximation of its element in the tangent space - its \emph{Lie algebra}; in this vector space it possible to define a norm and therefore to compute statistics (see for example from \cite{lee2012introduction, arnold2006ordinary, warner, do1976differential, misner1973gravitation, holm2009geometric}).
 
 % a)
 The Pandora vase containing the idea of using the Lie algebra of the Lie group of diffeomorphisms for the computation of statistics in medical imaging was opened for the first time in $2006$, with the name of \emph{log-Euclidean framework} \cite{Arsigny:MRM:06}.
@@ -37,7 +35,7 @@ Authors proposed the numerical computation of the \emph{Lie exponential} (the ma
 
 These algorithms are not the only options available (see for example \cite{bossa2008algorithms}, \cite{bossa2008new}), but it is important to underline that once you map a transformation from the Lie group to the Lie algebra - with any of the available numerical method - the operation of composition is not anymore available. This can be performed only in the Lie group, while in the Lie algebra there is no operation available that reflects the behaviour of the composition of the elements in the group.
 
-It is in this context that arises the abstract concept of \emph{log-composition}, whose numerical computations are the main aim of this research.
+It is in this context that arises the abstract concept of \emph{Lie log-composition}, whose numerical computations are the main aim of this research.
 
 In the next section we will propose a formal definition of this operation, and in section \ref{se:applications_log_com_in_med} we will provide a short list of the possible applications of the log composition in medical imaging. 
 The section \ref{se:thesis_outline} contains the outline of the thesis and the chapter ends with 
@@ -45,17 +43,17 @@ a brief remarks about the risks and issues involved when considering the infinit
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Introducing the Log-composition and the BCH formula}
+\section{Introducing the Lie Log-composition and the BCH formula}\label{se:introducing_log_composition}
 
 % 
-Let $\exp$ be the Lie exponential  and $\log$ the Lie logarithm, the log-composition is defined for each couple of vectors $\mathbf{v}_1$, $\mathbf{v}_2$ belonging to the domain of $\exp$ as
+Let $\exp$ be the Lie exponential  and $\log$ the Lie logarithm, the \emph{Lie log-composition} is defined for each couple of vectors $\mathbf{v}_1$, $\mathbf{v}_2$ belonging to the domain of $\exp$ as
 \begin{align}\label{eq:bch_problem}
 \mathbf{v}_1 \oplus \mathbf{v}_2 := \log(\exp(\mathbf{v}_1)\circ\exp(\mathbf{v}_2))
 \end{align}
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.25]{figures/log_composition.pdf}
+	\includegraphics[scale=0.35]{figures/log_composition.pdf}
 	\caption{graphical visualization of the Lie log-composition $\mathbf{v}_{1}\oplus \mathbf{v}_{2}$. The gray surface represents a Lie group and its tangent plane represents its Lie algebra. }
 	\label{fig:composition}
 \end{figure}
@@ -74,7 +72,7 @@ BCH(\mathbf{u},\mathbf{v})
 \end{align*}
 It consists in an infinite series of growing nested \emph{Lie bracket} (a bilinear form defined within the Lie algebra structure, that reflects the geometrical curvature of the space of transformations - see in particular \cite{misner1973gravitation} for a geometrical perspective on this definition).
 
-There are many issues, both theoretical and practical that prevent from the direct use of this formula. The first and most obvious is that it is an infinite series which truncations does not possess any asymptotic behaviour.
+There are many issues, both theoretical and practical that prevent from the use of this formula for practical applications. The first and most obvious is that it is an infinite series which truncations does not possess any asymptotic behaviour.
 In addition, even considering a large enough number of terms, the Lie bracket of two tangent vector of the Lie group of diffeomorphisms involves the computation of the Jacobian matrices: this raises some numerical problems presented in section \ref{se:jacobian_problem}.
 
 On the theoretical side, the proof of the BCH is based on the fact that Lie logarithm and exponential have to be expressed in power series. This happen only when the Lie group and its Lie algebra are subsets of a bigger algebra where scalar product, product and composition are compatible. This happens for matrix Lie groups (see \cite{hall2015lie} for its definition), but in the case of diffeomorphisms, the matter is not free of deceptions. The section \ref{se:svf} is devoted to the research of a bigger algebra that contains both Lie group of diffeomorphisms and its Lie algebra.
@@ -117,7 +115,7 @@ Before moving to the next chapter, aimed to present the numerical techniques for
 	
 	\item[{\bf Chapter \ref{ch:spatial_transformations}}] In this chapter we introduce the two sets of transformations on which the numerical methods will be tested and compared: the finite dimensional group of rigid body transformation and the infinite dimensional Lie group of diffeomorphisms.
 
-	\item[{\bf Chapter \ref{ch:log_computations}}] The algorithm proposed in \cite{bossa2008algorithms} for computation of the Lie logarithm uses an equivalent formulation of the log-composition in its main core. In this chapter we will see how the numerical methods developed in the previous chapter will be utilized in this context.
+	\item[{\bf Chapter \ref{ch:log_algorithm}}] The algorithm proposed in \cite{bossa2008algorithms} for computation of the Lie logarithm uses an equivalent formulation of the log-composition in its main core. In this chapter we will see how the numerical methods developed in the previous chapter will be utilized in this context.
   
 	\item[{\bf Chapter \ref{ch:results}}] This chapter is devoted to the presentation of the numerical results applied to synthetic data and clinical images. 
 	

@@ -22,7 +22,7 @@ We will focus our attention to transformations defined by matrices or diffeomorp
 (x,y) &\longmapsto  x y^{-1}
 \end{align*}
 
-Generally speaking, differential geometry is a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations provides new handles to hold and manipulate it; in particular it provides the opportunity to define a tangent space to each point of the group and consequently a fiber bundle, a space of vector fields, a set of flows and one parameter subgroup.
+Generally speaking, differential geometry is a technique to use the well known calculus features and operators on spaces different from the usual $\mathbb{R}^{n}$. Adding the differentiable structure to a group of transformations provides new handles to hold and manipulate it; in particular it provides the opportunity to define a tangent space to each point of the group and consequently a \emph{fiber bundle} (the disjoint union of all of the tangent space), a space of vector fields, a set of flows and one parameter subgroup.
 
 Due to space limitations we will refer to \cite{do1976differential} and \cite{lee2012introduction} for the definitions and concepts of differential geometry and \cite{do1992riemannian} for definition and concepts of Riemannian geometry.
 
@@ -120,7 +120,7 @@ The following properties holds for the Lie log-composition:
 		\item $\mathbf{u}\oplus\mathbf{0}  = \mathbf{0}\oplus\mathbf{u} = \mathbf{u}$ for all $\mathbf{u}$ in $\mathfrak{g}$.
 		\item $\mathbf{u}\oplus(-\mathbf{u} ) = \mathbf{0}$ for all $\mathbf{u}$ in $\mathfrak{g}$.
 	\end{enumerate}
-	\item For all $t,s$ real, such that $(t+s)\mathbf{u}$ is in $\mathfrak{g}$,
+	\item For all $t,s$ real:
 	\begin{align*}
 	(t\mathbf{u})\oplus (s\mathbf{u}) = (t+s)\mathbf{u}
 	\end{align*}
@@ -130,7 +130,7 @@ The following properties holds for the Lie log-composition:
 \noindent
 The algebraic structure $(\mathfrak{g} , \oplus)$ is called Lie log-group. Additional observations on this algebraic structure in the particular case of diffeomorphisms, are proposed in the next chapter.
 
-To compute the log-composition there is the Backer-Campbell-Hausdorff formula, or BCH,
+To compute the Lie log-composition there is the Backer-Campbell-Hausdorff formula, or BCH,
 that provides the exact solution to the log-composition: 
 \begin{align*}
 BCH(\mathbf{u},\mathbf{v}) 
@@ -138,8 +138,8 @@ BCH(\mathbf{u},\mathbf{v})
 \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]]
 + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) - \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] +... 
 \end{align*}
-Ironically, the name of the formula does not refer to Dynkin, who originally developed the proof of the equality in 1947 \cite{dynkin1947calculation}. An introduction to the particular case of matrices can be found in \cite{hall2015lie}; while the general case is presented in \cite{klarsfeld1989baker}, \cite{serre2009lie}, and for application to medical imaging we refer to \cite{lorenzi2014efficient}, \cite{vercauteren08}.
-This expansion provides the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$, by truncating its terms, but, as stated in chapter \ref{ch:introduction}, this approximation can be problematic.
+Ironically, the name of the formula does not refer to Dynkin, who originally developed the proof of the equality in 1947 \cite{dynkin1947calculation}. An introduction to the particular case of matrices can be found in \cite{hall2015lie}; while the general case is presented in \cite{klarsfeld1989baker}, \cite{serre2009lie}. In \cite{lorenzi2014efficient}, \cite{vercauteren08} the BCH formula is presented for applications to medical imaging.
+This expansion provides the most immediate way to obtain a numerical computation of $\mathbf{u}\oplus \mathbf{v}$, by truncating its terms, but, as said in chapter \ref{ch:introduction}, this approximation can be problematic.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % 
@@ -148,7 +148,7 @@ This expansion provides the most immediate way to obtain a numerical computation
 
 Considering a Lie Group $\mathbb{G}$ with a connection $\nabla$, the vector field $\nabla_{U}(V)$ associates at each point of the manifold the projection on the tangent plane of the derivative of $U$ in the direction of $V$. 
 
-One of the considerable consequences of the definition of the connection is the possibility of defining \emph{geodesics} and curvature on the manifold without relying on any Riemannian metric. If a Riemannian metric is also defined on the manifold $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular case of Levi-Civita connection (see \cite{do1992riemannian}). A curve $\gamma:[0,1]\rightarrow \mathbb{G}$ such that $\gamma(0)=p$ and $\gamma(1) = q$ is a \emph{geodesic} defined by the connection $\nabla$ if 
+One of the interesting consequences of the definition of the connection is the possibility of defining \emph{geodesics} and curvature on the manifold without relying on any Riemannian metric. If a Riemannian metric is also defined on the manifold $\mathbb{G} $, then geodesics defined by the metric coincides with the geodesics defined by the connection only for the particular case of Levi-Civita connection (see \cite{do1992riemannian}). A curve $\gamma:[0,1]\rightarrow \mathbb{G}$ such that $\gamma(0)=p$ and $\gamma(1) = q$ is a \emph{geodesic} defined by the connection $\nabla$ if 
 \begin{align}\label{def:geodesics_eq}
 \nabla_{\dot{\gamma}}\dot{\gamma} = 0 %\qquad \qquad \forall t\in [0,1] 
 \end{align}
@@ -164,17 +164,17 @@ This second kind of exponential differs from the exponential map previously intr
 \noindent
 The inverse of the affine exponential, the \emph{affine logarithm} is defined as:
 \begin{align*}
-\log :  \mathbb{G}  \times \mathbb{G}   \longrightarrow T_{p}\mathbb{G}   \simeq \mathfrak{g} 
+\log :  \mathbb{G}  \times \mathbb{G}  & \longrightarrow T_{p}\mathbb{G}   \simeq \mathfrak{g} 
 \\ 
-(p,q) \longmapsto \log_{p}(q)  = \mathbf{v} 
+(p,q) &\longmapsto \log_{p}(q)  = \mathbf{v} 
 \end{align*}
-where $\mathbf{v} $ is the tangent vector at the point $p$ of the geodesic $\gamma$ on $\mathbb{G} $ that satisfies $\gamma(0) = p$ and $\gamma(1) = q$. Interestingly the Lie exponential and the Lie logarithm coincide with the affine exponential and the affine logarithm at the identity, if $\nabla$ is a Cartan connection.
+where $\mathbf{v} $ is the tangent vector at the point $p$ of the geodesic $\gamma$ on $\mathbb{G} $ that satisfies $\gamma(0) = p$ and $\gamma(1) = q$. Interestingly if $\nabla$ is a Cartan connection the Lie exponential and the Lie logarithm coincide with the affine exponential and the affine logarithm at the identity.
 
 For further details and properties we refer to the literature; in this introduction we wish to provide only the intuitive idea that it is possible to move on the fiber bundle of the Lie group, transporting in some sense a tangent vector defined at the identity on another tangent space. Certainly the Lie group possesses a unique Lie algebra, as the tangent space at some point (the group's identity by convention), but two different tangent space (so two times the same isomorphic Lie algebra structure) may not have the basis vectors oriented in the same direction. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\subsection{An introduction to Parallel Transport: Surfing on the Tangent Bundle}\label{se:parallel_transport}
+\subsection{An introduction to Parallel Transport: Surfing on the Fiber Bundle}\label{se:parallel_transport}
 
 In this section we introduce the concept of parallel transport for the Lie group $\mathbb{G}$. 
 For an introduction to parallel transport in the general case we refer to \cite{misner1973gravitation}, \cite{knebelman1951spaces}, \cite{kheyfets2000schild}; for medical imaging applications \cite{lorenzi2011schild}, \cite{pennec2011parallel}, \cite{lorenzi2013geodesics} and \cite{lorenzi2014efficient}.
@@ -193,14 +193,14 @@ On this definition, again borrowed from differential geometry, relies a method f
 	\end{align*}
 \end{definition}
 
-Consequence of this definition is that a vector belonging to the tangent space at the identity can be transported on a different tangent space of the manifold, maintaining its direction from the old to the new coordinate reference respect to a chosen curve. Each element of the \emph{fiber bundle}, that can be reached by a curve from the origin, becomes reachable also by any tangent vector at the identity.
+Consequence of this definition is that a vector belonging to the tangent space at the identity can be transported on a different tangent space of the manifold, maintaining its direction from the old to the new coordinate reference respect to a chosen curve. Each element of the fiber bundle, that can be reached by a curve from the origin, becomes reachable also by any tangent vector at the identity.
 
 Another way of moving vectors between an arbitrary tangent space and the tangent space at the identity is expressed in the \emph{change of base formulas} for affine exponential and logarithm \cite{arsigny2006bi}:
 \begin{align}\label{eq:DL_DR}
 \log _{p}(q)  &= DL_{p}(e) \log _{e}(q)  \\
 \exp _{p}(\mathbf{u})  &= p\circ \exp_{e} (DL_{p^{-1}}(e) \mathbf{u})
 \end{align}
-The left-translation $L_{p}$ provides a canonical curves for transporting vectors, expressed as the integral curve of the tangent vector field on the manifold of transformations defined by the push forward of $L_{p}$, indicated here with $DL_{p}$:
+The left-translation $L_{p}$ provides a canonical curves for transporting vectors, expressed as the integral curve of the tangent vector field on the manifold of transformations defined by the push forward of $L_{p}$, indicated here with $DL_{p}$.
 
 We will now explore how the parallel transport and the affine exponential behave when expressed as a composition and when there is a change of signs.
 \begin{prop}[Inversion]
@@ -305,7 +305,7 @@ We will now explore how the parallel transport and the affine exponential behave
 	\begin{align*}
 		\euclideanMetric{\log{(p\circ q)}  - \log{(r)}}< \epsilon
 	\end{align*}
-	then it follows
+	then
 	\begin{align*}
 	\euclideanMetric{\log{(p)}  - \log{(q^{-1} \circ r)}}< \epsilon
 	\end{align*}
@@ -327,7 +327,7 @@ The following theorem is an application of the pole ladder \cite{lorenzi2011schi
 	\end{align*}
 	and $\mathbf{v}_{e}^{\parallel}$ pull-back of the left translation of  the previous vector
 	\begin{align*}
-	 \mathbf{v}_{e}^{\parallel} := D(L_{p^{-1}})_{e}( \mathbf{v}_{p}^{\parallel})
+	 \mathbf{v}_{e}^{\parallel} := DL_{p^{-1}}(e)( \mathbf{v}_{p}^{\parallel})
 	\end{align*}
 	it follows that:
 	\begin{align*}
@@ -456,12 +456,15 @@ BCH^{1}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf
 BCH^{2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]]) \\
 BCH^{3}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}([\mathbf{u},[\mathbf{u},\mathbf{v}]] + [\mathbf{v},[\mathbf{v},\mathbf{u}]])- \frac{1}{24}[\mathbf{v},[\mathbf{u},[\mathbf{u},\mathbf{v}]]] 
 \end{align*}
-In numerical computations nested Lie brackets can raise several issue, in particular when $\mathbf{u}$ and $\mathbf{v}$ are not close to the origin. Assuming that, as often happens for practical applications in imaging registration $\mathbf{v}$ is smaller than $\mathbf{u}$, we define a intermediate degree for the truncated BCH formula, between $1$ and $2$:
+In numerical computations, nested Lie brackets can raise several issues, in particular when $\mathbf{u}$ and $\mathbf{v}$ are not close to the origin. Assuming that, as often happens for practical applications in imaging registration, $\mathbf{v}$ is smaller than $\mathbf{u}$, we define an intermediate degree for the truncated BCH formula, between $1$ and $2$:
 \begin{align*}
 BCH^{3/2}(\mathbf{u},\mathbf{v}) &=  \mathbf{u} + \mathbf{v} + \frac{1}{2}[\mathbf{u},\mathbf{v}] + \frac{1}{12}[\mathbf{u},[\mathbf{u},\mathbf{v}]]
 \end{align*}
 
-Truncated BCH formulas can be considered as a first step toward the numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{v}$. They still have some limitations as the fact that they do not provide any information about the error carried by each term, and they work under the assumption that $\mathbf{u}$ and $\mathbf{v}$ are analytic, so when we can expressed locally with a convergent power series, as in the case of tangent vectors to matrix Lie group. Additional limitation can be found when applied to stationary velocity fields. This will be one of the topic of section \ref{se:log_composition_SVF}.
+Approximations of degree $k$ of the BCH formula can be considered as a first step toward the numerical approximations of the log-composition $\mathbf{u}\oplus \mathbf{v}$. 
+The first limitation of truncating the BCH, as stated in section \ref{se:introducing_log_composition} is that there is no information on the error carried by each term. 
+
+Furthermore, they only apply to cases where $\mathbf{u}$ and $\mathbf{v}$ are analytic, so when we can expressed locally with a convergent power series, as in the case of tangent vectors to matrix Lie group. Additional limitations of this approximation can be found when applied to stationary velocity fields. This will be one of the topic of section \ref{se:log_composition_SVF}.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -567,7 +570,7 @@ The first assumption is a consequence of geometrical intuition. On a flat space,
 	\caption{Representation of the intuitive idea of the computation of the log-composition using parallel transport.}
 	\label{fig:u_plus_v_parallel_transported}
 \end{figure}
-The validity of the second assumption must be investigated case by case. For example when $\mathbb{G}$ is a matrix Lie group, the formula \ref{eq:exp_as_inf_sum} provides $\exp(\mathbf{u}) = I + \mathbf{u} + \mathcal{O}(\mathbf{u}^2)$. In the case of stationary velocity field, we have that the condition hold when $\mathbf{u}$ is small enough (see proposition 8.6 pag. 163 \cite{younes2010shapes}). More on this will be presented in \ref{se:log_composition_SVF}.
+The validity of the second assumption must be investigated case by case. For example when $\mathbb{G}$ is a matrix Lie group, the formula \ref{eq:exp_as_inf_sum} provides $\exp(\mathbf{u}) = I + \mathbf{u} + \mathcal{O}(\mathbf{u}^2)$. In the case of stationary velocity fields, the condition holds when $\mathbf{u}$ is small enough (see proposition 8.6 pag. 163 \cite{younes2010shapes}). More on this will be presented in \ref{se:log_composition_SVF}.
 
 Assuming the validity of these assumptions and from equation \ref{eq:parallel_transport_main_approximation} it follows that 
 \begin{align*}
@@ -593,13 +596,11 @@ Therefore
  -
  e
 \end{align}
-When working in the infinite dimensional case, the approximation \ref{eq:parallel_transport} holds under the following additional assumption:
-\begin{enumerate}
-\item[3.] Theorem \ref{th:local_approximation_theorem} holds when the Lie group is infinite dimensional.
-\end{enumerate}
-An eventual confirmation is at the moment not known to the author. We assume it is true in coherence with what has been said in the introduction, section \ref{se:diffe_util_and_liab} about a naive approach to the infinite dimensional Lie Group theory.
 
-With the truncated BCH and the Taylor expansion, equation \ref{eq:parallel_transport} is the third numerical method for the computation of the log-composition explored in this thesis. The next chapter is devote to introduce two group of transformation - the rigid body transformation and the diffeomorphisms - and to apply the numerical methods presented in this chapter to these cases.
+Another important assumption we are making when the previous formula is applied to stationary velocity fields is that it holds also when the Lie group is infinite dimensional.
+An eventual confirmation of this is at the moment not known to the author. We assume it is true in coherence with what has been said in the introduction, section \ref{se:diffe_util_and_liab} about a naive approach to the infinite dimensional Lie Group theory.
+
+With the truncated BCH and the Taylor expansion, equation \ref{eq:parallel_transport} is the third numerical method for the computation of the log-composition explored in this thesis. The next chapter is devoted to introduce two groups of transformation - the rigid body transformations and the diffeomorphisms - and to apply the numerical methods presented in this chapter to these cases.
 
 
 
