@@ -16,7 +16,8 @@ list_files = ["chapters/Ch_introduction.tex",
               "chapters/Ch_tools",
               "chapters/Ch_spatial_transformations",
               "chapters/Ch_log_computations",
-              "chapters/Ch_results.tex"]
+              "chapters/Ch_results.tex",
+              "chapters/Ch_conclusions.tex"]
 
 pagg = [0]*len(list_files)
 

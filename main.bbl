@@ -17,7 +17,7 @@ Vincent Arsigny, Pierre Fillard, Xavier Pennec, and Nicholas Ayache.
 Vincent Arsigny, Xavier Pennec, and Nicholas Ayache.
 \newblock Bi-invariant means in lie groups. application to left-invariant
   polyaffine transformations.
-\newblock 2006.
+\newblock In {\em Research Report RR-5885, 2006. inria-00071383}. 2006.
 
 \bibitem[Arn66]{arnold1966geometrie}
 Vladimir Arnold.
@@ -39,13 +39,14 @@ Vladimir Arnold.
 
 \bibitem[Art11]{artin2011algebra}
 Michael Artin.
-\newblock Algebra. 2nd, 2011.
+\newblock {\em Algebra. 2nd}.
+\newblock Boston: Prentice-Hall, 2011.
 
-\bibitem[BBHM11]{bauer2011geodesic}
-MARTIN BAUER, MARTINS BRUVERIS, PHILIPP HARMS, and PETER~W MICHOR.
+\bibitem[BBHM13]{bauer2011geodesic}
+Martin Bauer, Martins Bruveris, Philipp Harms, and Peter~W Michor.
 \newblock Geodesic distance for right invariant sobolev metrics of fractional
   order on the diffeomorphism group.
-\newblock 2011.
+\newblock {\em Annals of Global Analysis and Geometry}, 44(1):5--21, 2013.
 
 \bibitem[BHM10]{bauer2010sobolev}
 Martin Bauer, Philipp Harms, and Peter~W Michor.
@@ -81,20 +82,20 @@ Matias Bossa, Ernesto Zacur, and Salvador Olmos.
 \newblock In {\em Computer Vision and Pattern Recognition Workshops, 2008.
   CVPRW'08. IEEE Computer Society Conference on}, pages 1--8. IEEE, 2008.
 
+\bibitem[Car76]{do1976differential}
+M.~Do Carmo.
+\newblock {\em Differential geometry of curves and surfaces}, volume~2.
+\newblock Prentice-hall Englewood Cliffs, 1976.
+
+\bibitem[Car92]{do1992riemannian}
+M.~Do Carmo.
+\newblock {\em Riemannian geometry}.
+\newblock 1992.
+
 \bibitem[CVZ00]{cohen2000convergence}
 Henri Cohen, Fernando~Rodriguez Villegas, and Don Zagier.
 \newblock Convergence acceleration of alternating series.
 \newblock {\em Experimental mathematics}, 9(1):3--12, 2000.
-
-\bibitem[DCDC76]{do1976differential}
-Manfredo~Perdigao Do~Carmo and Manfredo~Perdigao Do~Carmo.
-\newblock {\em Differential geometry of curves and surfaces}, volume~2.
-\newblock Prentice-hall Englewood Cliffs, 1976.
-
-\bibitem[dCV92]{do1992riemannian}
-Manfredo~Perdigao do~Carmo~Valero.
-\newblock {\em Riemannian geometry}.
-\newblock 1992.
 
 \bibitem[Dyn00]{dynkin1947calculation}
 EB~Dynkin.
@@ -349,7 +350,8 @@ Richard Szeliski.
 
 \bibitem[Ver14]{vercauteren2014preprint}
 Tom Vercauteren.
-\newblock Technical memo.
+\newblock Ideas and notes on globally consistent registration frompairwise
+  registration results. technical memo.
 \newblock Pre-print, 2014.
 
 \bibitem[VPM{\etalchar{+}}06]{vercauteren2006robust}
@@ -402,7 +404,8 @@ Lexing Ying and Emmanuel~J Cand{\`e}s.
 
 \bibitem[You10]{younes2010shapes}
 Laurent Younes.
-\newblock Shapes and diffeomorphisms, volume 171 of applied mathematical
-  sciences, 2010.
+\newblock {\em Shapes and diffeomorphisms, volume 171 of Applied Mathematical
+  Sciences}.
+\newblock Springer, 2010.
 
 \end{thebibliography}

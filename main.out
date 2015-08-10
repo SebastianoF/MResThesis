@@ -8,11 +8,11 @@
 \BOOKMARK [1][-]{section.2.2}{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.3}{Affine Exponential, Affine Logarithm and Parallel Transport: Definitions and Properties}{chapter.2}% 9
 \BOOKMARK [2][-]{subsection.2.3.1}{An introduction to Parallel Transport: Surfing on the Fiber Bundle}{section.2.3}% 10
-\BOOKMARK [1][-]{section.2.4}{Numerical Computations of the Log-composition}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.4.1}{Truncated BCH formula for the Log-composition}{section.2.4}% 12
+\BOOKMARK [1][-]{section.2.4}{Numerical Computations of the Lie Log-composition}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.4.1}{Truncated BCH formula for the Lie Log-composition}{section.2.4}% 12
 \BOOKMARK [2][-]{subsection.2.4.2}{Taylor Expansion Method for the Log-composition}{section.2.4}% 13
 \BOOKMARK [2][-]{subsection.2.4.3}{Parallel Transport Method for the Log-composition}{section.2.4}% 14
-\BOOKMARK [0][-]{chapter.3}{Spatial Transformations for the Computations of the Log-composition: SE\(2\) and Diff\(\)}{}% 15
+\BOOKMARK [0][-]{chapter.3}{Spatial Transformations Considered for the Computations of the Log-composition: SE\(2\) and Diff\(\)}{}% 15
 \BOOKMARK [1][-]{section.3.1}{The Lie Group of Rigid Body Transformations}{chapter.3}% 16
 \BOOKMARK [2][-]{subsection.3.1.1}{Computations of Log-composition in se\(2\)}{section.3.1}% 17
 \BOOKMARK [1][-]{section.3.2}{The Lie group of Diffeomorphisms}{chapter.3}% 18
@@ -23,7 +23,7 @@
 \BOOKMARK [2][-]{subsection.3.2.5}{Computations of Log-composition for SVF}{section.3.2}% 23
 \BOOKMARK [0][-]{chapter.4}{Log-composition to Compute the Lie Logarithm}{}% 24
 \BOOKMARK [1][-]{section.4.1}{Spaces of Approximations}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.2}{The Logarithm Computation Algorithm using Log-composition}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.2}{The Logarithm Computation Algorithm using Lie Log-composition}{chapter.4}% 26
 \BOOKMARK [2][-]{subsection.4.2.1}{Truncated BCH Strategy}{section.4.2}% 27
 \BOOKMARK [2][-]{subsection.4.2.2}{Parallel Transport Strategy}{section.4.2}% 28
 \BOOKMARK [2][-]{subsection.4.2.3}{Symmetrization Strategy}{section.4.2}% 29
@@ -32,7 +32,7 @@
 \BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 32
 \BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 33
 \BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF}{section.5.2}% 34
-\BOOKMARK [2][-]{subsection.5.2.2}{Log-composition for synthetic SVF}{section.5.2}% 35
+\BOOKMARK [2][-]{subsection.5.2.2}{Lie Log-composition for synthetic SVF}{section.5.2}% 35
 \BOOKMARK [2][-]{subsection.5.2.3}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 36
 \BOOKMARK [1][-]{section.5.3}{A Problem for Three Brains}{chapter.5}% 37
 \BOOKMARK [2][-]{subsection.5.3.1}{Design of Experiment}{section.5.3}% 38

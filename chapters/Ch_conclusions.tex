@@ -2,27 +2,27 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\chapter{Conclusions}\label{se:conclusions}
+\chapter{Conclusions}\label{ch:conclusions}
 
-In this research we formally defined the mathematical concept of log-composition and presented the limitations of the numerical methods for its computation obtained with truncations of the BCH formula. These limitations started the research for BCH-free numerical methods. 
-One of these, based on the geometrical concept of parallel transport is presented here for the first time.
+In this research we have formally defined the mathematical concept of Lie log-composition and we have presented the limitations of the numerical methods for its computation obtained with truncations of the BCH formula. These limitations are the starting point of the research for BCH-free numerical methods. 
+One of these, based on the geometrical concept of parallel transport is presented here for the first time, and formally proved for general Lie groups.
 
 This method is compared with the truncated BCH, both for transformation in the Lie algebra of rigid body transformations (where also a BCH-free numerical method based on the Taylor expansion is available) and for stationary velocity fields (SVF).
 
-The possible applications of efficient numerical method for the computation of the log-composition in medical imaging are listed in section \ref{se:applications_log_com_in_med}. One of these, the computation of the Lie logarithm based on the algorithm presented in \cite{bossa2008new}, is investigated in chapter \ref{ch:log_algorithm}.
+The possible applications of efficient numerical methods for the computation of the Lie log-composition in medical imaging are listed in section \ref{se:applications_log_com_in_med}. One of these, the computation of the Lie logarithm based on the algorithm presented in \cite{bossa2008new}, is investigated in chapter \ref{ch:log_algorithm}.
 
-Results show that the log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and get close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining comparable results. This is still not a fully satisfactory result and it requires further researches.
+Results show that the Lie log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and get close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining results more precise than the $\text{BCH}^0$ but less precise than the $\text{BCH}^1$. This situation is not fully satisfactory and requires further researches.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Further Researches}\label{se:further_research}
 
-Since this research has both practical and theoretical aspects, future researches may eventually affect both sides.
+Since this thesis has both practical and theoretical aspects, future researches may eventually affect both sides.
 
 \subsection{Numerical Computations} 
 
-We are sure that not all of the possibilities provided by the application of the concept of parallel transport for the computation of the log-composition have been exploited. The formula \ref{eq:parallel_transport}, presented at the end of chapter \ref{ch:tools}, can still be improved, reducing the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential.\\
+We are sure that not all of the possibilities provided by the application of the concept of parallel transport for the computation of the Lie log-composition have been exploited. The formula (\ref{eq:parallel_transport}), presented at the end of chapter \ref{ch:tools}, can still be improved, reducing the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential.
 
 Another BCH-free formula, not based on the parallel transport, could be obtained extending the Taylor expansion proposed for $SE(2)$ in section \ref{se:rigid_body_transformations} to SVF.
 
@@ -36,5 +36,5 @@ For the numerical computation of the Lie exponential and the Lie logarithm we al
 On the theoretical side, our naive approach to infinite dimensional Lie group, provided some results, but there are many dark corners. The most relevant is a consequence of the fact that the Dynkin proof of the BCH formula is based on the expansion in power series of the Lie logarithm and Lie exponential. These expansions, unless using the function $\mathcal{V}$ proposed in section \ref{subse:bigger_algebra} are not well defined, and have never been proved for the Lie algebra of diffeomorphisms.
 
 Numerical results here presented shows to some extent a converging behaviour of the BCH - as much as the numerical computation of the Jacobian matrix with finite difference allows.
-Other numerical tests, not presented in this research, on which we are currently working, are showing that for SVF, and using the funciton $\mathcal{V}$ expansion in power series of the Lie exponential converges. This would support the fact that the Dynkin proof holds for SVF. As previously said, this is a dark corner that we are try to exploring as much as our limited abilities and possibility allow.
+Other numerical tests, on which we are currently working, seems to show that the Lie exponential computed with the expansion in power series (equation (\ref{eq:exp_as_inf_sum})) converges not only for matrices but also for SVF. This would support the fact that the Dynkin proof holds also for SVF. But this is a dark corner that still has to be explored.
 

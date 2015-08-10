@@ -1,10 +1,10 @@
 \chapter{Log-composition to Compute the Lie Logarithm}\label{ch:log_algorithm}
 
-\begin{flushright}
-	I think you might do something better with the time \\ than wasting it in asking riddles that have no answers. \\ -\emph{Alice in Wonderland.}
-\end{flushright}
-
-\vspace{0.5 cm}
+%\begin{flushright}
+%	I think you might do something better with the time \\ than wasting it in asking riddles that have no answers. \\ -\emph{Alice in Wonderland.}
+%\end{flushright}
+%
+%\vspace{0.5 cm}
 
 \noindent
 The \emph{logarithm computation problem} can be stated as follows:
@@ -15,7 +15,8 @@ The \emph{logarithm computation problem} can be stated as follows:
 	such that $\exp(\mathbf{u}) = p$ ?  
 }
 \end{center}
-There are several numerical methods to compute the approximation of the problem's solution. Arsigny, who first pointed the applications of the Lie logarithm in medical image registration in \cite{Arsigny:MRM:06} and \cite{arsigny2006bi}, proposed the Inverse scaling and squaring (see also \cite{ying2006phase}). In this chapter we investigate other numerical iterative algorithms for the computation of the Lie logarithm, called here \emph{logarithm computation algorithm}; they modifications of the algorithm presented in \cite{Bossa:08} that is based on the BCH formula, and so on the log-composition. Each of the numerical method to compute the log-composition become naturally a numerical method for the computation of the logarithm computation algorithm.\\
+There are several numerical methods to compute the approximation of the problem's solution. Arsigny, who first pointed the applications of the Lie logarithm in medical image registration in \cite{Arsigny:MRM:06} and \cite{arsigny2006bi}, proposed the Inverse scaling and squaring. In this chapter we investigate other numerical iterative algorithms for the computation of the Lie logarithm, called here \emph{logarithm computation algorithm}. They consists in a modification of the algorithm presented in \cite{Bossa:08} that is based on the BCH formula, and therefore can be reformulated using the Lie log-composition. 
+It turns out that each of the numerical method to compute the Lie log-composition becomes naturally a numerical method for the logarithm computation.\\
 The first step toward this direction is to introduce the space of the approximations of a Lie algebra and a the Lie group.
 
 
@@ -25,55 +26,53 @@ The first step toward this direction is to introduce the space of the approximat
 \section{Spaces of Approximations}\label{se:space_of_approximation}
 
 \noindent
-As seen in section \ref{se:rigid_body_transformations} and \ref{se:svf}, if the element $\mathbf{u}$ of $\mathfrak{se}(2)$ or SVF is small enough we can approximate $\exp(\mathbf{u})$ with $e + \mathbf{u}$. Aim of this section is to investigate these approximations aimed to compute the logarithm.  \\
-Let $C_\mathfrak{g}$ and $C_\mathbb{G}$ the internal cut locus of a Lie algebra and a Lie group $\mathfrak{g}$ and $\mathbb{G}$ (the subset where the exponential map is well defined).
-We define two approximating functions:
+As seen in section \ref{se:rigid_body_transformations} and \ref{se:svf}, if the element $\mathbf{u}$ of $\mathfrak{se}(2)$ or SVF is small enough we can approximate $\exp(\mathbf{u})$ with $e + \mathbf{u}$. Based on this, we define two approximating functions:
 \begin{align*}
-\text{app} : C_\mathfrak{g} & \longrightarrow  C_\mathfrak{g}^{\sim}    \\
+\text{app} : \mathfrak{g} & \longrightarrow  \mathfrak{g}^{\sim}    \\
 \mathbf{u} &\longmapsto \exp(\mathbf{u}) - e
 \end{align*}
 \begin{align*}
-\text{App} : C_\mathbb{G} & \longrightarrow  C_\mathbb{G}^{\sim}   \\
+\text{App} : \mathbb{G} & \longrightarrow  \mathbb{G}^{\sim}   \\
 \exp(\mathbf{u}) &\longmapsto e + \mathbf{u}
 \end{align*}
-Where $C_\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $C_\mathfrak{g} $, and $C_\mathbb{G}^{\sim} $ is the space of approximations of elements in $C_\mathbb{G}$, defined as
+Where $\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $\mathfrak{g} $, and $\mathbb{G}^{\sim} $ is the space of approximations of elements in $\mathbb{G}$, defined as
 \begin{align*}
-C_\mathfrak{g} ^{\sim} & := \{ \exp(\mathbf{u}) - e \mid \mathbf{u}\in C_\mathfrak{g}\} \cup C_\mathfrak{g} \\
-C_\mathbb{G}^{\sim}  & := \{ e + \mathbf{u} \mid \mathbf{u}\in C_\mathbb{G}\} \cup C_\mathbb{G} \\
+\mathfrak{g} ^{\sim} & := \{ \exp(\mathbf{u}) - e \mid \mathbf{u}\in \mathfrak{g}\} \cup \mathfrak{g} \\
+\mathbb{G}^{\sim}  & := \{ e + \mathbf{u} \mid \mathbf{u}\in \mathbb{G}\} \cup \mathbb{G} \\
 \end{align*}
-In general $C_\mathfrak{g}^{\sim} \neq C_\mathfrak{g}$ and $C_\mathbb{G}^{\sim} \neq C_\mathbb{G}$, but in the considered cases of $\mathfrak{se}(2)$ and SVF, when $\mathbf{u}$ is \emph{small enough}
-it follows that $\exp(\mathbf{u}) - e \in C_\mathfrak{g} $ and $e + \mathbf{u}\in C_\mathbb{G}$. Therefore the elements of $C_\mathfrak{g}^{\sim} $ are compatible with all of the operations of the internal cut locus of the Lie algebra $C_\mathfrak{g}$ and the elements of $C_\mathbb{G}^{\sim}$ are compatible with all of the operations of Lie group $\mathbb{G}$.\\
+In general $\mathfrak{g}^{\sim} \neq \mathfrak{g}$ and $\mathbb{G}^{\sim} \neq \mathbb{G}$, but in the considered cases of $\mathfrak{se}(2)$ and SVF, when $\mathbf{u}$ is \emph{small enough}
+it follows that $\exp(\mathbf{u}) - e \in \mathfrak{g} $ and $e + \mathbf{u}\in \mathbb{G}$. Therefore the elements of $\mathfrak{g}^{\sim} $ are compatible with all of the operations of the Lie algebra $\mathfrak{g}$ and the elements of $\mathbb{G}^{\sim}$ are compatible with all of the operations of the Lie group $\mathbb{G}$.\\
 Lets examine what does \emph{small enough} means in these two cases:
 \begin{enumerate}
 	\item[$\mathfrak{se}(2)$ -] Since $\mathfrak{se}(2)$ and $SE(2)$ are subset of the bigger algebra $SE(2)$ then exp and log can be defined as infinite series. From 
 	\begin{align*}
 	\exp(\mathbf{u}) = I + \mathbf{u} + O(\mathbf{u}^2) 
 	\end{align*}
-	It follows that $\text{app}(\mathbf{u}) - \mathbf{u} = O(\mathbf{u}^2)$. Thus for all $\mathbf{u}$ in the internal cut locus smaller than $\delta$ for any norm, exists $M(\delta)$ such that
+	It follows that $\text{app}(\mathbf{u}) - \mathbf{u} \in O(\mathbf{u}^2)$. Thus for all $\mathbf{u}$ in the Lie algebra smaller than $\delta$ for any norm, exists $M(\delta)$ such that
 	\begin{align*}
 	\euclideanMetric{\text{app}(\mathbf{u}) - \mathbf{u} } < M(\delta) \euclideanMetric{\mathbf{u}^2}
 	\end{align*}
 	\item[SVF -] In case of SVF we do not have any Taylor series and big-O notation available but, according to the proposition 8.6 at page 163 of \cite{younes2010shapes}, if $\mathbf{u}$ is, for any norm, smaller than $\epsilon<1/C$, where $C$ is the Lipschitz constant in the same norm, then $1 + \mathbf{u}$ is a diffeomorphism. With this condition holds that
-	$C_\text{SVF}^{\sim} = C_\text{SVF}$. 
+	$\text{SVF}^{\sim} = \text{SVF}$. 
 \end{enumerate}
 
 \noindent
 Therefore, for each small enough $\mathbf{u}$ in $\mathfrak{se}(2)$ or SVF, 
-and for the definition of the log-composition (equation \ref{eq:main_def_log_composition}) 
+and for the definition of the Lie log-composition (equation \ref{eq:main_def_log_composition}) 
 the following properties holds:
 \begin{enumerate}
 	\item The approximations $\mathbf{u} \simeq   \text{app} (\mathbf{u})$, $\exp(\mathbf{u}) \simeq   \text{App} (\exp(\mathbf{u})) $ are bounded.
 	\item $\mathbf{u} = \mathbf{v} \oplus (-\mathbf{v} \oplus  \mathbf{u} )$
-	\item $\text{app} (\mathbf{v} \oplus  \mathbf{u}) = \exp(\mathbf{v})\circ\exp(\mathbf{u}) - 1 \in C_\mathfrak{g} ^{\sim}$
+	\item $\text{app} (\mathbf{v} \oplus  \mathbf{u}) = \exp(\mathbf{v})\circ\exp(\mathbf{u}) - 1 \in \mathfrak{g} ^{\sim}$
 \end{enumerate}
 
 \noindent
-With this machinery, we can finally reformulate the algorithm presented in \cite{Bossa:08} for the numerical computation of the Lie logarithm map using the log-composition.
+With this machinery, we can reformulate the algorithm presented in \cite{Bossa:08} for the numerical computation of the Lie logarithm using the Lie log-composition.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-\section{The Logarithm Computation Algorithm using Log-composition}
+\section{The Logarithm Computation Algorithm using Lie Log-composition}
 
 If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximate $\mathbf{u}$ as consequence of
 \begin{align*}
@@ -84,7 +83,7 @@ This suggest that a reasonable approximation for the $(j+1)$-th element of the s
 \begin{align*}
 \mathbf{u}_{j+1} & :=  \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{align*}
-If we chose the initial value $\mathbf{u}_{0}$ to be zero, then the algorithm presented in \cite{Bossa:08}  become:
+If we chose the initial value $\mathbf{u}_{0}$ to be zero, then the algorithm presented in \cite{Bossa:08}  becomes:
 %\begin{align*}
 %p= \exp(\mathbf{v}) &= (\exp(\mathbf{v})\circ \exp(-\mathbf{v}))\circ \exp(\mathbf{v})\\
 %&= \exp(\mathbf{v})\circ (\exp(-\mathbf{v})\circ p)\\
@@ -97,7 +96,7 @@ If we chose the initial value $\mathbf{u}_{0}$ to be zero, then the algorithm pr
 \mathbf{u}_{j+1} = \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{cases}
 \end{equation}
-Making explicit the log-computaiton and the approximation, follows:
+Making explicit the Lie log-computation and the approximation involved, it follows:
 \begin{align}
 \mathbf{u}_{j+1} 
 &=
@@ -105,7 +104,9 @@ Making explicit the log-computaiton and the approximation, follows:
 &=
  \log\Big( \exp( \mathbf{u}_{j}) \circ \exp \big( \exp(-\mathbf{u}_{j})  \circ  \varphi - e \big) \Big)
 \end{align}
-where $\exp(\mathbf{u}) = \varphi$ is given by the problem, and $\mathbf{u}_{j}$ by the previous step. The BCH provides the exact solution of the second member, while strategy that we have examined to compute the log-composition, become a numerical method for the computation of the logarithm.
+where $\exp(\mathbf{u}) = \varphi$ is given by the problem, and $\mathbf{u}_{j}$ by the previous step. The BCH provides the analytic solution of the second member, while 
+numerical methods to compute the Lie log-composition become numerical methods to compute the Lie logarithm.
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -118,7 +119,7 @@ At each step, we compute the approximation $\mathbf{v}_{j+1}$ with the $k$-th tr
 \end{cases}
 \end{equation}
 
-For $k = 0$, the approximation $\mathbf{u}_{j+1}$ results simply the sum of the two vectors $\mathbf{u}_{j}$ and $ \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )$:
+For $k = 0$, the approximation $\mathbf{u}_{j+1}$ is the sum of the two vectors $\mathbf{u}_{j}$ and $ \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )$:
 \begin{align*}
 \text{BCH}^{0}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 &=
@@ -135,7 +136,9 @@ When $k=1$, it results
 \mathbf{u}_{j} + \exp(-\mathbf{u}_{j})\circ \varphi  - e + \\
 &+ \frac{1}{2}(  \mathbf{u}_{j}\cdot( \exp(-\mathbf{u}_{j})\circ \varphi  - e) -  ( \exp(-\mathbf{u}_{j})\circ \varphi - e)\cdot\mathbf{u}_{j})
 \end{align*}
-And for $k=2$ it become
+Where $\circ $ the product is the product using the Jacobian (see equation (\ref{eq:jacobian_product})), for SVF, or the matrix product.
+
+For $k=2$ it become
 \begin{align*}
 \text{BCH}^{2}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 &=
@@ -150,7 +153,7 @@ And for $k=2$ it become
 &+ [\exp(-\mathbf{u}_{j})\circ \varphi  - e ,  [\exp(-\mathbf{u}_{j}) \circ\varphi - e  ,\mathbf{u}_{j}  ]] \Big)\\
 \end{align*}
 
-When considering $k = \infty$ and so, the theoretical BCH formula, the following theorem, presented in \cite{Bossa:08}, provides an error bound:
+When considering $k = \infty$ and so the analytic solution of the Lie log-composition provided by the BCH formula, the following theorem, presented in \cite{Bossa:08}, provides an error bound:
 \begin{theorem}[Bossa]\label{th:bossa}
 	The iterative algorithm 
 	\begin{equation}
@@ -166,14 +169,14 @@ When considering $k = \infty$ and so, the theoretical BCH formula, the following
 	\end{align*}
 \end{theorem}
 
-We observe that this upper limit can be computed only when a closed-form for the log-composition is available, as for example $\mathfrak{se}(2)$.
+We observe that this upper limit can be computed only when a closed-form for the Lie log-composition is available, as for example $\mathfrak{se}(2)$.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Parallel Transport Strategy}
 
-If we apply the parallel transport method for the computation of the log-composition, we obtain another version of the logarithm computation algorithm:
+If we apply the parallel transport method for the computation of the Lie log-composition, we obtain another version of the algorithm:
 \begin{equation}\label{eq:bossa_parallel_strategy}
 \begin{cases}
 \mathbf{u}_0 = \mathbf{0} \\
@@ -198,13 +201,13 @@ That is computed as:
 \end{align*}
 
 We notice that mixing the operation of composition, sum and scalar product makes sense when the involved vectors are \emph{small enough}, as stated in \ref{se:space_of_approximation}. 
-Analytical computation of an upper bound error is not straightforward in this case. See section \ref{se:conclusions} for further details and other possible researches.
+Analytical computation of an upper bound error is not straightforward in this case. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Symmetrization Strategy}
-The algorithm \ref{eq:bossa_reformulated} could have been reformulated alternatively as $\mathbf{u}_{j+1} =    \text{app}(\mathbf{u} \oplus  - \mathbf{u}_{j}  ) \oplus \mathbf{u}_{j}$. The log-composition is not symmetric therefore the two version in some cases may not return the same value. In an attempt to move toward the solution of this issue we consider
+The algorithm \ref{eq:bossa_reformulated} could have been reformulated alternatively as $\mathbf{u}_{j+1} =    \text{app}(\mathbf{u} \oplus  - \mathbf{u}_{j}  ) \oplus \mathbf{u}_{j}$. The Lie log-composition is not symmetric therefore the two version in some cases may not return the same value. We consider
 \begin{equation}\label{eq:bossa_symmetric}
 \begin{cases}
 \mathbf{u}_0 = 0 \\
@@ -217,7 +220,7 @@ The algorithm \ref{eq:bossa_reformulated} could have been reformulated alternati
 \big)
 \end{cases}
 \end{equation}
-Writing directly the approximations and using the BCH approximation of degree $1$ it become:
+that using the BCH approximation of degree $1$, becomes:
 \begin{equation}
 \begin{cases}
 \mathbf{u}_0 = 0 \\
@@ -232,4 +235,4 @@ Writing directly the approximations and using the BCH approximation of degree $1
 \big)
 \end{cases}
 \end{equation}
-Experimental results of the methods presented in this section are presented in the next chapter.
+Experimental results of the methods presented in this section are show in section \ref{se:results_lie_logarithm_computations}.
