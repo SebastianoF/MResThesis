@@ -269,7 +269,7 @@ To validate the method for real cases, one of the possibility is to embed the me
 
 But, since computation of the update is only a small component of the registration algorithm, it may be difficult to compute the impact of the Lie log-composition over other components that play a more important role in the registration algorithm (as the optimization strategy).
 
-For this reason we chose to validate the numerical methods for the log-composition using a different strategy.
+For this reason we chose to validate the numerical methods for the log-composition using the same strategy utilized for synthetic data, using SVF from longitudinal patient scans.
 
 \begin{figure}[!ht]
 	\centering
@@ -282,62 +282,56 @@ For this reason we chose to validate the numerical methods for the log-compositi
 \subsection{Design of Experiment}
 We design a simple experiment that involves three T1 MRI longitudinal scans of the same subject in three points in time $A$, $B$ and $C$. $A$ is the baseline, $B$ is the first follow-up, and $C$ is the second follow-up.
 
-If $\varphi_{A}^{B}$ is the non-rigid transformation from $A$ to $B$ that aligns the image $B$ with $A$, and $\mathbf{u}_{A}^{B}$ the corresponding SVF, then for an ideal registration algorithm (that fully satisfies the transitivity property) we have
-\begin{align}\label{eq:transitivity_of_the_registration}
-\varphi_{B}^{C} \circ \varphi_{A}^{B} = \varphi_{A}^{C}  
-\end{align}
-From this assumption, it follows:
+Let $\varphi_{A}^{B}$ be the non-rigid transformation from $A$ to $B$ that aligns the image $B$ with $A$, $\varphi_{B}^{C}$ from $B$ to $C$ and $\mathbf{u}_{A}^{B}$, $\mathbf{u}_{B}^{C}$ the corresponding SVF.
+Than for the analytic solution of the Lie log-composition, it follows that
 \begin{align*}
-\log(\varphi_{B}^{C} \circ \varphi_{A}^{B}) &= \log(\varphi_{A}^{C}  ) \\
-\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B})) &= \log(\exp(\mathbf{u}_{A}^{C}  ) ) \\
-\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B})) &= \mathbf{u}_{A}^{C}  
-\end{align*}
-The exact solution of the log-composition would provide then:
-\begin{align*}
-\int_{\Omega} \euclideanMetric{
-	\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}
-	-
-	\mathbf{u}_{A}^{C}
-}_{L^2}^{2} d\mathbf{x} 
- =
- 0
+	\exp(\alpha_0\mathbf{u}_{B}^{C} \oplus \alpha_1\mathbf{u}_{A}^{B})
+	=
+	\exp(\alpha_0\mathbf{u}_{B}^{C}) \circ\exp(\alpha_1\mathbf{u}_{A}^{B})
 \end{align*} 
-While, when $\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}$ is approximated with some numerical method $M$, the previous integral provides its error.
-\begin{align}\label{eq:error_real_data_formula} 
-\int_{\Omega} \euclideanMetric{
-	M\big(\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B} \big)
+where $\alpha_0$ and $\alpha_1$ are two real numbers between $0$ and $1$ that are used to divide the norm of the considered SVF, by a percentage value.
+Then we can use again the equation \ref{eq:error_svf_sythetic_data}, to compute the error of the numerical methods:
+\begin{equation}
+\begin{aligned}\label{eq:error_log_composition_real_data}
+E^{M}(&\mathbf{u}_{A}^{B}, \mathbf{u}_{B}^{C}, p_0, p_1) = \\
+&= 
+\Big( \sum_{\mathbf{x} \in \Delta\Omega} 
+\euclideanMetric{
+	\exp(M(p_0\mathbf{u}_{B}^{C} \oplus p_1\mathbf{u}_{A}^{B}))(\mathbf{x}) 
 	-
-	\mathbf{u}_{A}^{C}
-}_{L^2}^{2} d\mathbf{x} 
-=
-\text{Error}_{\oplus}
-\end{align} 
+	\big(\exp(p_0\mathbf{u}_{B}^{C}) \circ\exp(p_1\mathbf{u}_{A}^{B})\big)(\mathbf{x}) 
+}_{l^2}^{2}  \Big)^{1/2}
+\end{aligned}
+\end{equation}
+After the computation, error is then normalized by the division for the square root of the product of the dimension of the $SVF$.
 
-Certainly, the equation (\ref{eq:transitivity_of_the_registration}) is correct only for the ideal registration algorithm, and the distance between the two members, computed using for example the metric $d^{1}$ defined in equation (\ref{def:metric_two_displacement_field}) is different from zero in real applications:
-\begin{align*}
-d^{1}(\varphi_{B}^{C} \circ \varphi_{A}^{B} ,\varphi_{A}^{C}) 
-= 
-\text{Error}_{\text{reg}}
-\end{align*} 
-But the error $\text{Error}_{\text{reg}}$ has the same effect for all of the numerical methods that approximate the log-composition. Therefore, even if the equation (\ref{eq:error_real_data_formula}) does not measures exclusively the numerical error of the Lie log-composition, its result is consistent for different numerical methods.
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Results}
-
+%
 The dataset has been collected from ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer} and consists of $3$ longitudinal scans of $16$ control subjects (CTL).
-The baseline $A$ at time $0$ is followed by a first follow-up $B$, after three months, and a second follow up $C$, after $6$ months.
+The baseline $A$ at time $0$ is followed by a first follow-up $B$, after three months, and a second follow up $C$, after $6$ months. The SVF of the transformations are obtained using NiftyReg. 
+
+Figure \ref{fig:svf_log_composition_real_data_CTL_expo} shows the results of the equation (\ref{eq:error_log_composition_real_data}) where $M$ is one of the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$, $\text{BCH}^{1.5}$, $\text{BCH}^2$ and parallel transport (P.T.).
+Axes indicates the values for $p_1$ and $p_0$, that corresponds to the following average norms of the $16$ SVF considered:
+
+\begin{center}
+ \begin{tabular}{ c | c | c | c | c | c  }
+ 	0.01 & 0.05 & 0.10 & 0.15 & 0.20 & 0.25 \\
+ 	\hline
+ 	 0.0045 &  0.0227 & 0.0454 & 0.0682 & 0.0909 & 0.1136
+ \end{tabular}
+\end{center}
+
+Results are consistent with the one obtained for synthetic data except for the fact that when the norm of $\mathbf{u}_{A}^{B}$ si below $0.0227$ parallel transport method provides better results than the $\text{BCH}^1$. This can be explained by the fact that synthetic SVF with comparable norm have Jacobian determinant negative at some voxels, while for real data this does not happen. This would require a new method for generating synthetic SVF in which the positivity of the Jacobian determinant is assured.
+
+Also in this case error obtained with $\text{BCH}^{1.5}$ and $\text{BCH}^2$ are not showed because they do not improve the numerical errors obtained with $\text{BCH}^1$, in particular for small SVF. 
 
 \begin{figure}[!ht]
 	\hspace{-1.0cm}
-	\includegraphics[scale=0.5]{figures/svf_log_composition_boxplot_real_data_CTL.pdf}
-	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is shown in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_real_data_formula}).}
-	\label{fig:svf_log_composition_boxplot_real_data_CTL}
+	\includegraphics[scale=0.53]{figures/svf_log_composition_real_data_CTL_expo.pdf}
+	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is shown in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_log_composition_real_data}).}
+	\label{fig:svf_log_composition_real_data_CTL_expo}
 \end{figure}
-
-The SVF of the transformations are obtained using NiftyReg by the non-rigid registration algorithm based on cubic B-spline. 
-
-Figure \ref{fig:svf_log_composition_boxplot_real_data_CTL} shows the results of the equation (\ref{eq:error_real_data_formula}) where $M$ is one of the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$, $\text{BCH}^{1.5}$, $\text{BCH}^2$ and parallel transport (P.T.). Results are consistent with the one obtained for synthetic data. The error obtained with the Parallel transport method is between $\text{BCH}^0$ and $\text{BCH}^1$, while an increase in the degree of the truncated BCH does no imply on the average a better approximation of the log-composition. For real applications is not recommendable to utilize $\text{BCH}^k$ for $k\geq 2$. The best method is the $\text{BCH}^1$ that involves one nested Lie bracket, while the parallel transport is the first choice (and the unique at the moment) when it is preferable to avoid the computation of the Lie bracket. 
-
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -393,6 +387,64 @@ When dealing with SVF, the computational time strongly depends on the size of th
 %% theoretical side in general
 %Starting from the definition of Lie log-group of diffeomorpshisms $(\mathfrak{g} , \oplus)$, to have an algebraic definition of this approximation, we can consider its quotient over the ideal generated by $(\text{ad}_{\mathbf{u}}^{m}, \text{ad}_{\mathbf{u}}^{n})$, which provides the group $(\quotient{\mathfrak{g}}{(\text{ad}_{\mathbf{u}}^{m}, \text{ad}_{\mathbf{u}}^{n})}, \oplus)$. Further investigations in this direction is not prosecuted.
 
+
+% OLD EXPERIMENT:
+%
+%then for an ideal registration algorithm (that fully satisfies the transitivity property) we have
+%\begin{align}\label{eq:transitivity_of_the_registration}
+%\varphi_{B}^{C} \circ \varphi_{A}^{B} = \varphi_{A}^{C}  
+%\end{align}
+%From this assumption, it follows:
+%\begin{align*}
+%\log(\varphi_{B}^{C} \circ \varphi_{A}^{B}) &= \log(\varphi_{A}^{C}  ) \\
+%\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B})) &= \log(\exp(\mathbf{u}_{A}^{C}  ) ) \\
+%\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B})) &= \mathbf{u}_{A}^{C}  
+%\end{align*}
+%The exact solution of the log-composition would provide then:
+%\begin{align*}
+%\int_{\Omega} \euclideanMetric{
+%	\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}
+%	-
+%	\mathbf{u}_{A}^{C}
+%}_{L^2}^{2} d\mathbf{x} 
+% =
+% 0
+%\end{align*} 
+%While, when $\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}$ is approximated with some numerical method $M$, the previous integral provides its error.
+%\begin{align}\label{eq:error_real_data_formula} 
+%\int_{\Omega} \euclideanMetric{
+%	M\big(\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B} \big)
+%	-
+%	\mathbf{u}_{A}^{C}
+%}_{L^2}^{2} d\mathbf{x} 
+%=
+%\text{Error}_{\oplus}
+%\end{align} 
+%
+%Certainly, the equation (\ref{eq:transitivity_of_the_registration}) is correct only for the ideal registration algorithm, and the distance between the two members, computed using for example the metric $d^{1}$ defined in equation (\ref{def:metric_two_displacement_field}) is different from zero in real applications:
+%\begin{align*}
+%d^{1}(\varphi_{B}^{C} \circ \varphi_{A}^{B} ,\varphi_{A}^{C}) 
+%= 
+%\text{Error}_{\text{reg}}
+%\end{align*} 
+%But the error $\text{Error}_{\text{reg}}$ has the same effect for all of the numerical methods that approximate the log-composition. Therefore, even if the equation (\ref{eq:error_real_data_formula}) does not measures exclusively the numerical error of the Lie log-composition, its result is consistent for different numerical methods.
+%
+%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%\subsection{Results}
+%
+%The dataset has been collected from ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer} and consists of $3$ longitudinal scans of $16$ control subjects (CTL).
+%The baseline $A$ at time $0$ is followed by a first follow-up $B$, after three months, and a second follow up $C$, after $6$ months.
+%
+%\begin{figure}[!ht]
+%	\hspace{-1.0cm}
+%	\includegraphics[scale=0.5]{figures/svf_log_composition_real_data_CTL_expo.pdf}
+%	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is shown in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_real_data_formula}).}
+%	\label{fig:svf_log_composition_real_data_CTL_expo}
+%\end{figure}
+%
+%The SVF of the transformations are obtained using NiftyReg by the non-rigid registration algorithm based on cubic B-spline. 
+%
+%Figure \ref{fig:svf_log_composition_boxplot_real_data_CTL} shows the results of the equation (\ref{eq:error_real_data_formula}) where $M$ is one of the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$, $\text{BCH}^{1.5}$, $\text{BCH}^2$ and parallel transport (P.T.). Results are consistent with the one obtained for synthetic data. The error obtained with the Parallel transport method is between $\text{BCH}^0$ and $\text{BCH}^1$, while an increase in the degree of the truncated BCH does no imply on the average a better approximation of the log-composition. For real applications is not recommendable to utilize $\text{BCH}^k$ for $k\geq 2$. The best method is the $\text{BCH}^1$ that involves one nested Lie bracket, while the parallel transport is the first choice (and the unique at the moment) when it is preferable to avoid the computation of the Lie bracket. 
 
 
 

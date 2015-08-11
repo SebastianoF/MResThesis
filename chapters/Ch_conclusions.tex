@@ -11,7 +11,10 @@ This method is compared with the truncated BCH, both for transformation in the L
 
 The possible applications of efficient numerical methods for the computation of the Lie log-composition in medical imaging are listed in section \ref{se:applications_log_com_in_med}. One of these, the computation of the Lie logarithm based on the algorithm presented in \cite{bossa2008new}, is investigated in chapter \ref{ch:log_algorithm}.
 
-Results show that the Lie log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and get close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining results more precise than the $\text{BCH}^0$ but less precise than the $\text{BCH}^1$. This situation is not fully satisfactory and requires further researches.
+Results show that the Lie log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and get close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining results more precise than the $\text{BCH}^0$ but less precise than the $\text{BCH}^1$. 
+
+Another result is that for real applications is not recommendable to utilize $\text{BCH}^k$ for $k\geq 2$. The method that provided best results both on synthetic and real data for a wider range of norm of SVF, is the $\text{BCH}^1$ that involves one nested Lie bracket. The parallel transport is the first choice (and the unique at the moment) when it is preferable to avoid the computation of the Lie bracket. 
+
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -22,7 +25,10 @@ Since this thesis has both practical and theoretical aspects, future researches 
 
 \subsection{Numerical Computations} 
 
-We are sure that not all of the possibilities provided by the application of the concept of parallel transport for the computation of the Lie log-composition have been exploited. The formula (\ref{eq:parallel_transport}), presented at the end of chapter \ref{ch:tools}, can still be improved, reducing the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential.
+Numerical computation on real data for small SVF, provided interesting results when the norm of the elements involved are smaller than $0.0227$.
+\ref{fig:svf_log_composition_real_data_CTL_expo}
+
+Moreover we are sure that not all of the possibilities provided by the application of the concept of parallel transport for the computation of the Lie log-composition have been exploited. The formula (\ref{eq:parallel_transport}), presented at the end of chapter \ref{ch:tools}, can still be improved, reducing the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential.
 
 Another BCH-free formula, not based on the parallel transport, could be obtained extending the Taylor expansion proposed for $SE(2)$ in section \ref{se:rigid_body_transformations} to SVF.
 
