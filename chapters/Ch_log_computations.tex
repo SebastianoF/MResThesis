@@ -38,7 +38,7 @@ As seen in section \ref{se:rigid_body_transformations} and \ref{se:svf}, if the 
 Where $\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $\mathfrak{g} $, and $\mathbb{G}^{\sim} $ is the space of approximations of elements in $\mathbb{G}$, defined as
 \begin{align*}
 \mathfrak{g} ^{\sim} & := \{ \exp(\mathbf{u}) - e \mid \mathbf{u}\in \mathfrak{g}\} \cup \mathfrak{g} \\
-\mathbb{G}^{\sim}  & := \{ e + \mathbf{u} \mid \mathbf{u}\in \mathbb{G}\} \cup \mathbb{G} \\
+\mathbb{G}^{\sim}  & := \{ e + \mathbf{u} \mid \exp(\mathbf{u})\in \mathbb{G}\} \cup \mathbb{G} \\
 \end{align*}
 In general $\mathfrak{g}^{\sim} \neq \mathfrak{g}$ and $\mathbb{G}^{\sim} \neq \mathbb{G}$, but in the considered cases of $\mathfrak{se}(2)$ and SVF, when $\mathbf{u}$ is \emph{small enough}
 it follows that $\exp(\mathbf{u}) - e \in \mathfrak{g} $ and $e + \mathbf{u}\in \mathbb{G}$. Therefore the elements of $\mathfrak{g}^{\sim} $ are compatible with all of the operations of the Lie algebra $\mathfrak{g}$ and the elements of $\mathbb{G}^{\sim}$ are compatible with all of the operations of the Lie group $\mathbb{G}$.\\

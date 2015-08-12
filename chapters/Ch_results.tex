@@ -224,6 +224,12 @@ The SVF in the subinterval indicated by the gray arrow on the figure \ref{fig:SV
 % introduction of the next section
 In the results just shown there is a notable absent: the numerical computation of the Lie log-composition based on truncated BCH of order greater than $1$. The next section explains why, and in particular why we are interested in BCH-free numerical methods for the log-composition, as the one based on parallel transport.
 
+\begin{figure}[!ht]
+	\hspace{0cm}
+	\includegraphics[scale=0.5]{figures/SVF_image_scale_bracket_versus_gaussian.pdf}
+	\caption{Relationships between the standard deviation of the Gaussian smoother that generates the SVF and the norm of the Lie bracket. Each square contains the means of $10$ Lie bracket (left) or nested Lie bracket (right) generated with initial standard deviation equals to $2$ and standard deviation of the gaussian smoother $\sigma_{\text{gf}}$ indicated on the axes.}
+	\label{fig:SVF_image_scale_bracket_versus_gaussian}
+\end{figure}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -235,18 +241,12 @@ As shown in figure \ref{fig:se2_image_scale}, for the finite dimensional case, t
 
 We would expect something similar for SVF, but in this case the use of the truncated BCH of degree greater than $1$ is problematic, because Jacobian matrices are involved.
 
-\begin{figure}[!ht]
-	\hspace{0cm}
-	\includegraphics[scale=0.5]{figures/SVF_image_scale_bracket_versus_gaussian.pdf}
-	\caption{Relationships between the standard deviation of the Gaussian smoother that generates the SVF and the norm of the Lie bracket. Each square contains the means of $10$ Lie bracket (left) or nested Lie bracket (right) generated with initial standard deviation equals to $2$ and standard deviation of the gaussian smoother $\sigma_{\text{gf}}$ indicated on the axes.}
-	\label{fig:SVF_image_scale_bracket_versus_gaussian}
-\end{figure}
-
 % 2 limitation of the JACOBIAN. Image scale figure
 On one side, every time the differentiation of a vector is required, results are unstable and sensitive to noise, because of the finite difference method utilized for the numerical approximation. On the other side, in figure \ref{fig:SVF_image_scale_bracket_versus_gaussian} we can see that the smoother are the SVF the smaller is the norm of resulting Lie brackets. In consequence of this, for a couple of \lq\lq very smooth\rq\rq~ stationary velocity field, the higher term of the BCH carry small information extremely sensitive to noise.
 
 % Boxplot comment, why it behave in this way 
 The boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} shows that an increase in the degree of the truncated BCH does not necessarily imply better results, in particular when the involved SVF have been generated with a small Gaussian smoother.
+
 
 \begin{figure}[!ht]
 	\hspace{-0.5cm}
@@ -256,7 +256,6 @@ The boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} shows that an increa
 \end{figure}
 
 
-\newpage
 % Conclusions for syntetic data: where are the errors and why we are moving towards the real data.
 % Why going toward real svf, 
 
@@ -265,16 +264,16 @@ The boxplot in figure \ref{fig:SVF_boxplot_comparisons_BCH} shows that an increa
 \section{A Problem for Three Brains}\label{se:three_brains} % {A three-brain problem}
 The experiments performed on synthetic data provide important informations to validate and compare the methods, but do not give informations about what may happen for real cases. 
 
-To validate the method for real cases, one of the possibility is to embed the method in a diffeomorphic demon registration algorithm and compare the results obtained with different numerical methods of the Lie log-composition to compute the update.
-
-But, since computation of the update is only a small component of the registration algorithm, it may be difficult to compute the impact of the Lie log-composition over other components that play a more important role in the registration algorithm (as the optimization strategy).
+To validate the method for real cases, one of the possibility is to embed the method in a diffeomorphic demon registration algorithm and compare the results obtained with different numerical methods of the Lie log-composition to compute the update. Since computation of the update is only a small component of the registration algorithm, using this strategy, it may be difficult to study the impact of the Lie log-composition over other components that play a more important role in the registration algorithm (as the optimization strategy).
 
 For this reason we chose to validate the numerical methods for the log-composition using the same strategy utilized for synthetic data, using SVF from longitudinal patient scans.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.25]{figures/three_brains_problem.pdf}
-	\caption{Design of the experiment with SVF obtained with real data. Three figures represents three  longitudinal scans of the same patient at time $A$, $B$ and $C$. The vector $\mathbf{u}_{A}^{B}$ is the SVF that corresponds to the non-rigid transformation from $A$ to $B$ that aligns the image $B$ with $A$. Equivalently $\mathbf{u}_{B}^{C}$ is the SVF from $B$ to $C$, and $\mathbf{u}_{A}^{C}$ from $A$ to $C$. For the ideal registration algorithm we have that $\log(\exp(\mathbf{u}_{B}^{C}) \circ \exp(\mathbf{u}_{A}^{B}))$ $=$ $\mathbf{u}_{A}^{C} $; when the first member is computed with a numerical method, the difference with the second member provides a measure of the error of the numerical method for the Lie log-composition. When the registration is not ideal, the equation (\ref{eq:error_real_data_formula}) provides a consistent measure of the error. }
+	\caption{Design of the experiment with SVF obtained with real data. Three figures represents three  longitudinal scans of the same patient at time $A$, $B$ and $C$. The vector $\mathbf{u}_{A}^{B}$ is the SVF that corresponds to the non-rigid transformation from $A$ to $B$ that aligns the image $B$ with $A$. Equivalently $\mathbf{u}_{B}^{C}$ is the SVF from $B$ to $C$, and $\mathbf{u}_{A}^{C}$ from $A$ to $C$. 
+	With the lack of a ground truth to compute the Lie log-composition $\mathbf{u}_{B}^{C} \oplus \mathbf{u}_{A}^{B}$ $=$
+	$\log(\exp(\mathbf{u}_{B}^{C}) \circ\exp(\mathbf{u}_{A}^{B}))$, we compared the composition of the exponential of the SVF with the exponentiated log-composition. This led to the formula (\ref{eq:error_log_composition_real_data}) for the computation of the errors, whose normalized results are shown in figure \ref{fig:svf_log_composition_real_data_CTL_expo}. }
 	\label{fig:three_brains_problem}
 \end{figure}
 
@@ -289,8 +288,8 @@ Than for the analytic solution of the Lie log-composition, it follows that
 	=
 	\exp(\alpha_0\mathbf{u}_{B}^{C}) \circ\exp(\alpha_1\mathbf{u}_{A}^{B})
 \end{align*} 
-where $\alpha_0$ and $\alpha_1$ are two real numbers between $0$ and $1$ that are used to divide the norm of the considered SVF, by a percentage value.
-Then we can use again the equation \ref{eq:error_svf_sythetic_data}, to compute the error of the numerical methods:
+where $\alpha_0$ and $\alpha_1$ are two real numbers between $0$ and $1$ that are used to reduce the length of the vectors of the SVF.
+We can use again the equation \ref{eq:error_svf_sythetic_data}, to compute the error of the numerical methods:
 \begin{equation}
 \begin{aligned}\label{eq:error_log_composition_real_data}
 E^{M}(&\mathbf{u}_{A}^{B}, \mathbf{u}_{B}^{C}, p_0, p_1) = \\
@@ -303,15 +302,15 @@ E^{M}(&\mathbf{u}_{A}^{B}, \mathbf{u}_{B}^{C}, p_0, p_1) = \\
 }_{l^2}^{2}  \Big)^{1/2}
 \end{aligned}
 \end{equation}
-After the computation, error is then normalized by the division for the square root of the product of the dimension of the $SVF$.
+After the computation, error is then normalized by the square root of the product of the dimension of the $SVF$.
 
 %% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Results}
 %
 The dataset has been collected from ADNI (Alzheimer Disease Neuroimaging Initiative) \cite{jack2008alzheimer} and consists of $3$ longitudinal scans of $16$ control subjects (CTL).
-The baseline $A$ at time $0$ is followed by a first follow-up $B$, after three months, and a second follow up $C$, after $6$ months. The SVF of the transformations are obtained using NiftyReg. 
+The baseline $A$ at time $0$ is followed by a first follow-up $B$, after three months, and a second follow up $C$, after $6$ months. The SVF of the transformations are obtained using NiftyReg \cite{modat2010fast}. 
 
-Figure \ref{fig:svf_log_composition_real_data_CTL_expo} shows the results of the equation (\ref{eq:error_log_composition_real_data}) where $M$ is one of the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$, $\text{BCH}^{1.5}$, $\text{BCH}^2$ and parallel transport (P.T.).
+Figure \ref{fig:svf_log_composition_real_data_CTL_expo} shows the results of the normalized equation (\ref{eq:error_log_composition_real_data}) where $M$ is one of the numerical methods based on $\text{BCH}^0$, $\text{BCH}^1$ and parallel transport (P.T.).
 Axes indicates the values for $p_1$ and $p_0$, that corresponds to the following average norms of the $16$ SVF considered:
 
 \begin{center}
@@ -322,14 +321,13 @@ Axes indicates the values for $p_1$ and $p_0$, that corresponds to the following
  \end{tabular}
 \end{center}
 
-Results are consistent with the one obtained for synthetic data except for the fact that when the norm of $\mathbf{u}_{A}^{B}$ si below $0.0227$ parallel transport method provides better results than the $\text{BCH}^1$. This can be explained by the fact that synthetic SVF with comparable norm have Jacobian determinant negative at some voxels, while for real data this does not happen. This would require a new method for generating synthetic SVF in which the positivity of the Jacobian determinant is assured.
-
-Also in this case error obtained with $\text{BCH}^{1.5}$ and $\text{BCH}^2$ are not showed because they do not improve the numerical errors obtained with $\text{BCH}^1$, in particular for small SVF. 
+Results are consistent with the one obtained for synthetic data except when the norm of $\mathbf{u}_{A}^{B}$ si below or equal $0.0045$. In this case parallel transport method provides better results than the $\text{BCH}^1$.
+We can see in particular that the difference between $\text{BCH}^0$ and $\text{BCH}^{1}$ can be seen only in some cases after the third decimal. Results obtained with $\text{BCH}^{1.5}$ and $\text{BCH}^2$ are not showed because they do not lead to any improvement, in particular for small SVF. 
 
 \begin{figure}[!ht]
 	\hspace{-1.0cm}
 	\includegraphics[scale=0.53]{figures/svf_log_composition_real_data_CTL_expo.pdf}
-	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is shown in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_log_composition_real_data}).}
+	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is described in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_log_composition_real_data}).}
 	\label{fig:svf_log_composition_real_data_CTL_expo}
 \end{figure}
 
@@ -347,8 +345,8 @@ In particular, in figure \ref{fig:log_computation_boxplot} we can see the averag
 As obtained for the numerical computations of the Lie log-composition, results obtained with parallel transport are comparable with the results obtained with the truncated BCH of degree $1$. Also in this case, an increase in the degree of the truncated BCH does not ensure a faster convergence and the Taylor method provides the slowest algorithm. The reason for this fact is not clear are the moment and, excluding errors, it may be worthed to future investigations.
 
 \begin{figure}[!ht]
-	\hspace{-0.5cm}
-	\includegraphics[scale=0.5]{figures/log_computation_boxplot.pdf}
+	\centering
+	\includegraphics[scale=0.48]{figures/log_computation_boxplot.pdf}
 	\caption{Number of steps required to obtain convergence for different methods utilized in the logarithm computation algorithm. The data set contains $200$ random matrices in the Lie group $SE(2)$, with Frobenius norm between $1$ and $3$. On the top it is possible to visualize the mean number of step to reach the convergence for each method.}
 	\label{fig:log_computation_boxplot}
 \end{figure}

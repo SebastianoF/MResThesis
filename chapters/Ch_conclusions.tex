@@ -5,42 +5,55 @@
 \chapter{Conclusions}\label{ch:conclusions}
 
 In this research we have formally defined the mathematical concept of Lie log-composition and we have presented the limitations of the numerical methods for its computation obtained with truncations of the BCH formula. These limitations are the starting point of the research for BCH-free numerical methods. 
-One of these, based on the geometrical concept of parallel transport is presented here for the first time, and formally proved for general Lie groups.
+One of these, based on the geometrical concept of parallel transport is presented here for the first time, and formally proved for element of the general Lie algebra.
 
-This method is compared with the truncated BCH, both for transformation in the Lie algebra of rigid body transformations (where also a BCH-free numerical method based on the Taylor expansion is available) and for stationary velocity fields (SVF).
+This method is compared with the truncated BCH, both for elements belonging to the the Lie algebra of rigid body transformations (where also another BCH-free numerical method based on the Taylor expansion is available) and for stationary velocity fields (SVF).
 
 The possible applications of efficient numerical methods for the computation of the Lie log-composition in medical imaging are listed in section \ref{se:applications_log_com_in_med}. One of these, the computation of the Lie logarithm based on the algorithm presented in \cite{bossa2008new}, is investigated in chapter \ref{ch:log_algorithm}.
 
-Results show that the Lie log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and get close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining results more precise than the $\text{BCH}^0$ but less precise than the $\text{BCH}^1$. 
+Results show that the Lie log-composition computed with the parallel transport method improves the $\text{BCH}^0$, and gets, in general close to the $\text{BCH}^1$. At an higher computational cost it enable to avoid the computation of the Jacobian involved in the $\text{BCH}^1$, obtaining results more precise than the $\text{BCH}^0$ when the vectors involved are considered have norm in a limited range.
 
-Another result is that for real applications is not recommendable to utilize $\text{BCH}^k$ for $k\geq 2$. The method that provided best results both on synthetic and real data for a wider range of norm of SVF, is the $\text{BCH}^1$ that involves one nested Lie bracket. The parallel transport is the first choice (and the unique at the moment) when it is preferable to avoid the computation of the Lie bracket. 
-
+Results show also that for medical applications is not recommendable to utilize numerical approximations based on $\text{BCH}^k$ for $k\geq 2$. The method that provides best results both on synthetic and real data on a wider range of SVF, is the $\text{BCH}^1$, that involves one nested Lie bracket. The parallel transport is the first choice (and the unique at the moment) when it is preferable to avoid the computation of the Lie bracket. 
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Further Researches}\label{se:further_research}
 
-Since this thesis has both practical and theoretical aspects, future researches may eventually affect both sides.
+Since this thesis has both numerical and theoretical aspects, improvements could be reached with a better understanding of both sides.
 
 \subsection{Numerical Computations} 
 
-Numerical computation on real data for small SVF, provided interesting results when the norm of the elements involved are smaller than $0.0227$.
-\ref{fig:svf_log_composition_real_data_CTL_expo}
+Numerical computations on real data for small SVF, provide better results for parallel transport than for any other available numerical method (see figure \ref{fig:svf_log_composition_real_data_CTL_expo}) when the norm of the elements involved are smaller than $0.0227$. The reason why this does not happen for synthetic data may be due to the fact that the Jacobian determinant of SVF are not always positive, when in particular for SVF with small norm. This may lead to consider better way to generating random SVF than the one proposed in this research. 
 
-Moreover we are sure that not all of the possibilities provided by the application of the concept of parallel transport for the computation of the Lie log-composition have been exploited. The formula (\ref{eq:parallel_transport}), presented at the end of chapter \ref{ch:tools}, can still be improved, reducing the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential.
+To compute the Lie exponential and the Lie logarithm we always used the scaling and squaring and the inverse scaling and squaring algorithms, as originally proposed by Arsigny in $2006$ \cite{arsigny2006log}. There are other options available that, when applied to the log-composition, could improve the computational time. These are based for example on the Euler method, the midpoint method, the modified Euler method and Runge-Kutta of order $4$. Investigations in this direction are currently in progress.
 
-Another BCH-free formula, not based on the parallel transport, could be obtained extending the Taylor expansion proposed for $SE(2)$ in section \ref{se:rigid_body_transformations} to SVF.
-
-A third one, on which  preliminary tests showed promising results, is obtained using the accelerating convergence series \cite{cohen2000convergence} on the series expansion of the Lie exponential and the Lie logarithm. 
-
-For the numerical computation of the Lie exponential and the Lie logarithm we always used the scaling and squaring and the inverse scaling and squaring, as originally proposed by Arsigny in $2006$ \cite{arsigny2006log}. There are other options available that could improve the computational time of the log-composition, based for example on the Euler method, the midpoint method, the modified Euler method and Runge-Kutta of order $4$. Investigations in this direction are currently in progess.
-
+The proof of the convergence for the BCH in Dynkin's paper is based on the power series expansion of the exponential and of the logarithm (equation (\ref{eq:exp_as_inf_sum}) and (\ref{eq:log_as_inf_sum}))
+but these expansions, unless using the function $\mathcal{V}$ proposed in section \ref{subse:bigger_algebra} are not well defined, and have never been proved for the Lie algebra of diffeomorphisms.
+Numerical tests, on which we are currently working, seem to show that the Lie exponential computed with the expansion in power series converges for SVF.
 
 \subsection{Theoretical Formulas}
 
-On the theoretical side, our naive approach to infinite dimensional Lie group, provided some results, but there are many dark corners. The most relevant is a consequence of the fact that the Dynkin proof of the BCH formula is based on the expansion in power series of the Lie logarithm and Lie exponential. These expansions, unless using the function $\mathcal{V}$ proposed in section \ref{subse:bigger_algebra} are not well defined, and have never been proved for the Lie algebra of diffeomorphisms.
+Certainly not all of the possibilities provided by the application of the concept of parallel transport for the computation of the Lie log-composition have been exploited. The formula (\ref{eq:parallel_transport}), presented at the end of chapter \ref{ch:tools}, can still be improved, for example finding strategies to reduce the number of underpinning assumptions and introducing some numerical techniques to compute the Affine exponential. When this tool will be available, formula (\ref{eq:parallel_transport}) could be reformulated as
+\begin{align*}
+\mathbf{u}\oplus \mathbf{v}
+&\simeq
+\exp_{\exp(\mathbf{u} )}(\mathbf{v} ) - e
+\end{align*} 
+or, in a symmetric version,  as
+\begin{align*}
+\mathbf{u}\oplus \mathbf{v}
+&\simeq
+\frac{1}{2}
+\big(
+\exp_{\exp(\mathbf{u} )}(\mathbf{v} ) 
++
+\exp_{\exp(\mathbf{v} )}(\mathbf{u} )
+\big)
+-  e
+\end{align*} 
 
-Numerical results here presented shows to some extent a converging behaviour of the BCH - as much as the numerical computation of the Jacobian matrix with finite difference allows.
-Other numerical tests, on which we are currently working, seems to show that the Lie exponential computed with the expansion in power series (equation (\ref{eq:exp_as_inf_sum})) converges not only for matrices but also for SVF. This would support the fact that the Dynkin proof holds also for SVF. But this is a dark corner that still has to be explored.
+Another BCH-free formula, not based on the parallel transport, could be obtained finding a way to extend the Taylor expansion proposed for $SE(2)$ in section \ref{se:rigid_body_transformations} to SVF.
+
+A third one, on which  preliminary tests showed promising results, is obtained using the accelerating convergence series \cite{cohen2000convergence} on the series expansion of the Lie exponential and the Lie logarithm. This is based on the assumption that Lie logarithm and Lie exponential are analytic also for SVF.
 
