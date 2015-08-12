@@ -277,6 +277,13 @@ For this reason we chose to validate the numerical methods for the log-compositi
 	\label{fig:three_brains_problem}
 \end{figure}
 
+\begin{figure}[!ht]
+	\hspace{-1.0cm}
+	\includegraphics[scale=0.53]{figures/svf_log_composition_real_data_CTL_expo.pdf}
+	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is described in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_log_composition_real_data}).}
+	\label{fig:svf_log_composition_real_data_CTL_expo}
+\end{figure}
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Design of Experiment}
 We design a simple experiment that involves three T1 MRI longitudinal scans of the same subject in three points in time $A$, $B$ and $C$. $A$ is the baseline, $B$ is the first follow-up, and $C$ is the second follow-up.
@@ -321,16 +328,31 @@ Axes indicates the values for $p_1$ and $p_0$, that corresponds to the following
  \end{tabular}
 \end{center}
 
-Results are consistent with the one obtained for synthetic data except when the norm of $\mathbf{u}_{A}^{B}$ si below or equal $0.0045$. In this case parallel transport method provides better results than the $\text{BCH}^1$.
-We can see in particular that the difference between $\text{BCH}^0$ and $\text{BCH}^{1}$ can be seen only in some cases after the third decimal. Results obtained with $\text{BCH}^{1.5}$ and $\text{BCH}^2$ are not showed because they do not lead to any improvement, in particular for small SVF. 
+Results are consistent with the one obtained for synthetic data except when the norm of $\mathbf{u}_{A}^{B}$ si below or equal $0.0045$. In this case parallel transport method provides slightly better results than the $\text{BCH}^1$. 
+
+A statistical test of significance shows that differences between results obtained with Parallel transport and $\text{BCH}^0$ are not relevant. The corresponding p-value of the hypothesis that both of the samplings have the same unknown mean showed in the following table are all closed to 1:
+
+\begin{center}
+	\begin{tabular}{ c | c  c  c  c  c  c  }
+	0.25	& 0.99983489 & 0.99311505 & 0.97979104 & 0.96440304 & 0.9476505  & 0.9307285 \\
+	0.20	& 0.9999575  & 0.99648483 &  0.98591045 & 0.97172936 & 0.95545293 & 0.93867622\\
+	0.15	& 0.99986455 & 0.99790022 & 0.99036937 & 0.9788054 &  0.96428303 & 0.94848053\\
+	0.10	& 0.99969772 & 0.99865145 & 0.99284918 & 0.98343123 & 0.97087921 & 0.9565912 \\
+	0.05	& 0.9997416  & 0.99892752 & 0.99417358  & 0.98629071 & 0.97543413 &  0.96264026\\
+	0.01	& 0.99961913 & 0.99927621 & 0.99524053 & 0.98847805 & 0.9789583  & 0.96750909 \\
+		\hline
+		& 0.01 & 0.05 & 0.10 & 0.15 & 0.20 & 0.25 \\
+	\end{tabular}
+\end{center}
+
+Looking at the picture, the differences of the mean between $\text{BCH}^0$ and $\text{BCH}^{1}$ can be seen only in some cases after the third decimal. Results obtained with $\text{BCH}^{1.5}$ and $\text{BCH}^2$ are not even showed because they do not lead to any improvement, in particular for small SVF. 
 
 \begin{figure}[!ht]
-	\hspace{-1.0cm}
-	\includegraphics[scale=0.53]{figures/svf_log_composition_real_data_CTL_expo.pdf}
-	\caption{Lie Log-composition errors for a dataset of 16 MRI T1 brain images scan of control subjects. Three longitudinal scans $A$, $B$ and $C$ are available for each subject, and corresponds to a scan at time $0$, after three months and after $6$ month from the $0$. The design of the experiment is described in figure \ref{fig:three_brains_problem}, and the error of the Lie log-composition is computed with the formula (\ref{eq:error_log_composition_real_data}).}
-	\label{fig:svf_log_composition_real_data_CTL_expo}
+	\centering
+	\includegraphics[scale=0.48]{figures/log_computation_boxplot.pdf}
+	\caption{Number of steps required to obtain convergence for different methods utilized in the logarithm computation algorithm. The data set contains $200$ random matrices in the Lie group $SE(2)$, with Frobenius norm between $1$ and $3$. On the top it is possible to visualize the mean number of step to reach the convergence for each method.}
+	\label{fig:log_computation_boxplot}
 \end{figure}
-
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -344,13 +366,14 @@ In particular, in figure \ref{fig:log_computation_boxplot} we can see the averag
 
 As obtained for the numerical computations of the Lie log-composition, results obtained with parallel transport are comparable with the results obtained with the truncated BCH of degree $1$. Also in this case, an increase in the degree of the truncated BCH does not ensure a faster convergence and the Taylor method provides the slowest algorithm. The reason for this fact is not clear are the moment and, excluding errors, it may be worthed to future investigations.
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.48]{figures/log_computation_boxplot.pdf}
-	\caption{Number of steps required to obtain convergence for different methods utilized in the logarithm computation algorithm. The data set contains $200$ random matrices in the Lie group $SE(2)$, with Frobenius norm between $1$ and $3$. On the top it is possible to visualize the mean number of step to reach the convergence for each method.}
-	\label{fig:log_computation_boxplot}
-\end{figure}
 
+
+\begin{figure}[!ht]
+	%\hspace{-0.5cm}
+	\includegraphics[scale=0.7]{figures/svf_computational_time.pdf}
+	\caption{Relationships between the size of the figure (x-axes) and the computational time for a data set of $20$ random generated SVF. The yellow line labeled with ground represents the time of the computation of $\exp{\mathbf{u}_0}\circ \exp{\mathbf{u}_1}$, while the other represents the exponentiation of the numerical method for the computation of the log-composition.}
+	\label{fig:svf_computational_time}
+\end{figure}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -372,12 +395,7 @@ The first column provides the computational time of the ground truth, i.e. the t
 
 When dealing with SVF, the computational time strongly depends on the size of the vector field involved. In figure \ref{fig:svf_computational_time} we show the relations between the size of the vector field and the increase in the computational time for a data set of $20$ random generated SVF.
 
-\begin{figure}[!ht]
-	%\hspace{-0.5cm}
-	\includegraphics[scale=0.7]{figures/svf_computational_time.pdf}
-	\caption{Relationships between the size of the figure (x-axes) and the computational time for a data set of $20$ random generated SVF. The yellow line labeled with ground represents the time of the computation of $\exp{\mathbf{u}_0}\circ \exp{\mathbf{u}_1}$, while the other represents the exponentiation of the numerical method for the computation of the log-composition.}
-	\label{fig:svf_computational_time}
-\end{figure}
+
 
 
 
