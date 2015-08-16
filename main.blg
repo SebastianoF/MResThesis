@@ -45,45 +45,45 @@ Warning--empty journal in ibanez2003itk
 Warning--there's a month but no year in mcclelland
 Warning--empty publisher in milnor1984remarks
 Warning--empty booktitle in vercauteren2014preprint
-You've used 68 entries,
+You've used 65 entries,
             2543 wiz_defined-function locations,
-            948 strings with 16615 characters,
-and the built_in function-call counts, 27599 in all, are:
-= -- 2703
-> -- 1372
-< -- 50
-+ -- 484
-- -- 471
-* -- 1993
-:= -- 4555
-add.period$ -- 212
-call.type$ -- 68
-change.case$ -- 427
-chr.to.int$ -- 65
-cite$ -- 77
-duplicate$ -- 1122
-empty$ -- 1992
-format.name$ -- 560
-if$ -- 5609
+            935 strings with 16285 characters,
+and the built_in function-call counts, 26652 in all, are:
+= -- 2610
+> -- 1337
+< -- 48
++ -- 473
+- -- 461
+* -- 1934
+:= -- 4396
+add.period$ -- 203
+call.type$ -- 65
+change.case$ -- 412
+chr.to.int$ -- 62
+cite$ -- 74
+duplicate$ -- 1078
+empty$ -- 1917
+format.name$ -- 545
+if$ -- 5419
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 80
-newline$ -- 341
-num.names$ -- 210
-pop$ -- 474
+missing$ -- 76
+newline$ -- 326
+num.names$ -- 201
+pop$ -- 457
 preamble$ -- 1
-purify$ -- 510
+purify$ -- 491
 quote$ -- 0
-skip$ -- 888
+skip$ -- 854
 stack$ -- 0
-substring$ -- 1377
-swap$ -- 178
-text.length$ -- 50
-text.prefix$ -- 29
+substring$ -- 1330
+swap$ -- 175
+text.length$ -- 48
+text.prefix$ -- 27
 top$ -- 0
-type$ -- 484
+type$ -- 464
 warning$ -- 9
-while$ -- 258
-width$ -- 76
-write$ -- 870
+while$ -- 249
+width$ -- 73
+write$ -- 833
 (There were 8 error messages)

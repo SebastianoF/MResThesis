@@ -16,8 +16,8 @@ The \emph{logarithm computation problem} can be stated as follows:
 }
 \end{center}
 There are several numerical methods to compute the approximation of the problem's solution. Arsigny, who first pointed the applications of the Lie logarithm in medical image registration in \cite{Arsigny:MRM:06} and \cite{arsigny2006bi}, proposed the Inverse scaling and squaring. In this chapter we investigate other numerical iterative algorithms for the computation of the Lie logarithm, called here \emph{logarithm computation algorithm}. They consists in a modification of the algorithm presented in \cite{Bossa:08} that is based on the BCH formula, and therefore can be reformulated using the Lie log-composition. 
-It turns out that each of the numerical method to compute the Lie log-composition becomes naturally a numerical method for the logarithm computation.\\
-The first step toward this direction is to introduce the space of the approximations of a Lie algebra and a the Lie group.
+It turns out that each of the numerical methods to compute the Lie log-composition becomes naturally a numerical method for the logarithm computation.\\
+The first step in this direction is to introduce the space of the approximations of a Lie algebra and a Lie group.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -33,7 +33,7 @@ As seen in section \ref{se:rigid_body_transformations} and \ref{se:svf}, if the 
 \end{align*}
 \begin{align*}
 \text{App} : \mathbb{G} & \longrightarrow  \mathbb{G}^{\sim}   \\
-\exp(\mathbf{u}) &\longmapsto e + \mathbf{u}
+\varphi &\longmapsto e + log(\varphi)
 \end{align*}
 Where $\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $\mathfrak{g} $, and $\mathbb{G}^{\sim} $ is the space of approximations of elements in $\mathbb{G}$, defined as
 \begin{align*}
@@ -42,18 +42,17 @@ Where $\mathfrak{g} ^{\sim}$ is the space of approximations of elements of $\mat
 \end{align*}
 In general $\mathfrak{g}^{\sim} \neq \mathfrak{g}$ and $\mathbb{G}^{\sim} \neq \mathbb{G}$, but in the considered cases of $\mathfrak{se}(2)$ and SVF, when $\mathbf{u}$ is \emph{small enough}
 it follows that $\exp(\mathbf{u}) - e \in \mathfrak{g} $ and $e + \mathbf{u}\in \mathbb{G}$. Therefore the elements of $\mathfrak{g}^{\sim} $ are compatible with all of the operations of the Lie algebra $\mathfrak{g}$ and the elements of $\mathbb{G}^{\sim}$ are compatible with all of the operations of the Lie group $\mathbb{G}$.\\
-Lets examine what does \emph{small enough} means in these two cases:
+We examine what does \emph{small enough} means in these two cases:
 \begin{enumerate}
-	\item[$\mathfrak{se}(2)$ -] Since $\mathfrak{se}(2)$ and $SE(2)$ are subset of the bigger algebra $SE(2)$ then exp and log can be defined as infinite series. From 
+	\item[$\mathfrak{se}(2)$ -] Since $\mathfrak{se}(2)$ and $SE(2)$ are subset of the bigger algebra $GL(2)$ then exp and log can be defined as infinite series. From 
 	\begin{align*}
 	\exp(\mathbf{u}) = I + \mathbf{u} + O(\mathbf{u}^2) 
 	\end{align*}
-	It follows that $\text{app}(\mathbf{u}) - \mathbf{u} \in O(\mathbf{u}^2)$. Thus for all $\mathbf{u}$ in the Lie algebra smaller than $\delta$ for any norm, exists $M(\delta)$ such that
+	It follows that $\text{app}(\mathbf{u}) - \mathbf{u} \in O(\mathbf{u}^2)$. Thus for all $\mathbf{u}$ in the Lie algebra smaller than $\delta$ for any norm, exists $M(\delta)>0$ such that
 	\begin{align*}
 	\euclideanMetric{\text{app}(\mathbf{u}) - \mathbf{u} } < M(\delta) \euclideanMetric{\mathbf{u}^2}
 	\end{align*}
-	\item[SVF -] In case of SVF we do not have any Taylor series and big-O notation available but, according to the proposition 8.6 at page 163 of \cite{younes2010shapes}, if $\mathbf{u}$ is, for any norm, smaller than $\epsilon<1/C$, where $C$ is the Lipschitz constant in the same norm, then $1 + \mathbf{u}$ is a diffeomorphism. With this condition holds that
-	$\text{SVF}^{\sim} = \text{SVF}$. 
+	\item[SVF -] In case of SVF there is no available Taylor series and big-O notation, but according to the proposition 8.6 at page 163 of \cite{younes2010shapes}, if $\mathbf{u}$ is, for any norm, smaller than $\epsilon<1/C$, where $C$ is the Lipschitz constant in the same norm, then $1 + \mathbf{u}$ is a diffeomorphism. 
 \end{enumerate}
 
 \noindent
@@ -63,7 +62,7 @@ the following properties holds:
 \begin{enumerate}
 	\item The approximations $\mathbf{u} \simeq   \text{app} (\mathbf{u})$, $\exp(\mathbf{u}) \simeq   \text{App} (\exp(\mathbf{u})) $ are bounded.
 	\item $\mathbf{u} = \mathbf{v} \oplus (-\mathbf{v} \oplus  \mathbf{u} )$
-	\item $\text{app} (\mathbf{v} \oplus  \mathbf{u}) = \exp(\mathbf{v})\circ\exp(\mathbf{u}) - 1 \in \mathfrak{g} ^{\sim}$
+	\item $\text{app} (\mathbf{v} \oplus  \mathbf{u}) = \exp(\mathbf{v})\circ\exp(\mathbf{u}) - e \in \mathfrak{g} ^{\sim}$
 \end{enumerate}
 
 \noindent
@@ -74,12 +73,12 @@ With this machinery, we can reformulate the algorithm presented in \cite{Bossa:0
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{The Logarithm Computation Algorithm using Lie Log-composition}
 
-If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximate $\mathbf{u}$ as consequence of
+If the goal is to find $\mathbf{u}$ when its exponential is known, we can consider the sequence transformations $\{\mathbf{u}_{j}  \}_{j=0}^{\infty}$ that approximates $\mathbf{u}$ as consequence of
 \begin{align*}
 \mathbf{u} = \mathbf{u}_{j} \oplus  (-\mathbf{u}_{j}  \oplus  \mathbf{u} ) \Longrightarrow
 \mathbf{u} \simeq \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{align*}
-This suggest that a reasonable approximation for the $(j+1)$-th element of the series can be defined by
+This suggests that a reasonable approximation for the $(j+1)$-th element of the series can be defined by
 \begin{align*}
 \mathbf{u}_{j+1} & :=  \mathbf{u}_{j} \oplus  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )
 \end{align*}
@@ -134,23 +133,21 @@ When $k=1$, it results
 \mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ) + \frac{1}{2}[\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )]\\
 &=
 \mathbf{u}_{j} + \exp(-\mathbf{u}_{j})\circ \varphi  - e + \\
-&+ \frac{1}{2}(  \mathbf{u}_{j}\cdot( \exp(-\mathbf{u}_{j})\circ \varphi  - e) -  ( \exp(-\mathbf{u}_{j})\circ \varphi - e)\cdot\mathbf{u}_{j})
+&~~~~+ \frac{1}{2}(  \mathbf{u}_{j}\cdot( \exp(-\mathbf{u}_{j})\circ \varphi  - e) -  ( \exp(-\mathbf{u}_{j})\circ \varphi - e)\cdot\mathbf{u}_{j})
 \end{align*}
-Where $\circ $ the product is the product using the Jacobian (see equation (\ref{eq:jacobian_product})), for SVF, or the matrix product.
-
-For $k=2$ it become
+For $k=2$ it becomes
 \begin{align*}
 \text{BCH}^{2}(\mathbf{u}_{j}, \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ))
 &=
 \mathbf{u}_{j} +  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ) 
 + \frac{1}{2}[\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )] + \\
-&+ \frac{1}{12}\Big([\mathbf{u}_{j},  [\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )]] +\\
-&+ [\text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ),  [\text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ) ,\mathbf{u}_{j}  ]] \Big)\\
+&~~~~+ \frac{1}{12}\Big([\mathbf{u}_{j},  [\mathbf{u}_{j},  \text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} )]] +\\
+&~~~~+ [\text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ),  [\text{app}(-\mathbf{u}_{j}  \oplus  \mathbf{u} ) ,\mathbf{u}_{j}  ]] \Big)\\
 &=
 \mathbf{u}_{j} + \exp(-\mathbf{u}_{j})\circ \varphi  - e 
 + \frac{1}{2}[\mathbf{u}_{j},  \exp(-\mathbf{u}_{j})\circ \varphi  - e ] + \\
-&+ \frac{1}{12}\Big([\mathbf{u}_{j},  [\mathbf{u}_{j},  \exp(-\mathbf{u}_{j}) \circ\varphi  - e ]]+\\
-&+ [\exp(-\mathbf{u}_{j})\circ \varphi  - e ,  [\exp(-\mathbf{u}_{j}) \circ\varphi - e  ,\mathbf{u}_{j}  ]] \Big)\\
+&~~~~+ \frac{1}{12}\Big([\mathbf{u}_{j},  [\mathbf{u}_{j},  \exp(-\mathbf{u}_{j}) \circ\varphi  - e ]]+\\
+&~~~~+ [\exp(-\mathbf{u}_{j})\circ \varphi  - e ,  [\exp(-\mathbf{u}_{j}) \circ\varphi - e  ,\mathbf{u}_{j}  ]] \Big)\\
 \end{align*}
 
 When considering $k = \infty$ and so the analytic solution of the Lie log-composition provided by the BCH formula, the following theorem, presented in \cite{Bossa:08}, provides an error bound:
@@ -189,7 +186,7 @@ If we apply the parallel transport method for the computation of the Lie log-com
 \exp(-\frac{\mathbf{u}_{j}}{2}) - e
 \end{cases}
 \end{equation}
-That is computed as:
+that is computed as:
 \begin{align*}
 \mathbf{u}_{j+1} 
 = 
@@ -200,14 +197,14 @@ That is computed as:
 \exp(-\frac{\mathbf{u}_{j}}{2}) - e
 \end{align*}
 
-We notice that mixing the operation of composition, sum and scalar product makes sense when the involved vectors are \emph{small enough}, as stated in \ref{se:space_of_approximation}. 
+We note that mixing the operation of composition, sum and scalar product makes sense when the involved vectors are \emph{small enough}, as stated in \ref{se:space_of_approximation}. 
 Analytical computation of an upper bound error is not straightforward in this case. 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \subsection{Symmetrization Strategy}
-The algorithm \ref{eq:bossa_reformulated} could have been reformulated alternatively as $\mathbf{u}_{j+1} =    \text{app}(\mathbf{u} \oplus  - \mathbf{u}_{j}  ) \oplus \mathbf{u}_{j}$. The Lie log-composition is not symmetric therefore the two version in some cases may not return the same value. We consider
+Algorithm \ref{eq:bossa_reformulated} could have been reformulated alternatively as $\mathbf{u}_{j+1} =    \text{app}(\mathbf{u} \oplus  - \mathbf{u}_{j}  ) \oplus \mathbf{u}_{j}$. The Lie log-composition is not symmetric therefore the two versions in some cases may not return the same value. We consider
 \begin{equation}\label{eq:bossa_symmetric}
 \begin{cases}
 \mathbf{u}_0 = 0 \\
@@ -235,4 +232,4 @@ that using the BCH approximation of degree $1$, becomes:
 \big)
 \end{cases}
 \end{equation}
-Experimental results of the methods presented in this section are show in section \ref{se:results_lie_logarithm_computations}.
+Experimental results of the methods presented in this chapter are shown in section \ref{se:results_lie_logarithm_computations}.

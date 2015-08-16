@@ -471,7 +471,7 @@ J_{\mathbf{v}}\mathbf{u} - J_{\mathbf{u}}\mathbf{v}
 \end{align*}
 
 % here the two doors
-It was proved that the Lie algebra of the Lie group of diffeomorphisms $\text{Diff}(\Omega)$ is $\text{Vect}(\Omega)$ (\cite{milnor1982infinite}, \cite{ovsienko1992integrals}). 
+It has been proved that the Lie algebra of the Lie group of diffeomorphisms $\text{Diff}(\Omega)$ is the vector space $\text{Vect}(\Omega)$ considered with the Lie bracket (\cite{milnor1982infinite}, \cite{ovsienko1992integrals}). 
 Therefore a single vector in the Lie algebra $\text{Vect}(\Omega)$ (represented by one red arrow in figure \ref{fig:composition}) is a vector field defined over $\Omega$ (represented by the set of red arrows in figure \ref{fig:se2_circular_vector_field}). We would expect that to a single diffeomorphism in the Lie group corresponds a single vector of the Lie algebra. This is not the case, since Lie logarithm and Lie exponential are not local isomorphisms on the whole domain.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -532,7 +532,7 @@ and defining a new function $\psi_0^{(t)}(\mathbf{x}) = t_0 + t$ for all $\mathb
 \end{align*}
 that reduces the ODE \ref{eq:generating_ODE_tvvf} to an ODE of the form \ref{eq:generating_ODE_svf}. In the example of the satellite, is like considering the temporal dimension as an additional dimension of the space.
 
-It follows that stationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. For each instant of time the solutions of a non-stationary ODE are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solutions can belong to two different elements in the one parameter subgroups. 
+It follows that stationary ODE and non-stationary ODE have solutions that belong to $\text{\emph{Diff}}^{1}(\Omega)$ and $\text{\emph{Diff}}^{1}(T\times \Omega)$ respectively. %For each instant of time the solutions of a non-stationary ODE are embedded in the set of one-parameter subgroup of $\text{\emph{Diff}}(\Omega)$, but for two different instant of time, the solutions can belong to two different elements in the one parameter subgroups. 
 
 In conclusion, we have that in the case of diffeomorphisms $\exp$ is not a local isomorphism, unless we restrict the group of diffeomorphisms to the one embedded in a one parameter subgroup $\text{\emph{Diff}}^{1}(T\times \Omega)$. 
 %In addition, indicating with $\text{SVF}$ the set of stationary velocity fields and with $\text{TVVF}$ the set of time varying velocity fields, we have that
@@ -547,12 +547,12 @@ This is due to the fact that scaling and squaring algorithm and inverse scaling 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{A bigger algebra for the group of Diffeomorphisms}\label{subse:bigger_algebra}
+\subsection{Toward a Bigger Vector Space for the Lie Algebra and the Lie Group of Diffeomorphisms}\label{subse:bigger_algebra}
 As well as for any matrix Lie group, both the group $SE(2)$ and the algebra $\mathfrak{se}(2)$ are subset of the same bigger algebra of matrices in the general linear group $GL(3,\mathbb{R})$. The product of the algebra coincides with the composition of the group and thanks to the linearity, scalar product is compatible both with the product and the composition.
 
 The existence of a bigger algebra is not important only in the research of an elegant structure: the power series expansions of the exponential (\ref{eq:exp_as_inf_sum}) and the logarithm (\ref{eq:log_as_inf_sum}) as well as expressions like (\ref{eq:prop_matrix_diff_log}) and (\ref{eq:prop_matrix_lim}) would be meaningless without the possibility of expressing the sum of two elements of a multiplicative group. Moreover, if the bigger algebra that contains both Lie group and Lie algebra exists, a unique norm in this space can be defined and utilized to compare elements in the both subspaces.
 
-In the case of diffeomorphisms of the compact subset $\Omega$ of $\mathbb{R}^d$, we can not identify a bigger vector space that contains both Lie group and Lie algebra, but we can reach something similar than what happens for matrices mapping diffeomorphisms to velocity vector fields over $\Omega$. For this aim it is necessary to have some definitions at hand.
+In the case of diffeomorphisms of the compact subset $\Omega$ of $\mathbb{R}^d$, we can not identify a bigger algebra that contains both Lie group and Lie algebra, but we can reach something similar than what happens for matrices mapping diffeomorphisms to velocity vector fields over $\Omega$. For this aim it is necessary to have some definitions at hand.
 
 \begin{figure}[!ht]
 	\centering
@@ -561,18 +561,24 @@ In the case of diffeomorphisms of the compact subset $\Omega$ of $\mathbb{R}^d$,
 	\label{fig:exp_versus_v}
 \end{figure}
 
-There are two ways of associating a diffeomorphism $\varphi$ to a velocity vector field. The first one is elementary but fundamental in this context: it consists in subtracting to $\varphi$ the identity function $1$. If $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the associated velocity vector field, called here \emph{displacement field of} $\varphi$, is the function that at the point $\mathbf{x}$ associates the vector defined as the difference $\varphi(\mathbf{x}) - \mathbf{x}$. We indicate this operation of adding and subtracting the identity with the function $\mathcal{V}$:
+There are two ways of associating a diffeomorphism $\varphi$ to a velocity vector field. The first one is elementary but fundamental in this context: if $\mathbf{x}$ is in $\Omega$ and $\varphi(\mathbf{x})$ is the new point after the transformation, then the new velocity vector field, called here \emph{displacement field of} $\varphi$ and indicated with $\mathcal{V}(\varphi)$, is the map $\mathbf{v}$ that at the point $\mathbf{x}$ associates the vector defined as the difference between $\varphi(\mathbf{x})$ and $\mathbf{x}$:
 \begin{align*}
-\mathcal{V}(\varphi) = \varphi - 1 
+\mathcal{V}(\varphi) = \mathbf{v}
 \qquad \qquad
-\mathcal{V}^{-1}(\mathbf{u}) = \mathbf{u} + 1 
+\mathbf{v}(\mathbf{x}) := \varphi(\mathbf{x}) - \mathbf{x}  
+\qquad
+\forall \mathbf{x} \in \Omega
 \end{align*}
-where $\mathbf{u} + 1 $ is called \emph{deformation of} $\mathbf{u}$.
+Adding the identity to $\mathbf{v}$ does not give us back the initial diffeomorphism $\varphi$, since the new object is still a velocity vector field. We indicate this operation with $\mathcal{W}$:
+\begin{align*}
+\mathcal{W}(\mathbf{v}) = \mathbf{v} + 1 
+\end{align*}
+It is interesting to notice that when $\mathbf{v}$ is small then the numerical value of $\mathcal{W}$ and $\exp$ are closed to each other, therefore $\mathcal{W}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}); the very same happens for matrices (see equations (\ref{eq:small_rotation_matrices_approx}) and see the subtraction of the identity in equation (\ref{eq:log_as_inf_sum})).
 
-We can see that displacement fields of diffeomorphisms are elements of $\text{Vect}(\Omega)$, the infinite dimensional vector space defined by the vector field over $\Omega$ that plays a similar role to the bigger algebra for matrices. This infinite dimensional vector space is a Lie algebra if considered with the Lie bracket and in particular is the Lie algebra of the Lie group of diffeomorphisms (see \cite{khesin2008geometry}). Since it contains also the diffeomorphisms when expressed in the form $\mathcal{V}^{-1}(\mathbf{u}) $ it plays the same role of the bigger algebra that contains Lie group and Lie algebra in the case of matrices. We can observe that this operation of subtracting the identity to the deformation has already been used implicitly in the power series expansion of the Lie logarithm for matrices, see equation \ref{eq:log_as_inf_sum}.
+The second way to associate a velocity vector field to $\varphi$ is to use the Lie logarithm defined in chapter \ref{ch:tools}. Relevant differences between $\mathcal{V}$ and $\log$ are that the first is defined for any diffeomorphism, but it does not possess any inverse, while the latter is defined only for local topological structures but it possesses the inverse $\exp$.
 
-The second way to associate a velocity vector field to $\varphi$ is to use the Lie logarithm defined in chapter \ref{ch:tools}. It is interesting to notice that when $\mathbf{u}$ is small then $\mathcal{V}^{-1}$ and $\exp$ are closed to each other and $\mathcal{V}^{-1}$ can be considered a good approximation of $\exp$ (see figure \ref{fig:exp_versus_v}). The very same happens for matrices, as seen in equations (\ref{eq:small_rotation_matrices_approx}). 
-
+The Lie algebra $\text{Vect}(\Omega)$ is the infinite dimensional vector space defined by the vector field over $\Omega$ and plays a similar role to the bigger algebra for matrices; 
+needless to say it does not contain any diffeomorphism $\varphi$, but it contains the vector field associated to $\varphi$ using $\mathcal{V}$. 
 
 % % % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % % % % %
@@ -591,12 +597,15 @@ d^{1}(\varphi_0,\varphi_1)
 = 
 \Big( \int_{\Omega} \euclideanMetric{\mathcal{V}(\varphi_0) - \mathcal{V}(\varphi_1)}_{L^2}^{2} d\mathbf{x} \Big)^{1/2}
 \end{align} 
+In this metric, we need to use $\mathcal{V}$ because the operation of subtraction is not defined for diffeomorphisms. We can although subtract the velocity vector fields associated through $\mathcal{V}$.
 Despite the limitation that Lie algebra and Lie group of diffeomorphisms are not subset of any bigger algebra, thanks to $\mathcal{V} $ we can nevertheless consider a function that measures the distance between $\text{\emph{Diff}}^{1}(\Omega)$ and SVF:
 \begin{align}\label{def:metric_one_svf_one_displacement_field}
 g(\mathbf{u},\varphi) 
 = 
 \Big(\int_{\Omega} \euclideanMetric{\mathbf{u} - \mathcal{V}(\varphi)}_{L^2}^{2} d\mathbf{x} \Big)^{1/2}
 \end{align} 
+When $\varphi$ is written as $\exp(\mathbf{u})$, this last distance can be utilized to measure the error between $\exp(\mathbf{u})$ and its approximation $1+\mathbf{u}$.
+
 The next section shows the parametrization of SVF utilized in the applications. It is followed by the presentation of the numerical methods employed for the computation of the Lie log-composition applied to SVF.
 
 % % % % % % % % % % % % % % % % % %
@@ -626,7 +635,7 @@ The Lie bracket that appears in the truncated $BCH$ of degree $0,1,1.5$ and $2$ 
 \begin{align}\label{eq:jacobian_product}
 [\mathbf{u},\mathbf{v}] 
 := 
-\mathbf{v} \cdot \mathbf{v} - \mathbf{v} \cdot\mathbf{u}  
+\mathbf{u} \cdot \mathbf{v} - \mathbf{v} \cdot\mathbf{u}  
 = 
 J_{u}\mathbf{v} - J_{v}\mathbf{u}  
 \qquad

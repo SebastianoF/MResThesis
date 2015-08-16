@@ -293,12 +293,6 @@ Charles~W Misner, Kip~S Thorne, and John~Archibald Wheeler.
 \newblock {\em Gravitation}.
 \newblock Macmillan, 1973.
 
-\bibitem[Nee06]{neeb2006infinite}
-KH~Neeb.
-\newblock Infinite dimensional lie groups, 2005 monastir summer school
-  lectures.
-\newblock {\em Lecture Notes January}, 2006.
-
 \bibitem[OKC92]{ovsienko1992integrals}
 V~Yu Ovsienko, BA~Khesin, and Yu~V Chekanov.
 \newblock Integrals of the euler equations of multidimensional hydrodynamics
@@ -335,12 +329,6 @@ A.~Sotiras, C.~Davatzikos, and N.~Paragios.
 \newblock Deformable medical image registration: A survey.
 \newblock {\em Medical Imaging, IEEE Transactions on}, 32(7):1153--1190, July
   2013.
-
-\bibitem[Ser09]{serre2009lie}
-Jean-Pierre Serre.
-\newblock {\em Lie algebras and Lie groups: 1964 lectures given at Harvard
-  University}.
-\newblock Springer, 2009.
 
 \bibitem[Sze94]{szeliski1994image}
 Richard Szeliski.
@@ -396,11 +384,6 @@ Eugene~P Wigner.
 Wojciech Wojty{\'n}ski.
 \newblock One-parameter subgroups and the bch formula.
 \newblock {\em Studia Mathematica}, 111(2):163--185, 1994.
-
-\bibitem[YC06]{ying2006phase}
-Lexing Ying and Emmanuel~J Cand{\`e}s.
-\newblock The phase flow method.
-\newblock {\em Journal of Computational Physics}, 220(1):184--215, 2006.
 
 \bibitem[You10]{younes2010shapes}
 Laurent Younes.

@@ -2,44 +2,45 @@
 \BOOKMARK [1][-]{section.1.1}{Choosing the Deformations: Diffeomorphisms}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Introducing the Lie Log-composition and the BCH formula}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{Feasible Applications of the Log-composition in Medical Imaging}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{Thesis' Outline}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Tools from Differential Geometry}{}% 6
-\BOOKMARK [1][-]{section.2.1}{A Lie Group Structure for the Set of Transformations}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.3}{Affine Exponential, Affine Logarithm and Parallel Transport: Definitions and Properties}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.3.1}{An introduction to Parallel Transport: Surfing on the Fiber Bundle}{section.2.3}% 10
-\BOOKMARK [1][-]{section.2.4}{Numerical Computations of the Lie Log-composition}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.4.1}{Truncated BCH formula for the Lie Log-composition}{section.2.4}% 12
-\BOOKMARK [2][-]{subsection.2.4.2}{Taylor Expansion Method for the Log-composition}{section.2.4}% 13
-\BOOKMARK [2][-]{subsection.2.4.3}{Parallel Transport Method for the Log-composition}{section.2.4}% 14
-\BOOKMARK [0][-]{chapter.3}{Spatial Transformations Considered for the Computations of the Log-composition: SE\(2\) and Diff\(\)}{}% 15
-\BOOKMARK [1][-]{section.3.1}{The Lie Group of Rigid Body Transformations}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.1.1}{Computations of Log-composition in se\(2\)}{section.3.1}% 17
-\BOOKMARK [1][-]{section.3.2}{A Lie Group Structure for Diffeomorphisms}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.2.1}{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{section.3.2}% 19
-\BOOKMARK [2][-]{subsection.3.2.2}{A bigger algebra for the group of Diffeomorphisms}{section.3.2}% 20
-\BOOKMARK [2][-]{subsection.3.2.3}{A Norm for the Elements in the one-parameter subgroup}{section.3.2}% 21
-\BOOKMARK [2][-]{subsection.3.2.4}{Parametrization of SVF: Grids and Discretized Vector Fields}{section.3.2}% 22
-\BOOKMARK [2][-]{subsection.3.2.5}{Computations of Log-composition for SVF}{section.3.2}% 23
-\BOOKMARK [0][-]{chapter.4}{Log-composition to Compute the Lie Logarithm}{}% 24
-\BOOKMARK [1][-]{section.4.1}{Spaces of Approximations}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.2}{The Logarithm Computation Algorithm using Lie Log-composition}{chapter.4}% 26
-\BOOKMARK [2][-]{subsection.4.2.1}{Truncated BCH Strategy}{section.4.2}% 27
-\BOOKMARK [2][-]{subsection.4.2.2}{Parallel Transport Strategy}{section.4.2}% 28
-\BOOKMARK [2][-]{subsection.4.2.3}{Symmetrization Strategy}{section.4.2}% 29
-\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 30
-\BOOKMARK [1][-]{section.5.1}{Log-composition for se\(2\)}{chapter.5}% 31
-\BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 32
-\BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 33
-\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF}{section.5.2}% 34
-\BOOKMARK [2][-]{subsection.5.2.2}{Lie Log-composition for synthetic SVF}{section.5.2}% 35
-\BOOKMARK [2][-]{subsection.5.2.3}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 36
-\BOOKMARK [1][-]{section.5.3}{A Problem for Three Brains}{chapter.5}% 37
-\BOOKMARK [2][-]{subsection.5.3.1}{Design of Experiment}{section.5.3}% 38
-\BOOKMARK [2][-]{subsection.5.3.2}{Results}{section.5.3}% 39
-\BOOKMARK [1][-]{section.5.4}{Lie Logarithm computation for SE\(2\)}{chapter.5}% 40
-\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of the Computational Time}{chapter.5}% 41
-\BOOKMARK [0][-]{chapter.6}{Conclusions}{}% 42
-\BOOKMARK [1][-]{section.6.1}{Further Researches}{chapter.6}% 43
-\BOOKMARK [2][-]{subsection.6.1.1}{Numerical Computations}{section.6.1}% 44
-\BOOKMARK [2][-]{subsection.6.1.2}{Theoretical Formulas}{section.6.1}% 45
+\BOOKMARK [1][-]{section.1.4}{Short Remark about the Lie Group of Diffeomorphisms}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Thesis' Outline}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Tools from Differential Geometry}{}% 7
+\BOOKMARK [1][-]{section.2.1}{A Lie Group Structure for the Set of Transformations}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{Lie Exponential, Lie logarithm, Lie log-composition and the BCH formula}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Affine Exponential, Affine Logarithm and Parallel Transport: Definitions and Properties}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.3.1}{An introduction to Parallel Transport: Surfing on the Fiber Bundle}{section.2.3}% 11
+\BOOKMARK [1][-]{section.2.4}{Numerical Computations of the Lie Log-composition}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.4.1}{Truncated BCH formula for the Lie Log-composition}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.2}{Taylor Expansion Method for the Log-composition}{section.2.4}% 14
+\BOOKMARK [2][-]{subsection.2.4.3}{Parallel Transport Method for the Log-composition}{section.2.4}% 15
+\BOOKMARK [0][-]{chapter.3}{Spatial Transformations Considered for the Computations of the Log-composition: SE\(2\) and Diff\(\)}{}% 16
+\BOOKMARK [1][-]{section.3.1}{The Lie Group of Rigid Body Transformations}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{Computations of Log-composition in se\(2\)}{section.3.1}% 18
+\BOOKMARK [1][-]{section.3.2}{A Lie Group Structure for Diffeomorphisms}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.2.1}{Local isomorphisms for a subset of Diffeomorphisms: one-parameter subgroup and stationary velocity fields}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.2}{Toward a Bigger Vector Space for the Lie Algebra and the Lie Group of Diffeomorphisms}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.3}{A Norm for the Elements in the one-parameter subgroup}{section.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.2.4}{Parametrization of SVF: Grids and Discretized Vector Fields}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.5}{Computations of Log-composition for SVF}{section.3.2}% 24
+\BOOKMARK [0][-]{chapter.4}{Log-composition to Compute the Lie Logarithm}{}% 25
+\BOOKMARK [1][-]{section.4.1}{Spaces of Approximations}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.2}{The Logarithm Computation Algorithm using Lie Log-composition}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{Truncated BCH Strategy}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.2}{Parallel Transport Strategy}{section.4.2}% 29
+\BOOKMARK [2][-]{subsection.4.2.3}{Symmetrization Strategy}{section.4.2}% 30
+\BOOKMARK [0][-]{chapter.5}{Experimental Results}{}% 31
+\BOOKMARK [1][-]{section.5.1}{Lie Log-composition for se\(2\)}{chapter.5}% 32
+\BOOKMARK [2][-]{subsection.5.1.1}{Methods and Results}{section.5.1}% 33
+\BOOKMARK [1][-]{section.5.2}{Log-composition for SVF}{chapter.5}% 34
+\BOOKMARK [2][-]{subsection.5.2.1}{Methods: random generated SVF}{section.5.2}% 35
+\BOOKMARK [2][-]{subsection.5.2.2}{Lie Log-composition for synthetic SVF}{section.5.2}% 36
+\BOOKMARK [2][-]{subsection.5.2.3}{Truncated BCH formula: The problem of the Jacobian matrix.}{section.5.2}% 37
+\BOOKMARK [1][-]{section.5.3}{A Problem for Three Brains}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.3.1}{Design of Experiment}{section.5.3}% 39
+\BOOKMARK [2][-]{subsection.5.3.2}{Results}{section.5.3}% 40
+\BOOKMARK [1][-]{section.5.4}{Lie Logarithm computation for SE\(2\)}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.5}{Empirical Evaluations of the Computational Time}{chapter.5}% 42
+\BOOKMARK [0][-]{chapter.6}{Conclusions}{}% 43
+\BOOKMARK [1][-]{section.6.1}{Further Researches}{chapter.6}% 44
+\BOOKMARK [2][-]{subsection.6.1.1}{Numerical Computations}{section.6.1}% 45
+\BOOKMARK [2][-]{subsection.6.1.2}{Theoretical Formulae}{section.6.1}% 46
