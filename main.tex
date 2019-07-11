@@ -1,4 +1,3 @@
-
 \documentclass[a4paper,10pt]{book}
 
 \usepackage[utf8]{inputenc}
@@ -15,7 +14,6 @@
 \usepackage{pictexwd,dcpic}
 
 \usepackage{wrapfig}
-
 
 %-------------- Margins
 \setlength{\oddsidemargin}{20pt}
@@ -65,25 +63,21 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%INIZIO FRONTESPIZIO
+%%%%%%%%%%%%%%%% Title
 \begin{titlepage}
 %
 \pagestyle{empty}
 \begingroup
-% INTESTAZIONE
 \vspace*{-7\topskip}
 
 \vspace{-0.95 cm}
 
 \begin{figure}[!h]
-	%centrare
-	%\begin{flushright}
-	%\centering
-		\hspace{-2.5cm} % 5mm away from the left + offset
-		\resizebox{19.8 cm}{5.5 cm}{
-			\includegraphics{figures/UCL-logo3.pdf}
-			} %1.5 2.5
-	%\end{flushright}
+	\hspace{-2.5cm} % 5mm away from the left + offset
+	\resizebox{19.8 cm}{5.5 cm}{
+		\includegraphics{figures/UCL-logo3.pdf}
+		}
+	
 \end{figure}
 \vspace{1cm}
 
@@ -96,8 +90,6 @@
         		Towards a BCH-Free Computation of the Composition of Stationary Velocity Fields
         \par}}
 \end{center}
-
-
 
 \vspace{2.7cm}
 
@@ -122,10 +114,6 @@
 \end{center}
 
 \vspace{2.0cm}
-%%\vspace{0.5cm}
-%\begin{center}
-%	{\LARGE{Tesi di Laurea Magistrale}\par}
-%\end{center}
 
 \begin{center}
 \begin{tabular}{l p{1.5cm} l p{1.5cm} l}
@@ -143,26 +131,11 @@
 
 \end{titlepage}
 
-%%%%%%%%%%%%%%%%% PAGE JUMPERS:
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \qquad
-%  \thispagestyle{empty}
-% \newpage
-% \qquad
-%  \thispagestyle{empty}
-% \newpage
-
-%\qquad
-%  \pagestyle{empty}
-% \newpage
-
- 
-%%%%%%%%%%%%  SOMMARIO
+%%%%%%%%%%%%  Preamble
 
 \include{frontback/Preamble}  % abstract and organization of chapter
 
-%%%%%%%%%%%%  INDICE
+%%%%%%%%%%%%  Index
 
 \pagestyle{plain}  \pagenumbering{Roman}
 \tableofcontents
@@ -170,7 +143,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%% CAPITOLI     %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Chapters     %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
