@@ -4,9 +4,7 @@ MRes Thesis in medical image analysis presented at UCL, studying
 and comparing a range of numerical method for the Computation
 of the *log-composition* of stationary velocity Fields (SVF):
 
-<p align="center">
 ![img](http://latex.codecogs.com/svg.latex?\mathbf{v}_1\oplus\mathbf{v}_2=\log(\exp(\mathbf{v}_1)\circ\exp(\mathbf{v}_2)))
-</p>
 
 where
 ![img](http://latex.codecogs.com/svg.latex?\mathbf{v}_1)
